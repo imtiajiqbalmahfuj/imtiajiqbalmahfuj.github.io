@@ -32,8 +32,8 @@ window.SITE = {
     {name:"Machine Learning", icon:""},
     {name:"PyTorch", icon:""},
     {name:"Atlas.ti", icon:""},
-    {name:"Github", icon:""},
-    {name:"AutoCAD", icon:""}
+    {name:"AutoCAD", icon:""},
+    {name:"Github", icon:""}
   ],
 
   about: {
