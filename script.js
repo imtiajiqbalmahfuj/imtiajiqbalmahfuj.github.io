@@ -20,6 +20,31 @@ if(homeBrand){
     }
     // else let the normal link work (reloads index.html)
   })
+// Smart scroll only for mobile
+const navbar = $('#navbar');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+  const isMobile = window.innerWidth < 768; // Tailwind md breakpoint
+
+  if (!isMobile) {
+    // Desktop: always visible
+    navbar.style.transform = "translateY(0)";
+    return;
+  }
+
+  if (currentScroll > lastScroll && currentScroll > 50) {
+    // Scrolling down → hide
+    navbar.style.transform = "translateY(-100%)";
+  } else {
+    // Scrolling up → show
+    navbar.style.transform = "translateY(0)";
+  }
+
+  lastScroll = currentScroll;
+});
+
 }
 
   // Connect
