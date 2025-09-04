@@ -91,7 +91,7 @@
   scroll-snap-align: start; /* makes each card snap properly */
   flex-shrink: 0;           /* prevents shrinking */
   width: 100%;              /* mobile default: 1 card */
-  padding: 0.5rem;          /* matches your Tailwind p-2 */
+  /*padding: 0.5rem;          /* matches your Tailwind p-2 */
 }
 
 @media (min-width: 640px) {  /* sm breakpoint ~ tablet */
@@ -106,12 +106,19 @@
   }
 }
 
-/* Gap between cards (optional if p-2 is enough) */
-#projectTrackOuter {
-  gap: 0.5rem;
+/* Flex container spacing */
+#projectTrack {
+  display: flex;
+  gap: 1rem; /* consistent spacing between cards */
 }
 
-/* Optional: smooth scrolling for better experience */
+/* Outer track: smooth scroll */
 #projectTrackOuter {
   scroll-behavior: smooth;
+  overflow-x: auto;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
