@@ -125,7 +125,7 @@ window.SITE = {
       {
       id:"25008",
       title:"𝐖𝐚𝐥𝐤𝐚𝐛𝐢𝐥𝐢𝐭𝐲 𝐢𝐧 𝐏𝐮𝐫𝐛𝐚𝐜𝐡𝐚𝐥 𝐍𝐞𝐰 𝐓𝐨𝐰𝐧, 𝐃𝐡𝐚𝐤𝐚 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐈𝐬𝐨𝐜𝐡𝐫𝐨𝐧𝐞 𝐌𝐚𝐩",
-      tags:["Geospatial Python", "Spatial Data-Science", "GIS", "Remote Sensing"],
+      tags:["Geospatial Python", "Spatial Data-Science", "GIS"],
       image:"https://framerusercontent.com/images/KNASAyKK8WxSf0KL6RJA4zjI4.jpg?scale-down-to=1024&width=2338&height=2456",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/f3ef25cecb785d446ec52a94b54fafd2875159fd/Projects/25008%20%F0%9D%90%96%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%A4%F0%9D%90%9A%F0%9D%90%9B%F0%9D%90%A2%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%B2%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%8F%F0%9D%90%AE%F0%9D%90%AB%F0%9D%90%9B%F0%9D%90%9A%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A5%20%F0%9D%90%8D%F0%9D%90%9E%F0%9D%90%B0%20%F0%9D%90%93%F0%9D%90%A8%F0%9D%90%B0%F0%9D%90%A7%2C%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A%20%F0%9D%90%AD%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%AE%F0%9D%90%A0%F0%9D%90%A1%20%F0%9D%90%88%F0%9D%90%AC%F0%9D%90%A8%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%8C%F0%9D%90%9A%F0%9D%90%A9/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-isochrones-activity-7329487108484554752-VxkE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
