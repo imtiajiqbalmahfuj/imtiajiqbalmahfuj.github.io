@@ -94,7 +94,7 @@ window.SITE = {
       id:"25012",
       title:"Launched My Geospatial Portfolio Website through GitHub🐈‍⬛",
       tags:["Others"],
-      image:"https://private-user-images.githubusercontent.com/228228363/485767140-157d5e48-16b6-4983-9acd-221895d56d3d.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTcwMDQ2OTMsIm5iZiI6MTc1NzAwNDM5MywicGF0aCI6Ii8yMjgyMjgzNjMvNDg1NzY3MTQwLTE1N2Q1ZTQ4LTE2YjYtNDk4My05YWNkLTIyMTg5NWQ1NmQzZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwOTA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDkwNFQxNjQ2MzNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yNTQ5NDUwZWNmODgxOGQwZTdlYzM1OGRhYmQ5YjM4NTE2YzBlNTc5ZThmMTdjYmMxYjBjNWY2OTFjMmMzM2Y0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ryyYlQdwEMIIcEonJIKiKM6jfFCu18nh0r5IbfZwW9c",
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25012%20%20My%20Geospatial%20Portfolio%20Website%20through%20GitHub%F0%9F%90%88%E2%80%8D%E2%AC%9B/Screenshot%202025-09-04%20224522.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/d17f20759c5ff2d08c061d9f6e287effdbedbb64/Projects/25012%20%20My%20Geospatial%20Portfolio%20Website%20through%20GitHub%F0%9F%90%88%E2%80%8D%E2%AC%9B/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_vibeabrcoding-activity-7369020427072860162-ZTyX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
@@ -109,7 +109,7 @@ window.SITE = {
       {
       id:"25010",
       title:"Tobacco Crop Cultivation Mapping (2005, 2015, 2024) using GEE & Geospatial Python",
-      tags:["GEE", "Spatial Data-Science", "Geospatial Python", "Remote Sensing", "GIS"],
+      tags:["GEE", "Spatial Data-Science", "Geospatial Python"],
       image:"https://framerusercontent.com/images/XNkXY5w74EQYltXTxYm5nX11YjY.jpg?scale-down-to=2048&width=3000&height=3300",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3807e385f01cedcadc2f2edc9944061dd835d3b6/Projects/25010%20Tobacco%20Crop%20Cultivation%20Mapping%20(2005%2C%202015%2C%202024)%20using%20Geospatial%20Python/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_tobacco-crop-cultivation-in-kushtia-activity-7348439548479143936-kMjA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
