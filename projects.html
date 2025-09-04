@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Projects — Imtiaj Iqbal Mahfuj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="data.js"></script>
+  <script defer src="script.js"></script>
+  <style> body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto }</style>
+</head>
+<body class="text-slate-800">
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14">
+        <a id="homeBrand"
+          class="font-extrabold text-lg rounded-2xl px-3 py-1 hover:scale-[1.03] hover:shadow-sm hover-smart"
+          href="index.html#top">Imtiaj.</a>
+        <nav id="navCenter" class="hidden md:flex gap-6 text-sm font-medium mx-auto">
+          <a href="index.html#about" class="hover-underline text-slate-700">About</a>
+          <a href="index.html#projects" class="hover-underline text-slate-700">Projects</a>
+          <a href="index.html#experience" class="hover-underline text-slate-700">Experiences</a>
+          <a href="index.html#publications" class="hover-underline text-slate-700">Publications</a>
+          <a href="index.html#achievements" class="hover-underline text-slate-700">Achievements & Activities</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button id="connectBtn" class="px-4 py-2 bg-black text-white rounded-2xl hover:scale-[1.03] hover:shadow-sm hover-smart">Connect</button>
+          <button id="menuBtn" class="md:hidden p-2" aria-label="Menu"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden absolute w-full bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-5 grid gap-4">
+        <a class="hover-underline" href="index.html#about">About</a>
+        <a class="hover-underline" href="index.html#projects">Projects</a>
+        <a class="hover-underline" href="index.html#experience">Experiences</a>
+        <a class="hover-underline" href="index.html#publications">Publications</a>
+        <a class="hover-underline" href="index.html#achievements">Achievements & Activities</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-6xl mx-auto px-4 py-16">
+      <h1 class="text-2xl font-bold mb-6">All Projects</h1>
+      <div id="projectList" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const list = document.getElementById('projectList')
+
+      // Only include projects that have an image
+      const projectsWithImages = window.SITE.projects.filter(p => p.image && p.image.trim() !== "")
+
+      list.innerHTML = projectsWithImages.map(p=>`
+        <div id="${p.id}" class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col">
+          <img src="${p.image}" class="w-full h-44 object-cover" alt="${p.title}">
+          <div class="p-4 flex flex-col gap-3 grow">
+            <div class="font-medium">${p.title}</div>
+            <div class="flex flex-wrap gap-2">${p.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>
+            <div class="mt-auto flex gap-2 justify-end">
+              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.github}" target="_blank"><i data-lucide="github"></i></a>
+              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="#${p.id}"><i data-lucide="external-link"></i><span class="sr-only">See more</span></a>
+            </div>
+          </div>
+        </div>
+      `).join('')
+
+      if(window.lucide) lucide.createIcons()
+    })
+    </script>
+  </main>
+
+  <footer class="mt-20 bg-black text-white">
+    <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-[2fr,1fr] gap-8 items-start">
+      <div>
+        <div class="text-lg font-semibold mb-4">Connect</div>
+        <div id="footerLinks" class="flex flex-wrap gap-3"></div>
+      </div>
+      <div class="footer-nav">
+        <div class="text-sm font-semibold mb-3 text-slate-300">Navigate</div>
+        <div class="grid gap-2">
+          <a href="index.html#about">About</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#experience">Experiences</a>
+          <a href="index.html#publications">Publications</a>
+          <a href="index.html#achievements">Achievements & Activities</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-4 py-6 text-xs text-slate-400">© <span id="year"></span> Imtiaj Iqbal Mahfuj — Built for GitHub Pages.</div>
+    </div>
+  </footer>
+</body>
+</html>

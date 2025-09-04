@@ -1,0 +1,242 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Imtiaj Iqbal Mahfuj — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="data.js"></script>
+  <script defer src="script.js"></script>
+  <style> body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto }</style>
+</head>
+<body class="text-slate-800">
+
+<div id="top"></div>
+
+<!-- Loading (first visit / initial load) -->
+<div id="loadingScreen">
+  <div class="text-center space-y-3">
+    <div class="text-2xl md:text-4xl font-extrabold">Imtiaj Iqbal Mahfuj</div>
+    <div class="text-sm md:text-base text-slate-300">GIS · Remote Sensing · Geospatial Data Science</div>
+    <div class="flex items-center justify-center gap-2 mt-2">
+      <div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div>
+    </div>
+  </div>
+</div>
+
+<header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-14">
+      <a id="homeBrand"
+          class="font-extrabold text-lg rounded-2xl px-3 py-1 hover:scale-[1.03] hover:shadow-sm"
+          href="index.html#top">Imtiaj.</a>
+      <nav id="navCenter" class="hidden md:flex gap-6 text-sm font-medium mx-auto">
+        <a href="#about" class="hover-underline text-slate-700">About</a>
+        <a href="#projects" class="hover-underline text-slate-700">Projects</a>
+        <a href="#experience" class="hover-underline text-slate-700">Experiences</a>
+        <a href="#publications" class="hover-underline text-slate-700">Publications</a>
+        <a href="#achievements" class="hover-underline text-slate-700">Achievements & Activities</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="connectBtn" class="px-4 py-2 bg-black text-white rounded-2xl hover:scale-[1.03] hover:shadow-sm hover-smart">Connect</button>
+        <button id="menuBtn" class="md:hidden p-2" aria-label="Menu"><i data-lucide="menu"></i></button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden absolute w-full bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-5 grid gap-4">
+      <a class="hover-underline" href="#about">About</a>
+      <a class="hover-underline" href="#projects">Projects</a>
+      <a class="hover-underline" href="#experience">Experiences</a>
+      <a class="hover-underline" href="#publications">Publications</a>
+      <a class="hover-underline" href="#achievements">Achievements & Activities</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="hero" class="relative min-h-screen flex flex-col items-center text-center px-4 pt-20 md:pt-32 overflow-hidden">
+  <!-- Main content -->
+  <div class="z-10 mt-12">
+    <h1 id="heroName" class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"></h1>
+    <p id="heroSubtitle" class="mt-3 text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto"></p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a id="cvBtn" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-black text-white hover:scale-[1.03] hover:shadow-sm hover-smart" download>
+        <i data-lucide="download"></i><span>Download CV</span>
+      </a>
+      <a id="emailBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Email">
+        <i data-lucide="mail"></i>
+      </a>
+      <a id="linkBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="All links">
+        <i data-lucide="link-2"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Ticker + Down Arrow button -->
+  <div class="hero-bottom flex flex-col items-center mt-20 mb-16">
+    <div id="ticker" class="ticker border-y border-slate-200 py-3 mb-8">
+      <div id="tickerTrack" class="ticker-track"></div>
+    </div>
+    <button id="downBtn" class="p-3 rounded-full bg-white/80 border border-slate-300 hover:bg-black hover:text-white shadow hover-smart" aria-label="Scroll to featured">
+      <i data-lucide="chevrons-down"></i>
+    </button>
+  </div>
+</section>
+
+
+<!-- Slideshow (hero-end) -->
+<section id="featured" class="bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xl font-semibold text-center w-full">Featured Projects</h2>
+    </div>
+
+    <div id="slideshow" class="relative rounded-2xl overflow-hidden">
+      <div id="slides" class="flex transition-transform duration-500 ease-in-out"></div>
+
+      <!-- Navigation buttons -->
+      <button id="prevSlide" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white hover-smart">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button id="nextSlide" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white hover-smart">
+        <i data-lucide="chevron-right"></i>
+      </button>
+
+      <!-- All projects link -->
+      <div class="absolute right-3 bottom-3 flex gap-2">
+        <a href="projects.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
+          <i data-lucide="grid-2x2"></i><span>All projects</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About / Education / Skills -->
+<section id="about" class="max-w-6xl mx-auto px-4 py-16">
+  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <img id="aboutPhoto" class="w-full rounded-2xl object-cover h-64 md:h-full order-1 md:order-2" alt="Profile Photo"/>
+    <div class="order-2 md:order-1">
+      <h2 class="text-2xl font-bold">About Me</h2>
+      <p id="aboutBio" class="mt-4 text-justify leading-7"></p>
+      <div class="mt-2 text-sm text-slate-500"><i class="inline-block align-[-2px]" data-lucide="map-pin"></i> <span>Rajshahi, Bangladesh</span></div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a id="msgBtn" class="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-black text-white hover:scale-[1.03] hover:shadow-sm hover-smart">
+          <i data-lucide="message-square"></i><span>Send me a message</span>
+        </a>
+        <a id="aboutMailBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-black text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Email">
+          <i data-lucide="mail"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="mt-16">
+    <h3 class="text-xl font-semibold text-center">Academic Background</h3>
+    <div id="eduList" class="mt-6 grid gap-4"></div>
+  </div>
+
+  <!-- Skills -->
+  <div class="mt-16">
+    <h3 class="text-xl font-semibold text-center">Skills</h3>
+    <div class="mt-4 text-sm font-semibold text-black text-left">Hard Skills</div>
+    <div id="hardSkills" class="mt-2 flex flex-wrap gap-2 justify-start"></div>
+    <div class="mt-6 text-sm font-semibold text-black text-left">Soft Skills</div>
+    <div id="softSkills" class="mt-2 flex flex-wrap gap-2 justify-start"></div>
+  </div>
+</section>
+
+<!-- Projects (carousel) -->
+<section id="projects" class="bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold text-center w-full">Projects</h3>
+    </div>
+
+    <div class="mt-4 flex flex-wrap gap-2 justify-center" id="projectTags"></div>
+
+    <div id="projectCarousel" class="mt-6 relative">
+      <button id="projPrev" class="icon-btn absolute -left-4 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart"><i data-lucide="chevron-left"></i></button>
+      <div id="projectTrackOuter" class="overflow-x-auto scroll-smooth snap-x snap-mandatory flex">
+        <div id="projectTrack" class="flex w-full"></div>
+      </div>
+      <button id="projNext" class="icon-btn absolute -right-4 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart"><i data-lucide="chevron-right"></i></button>
+      <div class="mt-4 flex justify-center">
+        <a href="projects.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
+          <i data-lucide="grid-2x2"></i><span>All projects</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experiences -->
+<section id="experience">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold text-center w-full">Professional/ Research Work Experience</h3>
+    </div>
+    <div id="expList" class="mt-6 grid gap-6"></div>
+    <div class="mt-4 flex justify-center">
+      <a href="experience.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2"><i data-lucide="briefcase"></i><span>All experiences</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications" class="bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold text-center w-full">Publications</h3>
+    </div>
+    <div id="pubRecent" class="mt-6 grid gap-4"></div>
+    <div class="mt-4 flex justify-center">
+      <a href="publications.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2"><i data-lucide="library"></i><span>All publications</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements & Activities -->
+<section id="achievements" class="max-w-6xl mx-auto px-4 py-16">
+  <h2 class="text-2xl font-bold text-center mb-8">Achievements & Activities</h3>
+  <div class="grid gap-6" id="achvPreview"></div>
+  <div class="mt-4 flex justify-center">
+    <a href="achievements.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
+      <i data-lucide="sparkles"></i><span>See more</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer id="links" class="mt-20 bg-black text-white">
+  <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-[2fr,1fr] gap-8 items-start">
+    <div>
+      <div class="text-lg font-semibold mb-4">Connect</div>
+      <div id="footerLinks" class="flex flex-wrap gap-3"></div>
+    </div>
+    <div class="footer-nav">
+      <div class="text-sm font-semibold mb-3 text-slate-300">Navigate</div>
+      <div class="grid gap-2">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experiences</a>
+        <a href="#publications">Publications</a>
+        <a href="#achievements">Achievements & Activities</a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-xs text-slate-400">© <span id="year"></span> Imtiaj Iqbal Mahfuj — Built for GitHub Pages.</div>
+  </div>
+</footer>
+
+</body>
+</html>

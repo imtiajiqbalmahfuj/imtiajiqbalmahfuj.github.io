@@ -1,0 +1,420 @@
+
+// ===== all content lives here =====
+// Edit this file only to update your site. No coding knowledge needed.
+// Strings accept basic HTML (e.g., <br> for line breaks).
+
+window.SITE = {
+  brand: {
+    homeLabel: "Imtiaj.",
+    name: "Imtiaj Iqbal Mahfuj",
+    subtitle: "GIS · Remote Sensing · Geospatial Data Science (Python, ML)",
+    // direct download link provided by you
+    cvDownload: "https://drive.google.com/uc?export=download&id=1m4NPtLqAYePIXoPoFHzlcRXN6vv-IehF",
+    email: "imtiajiqbal.ruet@gmail.com",
+    linkedin: "https://www.linkedin.com/in/imtiajiqbalmahfuj/",
+    linkTargetId: "footerLinks", // where the chain-link button scrolls
+    photo: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbalmahfuj.github.io/refs/heads/main/Assets/Imtiaj%20pic%20git.jpg" // replace with your own later
+  },
+
+  tickerIcons: [
+    {name:"GIS", icon:""},
+    {name:"Remote Sensing", icon:""},
+    {name:"Python", icon:""},
+    {name:"Google Earth Engine", icon:""},
+    {name:"ArcGIS Pro", icon:""},
+    {name:"GeoPandas", icon:""},
+    {name:"TensorFlow", icon:""},
+    {name:"Scikit-learn", icon:""},
+    {name:"Pandas", icon:""},
+    {name:"Geemap", icon:""},
+    {name:"NumPy", icon:""},
+    {name:"Matplotlib", icon:""},
+    {name:"Machine Learning", icon:""},
+    {name:"PyTorch", icon:""},
+    {name:"Atlas.ti", icon:""},
+    {name:"Github", icon:""},
+    {name:"AutoCAD", icon:""}
+  ],
+
+  about: {
+    bio: `I’m Imtiaj Iqbal Mahfuj, an undergraduate student of Urban and Regional Planning at Rajshahi University of Engineering & Technology (RUET), driven by a strong passion for Geographic Information Systems (GIS), Remote Sensing, Google Earth Engine (GEE), and Geospatial Data Science with Python and Machine Learning.<br> My academic and professional journey is centered on leveraging spatial data and advanced analytical techniques to design resilient, efficient, and sustainable urban environments. My interest lies at the intersection of spatial data and real-world impact, exploring how geospatial intelligence can inform better decision-making in areas like urban planning, disaster risk reduction, environmental management, and transportation systems. My expertise is further strengthened by specializations and certifications from leading institutions and top universities, including IBM, Google, the University of Michigan, and others.<br> As a dedicated research enthusiast, I actively seek opportunities to dive deep into complex issues and produce actionable insights. My works have been featured in international conferences such as ICERIE, ICURP and presented at events organized by the Bangladesh Institute of Planners (BIP). I believe research isn’t just about publication—it’s about solving problems, informing policy, and bridging the gap between data and people. <br> If you’re passionate about spatial data, planning for resilient futures, or collaborating on research-driven projects, feel free to reach out. Let’s connect and create something impactful together.`,
+    location: "Rajshahi, Bangladesh"
+  },
+
+  education: [
+    {
+      title: "Rajshahi University of Engineering & Technology",
+      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.78/4.00",
+      date: "Dec 2022 – Present",
+      location: "Rajshahi, Bangladesh",
+      link: "https://www.ruet.ac.bd/",
+      bullets: [
+        "Town Planning, Transportation Planning, Environmental Science, Disaster Management, GIS and Remote sensing, Cartography, Social & Physical Survey, Landscape Planning, Participatory Rural Appraisal, Project Management and Evaluation",
+        "Class Representative (January 2023 - September 2024)"
+    ]
+    },
+    {
+      title: "St. Joseph Higher Secondary School",
+      degree: "Higher Secondary Certificate <br> CGPA: 5.00/5.00",
+      date: "Jun 2019 – Feb 2021",
+      location: "Dhaka, Bangladesh",
+      link: "https://sjs.edu.bd/new/index.php"
+    }
+  ],
+
+  skills: {
+    hard: ["ArcGIS Pro","Remote Sensing","Python","Pandas","GeoPandas","Geemap","NumPy","Matplotlib","Machine Learning","Scikit-learn","TensorFlow","PyTorch","Google Earth Engine","AutoCAD","SketchUp","ENVI","SPSS","Twinmotion","Blender","JavaScript","Atlas.ti","Github","Basic Coding"],
+    soft: ["Leadership","Adaptability","Time management","Problem solving","Team management"]
+  },
+
+//  featuredSlides: [
+//    { title:"Zero-Waste RCC: Tech-enabled Recycling", image:"https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?q=80&w=1200&auto=format&fit=crop", id:"p-zero-waste" },
+//    { title:"Night-time Light Pollution: Dhaka", image:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop", id:"p-night-lights" },
+//    { title:"Korean Team Trek Concept", image:"https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop", id:"p-korean-trek" }
+//  ],
+
+  projects: [
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },  
+      {
+      id:"25002",
+      title:"𝐅𝐢𝐫𝐬𝐭 𝐒𝐭𝐞𝐩𝐬 𝐢𝐧𝐭𝐨 𝐆𝐨𝐨𝐠𝐥𝐞 𝐄𝐚𝐫𝐭𝐡 𝐄𝐧𝐠𝐢𝐧𝐞: 𝐀𝐧𝐚𝐥𝐲𝐳𝐢𝐧𝐠 𝐍𝐢𝐠𝐡𝐭𝐭𝐢𝐦𝐞 𝐋𝐢𝐠𝐡𝐭 𝐏𝐨𝐥𝐥𝐮𝐭𝐢𝐨𝐧 (𝐍𝐋𝐏) 𝐢𝐧 𝐃𝐡𝐚𝐤𝐚",
+      tags:["Spatial Data-Science", "GEE", "GIS"],
+      image:"https://framerusercontent.com/images/UzRsHge9uhO4zTAZGrX8IItOlHo.png?width=1919&height=993",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/1a348c49d51c5d315696344972203578cb74ee14/Projects/25002%20%F0%9D%90%85%F0%9D%90%A2%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%92%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%86%F0%9D%90%A8%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%A5%F0%9D%90%9E%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%8D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%20%F0%9D%90%8F%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7%20(%F0%9D%90%8D%F0%9D%90%8B%F0%9D%90%8F)%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_googleearthengine-remotesensing-geospatialanalysis-activity-7294392745370992640-EUjM?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"25001",
+      title:"Building Footprint Map of Eixample, Barcelona",
+      tags:["Geospatial Python", "GIS"],
+      image:"https://framerusercontent.com/images/RjUpkQD8I1p0yZ26cwvesm2Vp88.png?scale-down-to=2048&width=5000&height=5000",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/b1920df0965e640caa6e16cf18c342f3c155b58e/Projects/25001%20Building%20Footprint%20Map%20of%20Eixample%2C%20Barcelona/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_building-footprint-map-my-geospatial-python-activity-7279911339962064896-beB3?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24015",
+      title:"The Rivers of Asia Using Geospatial Python",
+      tags:["Geospatial Python", "GIS", "Remote Sensing"],
+      image:"https://framerusercontent.com/images/vJKEs5iNPNDKHzRYx8i1tONM.png?width=1173&height=898",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/0f8aaff37a328b78ed4cc4c6ebb82fac7a38a4a8/Projects/24015%20The%20Rivers%20of%20Asia%20Using%20Geospatial%20Python/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_rivers-of-asia-with-python-codes-activity-7277234086350348289-TLO4?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24014",
+      title:"Analyzing Vegetation Health Using NDVI in Kushtia District Using NDVI ",
+      tags:["GIS"],
+      image:"https://framerusercontent.com/images/8VbqtxAPYhPNn6bJGjsfzpfdhQw.png?width=859&height=900",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/54b96084915c99faa82392d8ef7ad0d53ec90da9/Projects/24014%20Analyzing%20Vegetation%20Health%20Using%20NDVI%20in%20Kushtia%20District%20Using%20NDVI/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_ndvi-remotesensing-gis-activity-7276985938080096256-EOBf?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24013",
+      title:"Road Network of Rajshahi City & Singapore City with Geospatial Python",
+      tags:["Geospatial Python", "GIS"],
+      image:"https://framerusercontent.com/images/nGUGypoHUOXCG49NjBc4no8XRE.png?scale-down-to=1024&width=1063&height=889",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/af9aa96a941183f13adf7cb2d9d275b3cfd4f10d/Projects/24013%20Road%20Network%20of%20Rajshahi%20City%20%26%20Singapore%20City%20with%20Geospatial%20Python/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_roadnetworkrajsourcecodeplot-activity-7274858059682746368-hHub?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24012",
+      title:"𝐀𝐧𝐚𝐥𝐲𝐳𝐢𝐧𝐠 𝟑𝟎 𝐘𝐞𝐚𝐫𝐬 𝐨𝐟 𝐋𝐚𝐧𝐝 𝐔𝐬𝐞 𝐋𝐚𝐧𝐝 𝐂𝐨𝐯𝐞𝐫 (𝐋𝐔𝐋𝐂) 𝐂𝐡𝐚𝐧𝐠𝐞𝐬 𝐢𝐧 𝐈𝐬𝐡𝐰𝐚𝐫𝐝𝐢 𝐔𝐩𝐚𝐳𝐢𝐥𝐚",
+      tags:["GIS","Remote Sensing"],
+      image:"https://framerusercontent.com/images/3tE82LWv8lKMpzMXLNsG8tdceMw.png?width=1474&height=979",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/cca335732cd59cc268817d1615ca86edfc75fd2c/Projects/24012%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%9F%91%F0%9D%9F%8E%20%F0%9D%90%98%F0%9D%90%9E%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AC%20%F0%9D%90%A8%F0%9D%90%9F%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%20%F0%9D%90%94%F0%9D%90%AC%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%20%F0%9D%90%82%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%20(%F0%9D%90%8B%F0%9D%90%94%F0%9D%90%8B%F0%9D%90%82)%20%F0%9D%90%82%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%9E%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%88%F0%9D%90%AC%F0%9D%90%A1%F0%9D%90%B0%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%9D%F0%9D%90%A2%20%F0%9D%90%94%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A5%F0%9D%90%9A/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-remotesensing-lulc-activity-7305154180334198784-7diy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+    },  
+      {
+      id:"24011",
+      title:"Land Use Land Cover (LULC) Map of Dhaka (2024) ",
+      tags:["GIS","ML"],
+      image:"https://framerusercontent.com/images/dFvSFFYBNJrnAe7ub5oGsj14ns.png?width=939&height=942",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/233f8dd505886d55d777727d8d5aa234d6d932b4/Projects/24011%20Land%20Use%20Land%20Cover%20(LULC)%20Map%20of%20Dhaka%20(2024)/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_urbanplanning-gis-lulc-activity-7270401571618746368-a62Y?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24010",
+      title:"Karwan Bazar MRT Station with Geosptial Python",
+      tags:["Geospatial Python"],
+      image:"https://framerusercontent.com/images/nIMcqPxOxc3v6jm7xE60DrTyh8.jpg?scale-down-to=2048&width=3600&height=3600",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3df91222b7a7ca20dbb8e663c6085cc0789e68fc/Projects/24010%20My%20First%20Project%20in%20Geospatial%20Python%20on%20Karwan%20Bazar%20MRT%20Station/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_karwan-bazar-metro-rail-station-500m-radius-activity-7261967450567520257-99VY?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24009",
+      title:"Relative Elevation Model (REM) of The Canadian River",
+      tags:["GIS"],
+      image:"https://framerusercontent.com/images/dHuS4l1BUcUXJUesi5gNOcTAIKg.png?width=1082&height=781",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/9ca17c6ee7d7cf40c4bcb2aaab02f9929dc6f2a4/Projects/24009%20Relative%20Elevation%20Model%20(REM)%20of%20The%20Canadian%20River/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_the-relative-elevation-model-rem-of-the-activity-7258575410513248257-TCc0?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24008",
+      title:"Building Density Map Visualization of Bangladesh",
+      tags:["GIS", "Blender"],
+      image:"https://framerusercontent.com/images/U5ENRPvVdpomhh2B3RJJFevSlc.png?width=939&height=944",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/241fc4366d873bf211174abbe0d0e521b6e7a8e5/Projects/24008%20Building%20Density%20Map%20Visualization%20of%20Bangladesh/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_buildings-density-map-of-bangladesh-by-imtiaj-activity-7258214376904523777-zJrI?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24007",
+      title:"Transit-Oriented Development (TOD) Potential of Karwan Bazar Metro Rail Station",
+      tags:["GIS"],
+      image:"https://framerusercontent.com/images/efVjdGzv7ACoKjHDlDr7s4adk.png?width=778&height=921",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/c16b4e2452babf6aba463a4607c587ca473979df/Projects/24007%20Transit-Oriented%20Development%20(TOD)%20Potential%20of%20Karwan%20Bazar%20Metro%20Rail%20Station/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_urbanplanning-tod-transitorienteddevelopment-activity-7256909369173254144-u8kC?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24006",
+      title:"3D elevation map of Bangladesh",
+      tags:["GIS"],
+      image:"https://framerusercontent.com/images/88bULa3UdqqSNV3XqxxUIKK0cQ.png?width=775&height=928",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/09a2471cc290214c494df4c2af46fdf184fc8b98/Projects/24006%203D%20elevation%20map%20of%20Bangladesh/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-gis-urbanplanning-activity-7252309861810462721-fK7A?utm_source=share&utm_medium=member_desktop"
+    },  
+    {
+      id:"24005",
+      title:"3D Elevation Mapping of Durunish",
+      tags:["GIS"],
+      image:"https://framerusercontent.com/images/hIWc1ZFDPE5ngebpSFCWMuICEeg.jpg?scale-down-to=2048&width=2400&height=3000",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/02e04de1ba2857852e642512e393d06706a6c905/Projects/24005%203D%20Elevation%20Mapping%20of%20Durunish/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-gis-urbanplanning-activity-7251955043170451457-JWCr?utm_source=share&utm_medium=member_desktop"
+    },  
+      {
+      id:"24004",
+      title:"Roadway Map of Rajshahi City Corporation",
+      tags:["GIS","Remote Sensing"],
+      image:"https://framerusercontent.com/images/dFcyTXNPUjtJNyMt6RYgrRLSE.jpg?scale-down-to=1024&width=3300&height=3300",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/6a9a8df3aaa6e8211d5ec59697b1448f8f5305f1/Projects/24004%20Roadway%20Map%20of%20Rajshahi%20City%20Corporation/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-activity-7250186285812715523-owPe/?utm_source=share&utm_medium=member_desktop"
+    },  
+    {
+      id:"24003",
+      title:"Mean Daily Evaporation (ETo) of Bangladesh",
+      tags:["GIS"],
+      image:"https://framerusercontent.com/images/ynHGlWGDw2pG6oOGQK8hbTXMI.jpg?scale-down-to=2048&width=2550&height=3300",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3b159c959d01e2e396e766317cefdbdcac9750c9/Projects/24003%20Mean%20Daily%20Evaporation%20(ETo)%20of%20Bangladesh/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_evapotranspiration-plays-a-critical-role-activity-7248529907268378624-vT0-?utm_source=share&utm_medium=member_desktop"
+    },
+    {
+      id:"24002",
+      title:"River Network of Bangladesh",
+      tags:["GIS","Blender"],
+      image:"https://framerusercontent.com/images/tsXW0dLGZRYW0G7D9oib6xEU1Po.png?width=940&height=928",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/bd2f561daf4b39309f1d431d0c6026ccf8dff358/Projects/24002%20River%20Network%20of%20Bangladesh/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-activity-7244168353550852098-V2tA?utm_source=share&utm_medium=member_desktop"
+    },
+    {
+      id:"24001",
+      title:"An Imaginary Subdivision Layout Plan for A Sustainable 30 Acres Neighborhood",
+      tags:["URP"],
+      image:"https://framerusercontent.com/images/3KeH4PY9JcAqsoyBAgLFcEJRw0.jpeg?width=600&height=480",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/e98d0332fbb30af7fb71304a180dbc23f17accdd/Projects/24001%20An%20Imaginary%20Subdivision%20Layout%20Plan%20for%20A%20Sustainable%2030%20Acres%20Neighborhood/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_peojectabr2abr1-30daymapchallenge-activity-7214635593933160448-4Oa3/?utm_source=share&utm_medium=member_desktop"
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    }
+  ],
+
+  experiences: [
+    {
+      org:"Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
+      role:"Undergraduate Research Assistant",
+      date:"April 2025 - Present",
+      location:"Rajshahi, Bangladesh",
+      bullets:[
+        "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Supervisor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Fuzzy AHP Analysis, Community-Based Research, Research Skills, Academic writing"
+      ],
+      github:"#",
+      more:"https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing"
+    },
+    {
+      org:"Aeronautics and Space Applications <br> Division Space & Environment Research Center (SERC)",
+      role:"Program Executive",
+      date:"March 2025 - Present ",
+      location:"Rajshahi, Bangladesh",
+      bullets:[
+        "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC)",
+        "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh. <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group I, DCS 2025, SERC"
+      ],
+      github:"#",
+      more:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+    },
+    {
+      org:"Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
+      role:"Undergraduate Research Assistant",
+      date:"April 2025 - Present",
+      location:"Rajshahi, Bangladesh",
+      bullets:[
+        "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Team Leadership, Academic writing"
+      ],
+      github:"#",
+      more:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+    },
+  ],
+
+  publications: {
+    recentLimit: 5,
+    items: [
+      {
+        title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
+        date:"April 2025",
+        venue:"Mahfuj, I. I., Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025)",
+        type:"Conference proceedings",
+        link:"https://shorturl.at/fmHyq",
+        cite:"https://shorturl.at/fmHyq"  // <--- Add this field to enable Cite button
+      },
+      {
+        title:"Revolutionizing waste management in Rajshahi City Corporation: A technological solution for enhanced recycling and community engagement towards zero waste",
+        date:"April 2025",
+        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025)",
+        type:"Conference proceedings",
+        link:"https://shorturl.at/QCbMo",
+        cite:"https://shorturl.at/QCbMo"  // <--- Add this field to enable Cite button
+      }
+    ],
+    ordering:["Journal Articles","Book Chapters","Conference proceedings","Reports"]
+  },
+
+  achievements: {
+    fellowships:[
+      { title:"Awarded <b>2nd place</b> at 'Youth's Thought in Sustainable Urban Planning – 2025' <br> <u>Awarded by:</u> Urban Development Directorate (UDD), <br> Ministry of Housing and Public Work, Government of the People's Republic of Bangladesh <br> <u>Project Title:</u> The Economic Utilization of the Karnaphuli Tunnel with a Balanced Approach to Economic Growth and Ecological Preservation ", tags:["Award"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_%F0%9D%93%90%F0%9D%94%80%F0%9D%93%AA%F0%9D%93%BB%F0%9D%93%AD-%F0%9D%94%80%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B7%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B0-%F0%9D%93%AA%F0%9D%93%B5%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%BD-activity-7333678422080016384-LcTw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh" }
+    ],
+    awardsAndGrants:[
+      { title:"UDD Bangladesh — Research Grant (2nd place idea)", tags:["Grant"], link:"#", date:"May 2025" }
+    ],
+    licenses:[
+      { title:"Machine Learning with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"June 2025" },
+      { title:"Advanced Archaeological Remote Sensing: Site Prospection, Landscape Archaeology and Heritage Protection in the Middle East and North Africa", tags:["Durham University","British Council"], link:"https://www.futurelearn.com/certificates/8dwx976", date:"June 2025" },
+      { title:"Data Analysis with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/UF42XT57WUCQ", date:"June 2025" },
+      { title:"Data Visualization with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"June 2025" },
+      { title:"Nature-based Solutions for Disaster and Climate Resilience", tags:["United Nations Environment Programme (UNEP)","SDG Academy"], link:"https://drive.google.com/file/d/1dNqVKfIWYelM-HInc9u0_9DHQwqE2sIe/view?usp=sharing", date:"June 2025" },
+      { title:"Python Basics", tags:["University of Michigan","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/4ZIT0O30GY65", date:"June 2025" },
+      { title:"Google UX Design Specialization", tags:["Google","Coursera"], link:"https://www.coursera.org/account/accomplishments/specialization/ATVPA55PTE8K", date:"March 2024" }
+    ],
+    workshops:[
+      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> Redesigning Karwan Bazar MRT Station as a Transit- Oriented Development (TOD) Neighborhood: A Mixed Land Use Approach", tags:["Poster"], link:"#", date:"May 2025 <br> Dhaka, Bangladesh" },
+      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> A REMOTE SENSING-BASED ANALYSIS OF NIGHTTIME LIGHT POLLUTION AND ITS REGIONAL SPILLOVER EFFECTS IN DHAKA", tags:["Poster"], link:"#", date:"May 2025 <br> Dhaka, Bangladesh" },
+      { title:"Workshop on 'Elevate Your Insights: Drone Based Data Collection & Processing' <br> <u>Organized by:</u> Department of Urban & Regional Planning, RUET <br> In Association with RUET GIS Club & Conducted by: Tiller ", tags:["Workshop"], link:"#", date:"December 2024 <br> Rajshahi, Bangladesh" }
+    ],
+    volunteering:[
+      { title:"General Secretary — RUET GIS Club <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_im-happy-to-share-that-ive-been-promoted-activity-7349312973884055552-bb-R?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"July 2025 - Present <br> Rajshai, Bangladesh " },
+      { title:"Volunteer, Disaster Management & Risk Reduction Department — Space and Environment Research Center <br> Volunteer ID: SERC-V20250308", tags:["Research & Projects"], link:"https://www.linkedin.com/posts/sercbd_remotesensing-spaceexploration-disastermanagement-activity-7307613299204861953-dFkB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"March 2025 - Present <br> Rajshai, Bangladesh " },
+      { title:"Assistant Graphics and Design Secretary — RUET GIS Club <br> Rajshahi University of Engineering & Technology", tags:["Team work"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_im-happy-to-share-that-im-starting-a-new-activity-7214640090248044545-JdCA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"June 2024 - July 2025 <br> Rajshai, Bangladesh " },
+      { title:"Executive Producer — TEDxRUET <br> Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", date:"August 2024 - February 2025 <br> Rajshai, Bangladesh " },
+      { title:"Class Representative — Department of Urban & Regional Planning <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshai, Bangladesh " },
+      { title:"Prefect <br> St. Joseph Higher Secondary School", tags:["Leadership"], link:"", date:"July 2019 - January 2021 <br> Dhaka, Bangladesh " },
+      { title:"Corresponding Secretary, Josephite Math Mania, 2020 — Josephite Math Club <br> St. Joseph Higher Secondary School", tags:["Team management"], link:"", date:"December 2019 - January 2021 <br> Rajshai, Bangladesh " },
+      { title:"Trainee & volunteer <br> Bangladesh Red Crescent Society (BDRCS)", tags:["Leadership"], link:"", date:"September 2017 - January 2019 <br> Barguna, Bangladesh " }
+    ]
+  },
+
+  socials: [
+    {label:"LinkedIn", icon:"linkedin", href:"https://www.linkedin.com/in/imtiajiqbalmahfuj/"},
+    {label:"ResearchGate", icon:"book-open-check", href:"https://www.researchgate.net/profile/Imtiaj-Mahfuj"},
+    {label:"Google Scholar", icon:"graduation-cap", href:"https://scholar.google.com/citations?hl=en&authuser=1&user=-lpOfTIAAAAJ"},
+    {label:"ORCID", icon:"id-card", href:"https://orcid.org/0009-0007-9513-3269"},
+    {label:"WhatsApp", icon:"message-circle", href:"https://wa.link/g4g2bh"},
+    {label:"Facebook", icon:"facebook", href:"https://www.facebook.com/imtiajiqbalmahfuj"}
+  ]
+};

@@ -1,0 +1,117 @@
+
+/* Extra polish on top of Tailwind (loaded via CDN in HTML) */
+:root{ --ease-smart: cubic-bezier(0.22,1,0.36,1) }
+
+.hover-smart{ transition: all 180ms var(--ease-smart) }
+.hover-underline{ position:relative }
+.hover-underline::after{
+  content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0;
+  background: currentColor; transition: width 180ms var(--ease-smart)
+}
+.hover-underline:hover::after{ width:100% }
+
+/* Ticker */
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.ticker-inner {
+  display: flex;
+  white-space: nowrap;
+}
+
+
+/* Floating down arrow inside the button (Lucide SVG) */
+#downBtn svg {
+  display: inline-block;          /* ensures transform works */
+  animation: floaty 2s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); } /* moves down 8px in the middle */
+}
+
+
+
+
+/* Card hover */
+.card{ transition: transform .18s var(--ease-smart), box-shadow .18s var(--ease-smart) }
+.card:hover{ transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.07) }
+
+/* Mobile menu overlay for clarity */
+#mobileMenu{ box-shadow: 0 10px 24px rgba(0,0,0,.06) }
+
+/* Arrow button size consistency */
+.icon-btn{ width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; border-radius:9999px }
+
+/* Footer */
+.footer-link{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border-radius:.75rem; background:#0b0b0b; color:#fff }
+.footer-link:hover{ transform: translateY(-2px); box-shadow:0 10px 18px rgba(255,255,255,.06) }
+.footer-nav a{ color:#cbd5e1 }
+.footer-nav a:hover{ color:#fff }
+
+/* Loading Screen */
+#loadingScreen{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:#0b0b0b; color:#fff; z-index:9999 }
+.loading-dot{ width:.5rem; height:.5rem; border-radius:9999px; background:#fff; animation: blink 1.2s infinite }
+.loading-dot:nth-child(2){ animation-delay:.2s }
+.loading-dot:nth-child(3){ animation-delay:.4s }
+@keyframes blink{ 0%,80%,100%{ opacity:.2 } 40%{ opacity:1 } }
+
+/* Hero bottom positioning */
+.hero-bottom {
+  margin-top: 5rem;   /* more gap between title group and ticker */
+  margin-bottom: 4rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  #hero {
+    padding-top: 6rem;   /* push whole hero content down */
+  }
+
+  .hero-bottom {
+    margin-top: 3rem;   /* maintain space between groups */
+    margin-bottom: 3rem; /* lift arrow higher so it's not cut off */
+  }
+}
+
+
+/* Project carousel cards */
+#projectTrackOuter .flex-shrink-0 {
+  scroll-snap-align: start; /* makes each card snap properly */
+  flex-shrink: 0;           /* prevents shrinking */
+  width: 100%;              /* mobile default: 1 card */
+  padding: 0.5rem;          /* matches your Tailwind p-2 */
+}
+
+@media (min-width: 640px) {  /* sm breakpoint ~ tablet */
+  #projectTrackOuter .flex-shrink-0 {
+    width: 50%;  /* 2 cards per row */
+  }
+}
+
+@media (min-width: 768px) {  /* md breakpoint ~ desktop */
+  #projectTrackOuter .flex-shrink-0 {
+    width: 33.333%; /* 3 cards per row */
+  }
+}
+
+/* Gap between cards (optional if p-2 is enough) */
+#projectTrackOuter {
+  gap: 0.5rem;
+}
+
+/* Optional: smooth scrolling for better experience */
+#projectTrackOuter {
+  scroll-behavior: smooth;
+}
