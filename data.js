@@ -91,84 +91,84 @@ window.SITE = {
       details:""
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25012",
+      title:"Launched My Geospatial Portfolio Website through GitHub🐈‍⬛",
+      tags:["Others"],
+      image:"https://private-user-images.githubusercontent.com/228228363/485767140-157d5e48-16b6-4983-9acd-221895d56d3d.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTcwMDQ2OTMsIm5iZiI6MTc1NzAwNDM5MywicGF0aCI6Ii8yMjgyMjgzNjMvNDg1NzY3MTQwLTE1N2Q1ZTQ4LTE2YjYtNDk4My05YWNkLTIyMTg5NWQ1NmQzZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwOTA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDkwNFQxNjQ2MzNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yNTQ5NDUwZWNmODgxOGQwZTdlYzM1OGRhYmQ5YjM4NTE2YzBlNTc5ZThmMTdjYmMxYjBjNWY2OTFjMmMzM2Y0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ryyYlQdwEMIIcEonJIKiKM6jfFCu18nh0r5IbfZwW9c",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/d17f20759c5ff2d08c061d9f6e287effdbedbb64/Projects/25012%20%20My%20Geospatial%20Portfolio%20Website%20through%20GitHub%F0%9F%90%88%E2%80%8D%E2%AC%9B/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_vibeabrcoding-activity-7369020427072860162-ZTyX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25011",
+      title:"Developing a Composite Soil Quality Index (SQI) for Kushtia District (2024)",
+      tags:["GIS", "Remote Sensing", "URP"],
+      image:"https://framerusercontent.com/images/lEJroOaLbqiE0sTyjJF4tqUSs.jpg?scale-down-to=2048&width=2550&height=3300",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/719e9f51289174006661a686377ac9045d848941/Projects/25011%20Developing%20a%20Composite%20Soil%20Quality%20Index%20(SQI)%20for%20Kushtia%20District%20(2024)/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_soil-quality-index-sqi-2024-activity-7364734668937596929-IMrF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25010",
+      title:"Tobacco Crop Cultivation Mapping (2005, 2015, 2024) using GEE & Geospatial Python",
+      tags:["GEE", "Spatial Data-Science", "Geospatial Python", "Remote Sensing", "GIS"],
+      image:"https://framerusercontent.com/images/XNkXY5w74EQYltXTxYm5nX11YjY.jpg?scale-down-to=2048&width=3000&height=3300",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3807e385f01cedcadc2f2edc9944061dd835d3b6/Projects/25010%20Tobacco%20Crop%20Cultivation%20Mapping%20(2005%2C%202015%2C%202024)%20using%20Geospatial%20Python/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_tobacco-crop-cultivation-in-kushtia-activity-7348439548479143936-kMjA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25009",
+      title:"𝐄𝐱𝐩𝐥𝐨𝐫𝐢𝐧𝐠 𝐑𝐢𝐯𝐞𝐫 𝐌𝐨𝐫𝐩𝐡𝐨𝐥𝐨𝐠𝐲 𝐰𝐢𝐭𝐡 𝐄𝐚𝐬𝐞 𝐔𝐬𝐢𝐧𝐠 𝐑𝐢𝐯𝐞𝐫𝐑𝐄𝐌",
+      tags:["Geospatial Python" , "Remote Sensing", "GIS"],
+      image:"https://framerusercontent.com/images/IOpBhgHBLAlK4O7xn6oYFYT3eDE.jpg?scale-down-to=1024&width=5100&height=3300",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/b866e8981e797eaebdbaa761c2e9811af5a01a91/Projects/25009%20%F0%9D%90%84%F0%9D%90%B1%F0%9D%90%A9%F0%9D%90%A5%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%91%F0%9D%90%A2%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%20%F0%9D%90%8C%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%A9%F0%9D%90%A1%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%B2%20%F0%9D%90%B0%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AC%F0%9D%90%9E%20%F0%9D%90%94%F0%9D%90%AC%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%91%F0%9D%90%A2%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%91%F0%9D%90%84%F0%9D%90%8C/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_riverrem-python-package-activity-7329849488481701888-aBdp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25008",
+      title:"𝐖𝐚𝐥𝐤𝐚𝐛𝐢𝐥𝐢𝐭𝐲 𝐢𝐧 𝐏𝐮𝐫𝐛𝐚𝐜𝐡𝐚𝐥 𝐍𝐞𝐰 𝐓𝐨𝐰𝐧, 𝐃𝐡𝐚𝐤𝐚 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐈𝐬𝐨𝐜𝐡𝐫𝐨𝐧𝐞 𝐌𝐚𝐩",
+      tags:["Geospatial Python", "Spatial Data-Science", "GIS", "Remote Sensing"],
+      image:"https://framerusercontent.com/images/KNASAyKK8WxSf0KL6RJA4zjI4.jpg?scale-down-to=1024&width=2338&height=2456",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/f3ef25cecb785d446ec52a94b54fafd2875159fd/Projects/25008%20%F0%9D%90%96%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%A4%F0%9D%90%9A%F0%9D%90%9B%F0%9D%90%A2%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%B2%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%8F%F0%9D%90%AE%F0%9D%90%AB%F0%9D%90%9B%F0%9D%90%9A%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A5%20%F0%9D%90%8D%F0%9D%90%9E%F0%9D%90%B0%20%F0%9D%90%93%F0%9D%90%A8%F0%9D%90%B0%F0%9D%90%A7%2C%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A%20%F0%9D%90%AD%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%AE%F0%9D%90%A0%F0%9D%90%A1%20%F0%9D%90%88%F0%9D%90%AC%F0%9D%90%A8%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%8C%F0%9D%90%9A%F0%9D%90%A9/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-isochrones-activity-7329487108484554752-VxkE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25007",
+      title:"Does Money Make You Happy? A Bivariate Map of Happiness Score and GDP per Capita (2017)",
+      tags:["GIS"],
+      image:"https://framerusercontent.com/images/NjSp1TpVZXC3aUAqG73SEgf7uY.jpg?scale-down-to=1024&width=7200&height=5400",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/7e61cb8424daed84cf359878bb1c1ed85ffc4495/Projects/25007%20Does%20Money%20Make%20You%20Happy%20A%20Bivariate%20Map%20of%20Happiness%20Score%20and%20GDP%20per%20Capita%20(2017)/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_can-money-buy-happiness-activity-7328798192303583233-Mjfz?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25006",
+      title:"Exploring the streets of Purbachal New Town, Dhaka through Geospatial Python",
+      tags:["Geospatial Python", "Spatial Data-Science", "GIS"],
+      image:"https://framerusercontent.com/images/SEBX76Cwgyt2DfSCLWiVm4Ym6o.jpg?scale-down-to=1024&width=2581&height=2433",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/81e03ee9a7ac2c41638b130aa515d49f319a71b5/Projects/25006%20Exploring%20the%20streets%20of%20Purbachal%20New%20Town%2C%20Dhaka%20through%20Geospatial%20Python/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-urbandesign-activity-7322575872517931008-ePnF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25005",
+      title:"Building footprint map of Dhaka (1000–1000 sqm)",
+      tags:["GIS", "Geospatial Python", "Spatial Data-Science"],
+      image:"https://framerusercontent.com/images/JO1miT6GC914EfjKiXgKAtTkqU.jpg?scale-down-to=1024&width=3030&height=2346",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/55d129a1446fdcdd0477a81ceba93b7efd184f03/Projects/25005%20Building%20footprint%20map%20of%20Dhaka%20(1000%E2%80%931000%20sqm)/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-remotesensing-activity-7319417744297275393-SgUL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25004",
+      title:"LULC and NDWI Analysis of Lalmonirhat: Mapping Land and Water Interactions Using Sentinel-2 Data",
+      tags:["GIS", "Remote Sensing"],
+      image:"https://framerusercontent.com/images/cTHb3EEMpeMX3sr1UC7mKdzwDQ.png?scale-down-to=1024&width=1514&height=978",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/2bc26b04f31ca635c26bc9596f22065a60d809ee/Projects/25004%20LULC%20and%20NDWI%20Analysis%20of%20Lalmonirhat%20Mapping%20Land%20and%20Water%20Interactions%20Using%20Sentinel-2%20Data/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_geospatial-remotesensing-lulc-activity-7306719738426966016-3i86?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25003",
+      title:"𝗪𝗮𝘁𝗲𝗿𝘀𝗵𝗲𝗱 𝗗𝗲𝗹𝗶𝗻𝗲𝗮𝘁𝗶𝗼𝗻 𝗼𝗳 𝗦𝘆𝗹𝗵𝗲𝘁 𝗗𝗶𝘃𝗶𝘀𝗶𝗼𝗻",
+      tags:["GIS", "Remote Sensing"],
+      image:"https://framerusercontent.com/images/JAg6Y49uHPSjU2cRzNGggmjWGp4.jpg?scale-down-to=2048&width=2700&height=3600",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/b9d16b0cc1b8d709c5b23fe8c1d8a07d89662c49/Projects/25003%20%F0%9D%97%AA%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%B2%F0%9D%97%BF%F0%9D%98%80%F0%9D%97%B5%F0%9D%97%B2%F0%9D%97%B1%20%F0%9D%97%97%F0%9D%97%B2%F0%9D%97%B9%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B2%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%B6%F0%9D%97%BC%F0%9D%97%BB%20%F0%9D%97%BC%F0%9D%97%B3%20%F0%9D%97%A6%F0%9D%98%86%F0%9D%97%B9%F0%9D%97%B5%F0%9D%97%B2%F0%9D%98%81%20%F0%9D%97%97%F0%9D%97%B6%F0%9D%98%83%F0%9D%97%B6%F0%9D%98%80%F0%9D%97%B6%F0%9D%97%BC%F0%9D%97%BB/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-remotesensing-floodriskassessment-activity-7306331679449640960-PGmQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
       id:"25002",
