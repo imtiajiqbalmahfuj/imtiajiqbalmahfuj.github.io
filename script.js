@@ -360,7 +360,7 @@ function mountFooter(){
   const zone = $('#footerLinks')
   if(!zone) return
   zone.innerHTML = window.SITE.socials.map(s=>`
-    <a class="footer-link hover-smart" href="${s.href}" target="_blank">
+    <a class="footer-link hover:bg-white hover:text-black hover-smart" href="${s.href}" target="_blank">
       <i data-lucide="${s.icon}"></i><span>${s.label}</span>
     </a>
   `).join('')
