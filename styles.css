@@ -118,6 +118,23 @@
   overflow-x: auto;
 }
 
+/* Navbar fixed + smooth hide/show */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+/* Prevent content overlap */
+body {
+  padding-top: 64px; /* adjust to match navbar height */
+}
+
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;
