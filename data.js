@@ -103,7 +103,7 @@ window.SITE = {
       title:"Developing a Composite Soil Quality Index (SQI) for Kushtia District (2024)",
       tags:["GIS", "Remote Sensing", "URP"],
       image:"https://framerusercontent.com/images/lEJroOaLbqiE0sTyjJF4tqUSs.jpg?scale-down-to=2048&width=2550&height=3300",
-      github:"Projects/25011 Developing a Composite Soil Quality Index (SQI) for Kushtia District (2024)/README.md",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/1cb2ede22cdb7a9105f0741ce96ec964cb428332/Projects/25011%20Developing%20a%20Composite%20Soil%20Quality%20Index%20(SQI)%20for%20Kushtia%20District%20(2024)/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_soil-quality-index-sqi-2024-activity-7364734668937596929-IMrF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },  
       {
