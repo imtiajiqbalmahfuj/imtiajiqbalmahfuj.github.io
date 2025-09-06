@@ -117,7 +117,7 @@ window.SITE = {
       {
       id:"25009",
       title:"𝐄𝐱𝐩𝐥𝐨𝐫𝐢𝐧𝐠 𝐑𝐢𝐯𝐞𝐫 𝐌𝐨𝐫𝐩𝐡𝐨𝐥𝐨𝐠𝐲 𝐰𝐢𝐭𝐡 𝐄𝐚𝐬𝐞 𝐔𝐬𝐢𝐧𝐠 𝐑𝐢𝐯𝐞𝐫𝐑𝐄𝐌",
-      tags:["Geospatial Python" , "Remote Sensing", "GIS"],
+      tags:["Geospatial Python", "Remote Sensing", "GIS"],
       image:"https://framerusercontent.com/images/IOpBhgHBLAlK4O7xn6oYFYT3eDE.jpg?scale-down-to=1024&width=5100&height=3300",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/b866e8981e797eaebdbaa761c2e9811af5a01a91/Projects/25009%20%F0%9D%90%84%F0%9D%90%B1%F0%9D%90%A9%F0%9D%90%A5%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%91%F0%9D%90%A2%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%20%F0%9D%90%8C%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%A9%F0%9D%90%A1%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%B2%20%F0%9D%90%B0%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AC%F0%9D%90%9E%20%F0%9D%90%94%F0%9D%90%AC%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%91%F0%9D%90%A2%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%91%F0%9D%90%84%F0%9D%90%8C/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_riverrem-python-package-activity-7329849488481701888-aBdp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -213,7 +213,7 @@ window.SITE = {
       {
       id:"24012",
       title:"𝐀𝐧𝐚𝐥𝐲𝐳𝐢𝐧𝐠 𝟑𝟎 𝐘𝐞𝐚𝐫𝐬 𝐨𝐟 𝐋𝐚𝐧𝐝 𝐔𝐬𝐞 𝐋𝐚𝐧𝐝 𝐂𝐨𝐯𝐞𝐫 (𝐋𝐔𝐋𝐂) 𝐂𝐡𝐚𝐧𝐠𝐞𝐬 𝐢𝐧 𝐈𝐬𝐡𝐰𝐚𝐫𝐝𝐢 𝐔𝐩𝐚𝐳𝐢𝐥𝐚",
-      tags:["GIS","Remote Sensing"],
+      tags:["GIS","Remote Sensing", "ML"],
       image:"https://framerusercontent.com/images/3tE82LWv8lKMpzMXLNsG8tdceMw.png?width=1474&height=979",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/cca335732cd59cc268817d1615ca86edfc75fd2c/Projects/24012%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%9F%91%F0%9D%9F%8E%20%F0%9D%90%98%F0%9D%90%9E%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AC%20%F0%9D%90%A8%F0%9D%90%9F%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%20%F0%9D%90%94%F0%9D%90%AC%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%20%F0%9D%90%82%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%20(%F0%9D%90%8B%F0%9D%90%94%F0%9D%90%8B%F0%9D%90%82)%20%F0%9D%90%82%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%9E%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%88%F0%9D%90%AC%F0%9D%90%A1%F0%9D%90%B0%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%9D%F0%9D%90%A2%20%F0%9D%90%94%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A5%F0%9D%90%9A/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-remotesensing-lulc-activity-7305154180334198784-7diy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
