@@ -386,6 +386,7 @@ window.SITE = {
     ],
     licenses:[
       { title:"Machine Learning with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"Processing" },
+      { title:"Getting Started with Data Management", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6762b7a37627260013b8cd16/-360", date:"September 2025" },
       { title:"Python for Everyone", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6831b49dd36e6d3bfe727db6/-360", date:"September 2025" },
       { title:"Advanced Archaeological Remote Sensing: Site Prospection, Landscape Archaeology and Heritage Protection in the Middle East and North Africa", tags:["Durham University","British Council"], link:"https://www.futurelearn.com/certificates/8dwx976", date:"June 2025" },
       { title:"Data Analysis with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/UF42XT57WUCQ", date:"June 2025" },
