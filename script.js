@@ -257,29 +257,29 @@ function initCounters(){
 }
 
 
-
-function mountProjectsCarousel(){
+function mountProjectsCarousel() {
   const wrap = $('#projectCarousel')
-  if(!wrap) return
+  if (!wrap) return
 
   // only projects with images
   const items = (window.SITE.projects || []).filter(p => p.image)
 
   // tags index
-  const tags = [...new Set(items.flatMap(p=>p.tags))]
+  const tags = [...new Set(items.flatMap(p => p.tags))]
   const tagWrap = $('#projectTags')
 
   // First add ALL button
   tagWrap.insertAdjacentHTML('beforeend',
-    `<button data-tag="ALL" class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
+    `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
 
   // Then add each unique tag
-  tags.forEach(t=> tagWrap.insertAdjacentHTML('beforeend',
-    `<button data-tag="${t}" class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`))
+  tags.forEach(t => tagWrap.insertAdjacentHTML('beforeend',
+    `<button data-tag="${t}" class="filter-btn px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`))
 
   let filtered = items.slice()
-  function render(){
-    $('#projectTrack').innerHTML = filtered.map(p=> `
+
+  function render() {
+    $('#projectTrack').innerHTML = filtered.map(p => `
       <div class="flex-shrink-0">
         <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col">
           <a href="projects.html#${p.id}" target="_blank" class="block">
@@ -287,7 +287,7 @@ function mountProjectsCarousel(){
           </a>
           <div class="p-4 flex flex-col gap-3 grow">
             <div class="font-medium">${p.title}</div>
-            <div class="flex flex-wrap gap-2">${p.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>
+            <div class="flex flex-wrap gap-2">${p.tags.map(t => `<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>
             <div class="mt-auto flex gap-2 justify-end">
               <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>
               <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.details}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i><span class="sr-only">See more</span></a>
@@ -300,19 +300,31 @@ function mountProjectsCarousel(){
   }
   render()
 
-  // filtering
-  tagWrap.addEventListener('click', e=>{
-    const b = e.target.closest('button[data-tag]'); if(!b) return
+  // filtering with active state
+  tagWrap.addEventListener('click', e => {
+    const b = e.target.closest('button[data-tag]')
+    if (!b) return
+
     const t = b.dataset.tag
-    filtered = (t === "ALL") ? items.slice() : items.filter(p=> (p.tags||[]).includes(t))
+    filtered = (t === "ALL") ? items.slice() : items.filter(p => (p.tags || []).includes(t))
     render()
+
+    // clear active from all, set active on clicked
+    tagWrap.querySelectorAll('button[data-tag]').forEach(btn => {
+      btn.classList.remove('bg-black', 'text-white')
+      btn.classList.add('bg-white')
+    })
+    b.classList.remove('bg-white')
+    b.classList.add('bg-black', 'text-white')
   })
 
   // carousel buttons (scroll container)
   const track = $('#projectTrackOuter')
-  $('#projPrev').addEventListener('click', ()=> track.scrollBy({left:-track.clientWidth, behavior:'smooth'}))
-  $('#projNext').addEventListener('click', ()=> track.scrollBy({left:track.clientWidth, behavior:'smooth'}))
+  $('#projPrev').addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }))
+  $('#projNext').addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
 }
+
+
 
 
 function mountExperience(){
