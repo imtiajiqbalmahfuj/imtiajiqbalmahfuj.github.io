@@ -456,15 +456,38 @@ function mountLoading(){
 }
 
 
-document.addEventListener('DOMContentLoaded', ()=> {
-  applyNav()
-  if($('#loadingScreen')) mountLoading()
-  if($('#heroName')){ mountHero(); mountSlideshow() }
-  if($('#about')){ mountAbout() }
-  if($('#projects')){ mountProjectsCarousel() }
-  if($('#expList')){ mountExperience() }
-  if($('#pubRecent')){ mountPublications() }
-  if($('#achvPreview')){ mountAchievementsPreview() }
-  if($('#footerLinks')){ mountFooter() }
-  if(window.lucide) lucide.createIcons()
+document.addEventListener('DOMContentLoaded', () => {
+  applyNav();
+
+  if ($('#loadingScreen')) mountLoading();
+  if ($('#heroName')) { 
+    mountHero(); 
+    mountSlideshow(); 
+  }
+  if ($('#about')) mountAbout();
+  if ($('#projects')) mountProjectsCarousel();
+  if ($('#expList')) mountExperience();
+  if ($('#pubRecent')) mountPublications();
+  if ($('#achvPreview')) mountAchievementsPreview();
+  if ($('#footerLinks')) mountFooter();
+  if ($('#services')) mountServices(); // <-- initialize Services section
+
+  // Handle Contact Form Submission
+  const form = document.querySelector("#contactForm");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      await fetch("https://script.google.com/macros/s/AKfycbwV3CAB6paGa66RMftvZKsKgpHxlxjUMf7JUkcxRJfx2oExoK0tOJlmJ3ywH--RBrZ1/exec", { // <-- replace with your Google Apps Script Web App URL
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      });
+      alert("Message sent! Thank you.");
+      form.reset();
+    });
+  }
+
+  if (window.lucide) lucide.createIcons();
 });
+
