@@ -12,7 +12,7 @@ window.SITE = {
     cvDownload: "https://drive.google.com/uc?export=download&id=1R3Xq447-jd4kUdIDuvx3w-xPtnhgDzdC",
     email: "imtiajiqbal.ruet@gmail.com",
     linkedin: "https://www.linkedin.com/in/imtiajiqbalmahfuj/",
-    linkTargetId: "footerLinks", // where the chain-link button scrolls
+    linkTargetId: "services", // where the chain-link button scrolls
     photo: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbalmahfuj.github.io/refs/heads/main/Assets/Imtiaj%20Iqbal%20Formal%20Pic.jpg" // replace with your own later
   },
 
