@@ -63,15 +63,9 @@ window.SITE = {
   ],
 
   skills: {
-    hard: ["ArcGIS Pro","Remote Sensing","Python","Pandas","GeoPandas","Geemap","NumPy","Matplotlib","Machine Learning","Scikit-learn","TensorFlow","PyTorch","Google Earth Engine","AutoCAD","SketchUp","ENVI","SPSS","Twinmotion","Blender","JavaScript","Atlas.ti","Github","Basic Coding"],
+    hard: ["ArcGIS Pro","Remote Sensing","Python","Pandas","GeoPandas","Geemap","NumPy","Matplotlib","Machine Learning","Scikit-learn","TensorFlow","PyTorch","Google Earth Engine","AutoCAD","ENVI","SPSS","JavaScript","Atlas.ti","Github","HTML","SketchUp","Twinmotion","Blender"],
     soft: ["Leadership","Adaptability","Time management","Problem solving","Team management"]
   },
-
-//  featuredSlides: [
-//    { title:"Zero-Waste RCC: Tech-enabled Recycling", image:"https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?q=80&w=1200&auto=format&fit=crop", id:"p-zero-waste" },
-//    { title:"Night-time Light Pollution: Dhaka", image:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop", id:"p-night-lights" },
-//    { title:"Korean Team Trek Concept", image:"https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop", id:"p-korean-trek" }
-//  ],
 
   projects: [
       {
