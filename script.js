@@ -348,7 +348,7 @@ function mountAchievementsPreview(){
     renderCard(A.fellowships, "Fellowships, Awards & Research Grants"),
     renderCard(A.licenses, "Licenses & Certifications"),
     renderCard(A.workshops, "Workshops & Presentations"),
-    renderCard(A.volunteering, "Volunteering")
+    renderCard(A.volunteering, "Leadership & Volunteering Services")
   ].join('')
 
   if(window.lucide) lucide.createIcons()
