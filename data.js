@@ -82,10 +82,10 @@ window.SITE = {
   ],
 
   counters: [
-    { value: 6, label: "Research Articles" },
-    { value: 20, label: "Projects" },
-    { value: 3, label: "Internships" },
-    { value: 10, label: "Workshops" }
+    { value: 6, suffix: "+", label: "Research articles" },
+    { value: 20, suffix: "+", label: "Projects" },
+    { value: 15, suffix: "+", label: "Workshops" },
+    { value: 4, suffix: "+", label: "Awards" }
   ],
 
 
