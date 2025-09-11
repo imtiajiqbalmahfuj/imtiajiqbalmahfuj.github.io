@@ -184,8 +184,6 @@ function mountAbout(){
     aboutMailBtn.rel = 'noopener noreferrer'
   }
 
-
-
   // Education
   const edu = window.SITE.education
   const list = $('#eduList')
@@ -208,13 +206,56 @@ function mountAbout(){
     </div>
   `).join('')
 
-  // Skills
-  const hard = $('#hardSkills'), soft = $('#softSkills')
-  window.SITE.skills.hard.forEach(s=> hard.insertAdjacentHTML('beforeend',
-    `<button class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${s}</button>`))
-  window.SITE.skills.soft.forEach(s=> soft.insertAdjacentHTML('beforeend',
-    `<button class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${s}</button>`))
+  // Skills (Flexible categories)
+  const skillsWrap = $('#skills')
+  if (skillsWrap) {
+    skillsWrap.innerHTML = window.SITE.skills.map(group => `
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold mb-2">${group.title}</h3>
+        <div class="flex flex-wrap gap-2">
+          ${group.items.map(skill => `
+            <button class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">
+              ${skill}
+            </button>
+          `).join("")}
+        </div>
+      </div>
+    `).join("")
+  }
+
+  // Counters Section
+  const counterWrap = $('#aboutCounters')
+  if (counterWrap) {
+    counterWrap.innerHTML = window.SITE.counters.map(c => `
+      <div class="card p-6 bg-white rounded-xl border border-slate-200 text-center">
+        <div class="text-3xl font-bold text-black count-up" data-target="${c.value}">0</div>
+        <div class="mt-2 text-slate-600">${c.label}</div>
+      </div>
+    `).join("")
+    initCounters() // animate the counters
+  }
 }
+
+// Counter animation
+function initCounters(){
+  const counters = document.querySelectorAll('.count-up')
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target')
+    let count = 0
+    const step = Math.ceil(target / 100)
+    const update = () => {
+      count += step
+      if (count >= target) {
+        counter.textContent = target + "+"
+      } else {
+        counter.textContent = count
+        requestAnimationFrame(update)
+      }
+    }
+    update()
+  })
+}
+
 
 
 function mountProjectsCarousel(){
