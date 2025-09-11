@@ -62,10 +62,32 @@ window.SITE = {
     }
   ],
 
-  skills: {
-    hard: ["ArcGIS Pro","Remote Sensing","Python","Pandas","GeoPandas","Geemap","NumPy","Matplotlib","Machine Learning","Scikit-learn","TensorFlow","PyTorch","Google Earth Engine","AutoCAD","ENVI","SPSS","JavaScript","Atlas.ti","Github","HTML","SketchUp","Twinmotion","Blender"],
-    soft: ["Leadership","Adaptability","Time management","Problem solving","Team management"]
-  },
+  skills: [
+    {
+      title: "Hard Skills",
+      items: ["ArcGIS Pro","Remote Sensing","Python","Pandas","GeoPandas","Geemap"]
+    },
+    {
+      title: "Soft Skills",
+      items: ["Leadership","Adaptability","Time management","Problem solving","Team management"]
+    },
+    {
+      title: "Languages",
+      items: ["English","Bangla","Hindi"]
+    },
+    {
+      title: "Other Skills",
+      items: ["Public Speaking","Writing","Project Management"]
+    }
+  ],
+
+  counters: [
+    { value: 6, label: "Research Articles" },
+    { value: 20, label: "Projects" },
+    { value: 3, label: "Internships" },
+    { value: 10, label: "Workshops" }
+  ],
+
 
   projects: [
       {
