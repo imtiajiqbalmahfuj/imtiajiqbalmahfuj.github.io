@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = Object.fromEntries(new FormData(form));
 
       try {
-        const res = await fetch("https://script.google.com/macros/s/AKfycbwmM0n93sG_zCmLaVnxFMvwToXvrx0Fx0SraCphIz-oCBAiiXuHcBvmpdq4_5f3Wq2fVw/exec", {  // <-- replace with your Web App URL
+        const res = await fetch("https://script.google.com/macros/s/AKfycbxhs7539WwsLweHd-KJ_cB3UbxLrT8qwPYCvSahVc0FeOaPScR9r4fuOxQqf62SDUperQ/exec", {  // <-- replace with your Web App URL
           method: "POST",
           body: JSON.stringify(data),
           headers: { "Content-Type": "application/json;charset=utf-8" }
