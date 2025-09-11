@@ -139,3 +139,17 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+
+/* Counter */
+#aboutCounters .card {
+  min-height: 90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+#aboutCounters .stat-number {
+  letter-spacing: -0.02em;
+}
+
