@@ -413,7 +413,7 @@ function mountServices() {
   if (!wrap) return;
 
   wrap.innerHTML = window.SITE.services.map(s => `
-    <div class="p-6 bg-white border border-slate-200 rounded-xl text-center hover:bg-black hover:text-white hover-smart transition-all duration-300 shadow-sm hover:shadow-lg">
+    <div class="p-6 bg-white border border-slate-200 rounded-xl text-center hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-lg">
       <i data-lucide="${s.icon}" class="mx-auto mb-3"></i>
       <h4 class="font-semibold text-lg">${s.title}</h4>
       <p class="text-sm text-gray-600 mt-2">${s.description}</p>
@@ -472,21 +472,49 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#pubRecent')) mountPublications();
   if ($('#achvPreview')) mountAchievementsPreview();
   if ($('#footerLinks')) mountFooter();
-  if ($('#services')) mountServices(); // <-- initialize Services section
+  if ($('#services')) mountServices(); // initialize Services section
 
   // Handle Contact Form Submission
   const form = document.querySelector("#contactForm");
+  const sendBtn = document.getElementById("sendBtn");
+
+  if(sendBtn){
+    // Click animation: invert colors on press
+    sendBtn.addEventListener("mousedown", () => {
+      sendBtn.classList.remove("bg-black", "text-white");
+      sendBtn.classList.add("bg-white", "text-black");
+    });
+    sendBtn.addEventListener("mouseup", () => {
+      sendBtn.classList.remove("bg-white", "text-black");
+      sendBtn.classList.add("bg-black", "text-white");
+    });
+    sendBtn.addEventListener("mouseleave", () => {
+      sendBtn.classList.remove("bg-white", "text-black");
+      sendBtn.classList.add("bg-black", "text-white");
+    });
+  }
+
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      // Disable button while sending
+      if(sendBtn) sendBtn.disabled = true;
+
       const data = Object.fromEntries(new FormData(form));
-      await fetch("https://script.google.com/macros/s/AKfycbwV3CAB6paGa66RMftvZKsKgpHxlxjUMf7JUkcxRJfx2oExoK0tOJlmJ3ywH--RBrZ1/exec", { // <-- replace with your Google Apps Script Web App URL
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-      });
-      alert("Message sent! Thank you.");
-      form.reset();
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbwV3CAB6paGa66RMftvZKsKgpHxlxjUMf7JUkcxRJfx2oExoK0tOJlmJ3ywH--RBrZ1/exec", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" }
+        });
+        alert("Message sent! Thank you.");
+        form.reset();
+      } catch(err) {
+        alert("Oops! Something went wrong. Please try again.");
+        console.error(err);
+      } finally {
+        if(sendBtn) sendBtn.disabled = false;
+      }
     });
   }
 
