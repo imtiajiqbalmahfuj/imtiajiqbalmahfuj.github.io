@@ -408,6 +408,21 @@ function mountAchievementsPreview(){
 }
 
 
+function mountServices() {
+  const wrap = document.querySelector("#servicesList");
+  if (!wrap) return;
+
+  wrap.innerHTML = window.SITE.services.map(s => `
+    <div class="p-6 bg-white shadow rounded-lg text-center">
+      <i data-lucide="${s.icon}" class="mx-auto mb-3"></i>
+      <h4 class="font-semibold text-lg">${s.title}</h4>
+      <p class="text-sm text-gray-600 mt-2">${s.description}</p>
+    </div>
+  `).join("");
+  lucide.createIcons();
+}
+
+
 
 function mountFooter(){
   const zone = $('#footerLinks')
