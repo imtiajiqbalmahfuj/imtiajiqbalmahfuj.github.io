@@ -9,7 +9,7 @@ window.SITE = {
     name: "Imtiaj Iqbal Mahfuj",
     subtitle: "GIS · Remote Sensing · Geospatial Data Science (Python, ML)",
     // direct download link provided by you
-    cvDownload: "https://drive.google.com/uc?export=download&id=1m4NPtLqAYePIXoPoFHzlcRXN6vv-IehF",
+    cvDownload: "https://drive.google.com/uc?export=download&id=1R3Xq447-jd4kUdIDuvx3w-xPtnhgDzdC",
     email: "imtiajiqbal.ruet@gmail.com",
     linkedin: "https://www.linkedin.com/in/imtiajiqbalmahfuj/",
     linkTargetId: "footerLinks", // where the chain-link button scrolls
