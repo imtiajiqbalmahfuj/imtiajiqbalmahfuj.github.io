@@ -474,53 +474,43 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#footerLinks')) mountFooter();
   if ($('#services')) mountServices(); // initialize Services section
 
-  // Handle Contact Form Submission
+  // Contact Form
   const form = document.querySelector("#contactForm");
   const sendBtn = document.getElementById("sendBtn");
 
-  if(form){
-    // Create a message element under the form for success/error feedback
-    let formMessage = document.getElementById("formMessage");
-    if(!formMessage){
-      formMessage = document.createElement("p");
-      formMessage.id = "formMessage";
-      formMessage.className = "text-sm text-center mt-2 hidden";
-      form.appendChild(formMessage);
-    }
-
+  if (form && sendBtn) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      formMessage.classList.add("hidden");
-
-      if(sendBtn) sendBtn.disabled = true;
+      sendBtn.disabled = true;
 
       const data = Object.fromEntries(new FormData(form));
 
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwCjAKrHKOl2GtQlJH2GkNp-f7hfnD7eYvKz8tUo4lZPBoocCd_kuPZAhdtjr1arniGBg/exec", {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbwCjAKrHKOl2GtQlJH2GkNp-f7hfnD7eYvKz8tUo4lZPBoocCd_kuPZAhdtjr1arniGBg/exec", {  // <-- replace with your Web App URL
           method: "POST",
           body: JSON.stringify(data),
-          headers: { "Content-Type": "application/json" }
+          headers: { "Content-Type": "application/json;charset=utf-8" }
         });
 
-        if(response.ok){
-          formMessage.textContent = "Message sent! Thank you.";
-          formMessage.className = "text-sm text-center mt-2 text-green-600";
+        const result = await res.json();
+
+        if (result.status === "success") {
+          alert("Message sent! Thank you.");
           form.reset();
         } else {
-          throw new Error("Server error");
+          alert("Oops! Something went wrong: " + result.message);
         }
+
       } catch(err) {
-        formMessage.textContent = "Oops! Something went wrong. Please try again.";
-        formMessage.className = "text-sm text-center mt-2 text-red-600";
+        alert("Oops! Something went wrong. Please try again.");
         console.error(err);
       } finally {
-        if(sendBtn) sendBtn.disabled = false;
-        formMessage.classList.remove("hidden");
+        sendBtn.disabled = false;
       }
     });
   }
 
   if (window.lucide) lucide.createIcons();
 });
+
 
