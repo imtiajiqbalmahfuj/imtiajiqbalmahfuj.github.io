@@ -64,8 +64,16 @@ window.SITE = {
 
   skills: [
     {
-      title: "Hard Skills",
-      items: ["ArcGIS Pro","Remote Sensing","Python","Pandas","GeoPandas","Geemap"]
+      title: "Geo-technical Skills",
+      items: ["ArcGIS Pro"," Google Earth Engine", "QGIS", "Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn"", "PyTorch", "TensorFlow", "JavaScript", "Google Earth", "Envi", "R", "R-Studio" ]
+    },
+    {
+      title: "Technical Skills",
+      items: ["SPSS","Atlas.ti","AutoCAD", "SketchUp", "Twinmotion", "Blender", "Microsoft Office Suite", "GitHub", "HTML"]
+    },
+    {
+      title: "Other Skills",
+      items: ["Academic writing","Public Speaking","UIUX design", "Editing", "Adobe CC", "Figma", "DaVinci Resolve"]
     },
     {
       title: "Soft Skills",
@@ -73,19 +81,15 @@ window.SITE = {
     },
     {
       title: "Languages",
-      items: ["English","Bangla","Hindi"]
-    },
-    {
-      title: "Other Skills",
-      items: ["Public Speaking","Writing","Project Management"]
+      items: ["English (Full Professional Proficiency)","Bangla (Native)","Hindi (Speaking)"]
     }
   ],
 
   counters: [
-    { value: 6, suffix: "+", label: "Research articles" },
-    { value: 20, suffix: "+", label: "Projects" },
-    { value: 15, suffix: "+", label: "Workshops" },
-    { value: 4, suffix: "+", label: "Awards" }
+    { value: 6, label: "Research articles" },
+    { value: 20, label: "Projects" },
+    { value: 15, label: "Workshops" },
+    { value: 4, label: "Awards" }
   ],
 
 
