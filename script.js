@@ -478,42 +478,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector("#contactForm");
   const sendBtn = document.getElementById("sendBtn");
 
-  if(sendBtn){
-    // Click animation: invert colors on press
-    sendBtn.addEventListener("mousedown", () => {
-      sendBtn.classList.remove("bg-black", "text-white");
-      sendBtn.classList.add("bg-white", "text-black");
-    });
-    sendBtn.addEventListener("mouseup", () => {
-      sendBtn.classList.remove("bg-white", "text-black");
-      sendBtn.classList.add("bg-black", "text-white");
-    });
-    sendBtn.addEventListener("mouseleave", () => {
-      sendBtn.classList.remove("bg-white", "text-black");
-      sendBtn.classList.add("bg-black", "text-white");
-    });
-  }
+  if(form){
+    // Create a message element under the form for success/error feedback
+    let formMessage = document.getElementById("formMessage");
+    if(!formMessage){
+      formMessage = document.createElement("p");
+      formMessage.id = "formMessage";
+      formMessage.className = "text-sm text-center mt-2 hidden";
+      form.appendChild(formMessage);
+    }
 
-  if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      // Disable button while sending
+      formMessage.classList.add("hidden");
+
       if(sendBtn) sendBtn.disabled = true;
 
       const data = Object.fromEntries(new FormData(form));
+
       try {
-        await fetch("https://script.google.com/macros/s/AKfycbwV3CAB6paGa66RMftvZKsKgpHxlxjUMf7JUkcxRJfx2oExoK0tOJlmJ3ywH--RBrZ1/exec", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwV3CAB6paGa66RMftvZKsKgpHxlxjUMf7JUkcxRJfx2oExoK0tOJlmJ3ywH--RBrZ1/exec", {
           method: "POST",
           body: JSON.stringify(data),
           headers: { "Content-Type": "application/json" }
         });
-        alert("Message sent! Thank you.");
-        form.reset();
+
+        if(response.ok){
+          formMessage.textContent = "Message sent! Thank you.";
+          formMessage.className = "text-sm text-center mt-2 text-green-600";
+          form.reset();
+        } else {
+          throw new Error("Server error");
+        }
       } catch(err) {
-        alert("Oops! Something went wrong. Please try again.");
+        formMessage.textContent = "Oops! Something went wrong. Please try again.";
+        formMessage.className = "text-sm text-center mt-2 text-red-600";
         console.error(err);
       } finally {
         if(sendBtn) sendBtn.disabled = false;
+        formMessage.classList.remove("hidden");
       }
     });
   }
