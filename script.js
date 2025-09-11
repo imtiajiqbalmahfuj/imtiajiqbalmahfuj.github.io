@@ -210,7 +210,7 @@ function mountAbout(){
   const skillsWrap = $('#skills')
   if (skillsWrap) {
     skillsWrap.innerHTML = window.SITE.skills.map(group => `
-      <div class="mb-2">
+      <div class="mb-0">
         <h3 class="text-lg font-semibold mb-2">${group.title}</h3>
         <div class="flex flex-wrap gap-2">
           ${group.items.map(skill => `
