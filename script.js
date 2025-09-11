@@ -210,7 +210,7 @@ function mountAbout(){
   const skillsWrap = $('#skills')
   if (skillsWrap) {
     skillsWrap.innerHTML = window.SITE.skills.map(group => `
-      <div class="mb-6">
+      <div class="mb-3">
         <h3 class="text-lg font-semibold mb-2">${group.title}</h3>
         <div class="flex flex-wrap gap-2">
           ${group.items.map(skill => `
@@ -223,16 +223,53 @@ function mountAbout(){
     `).join("")
   }
 
-  // Counters Section
-  const counterWrap = $('#aboutCounters')
-  if (counterWrap) {
-    counterWrap.innerHTML = window.SITE.counters.map(c => `
-      <div class="card p-6 bg-white rounded-xl border border-slate-200 text-center">
-        <div class="text-3xl font-bold text-black count-up" data-target="${c.value}">0</div>
-        <div class="mt-2 text-slate-600">${c.label}</div>
-      </div>
-    `).join("")
-    initCounters() // animate the counters
+  // ---- Counters / Stats ----
+  let countersRoot = $('#aboutCounters')
+  if (!countersRoot) {
+    countersRoot = document.createElement('div')
+    countersRoot.id = 'aboutCounters'
+    countersRoot.className = 'grid grid-cols-2 md:grid-cols-4 gap-4 mt-12'
+    $('#about').appendChild(countersRoot)
+  }
+
+  const stats = window.SITE.stats || []
+  countersRoot.innerHTML = stats.map(s=>`
+    <div class="card p-4 bg-white rounded-xl border border-slate-200 text-center">
+      <div class="stat-number text-3xl md:text-4xl font-extrabold" data-value="${s.value}" data-suffix="${s.suffix||''}">0${s.suffix||''}</div>
+      <div class="text-sm text-slate-600 mt-2">${s.label}</div>
+    </div>
+  `).join('')
+
+  // animate counters when visible
+  const statEls = countersRoot.querySelectorAll('.stat-number')
+  if (statEls.length) {
+    const animateCount = (el, to, duration = 1400, suffix='') => {
+      let start = null
+      const step = (ts) => {
+        if (!start) start = ts
+        const progress = Math.min((ts - start) / duration, 1)
+        const current = Math.floor(progress * to)
+        el.textContent = current + suffix
+        if (progress < 1) requestAnimationFrame(step)
+        else el.textContent = to + suffix
+      }
+      requestAnimationFrame(step)
+    }
+
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          statEls.forEach(el => {
+            const to = parseInt(el.dataset.value, 10) || 0
+            const suffix = el.dataset.suffix || ''
+            animateCount(el, to, 1400, suffix)
+          })
+          observer.disconnect()
+        }
+      })
+    }, { threshold: 0.35 })
+
+    obs.observe(countersRoot)
   }
 }
 
