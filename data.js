@@ -13,7 +13,7 @@ window.SITE = {
     email: "imtiajiqbal.ruet@gmail.com",
     linkedin: "https://www.linkedin.com/in/imtiajiqbalmahfuj/",
     linkTargetId: "footerLinks", // where the chain-link button scrolls
-    photo: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbalmahfuj.github.io/refs/heads/main/Assets/Imtiaj%20pic%20git.jpg" // replace with your own later
+    photo: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbalmahfuj.github.io/refs/heads/main/Assets/Imtiaj%20Iqbal%20Formal%20Pic.jpg" // replace with your own later
   },
 
   tickerIcons: [
