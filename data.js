@@ -65,7 +65,7 @@ window.SITE = {
   skills: [
     {
       title: "Geo-technical Skills",
-      items: ["ArcGIS Pro","Google Earth Engine", "QGIS", "Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "Google Earth", "Envi", "R", "R-Studio" ]
+      items: ["ArcGIS Pro","Google Earth Engine", "QGIS", "Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "Google Earth", "Envi", "R", "R-Studio"]
     },
     {
       title: "Technical Skills",
@@ -380,7 +380,7 @@ window.SITE = {
       ],
       github:"#",
       more:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
-    },
+    }
   ],
 
   publications: {
