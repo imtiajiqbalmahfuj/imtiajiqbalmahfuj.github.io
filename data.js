@@ -444,6 +444,14 @@ window.SITE = {
     ]
   },
 
+  services: [
+    { icon: "map", title: "GIS Analysis", description: "Spatial analysis, mapping solutions and visualization." },
+    { icon: "globe", title: "Remote Sensing", description: "Satellite imagery and land use monitoring, change detection, feature extraction and mapping." },
+    { icon: "code", title: "Geospatial Data Science", description: "Machine learning and predictive modeling, environmental monitoring and analysis, interactive visualization and automation." },
+    { icon: "book", title: "Research Support", description: "Manuscript review, data analysis, academic and scientific research support." }
+  ],
+
+
   socials: [
     {label:"LinkedIn", icon:"linkedin", href:"https://www.linkedin.com/in/imtiajiqbalmahfuj/"},
     {label:"ResearchGate", icon:"book-open-check", href:"https://www.researchgate.net/profile/Imtiaj-Mahfuj"},
