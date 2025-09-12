@@ -498,11 +498,11 @@ document.addEventListener('DOMContentLoaded', () => {
           alert("Message sent! Thank you.");
           form.reset();
         } else {
-          alert("Oops! Something went wrong: " + result.message);
+          alert("Oops! Something went wrong: " + result.message + "\n\nFor a prompt response, please contact me via email: imtiajiqbal.ruet@gmai.com");
         }
 
       } catch(err) {
-        alert("Oops! Something went wrong. Please try again.");
+        alert("Oops! Something went wrong. Please try again.\n\nFor a prompt response, please contact me via email: imtiajiqbal.ruet@gmai.com");
         console.error(err);
       } finally {
         sendBtn.disabled = false;
