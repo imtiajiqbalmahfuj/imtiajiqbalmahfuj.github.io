@@ -424,7 +424,7 @@ function mountServices() {
   if (!wrap) return;
 
   wrap.innerHTML = window.SITE.services.map(s => `
-    <div class="p-6 bg-white border border-slate-200 rounded-xl text-center hover:scale-105 transition-transform duration-200 shadow-sm hover:shadow-lg">
+    <div class="p-6 bg-white border border-slate-200 rounded-xl text-center hover:scale-104 transition-transform duration-200 shadow-sm hover:shadow-lg hover-smart">
       <i data-lucide="${s.icon}" class="mx-auto mb-3"></i>
       <h4 class="font-semibold text-lg">${s.title}</h4>
       <p class="text-sm text-gray-600 mt-2">${s.description}</p>
