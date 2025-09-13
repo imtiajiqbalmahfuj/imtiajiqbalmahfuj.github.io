@@ -121,7 +121,7 @@ window.SITE = {
       {
       id:"25011",
       title:"Developing a Composite Soil Quality Index (SQI) for Kushtia District (2024)",
-      tags:["GIS", "Remote Sensing", "URP"],
+      tags:["GIS", "Remote Sensing", "Selected"],
       image:"https://framerusercontent.com/images/lEJroOaLbqiE0sTyjJF4tqUSs.jpg?scale-down-to=2048&width=2550&height=3300",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/main/Projects/25011%20Developing%20a%20Composite%20Soil%20Quality%20Index%20(SQI)%20for%20Kushtia%20District%20(2024)",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_soil-quality-index-sqi-2024-activity-7364734668937596929-IMrF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -129,7 +129,7 @@ window.SITE = {
       {
       id:"25010",
       title:"Tobacco Crop Cultivation Mapping (2005, 2015, 2024) using GEE & Geospatial Python",
-      tags:["GEE", "Spatial Data-Science", "Geospatial Python"],
+      tags:["GEE", "Selected", "Geospatial Python"],
       image:"https://framerusercontent.com/images/XNkXY5w74EQYltXTxYm5nX11YjY.jpg?scale-down-to=2048&width=3000&height=3300",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3807e385f01cedcadc2f2edc9944061dd835d3b6/Projects/25010%20Tobacco%20Crop%20Cultivation%20Mapping%20(2005%2C%202015%2C%202024)%20using%20Geospatial%20Python/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_tobacco-crop-cultivation-in-kushtia-activity-7348439548479143936-kMjA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -145,7 +145,7 @@ window.SITE = {
       {
       id:"25008",
       title:"𝐖𝐚𝐥𝐤𝐚𝐛𝐢𝐥𝐢𝐭𝐲 𝐢𝐧 𝐏𝐮𝐫𝐛𝐚𝐜𝐡𝐚𝐥 𝐍𝐞𝐰 𝐓𝐨𝐰𝐧, 𝐃𝐡𝐚𝐤𝐚 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐈𝐬𝐨𝐜𝐡𝐫𝐨𝐧𝐞 𝐌𝐚𝐩",
-      tags:["Geospatial Python", "Spatial Data-Science", "GIS"],
+      tags:["Geospatial Python", "Selected", "GIS"],
       image:"https://framerusercontent.com/images/KNASAyKK8WxSf0KL6RJA4zjI4.jpg?scale-down-to=1024&width=2338&height=2456",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/f3ef25cecb785d446ec52a94b54fafd2875159fd/Projects/25008%20%F0%9D%90%96%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%A4%F0%9D%90%9A%F0%9D%90%9B%F0%9D%90%A2%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%B2%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%8F%F0%9D%90%AE%F0%9D%90%AB%F0%9D%90%9B%F0%9D%90%9A%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A5%20%F0%9D%90%8D%F0%9D%90%9E%F0%9D%90%B0%20%F0%9D%90%93%F0%9D%90%A8%F0%9D%90%B0%F0%9D%90%A7%2C%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A%20%F0%9D%90%AD%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%AE%F0%9D%90%A0%F0%9D%90%A1%20%F0%9D%90%88%F0%9D%90%AC%F0%9D%90%A8%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%8C%F0%9D%90%9A%F0%9D%90%A9/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-isochrones-activity-7329487108484554752-VxkE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -161,7 +161,7 @@ window.SITE = {
       {
       id:"25006",
       title:"Exploring the streets of Purbachal New Town, Dhaka through Geospatial Python",
-      tags:["Geospatial Python", "Spatial Data-Science", "GIS"],
+      tags:["Geospatial Python", "GIS"],
       image:"https://framerusercontent.com/images/SEBX76Cwgyt2DfSCLWiVm4Ym6o.jpg?scale-down-to=1024&width=2581&height=2433",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/81e03ee9a7ac2c41638b130aa515d49f319a71b5/Projects/25006%20Exploring%20the%20streets%20of%20Purbachal%20New%20Town%2C%20Dhaka%20through%20Geospatial%20Python/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-urbandesign-activity-7322575872517931008-ePnF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -169,7 +169,7 @@ window.SITE = {
       {
       id:"25005",
       title:"Building footprint map of Dhaka (1000–1000 sqm)",
-      tags:["GIS", "Geospatial Python", "Spatial Data-Science"],
+      tags:["GIS", "Geospatial Python"],
       image:"https://framerusercontent.com/images/JO1miT6GC914EfjKiXgKAtTkqU.jpg?scale-down-to=1024&width=3030&height=2346",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/55d129a1446fdcdd0477a81ceba93b7efd184f03/Projects/25005%20Building%20footprint%20map%20of%20Dhaka%20(1000%E2%80%931000%20sqm)/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-remotesensing-activity-7319417744297275393-SgUL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -193,7 +193,7 @@ window.SITE = {
       {
       id:"25002",
       title:"𝐅𝐢𝐫𝐬𝐭 𝐒𝐭𝐞𝐩𝐬 𝐢𝐧𝐭𝐨 𝐆𝐨𝐨𝐠𝐥𝐞 𝐄𝐚𝐫𝐭𝐡 𝐄𝐧𝐠𝐢𝐧𝐞: 𝐀𝐧𝐚𝐥𝐲𝐳𝐢𝐧𝐠 𝐍𝐢𝐠𝐡𝐭𝐭𝐢𝐦𝐞 𝐋𝐢𝐠𝐡𝐭 𝐏𝐨𝐥𝐥𝐮𝐭𝐢𝐨𝐧 (𝐍𝐋𝐏) 𝐢𝐧 𝐃𝐡𝐚𝐤𝐚",
-      tags:["Spatial Data-Science", "GEE", "GIS"],
+      tags:["Selected", "GEE", "GIS"],
       image:"https://framerusercontent.com/images/UzRsHge9uhO4zTAZGrX8IItOlHo.png?width=1919&height=993",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/1a348c49d51c5d315696344972203578cb74ee14/Projects/25002%20%F0%9D%90%85%F0%9D%90%A2%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%92%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%86%F0%9D%90%A8%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%A5%F0%9D%90%9E%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%8D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%20%F0%9D%90%8F%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7%20(%F0%9D%90%8D%F0%9D%90%8B%F0%9D%90%8F)%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_googleearthengine-remotesensing-geospatialanalysis-activity-7294392745370992640-EUjM?utm_source=share&utm_medium=member_desktop"
