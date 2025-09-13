@@ -265,7 +265,7 @@ window.SITE = {
       {
       id:"24008",
       title:"Building Density Map Visualization of Bangladesh",
-      tags:["GIS", "Blender"],
+      tags:["GIS", "Visualization"],
       image:"https://framerusercontent.com/images/U5ENRPvVdpomhh2B3RJJFevSlc.png?width=939&height=944",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/241fc4366d873bf211174abbe0d0e521b6e7a8e5/Projects/24008%20Building%20Density%20Map%20Visualization%20of%20Bangladesh/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_buildings-density-map-of-bangladesh-by-imtiaj-activity-7258214376904523777-zJrI?utm_source=share&utm_medium=member_desktop"
@@ -313,7 +313,7 @@ window.SITE = {
     {
       id:"24002",
       title:"River Network of Bangladesh",
-      tags:["GIS","Blender"],
+      tags:["GIS","Visualization"],
       image:"https://framerusercontent.com/images/tsXW0dLGZRYW0G7D9oib6xEU1Po.png?width=940&height=928",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/bd2f561daf4b39309f1d431d0c6026ccf8dff358/Projects/24002%20River%20Network%20of%20Bangladesh/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-activity-7244168353550852098-V2tA?utm_source=share&utm_medium=member_desktop"
