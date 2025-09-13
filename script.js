@@ -264,15 +264,25 @@ function mountProjectsCarousel() {
   // only projects with images
   const items = (window.SITE.projects || []).filter(p => p.image)
 
-  // tags index
-  const tags = [...new Set(items.flatMap(p => p.tags))]
+  // unique tags
+  const uniqueTags = [...new Set(items.flatMap(p => p.tags))]
+
+  // 🎯 define the order you want
+  const tagOrder = ["GIS", "Remote Sensing", "Urban Planning", "Data Science"]
+
+  // reorder tags: first by tagOrder, then any new tags alphabetically
+  const tags = [
+    ...tagOrder.filter(t => uniqueTags.includes(t)),
+    ...uniqueTags.filter(t => !tagOrder.includes(t)).sort()
+  ]
+
   const tagWrap = $('#projectTags')
 
-  // First add ALL button
+  // First add ALL button (always first)
   tagWrap.insertAdjacentHTML('beforeend',
     `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
 
-  // Then add each unique tag
+  // Then add ordered tags
   tags.forEach(t => tagWrap.insertAdjacentHTML('beforeend',
     `<button data-tag="${t}" class="filter-btn px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`))
 
@@ -323,6 +333,7 @@ function mountProjectsCarousel() {
   $('#projPrev').addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }))
   $('#projNext').addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
 }
+
 
 
 
