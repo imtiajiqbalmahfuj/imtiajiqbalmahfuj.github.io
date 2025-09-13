@@ -49,7 +49,7 @@ window.SITE = {
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
       bullets: [
-        "Town Planning, Transportation Planning, Environmental Science, Disaster Management, GIS and Remote sensing, Cartography, Social & Physical Survey, Landscape Planning, Participatory Rural Appraisal, Project Management and Evaluation",
+        "<u>Relevant course works:</u> Town Planning, Transportation Planning, Environmental Science, Disaster Management, GIS and Remote sensing, Cartography, Social & Physical Survey, Landscape Planning, Participatory Rural Appraisal, Project Management and Evaluation",
         "Class Representative (January 2023 - September 2024)"
     ]
     },
