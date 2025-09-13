@@ -65,7 +65,7 @@ window.SITE = {
   skills: [
     {
       title: "Geo-technical Skills",
-      items: ["ArcGIS Pro","Google Earth Engine", "QGIS", "Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "Google Earth", "Envi", "R", "R-Studio"]
+      items: ["ArcGIS Pro","Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Google Earth Engine","Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "QGIS", "Google Earth", "Envi", "R", "R-Studio"]
     },
     {
       title: "Technical Skills",
