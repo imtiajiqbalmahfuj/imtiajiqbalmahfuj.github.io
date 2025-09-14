@@ -208,14 +208,22 @@ function mountAbout(){
   
   
   // Research Interests
-  const researchWrap = $('#researchInterests')
+  const researchWrap = $('#research')
   if (researchWrap) {
-    researchWrap.innerHTML = window.SITE.research.map(ri => `
-      <button class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-lg hover:scale-[1.03] transition-transform duration-200 hover-smart">
-        ${ri}
-      </button>
-    `).join("")
+    researchWrap.innerHTML = `
+      <div class="mb-0">
+        <h3 class="text-lg font-semibold mb-2">Research Interests</h3>
+        <div class="flex flex-wrap gap-2">
+          ${window.SITE.about.research.map(item => `
+            <button class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">
+              ${item}
+            </button>
+          `).join("")}
+        </div>
+      </div>
+    `
   }
+
   
   
   // Skills (Flexible categories)
