@@ -67,13 +67,11 @@ window.SITE = {
   research: {
     title: "Research Interests", // will be displayed as header
     items: [
-      "Sustainable Urban Planning",
-      "Geospatial Analysis",
-      "Machine Learning for Urban Data",
-      "Remote Sensing",
-      "GIS Modeling",
-      "Urban Resilience",
-      "Visualization & Mapping"
+      "GIS & Remote Sensing",
+      "Geospatial Data Science (Python, GEE, ML, GeoAI)",
+      "Environmental Monitoring",
+      "Climate Change & Disaster Risk Analysis",
+      "Urban Analytics & Planning"
     ]
   },
   
