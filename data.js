@@ -62,6 +62,16 @@ window.SITE = {
     }
   ],
 
+  
+  research: [
+    "GIS & Remote Sensing",
+    "Geospatial Data Science (Python, GEE, ML, GeoAI)",
+    "Environmental Monitoring",
+    "Climate Change & Disaster Risk Analysis",
+    "Data-driven Urban and Regional Planning"
+  ],
+  
+  
   skills: [
     {
       title: "Geo-technical Skills",
