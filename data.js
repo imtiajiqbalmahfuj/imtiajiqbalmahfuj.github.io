@@ -69,8 +69,8 @@ window.SITE = {
     items: [
       "GIS & Remote Sensing",
       "Geospatial Data Science (Python, GEE, ML, GeoAI)",
-      "Environmental Monitoring",
       "Climate Change & Disaster Risk Analysis",
+      "Environmental Monitoring",
       "Urban Analytics & Planning"
     ]
   },
