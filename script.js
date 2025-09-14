@@ -207,14 +207,14 @@ function mountAbout(){
   `).join('')
   
   
-  // Research Interests
+  // Research Interests (works just like Skills)
   const researchWrap = $('#research')
   if (researchWrap) {
     researchWrap.innerHTML = `
       <div class="mb-0">
-        <h3 class="text-lg font-semibold mb-2">Research Interests</h3>
+        <h3 class="text-lg font-semibold mb-2">${window.SITE.research.title}</h3>
         <div class="flex flex-wrap gap-2">
-          ${window.SITE.about.research.map(item => `
+          ${window.SITE.research.items.map(item => `
             <button class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">
               ${item}
             </button>
