@@ -205,7 +205,19 @@ function mountAbout(){
       </div>
     </div>
   `).join('')
-
+  
+  
+  // Research Interests
+  const researchWrap = $('#researchInterests')
+  if (researchWrap) {
+    researchWrap.innerHTML = window.SITE.research.map(ri => `
+      <button class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-lg hover:scale-[1.03] transition-transform duration-200 hover-smart">
+        ${ri}
+      </button>
+    `).join("")
+  }
+  
+  
   // Skills (Flexible categories)
   const skillsWrap = $('#skills')
   if (skillsWrap) {
