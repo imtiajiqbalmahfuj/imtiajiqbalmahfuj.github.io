@@ -44,7 +44,7 @@ window.SITE = {
   education: [
     {
       title: "Rajshahi University of Engineering & Technology",
-      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.78/4.00",
+      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.78/4.00 (Class rank 6; Top 10%)",
       date: "Dec 2022 – Present",
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
@@ -63,18 +63,19 @@ window.SITE = {
   ],
 
   
-  research: [
-    {
-      title: "Research Interests",
-      items: [
-        "GIS & Remote Sensing",
-        "Geospatial Data Science (Python, GEE, ML, GeoAI)",
-        "Environmental Monitoring",
-        "Climate Change & Disaster Risk Analysis", 
-        "Data-driven Urban and Regional Planning"
-      ]
-    }
-  ],
+  // <-- RESEARCH INTERESTS SECTION -->
+  research: {
+    title: "Research Interests", // will be displayed as header
+    items: [
+      "Sustainable Urban Planning",
+      "Geospatial Analysis",
+      "Machine Learning for Urban Data",
+      "Remote Sensing",
+      "GIS Modeling",
+      "Urban Resilience",
+      "Visualization & Mapping"
+    ]
+  },
   
   
   skills: [
