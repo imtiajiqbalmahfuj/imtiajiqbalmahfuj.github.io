@@ -134,7 +134,7 @@ window.SITE = {
     }, 
       {
       id:"25013",
-      title:"Global spread of COVID-19 over time",
+      title:"Global spread of COVID-19 over time using Geospatial Python",
       tags:["Geospatial Python", "GIS"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time/Dynamic%20COVID%2019%20Map%20small.gif",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/87e2742398918479f509ea2311a398962dd9dbd6/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time",
