@@ -125,13 +125,13 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
-    },  
+      id:"25014",
+      title:"World’s Carbon Dioxide Emissions 2018 Using Geospatial Python",
+      tags:["Geospatial Python", "GIS"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python/Exports/_co2_emissions_final_map.png",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/3425bc3f9ac472b7c3446eda2c3460b81714bc86/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_visualizing-global-co%E2%82%82-emissions-2018-activity-7373666235596619776-gEkj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+    }, 
       {
       id:"25013",
       title:"Global spread of COVID-19 over time",
