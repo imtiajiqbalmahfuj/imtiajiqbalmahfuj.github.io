@@ -159,7 +159,7 @@ window.SITE = {
     {
       id:"25000",
       title:"",
-      tags:["Geospatial Python", "GIS"],
+      tags:[""],
       image:"",
       github:"",
       details:""
@@ -168,7 +168,7 @@ window.SITE = {
       id:"25015",
       title:"Automated Wind Flow Visualization Over Bangladesh Using Python",
       tags:["Geospatial Python", "GIS", "Visualization"],
-      image:"https://drive.google.com/uc?export=view&id=1oRr8xJxIHGHKTpCMYZtcA0ZBAQiFUS1V",
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines-0000.jpg",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/ed571bdefc805750ccb39e46b3d7e86d97f81cef/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_era5abr10m-xarray-netcdf4-activity-7374184762648875010-rTvb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
