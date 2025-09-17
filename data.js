@@ -125,6 +125,54 @@ window.SITE = {
       details:""
     },
     {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:["Geospatial Python", "GIS"],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25015",
+      title:"Automated Wind Flow Visualization Over Bangladesh Using Python",
+      tags:[""],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines_small.gif",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/ed571bdefc805750ccb39e46b3d7e86d97f81cef/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_era5abr10m-xarray-netcdf4-activity-7374184762648875010-rTvb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+    },
+    {
       id:"25014",
       title:"World’s Carbon Dioxide Emissions 2018 Using Geospatial Python",
       tags:["Geospatial Python", "GIS"],
