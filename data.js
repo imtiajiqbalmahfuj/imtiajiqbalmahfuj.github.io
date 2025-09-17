@@ -167,15 +167,15 @@ window.SITE = {
     {
       id:"25015",
       title:"Automated Wind Flow Visualization Over Bangladesh Using Python",
-      tags:[""],
-      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines_small.gif",
+      tags:["Geospatial Python", "GIS", "Visualization"],
+      image:"https://drive.google.com/uc?export=view&id=1oRr8xJxIHGHKTpCMYZtcA0ZBAQiFUS1V",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/ed571bdefc805750ccb39e46b3d7e86d97f81cef/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_era5abr10m-xarray-netcdf4-activity-7374184762648875010-rTvb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
     {
       id:"25014",
       title:"World’s Carbon Dioxide Emissions 2018 Using Geospatial Python",
-      tags:["Geospatial Python", "GIS"],
+      tags:["Geospatial Python", "GIS", "Visualization"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python/Exports/_co2_emissions_final_map.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/3425bc3f9ac472b7c3446eda2c3460b81714bc86/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_visualizing-global-co%E2%82%82-emissions-2018-activity-7373666235596619776-gEkj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -183,7 +183,7 @@ window.SITE = {
       {
       id:"25013",
       title:"Global spread of COVID-19 over time using Geospatial Python",
-      tags:["Geospatial Python", "GIS"],
+      tags:["Geospatial Python", "GIS", "Visualization"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time/Dynamic%20COVID%2019%20Map%20small.gif",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/87e2742398918479f509ea2311a398962dd9dbd6/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_johnsabrhopkins-activity-7373465359313649666-vE4t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
