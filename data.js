@@ -416,20 +416,9 @@ window.SITE = {
 
   experiences: [
     {
-      org:"Dialogue on Climate Security <br> Space & Environment Research Center (SERC)",
-      role:"Research Project Associate",
-      date:"May 2025 - Present ",
-      location:"Rajshahi, Bangladesh",
-      bullets:[
-        "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
-      ],
-      github:"#",
-      more:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_space-and-environment-research-center-serc-activity-7304751946974842880-psAE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
-    },
-    {
       org:"Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
       role:"Undergraduate Research Assistant",
-      date:"April 2025 - Present",
+      date:"April 2025 - September 2025",
       location:"Rajshahi, Bangladesh",
       bullets:[
         "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Supervisor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Fuzzy AHP Analysis, Community-Based Research, Research Skills, Academic writing"
@@ -443,7 +432,8 @@ window.SITE = {
       date:"March 2025 - September 2025",
       location:"Rajshahi, Bangladesh",
       bullets:[
-        "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC)"
+        "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC)",
+        "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
       ],
       github:"#",
       more:"https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link"
@@ -451,7 +441,7 @@ window.SITE = {
     {
       org:"Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
       role:"Undergraduate Research Assistant",
-      date:"April 2025 - Present",
+      date:"August 2025 - February 2025",
       location:"Rajshahi, Bangladesh",
       bullets:[
         "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Team Leadership, Academic writing"
