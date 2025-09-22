@@ -149,17 +149,17 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25017",
+      title:"Global forest map using Python",
+      tags:["Remote Sensing", "Geospatial Python", "Visualization"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25017%20Global%20forest%20map/Global%20forest%20map.png",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/a0459eab451629257d9e04ba68ef9b0600212279/Projects/25017%20Global%20forest%20map",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_forest-activity-7375962081419964417-WTSE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
     {
       id:"25016",
       title:"Global Flight Routes & Airport Network",
-      tags:["GIS", "Geospatial Python"],
+      tags:["GIS", "Geospatial Python", "Visualization"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map/Global_Airport_Routes_Final.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/f1f0ed9482327d78e0d2d99cc812f0e153123add/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_globalairportroutes-activity-7374846086340870144-TQzD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
