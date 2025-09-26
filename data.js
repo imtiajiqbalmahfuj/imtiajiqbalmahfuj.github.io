@@ -144,7 +144,7 @@ window.SITE = {
       id:"25018",
       title:"Global Distribution of Billionaires (2024)",
       tags:["Geospatial Python", "Visualization"],
-      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)/billionaires_map.png",
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)/billionaires_map_edge.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/461e28f2ba73691bcac8c2f256ccfd7a319fcebc/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_billionairesmap-activity-7377438313575567360-oxpO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
