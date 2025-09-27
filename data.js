@@ -143,7 +143,7 @@ window.SITE = {
     {
       id:"25018",
       title:"Global Distribution of Billionaires (2024)",
-      tags:["Geospatial Python", "Visualization"],
+      tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)/billionaires_map.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/461e28f2ba73691bcac8c2f256ccfd7a319fcebc/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_billionairesmap-activity-7377438313575567360-oxpO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -151,7 +151,7 @@ window.SITE = {
     {
       id:"25017",
       title:"Global forest map using Python",
-      tags:["Remote Sensing", "Geospatial Python", "Visualization"],
+      tags:["Remote Sensing", "Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25017%20Global%20forest%20map/Global%20forest%20map.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/d8c4ac63e47e1f6c454adedfbde469b7dbe8e9d2/Projects/25017%20Global%20forest%20map",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_forest-activity-7375962081419964417-WTSE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -159,7 +159,7 @@ window.SITE = {
     {
       id:"25016",
       title:"Global Flight Routes & Airport Network",
-      tags:["GIS", "Geospatial Python", "Visualization"],
+      tags:["GIS", "Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map/Global_Airport_Routes_Final.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/f1f0ed9482327d78e0d2d99cc812f0e153123add/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_globalairportroutes-activity-7374846086340870144-TQzD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -167,7 +167,7 @@ window.SITE = {
     {
       id:"25015",
       title:"Automated Wind Flow Visualization Over Bangladesh Using Python",
-      tags:["Geospatial Python", "GIS", "Visualization"],
+      tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines-0000.jpg",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/ed571bdefc805750ccb39e46b3d7e86d97f81cef/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_era5abr10m-xarray-netcdf4-activity-7374184762648875010-rTvb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -175,7 +175,7 @@ window.SITE = {
     {
       id:"25014",
       title:"World’s Carbon Dioxide Emissions 2018 Using Geospatial Python",
-      tags:["Geospatial Python", "GIS", "Visualization"],
+      tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python/Exports/_co2_emissions_final_map.png",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/3425bc3f9ac472b7c3446eda2c3460b81714bc86/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_visualizing-global-co%E2%82%82-emissions-2018-activity-7373666235596619776-gEkj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -183,7 +183,7 @@ window.SITE = {
       {
       id:"25013",
       title:"Global spread of COVID-19 over time using Geospatial Python",
-      tags:["Geospatial Python", "GIS", "Visualization"],
+      tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time/Dynamic%20COVID%2019%20Map%20small.gif",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/87e2742398918479f509ea2311a398962dd9dbd6/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_johnsabrhopkins-activity-7373465359313649666-vE4t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
@@ -343,7 +343,7 @@ window.SITE = {
       {
       id:"24008",
       title:"Building Density Map Visualization of Bangladesh",
-      tags:["GIS", "Visualization"],
+      tags:["GIS", "GeoViz"],
       image:"https://framerusercontent.com/images/U5ENRPvVdpomhh2B3RJJFevSlc.png?width=939&height=944",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/241fc4366d873bf211174abbe0d0e521b6e7a8e5/Projects/24008%20Building%20Density%20Map%20Visualization%20of%20Bangladesh/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_buildings-density-map-of-bangladesh-by-imtiaj-activity-7258214376904523777-zJrI?utm_source=share&utm_medium=member_desktop"
@@ -391,7 +391,7 @@ window.SITE = {
     {
       id:"24002",
       title:"River Network of Bangladesh",
-      tags:["GIS","Visualization"],
+      tags:["GIS","GeoViz"],
       image:"https://framerusercontent.com/images/tsXW0dLGZRYW0G7D9oib6xEU1Po.png?width=940&height=928",
       github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/bd2f561daf4b39309f1d431d0c6026ccf8dff358/Projects/24002%20River%20Network%20of%20Bangladesh/README.md",
       details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-activity-7244168353550852098-V2tA?utm_source=share&utm_medium=member_desktop"
