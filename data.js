@@ -137,7 +137,7 @@ window.SITE = {
       title:"Advanced AHP Calculator for Operations Research",
       tags:["Operations Research", "URP", "Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit/Screenshot%202025-09-28%20035156.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/f43e7cb412f07635e65f315bfddf4f57d0f791cb/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/bbc87c91abab488d6aaf4e6e610f26fc25190ae3/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit",
       details:"https://imtiajiqbalmahfuj-ahp-calculator.streamlit.app/"
     },
     {
