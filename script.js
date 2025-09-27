@@ -288,7 +288,7 @@ function mountProjectsCarousel() {
   const uniqueTags = [...new Set(items.flatMap(p => p.tags))]
 
   // 🎯 define the order you want
-  const tagOrder = ["Selected", "GIS", "Geospatial Python", "GEE", "ML", "Remote Sensing", "URP", "Visualization", "Others"]
+  const tagOrder = ["Selected", "GIS", "Geospatial Python", "GEE", "ML", "Remote Sensing", "URP", "GeoViz", "Operations Research", "Others"]
 
   // reorder tags: first by tagOrder, then any new tags alphabetically
   const tags = [
