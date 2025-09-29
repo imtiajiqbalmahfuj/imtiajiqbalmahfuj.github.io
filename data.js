@@ -136,8 +136,8 @@ window.SITE = {
       id:"25019.1",
       title:"Multifunctional AHP & Fuzzy AHP Calculator for OR",
       tags:["Operations Research", "URP", "Others"],
-      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit/Screenshot%202025-09-28%20035156.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/bbc87c91abab488d6aaf4e6e610f26fc25190ae3/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit",
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit/ahpfahpss.png",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/a435fdcda00c6c7ef08ddfac34aef466bf9619cb/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit",
       details:"https://ahp-fahp-calculator-imtiajiqbalmahfuj.streamlit.app/"
     },    
     {
