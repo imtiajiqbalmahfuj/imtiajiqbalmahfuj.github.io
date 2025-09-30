@@ -125,12 +125,12 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25020",
+      title:"Global Air & Sea Connectivity",
+      tags:["Geospatial Python", "GeoViz"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25020%20Global%20Air%20%26%20Sea%20Connectivity/Global_ShippingLanes_Flights_w.png",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/b8e5c51176d0e8738d6c8162d335c4c85f30b6b8/Projects/25020%20Global%20Air%20%26%20Sea%20Connectivity/README.md",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_global-air-sea-connectivity-activity-7378752270555029518-JKjr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
     {
       id:"25019.1",
