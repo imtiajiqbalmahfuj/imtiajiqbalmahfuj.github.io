@@ -492,6 +492,7 @@ window.SITE = {
     ],
     licenses:[
       { title:"Machine Learning with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"Processing" },
+      { title:"Cartography", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/68bf5590195e097ac69c7e26/-360", date:"October 2025" },
       { title:"Urban Analytics with Python", tags:["Milan Janosov","Udemy"], link:"https://www.udemy.com/certificate/UC-2bd65b43-8c77-4147-b628-58f08e44f40e/", date:"September 2025" },
       { title:"Getting Started with Data Management", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6762b7a37627260013b8cd16/-360", date:"September 2025" },
       { title:"Python for Everyone", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6831b49dd36e6d3bfe727db6/-360", date:"September 2025" },
