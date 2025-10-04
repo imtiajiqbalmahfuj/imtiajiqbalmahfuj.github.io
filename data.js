@@ -125,6 +125,38 @@ window.SITE = {
       details:""
     },
     {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25021",
+      title:"Global Risk Index 2025",
+      tags:["Geospatial Python", "GeoViz"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25021%20Risk%20Index%202025%20INFORM/Global%20Risk%20Index%202025.png",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/1da7d92bb402f81ddd90e8853614d1b10be787a4/Projects/25021%20Risk%20Index%202025%20INFORM",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_can-you-spot-which-regions-are-most-at-risk-activity-7380147740376440832-OBwS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+    },
+    {
       id:"25020",
       title:"Global Air & Sea Connectivity",
       tags:["Geospatial Python", "GeoViz"],
