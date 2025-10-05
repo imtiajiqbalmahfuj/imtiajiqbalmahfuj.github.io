@@ -141,12 +141,12 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25022",
+      title:"Climate Change Risk Index 2022",
+      tags:["Geospatial Python", "GeoViz"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25022%20Climate%20Change%20Risk%20Index%202022/Climate%20Change%20Risk%20Index%202022.png",
+      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/1bd7ed5a35cd5bd402e6c3258025f7430928d3dc/Projects/25022%20Climate%20Change%20Risk%20Index%202022",
+      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_ive-created-a-new-map-titled-global-climate-activity-7380574038110212096-te7C?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
     {
       id:"25021",
