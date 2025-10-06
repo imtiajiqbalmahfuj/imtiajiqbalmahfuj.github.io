@@ -454,42 +454,46 @@ window.SITE = {
     }
   ],
 
-  experiences: [
-    {
-      org:"Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
-      role:"Undergraduate Research Assistant",
-      date:"April 2025 - September 2025",
-      location:"Rajshahi, Bangladesh",
-      bullets:[
-        "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Supervisor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Fuzzy AHP Analysis, Community-Based Research, Research Skills, Academic writing"
-      ],
-      github:"#",
-      more:"https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing"
-    },
-    {
-      org:"Aeronautics and Space Applications Division <br> Space & Environment Research Center (SERC)",
-      role:"Program Executive",
-      date:"March 2025 - September 2025",
-      location:"Rajshahi, Bangladesh",
-      bullets:[
-        "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC)",
-        "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
-      ],
-      github:"https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link",
-      more:"https://www.linkedin.com/posts/sercbd_remotesensing-spaceexploration-disastermanagement-activity-7307613299204861953-dFkB?utm_source=share&utm_medium=member_android&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
-    },
-    {
-      org:"Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
-      role:"Undergraduate Research Assistant",
-      date:"August 2025 - February 2025",
-      location:"Rajshahi, Bangladesh",
-      bullets:[
-        "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Team Leadership, Academic writing"
-      ],
-      github:"#",
-      more:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
-    }
-  ],
+  experiences: {
+    recentLimit: 5, // number of items to show on home page
+    items: [
+      {
+        org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
+        role: "Undergraduate Research Assistant",
+        date: "April 2025 - September 2025",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Supervisor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Fuzzy AHP Analysis, Community-Based Research, Research Skills, Academic writing"
+        ],
+        github: "#",
+        more: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing"
+      },
+      {
+        org: "Aeronautics and Space Applications Division <br> Space & Environment Research Center (SERC)",
+        role: "Program Executive",
+        date: "March 2025 - September 2025",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC)",
+          "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
+        ],
+        github: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link",
+        more: "https://www.linkedin.com/posts/sercbd_remotesensing-spaceexploration-disastermanagement-activity-7307613299204861953-dFkB?utm_source=share&utm_medium=member_android&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      },
+      {
+        org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
+        role: "Undergraduate Research Assistant",
+        date: "August 2025 - February 2025",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Team Leadership, Academic writing"
+        ],
+        github: "#",
+        more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      }
+    ]
+  }
+
 
   publications: {
     recentLimit: 5,
@@ -516,19 +520,19 @@ window.SITE = {
 
   achievements: {
     fellowships:[
-      { title:"Awarded <b>2nd place</b> at 'Youth's Thought in Sustainable Urban Planning - 2025' <br> <u>Awarded by:</u> Urban Development Directorate (UDD), <br> Ministry of Housing and Public Work, Government of the People's Republic of Bangladesh <br> <u>Project Title:</u> The Economic Utilization of the Karnaphuli Tunnel with a Balanced Approach to Economic Growth and Ecological Preservation ", tags:["Award"], link:"https://drive.google.com/file/d/1qa5tKswPKRd8hHw_OqSdBYDdT8r1zg89/view", date:"May 2025 <br> Dhaka, Bangladesh" },
-      { title:"Shortlisted within the <b>Top 10</b> at 'Innovative Ideas Presentation competition - 2024' <br> <u>Awarded by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Project Title:</u> Revolutionizing Waste Management in Rajshahi City Corporation: A Technological Solution for Enhanced Recycling and Community Engagement", tags:["Award"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_excited-to-share-that-we-were-shortlisted-activity-7268896507947343872-a74m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"December 2024 <br> Dhaka, Bangladesh" }
+      { title:"Awarded <b>2nd place</b> at 'Youth's Thought in Sustainable Urban Planning - 2025' <br> <u>Awarded by:</u> Urban Development Directorate (UDD), <br> Ministry of Housing and Public Work, Government of the People's Republic of Bangladesh <br> <u>Project Title:</u> The Economic Utilization of the Karnaphuli Tunnel with a Balanced Approach to Economic Growth and Ecological Preservation ", tags:["Award"], link:"https://drive.google.com/file/d/1qa5tKswPKRd8hHw_OqSdBYDdT8r1zg89/view", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
+      { title:"Shortlisted within the <b>Top 10</b> at 'Innovative Ideas Presentation competition - 2024' <br> <u>Awarded by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Project Title:</u> Revolutionizing Waste Management in Rajshahi City Corporation: A Technological Solution for Enhanced Recycling and Community Engagement", tags:["Award"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_excited-to-share-that-we-were-shortlisted-activity-7268896507947343872-a74m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"December 2024 <br> Dhaka, Bangladesh", featured: true }
     ],
     awardsAndGrants:[
       { title:"UDD Bangladesh — Research Grant (2nd place idea)", tags:["Grant"], link:"#", date:"May 2025" }
     ],
     licenses:[
-      { title:"Machine Learning with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"Processing" },
+      { title:"Machine Learning with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"Processing", featured: true },
       { title:"Cartography", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/68bf5590195e097ac69c7e26/-360", date:"October 2025" },
-      { title:"Urban Analytics with Python", tags:["Milan Janosov","Udemy"], link:"https://www.udemy.com/certificate/UC-2bd65b43-8c77-4147-b628-58f08e44f40e/", date:"September 2025" },
+      { title:"Urban Analytics with Python", tags:["Milan Janosov","Udemy"], link:"https://www.udemy.com/certificate/UC-2bd65b43-8c77-4147-b628-58f08e44f40e/", date:"September 2025", featured: true },
       { title:"Getting Started with Data Management", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6762b7a37627260013b8cd16/-360", date:"September 2025" },
       { title:"Python for Everyone", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6831b49dd36e6d3bfe727db6/-360", date:"September 2025" },
-      { title:"Advanced Archaeological Remote Sensing: Site Prospection, Landscape Archaeology and Heritage Protection in the Middle East and North Africa", tags:["Durham University","British Council"], link:"https://www.futurelearn.com/certificates/8dwx976", date:"June 2025" },
+      { title:"Advanced Archaeological Remote Sensing: Site Prospection, Landscape Archaeology and Heritage Protection in the Middle East and North Africa", tags:["Durham University","British Council"], link:"https://www.futurelearn.com/certificates/8dwx976", date:"June 2025", featured: true },
       { title:"Data Analysis with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/UF42XT57WUCQ", date:"June 2025" },
       { title:"Data Visualization with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"June 2025" },
       { title:"Nature-based Solutions for Disaster and Climate Resilience", tags:["United Nations Environment Programme (UNEP)","SDG Academy"], link:"https://drive.google.com/file/d/1dNqVKfIWYelM-HInc9u0_9DHQwqE2sIe/view?usp=sharing", date:"June 2025" },
@@ -536,17 +540,17 @@ window.SITE = {
       { title:"Google UX Design Specialization", tags:["Google","Coursera"], link:"https://www.coursera.org/account/accomplishments/specialization/ATVPA55PTE8K", date:"March 2024" }
     ],
     workshops:[
-      { title:"Conducted a Workshop on 'An Introduction to GIS & Remote Sensing' <br> <u>Organized by:</u> RUET GIS Club <br> In Association with Department of Urban & Regional Planning, RUET", tags:["Workshop"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Rajshahi, Bangladesh" },
-      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> Redesigning Karwan Bazar MRT Station as a Transit- Oriented Development (TOD) Neighborhood: A Mixed Land Use Approach", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh" },
-      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> A REMOTE SENSING-BASED ANALYSIS OF NIGHTTIME LIGHT POLLUTION AND ITS REGIONAL SPILLOVER EFFECTS IN DHAKA", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh" },
-      { title:"Workshop on 'Elevate Your Insights: Drone Based Data Collection & Processing' <br> <u>Organized by:</u> Department of Urban & Regional Planning, RUET <br> In Association with RUET GIS Club & Conducted by: Tiller ", tags:["Workshop"], link:"https://drive.google.com/file/d/1G5fpXkHi51N4qJqWpowScm9nw3e-39md/view", date:"December 2024 <br> Rajshahi, Bangladesh" }
+      { title:"Conducted a Workshop on 'An Introduction to GIS & Remote Sensing' <br> <u>Organized by:</u> RUET GIS Club <br> In Association with Department of Urban & Regional Planning, RUET", tags:["Workshop"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Rajshahi, Bangladesh", featured: true },
+      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> Redesigning Karwan Bazar MRT Station as a Transit- Oriented Development (TOD) Neighborhood: A Mixed Land Use Approach", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
+      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> A REMOTE SENSING-BASED ANALYSIS OF NIGHTTIME LIGHT POLLUTION AND ITS REGIONAL SPILLOVER EFFECTS IN DHAKA", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
+      { title:"Workshop on 'Elevate Your Insights: Drone Based Data Collection & Processing' <br> <u>Organized by:</u> Department of Urban & Regional Planning, RUET <br> In Association with RUET GIS Club & Conducted by: Tiller ", tags:["Workshop"], link:"https://drive.google.com/file/d/1G5fpXkHi51N4qJqWpowScm9nw3e-39md/view", date:"December 2024 <br> Rajshahi, Bangladesh", featured: true }
     ],
     volunteering:[
-      { title:"General Secretary — RUET GIS Club <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_im-happy-to-share-that-ive-been-promoted-activity-7349312973884055552-bb-R?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"July 2025 - Present <br> Rajshai, Bangladesh " },
+      { title:"General Secretary — RUET GIS Club <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_im-happy-to-share-that-ive-been-promoted-activity-7349312973884055552-bb-R?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"July 2025 - Present <br> Rajshai, Bangladesh ", featured: true },
       { title:"Volunteer, Disaster Management & Risk Reduction Department — Space and Environment Research Center <br> Volunteer ID: SERC-V20250308", tags:["Research & Projects"], link:"https://www.linkedin.com/posts/sercbd_remotesensing-spaceexploration-disastermanagement-activity-7307613299204861953-dFkB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"March 2025 - Present <br> Rajshai, Bangladesh " },
       { title:"Assistant Graphics and Design Secretary — RUET GIS Club <br> Rajshahi University of Engineering & Technology", tags:["Team work"], link:"https://drive.google.com/file/d/1YWrL9wBppdPBm2kutxmpX8P0ppi8zyWg/view?usp=drivesdk", date:"June 2024 - July 2025 <br> Rajshai, Bangladesh " },
-      { title:"Executive Producer — TEDxRUET <br> Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", date:"August 2024 - February 2025 <br> Rajshai, Bangladesh " },
-      { title:"Class Representative — Department of Urban & Regional Planning <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshai, Bangladesh " },
+      { title:"Executive Producer — TEDxRUET <br> Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", date:"August 2024 - February 2025 <br> Rajshai, Bangladesh ", featured: true },
+      { title:"Class Representative — Department of Urban & Regional Planning <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshai, Bangladesh ", featured: true },
       { title:"Prefect <br> St. Joseph Higher Secondary School", tags:["Leadership"], link:"", date:"July 2019 - January 2021 <br> Dhaka, Bangladesh " },
       { title:"Corresponding Secretary, Josephite Math Mania, 2020 — Josephite Math Club <br> St. Joseph Higher Secondary School", tags:["Team management"], link:"", date:"December 2019 - January 2021 <br> Rajshai, Bangladesh " },
       { title:"Trainee & volunteer <br> Bangladesh Red Crescent Society (BDRCS)", tags:["Leadership"], link:"https://drive.google.com/file/d/11LHMQYZD6FQ_HXSaHmDgFZxfRr2aCtmQ/view?usp=drive_link", date:"September 2017 - January 2019 <br> Barguna, Bangladesh " }
