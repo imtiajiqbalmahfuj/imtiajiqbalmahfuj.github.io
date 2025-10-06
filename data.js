@@ -68,7 +68,7 @@ window.SITE = {
     title: "Research Interests", // will be displayed as header
     items: [
       "GIS & Remote Sensing",
-      "Geospatial Data Science (Python, GEE, ML, GeoAI)",
+      "Geospatial Data Science (Python, GEE, GeoAI/ML)",
       "Climate Change & Disaster Risk Analysis",
       "Environmental Monitoring",
       "Urban Analytics & Planning"
