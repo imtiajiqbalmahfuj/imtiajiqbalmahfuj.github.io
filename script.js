@@ -445,7 +445,7 @@ function mountAchievementsPreview(){
   const A = window.SITE.achievements
   wrap.innerHTML = [
     renderCard(A.fellowships, "Fellowships, Awards & Research Grants"),
-    renderCard(A.licenses, "Licenses & Certifications"),
+    renderCard(A.licenses, "License & Certifications"),
     renderCard(A.workshops, "Workshops & Presentations"),
     renderCard(A.volunteering, "Leadership & Volunteering Experience")
   ].join('')
