@@ -310,11 +310,11 @@ window.SITE = {
     },  
       {
       id:"25002",
-      title:"𝐀𝐧𝐚𝐥𝐲𝐳𝐢𝐧𝐠 𝐍𝐢𝐠𝐡𝐭𝐭𝐢𝐦𝐞 𝐋𝐢𝐠𝐡𝐭 𝐏𝐨𝐥𝐥𝐮𝐭𝐢𝐨𝐧 (𝐍𝐋𝐏) 𝐢𝐧 𝐃𝐡𝐚𝐤𝐚 𝐢𝐧 𝐆𝐨𝐨𝐠𝐥𝐞 𝐄𝐚𝐫𝐭𝐡 𝐄𝐧𝐠𝐢𝐧𝐞 (JS)",
+      title:"A Remote Sensing-Based Analysis of Nighttime Light Pollution and Its Regional Spillover Effects in Dhaka",
       tags:["Selected", "GEE", "GIS"],
-      image:"https://framerusercontent.com/images/UzRsHge9uhO4zTAZGrX8IItOlHo.png?width=1919&height=993",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/1a348c49d51c5d315696344972203578cb74ee14/Projects/25002%20%F0%9D%90%85%F0%9D%90%A2%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%92%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%86%F0%9D%90%A8%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%A5%F0%9D%90%9E%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%8D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%20%F0%9D%90%8F%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7%20(%F0%9D%90%8D%F0%9D%90%8B%F0%9D%90%8F)%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_googleearthengine-remotesensing-geospatialanalysis-activity-7294392745370992640-EUjM?utm_source=share&utm_medium=member_desktop"
+      image:"https://github-production-user-asset-6210df.s3.amazonaws.com/228228363/497773134-f8394351-f645-43d4-b328-c102109e78b2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251006%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251006T114529Z&X-Amz-Expires=300&X-Amz-Signature=06265b1845ee7bff1f27eddeb7c4677e04d93536a73cf44f6e83b1a2e4503ad0&X-Amz-SignedHeaders=host",
+      github:"https://github-production-user-asset-6210df.s3.amazonaws.com/228228363/497773134-f8394351-f645-43d4-b328-c102109e78b2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251006%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251006T114529Z&X-Amz-Expires=300&X-Amz-Signature=06265b1845ee7bff1f27eddeb7c4677e04d93536a73cf44f6e83b1a2e4503ad0&X-Amz-SignedHeaders=host",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25002_A_Remote_Sensing-Based_Analysis_of_Nighttime_Light_Pollution_and_Its_Regional_Spillover_Effects_in_Dhaka.html"
     },  
       {
       id:"25001",
