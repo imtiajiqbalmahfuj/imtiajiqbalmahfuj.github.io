@@ -441,8 +441,8 @@ window.SITE = {
       title:"An Imaginary Subdivision Layout Plan for A Sustainable 30 Acres Neighborhood",
       tags:["URP"],
       image:"https://framerusercontent.com/images/3KeH4PY9JcAqsoyBAgLFcEJRw0.jpeg?width=600&height=480",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/e98d0332fbb30af7fb71304a180dbc23f17accdd/Projects/24001%20An%20Imaginary%20Subdivision%20Layout%20Plan%20for%20A%20Sustainable%2030%20Acres%20Neighborhood/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_peojectabr2abr1-30daymapchallenge-activity-7214635593933160448-4Oa3/?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/3KeH4PY9JcAqsoyBAgLFcEJRw0.jpeg?width=600&height=480",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24001_an_imaginary_subdivision_layout_plan_for_a_sustainable_30_acres_neighborhood.html"
     },
     {
       id:"25000",
