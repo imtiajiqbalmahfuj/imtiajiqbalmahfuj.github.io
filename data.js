@@ -321,120 +321,120 @@ window.SITE = {
       title:"Building Footprint Map of Eixample, Barcelona",
       tags:["Geospatial Python", "GIS"],
       image:"https://framerusercontent.com/images/RjUpkQD8I1p0yZ26cwvesm2Vp88.png?scale-down-to=2048&width=5000&height=5000",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/40889be292d42381ae92ae114760bb59ca509834/Projects/25001%20Building%20Footprint%20Map%20of%20Eixample%2C%20Barcelona",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_building-footprint-map-my-geospatial-python-activity-7279911339962064896-beB3?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/RjUpkQD8I1p0yZ26cwvesm2Vp88.png?scale-down-to=2048&width=5000&height=5000",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25001_building_footprint_map_of_eixample_barcelona.html"
     },  
       {
       id:"24015",
       title:"The Rivers of Asia Using Geospatial Python",
       tags:["Geospatial Python", "GIS", "Remote Sensing"],
       image:"https://framerusercontent.com/images/vJKEs5iNPNDKHzRYx8i1tONM.png?width=1173&height=898",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/efd8b6171aa65fed84320aed8a2f1c549b450bc4/Projects/24015%20The%20Rivers%20of%20Asia%20Using%20Geospatial%20Python",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_rivers-of-asia-with-python-codes-activity-7277234086350348289-TLO4?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/vJKEs5iNPNDKHzRYx8i1tONM.png?width=1173&height=898",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24015_the_rivers_of_asia_using_geospatial_python.html"
     },  
       {
       id:"24014",
       title:"Analyzing Vegetation Health Using NDVI in Kushtia District Using NDVI ",
       tags:["GIS"],
       image:"https://framerusercontent.com/images/8VbqtxAPYhPNn6bJGjsfzpfdhQw.png?width=859&height=900",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/54b96084915c99faa82392d8ef7ad0d53ec90da9/Projects/24014%20Analyzing%20Vegetation%20Health%20Using%20NDVI%20in%20Kushtia%20District%20Using%20NDVI/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_ndvi-remotesensing-gis-activity-7276985938080096256-EOBf?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/8VbqtxAPYhPNn6bJGjsfzpfdhQw.png?width=859&height=900",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24014_analyzing_vegetation_health_using_ndvi_in_kushtia_district_using_ndvi.html"
     },  
       {
       id:"24013",
       title:"Road Network of Rajshahi City & Singapore City with Geospatial Python",
       tags:["Geospatial Python", "GIS"],
       image:"https://framerusercontent.com/images/nGUGypoHUOXCG49NjBc4no8XRE.png?scale-down-to=1024&width=1063&height=889",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/7ceea3fe2cf003d9facc0967e96379f4fa648368/Projects/24013%20Road%20Network%20of%20Rajshahi%20City%20%26%20Singapore%20City%20with%20Geospatial%20Python",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_roadnetworkrajsourcecodeplot-activity-7274858059682746368-hHub?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/nGUGypoHUOXCG49NjBc4no8XRE.png?scale-down-to=1024&width=1063&height=889",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24013_road_network_of_rajshahi_city_%26_singapore_city_with_geospatial_python.html"
     },  
       {
       id:"24012",
       title:"𝐀𝐧𝐚𝐥𝐲𝐳𝐢𝐧𝐠 𝟑𝟎 𝐘𝐞𝐚𝐫𝐬 𝐨𝐟 𝐋𝐚𝐧𝐝 𝐔𝐬𝐞 𝐋𝐚𝐧𝐝 𝐂𝐨𝐯𝐞𝐫 (𝐋𝐔𝐋𝐂) 𝐂𝐡𝐚𝐧𝐠𝐞𝐬 𝐢𝐧 𝐈𝐬𝐡𝐰𝐚𝐫𝐝𝐢 𝐔𝐩𝐚𝐳𝐢𝐥𝐚",
       tags:["GIS","Remote Sensing", "ML"],
       image:"https://framerusercontent.com/images/3tE82LWv8lKMpzMXLNsG8tdceMw.png?width=1474&height=979",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/cca335732cd59cc268817d1615ca86edfc75fd2c/Projects/24012%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%9F%91%F0%9D%9F%8E%20%F0%9D%90%98%F0%9D%90%9E%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AC%20%F0%9D%90%A8%F0%9D%90%9F%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%20%F0%9D%90%94%F0%9D%90%AC%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%20%F0%9D%90%82%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%20(%F0%9D%90%8B%F0%9D%90%94%F0%9D%90%8B%F0%9D%90%82)%20%F0%9D%90%82%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%9E%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%88%F0%9D%90%AC%F0%9D%90%A1%F0%9D%90%B0%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%9D%F0%9D%90%A2%20%F0%9D%90%94%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A5%F0%9D%90%9A/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-remotesensing-lulc-activity-7305154180334198784-7diy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/3tE82LWv8lKMpzMXLNsG8tdceMw.png?width=1474&height=979",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24012_analyzing_30_years_of_land_use_land_cover_lulc_changes_in_ishwardi_upazila.html"
     },  
       {
       id:"24011",
       title:"Land Use Land Cover (LULC) Map of Dhaka (2024) ",
       tags:["GIS","ML"],
       image:"https://framerusercontent.com/images/dFvSFFYBNJrnAe7ub5oGsj14ns.png?width=939&height=942",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/233f8dd505886d55d777727d8d5aa234d6d932b4/Projects/24011%20Land%20Use%20Land%20Cover%20(LULC)%20Map%20of%20Dhaka%20(2024)/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_urbanplanning-gis-lulc-activity-7270401571618746368-a62Y?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/dFvSFFYBNJrnAe7ub5oGsj14ns.png?width=939&height=942",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24011_land_use_land_cover_lulc_map_of_dhaka_2024.html"
     },  
       {
       id:"24010",
       title:"Karwan Bazar MRT Station with Geosptial Python",
       tags:["Geospatial Python"],
       image:"https://framerusercontent.com/images/nIMcqPxOxc3v6jm7xE60DrTyh8.jpg?scale-down-to=2048&width=3600&height=3600",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3df91222b7a7ca20dbb8e663c6085cc0789e68fc/Projects/24010%20My%20First%20Project%20in%20Geospatial%20Python%20on%20Karwan%20Bazar%20MRT%20Station/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_karwan-bazar-metro-rail-station-500m-radius-activity-7261967450567520257-99VY?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/nIMcqPxOxc3v6jm7xE60DrTyh8.jpg?scale-down-to=2048&width=3600&height=3600",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24010_my_first_project_in_geospatial_python_on_karwan_bazar_mrt_station.html"
     },  
       {
       id:"24009",
       title:"Relative Elevation Model (REM) of The Canadian River",
       tags:["GIS"],
       image:"https://framerusercontent.com/images/dHuS4l1BUcUXJUesi5gNOcTAIKg.png?width=1082&height=781",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/9ca17c6ee7d7cf40c4bcb2aaab02f9929dc6f2a4/Projects/24009%20Relative%20Elevation%20Model%20(REM)%20of%20The%20Canadian%20River/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_the-relative-elevation-model-rem-of-the-activity-7258575410513248257-TCc0?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/dHuS4l1BUcUXJUesi5gNOcTAIKg.png?width=1082&height=781",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24009_relative_elevation_model_rem_of_the_canadian_river.html"
     },  
       {
       id:"24008",
       title:"Building Density Map Visualization of Bangladesh",
       tags:["GIS", "GeoViz"],
       image:"https://framerusercontent.com/images/U5ENRPvVdpomhh2B3RJJFevSlc.png?width=939&height=944",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/241fc4366d873bf211174abbe0d0e521b6e7a8e5/Projects/24008%20Building%20Density%20Map%20Visualization%20of%20Bangladesh/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_buildings-density-map-of-bangladesh-by-imtiaj-activity-7258214376904523777-zJrI?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/U5ENRPvVdpomhh2B3RJJFevSlc.png?width=939&height=944",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24008_building_density_map_visualization_of_bangladesh.html"
     },  
       {
       id:"24007",
       title:"Transit-Oriented Development (TOD) Potential of Karwan Bazar Metro Rail Station",
       tags:["GIS"],
       image:"https://framerusercontent.com/images/efVjdGzv7ACoKjHDlDr7s4adk.png?width=778&height=921",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/c16b4e2452babf6aba463a4607c587ca473979df/Projects/24007%20Transit-Oriented%20Development%20(TOD)%20Potential%20of%20Karwan%20Bazar%20Metro%20Rail%20Station/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_urbanplanning-tod-transitorienteddevelopment-activity-7256909369173254144-u8kC?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/efVjdGzv7ACoKjHDlDr7s4adk.png?width=778&height=921",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24007_transit_oriented_development_tod_potential_of_karwan_bazar_metro_rail_station.html"
     },  
       {
       id:"24006",
       title:"3D elevation map of Bangladesh",
       tags:["GIS"],
       image:"https://framerusercontent.com/images/88bULa3UdqqSNV3XqxxUIKK0cQ.png?width=775&height=928",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/09a2471cc290214c494df4c2af46fdf184fc8b98/Projects/24006%203D%20elevation%20map%20of%20Bangladesh/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-gis-urbanplanning-activity-7252309861810462721-fK7A?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/88bULa3UdqqSNV3XqxxUIKK0cQ.png?width=775&height=928",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24006_3d_elevation_map_of_bangladesh.html"
     },  
     {
       id:"24005",
       title:"3D Elevation Mapping of Durunish",
       tags:["GIS"],
       image:"https://framerusercontent.com/images/hIWc1ZFDPE5ngebpSFCWMuICEeg.jpg?scale-down-to=2048&width=2400&height=3000",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/02e04de1ba2857852e642512e393d06706a6c905/Projects/24005%203D%20Elevation%20Mapping%20of%20Durunish/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-gis-urbanplanning-activity-7251955043170451457-JWCr?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/hIWc1ZFDPE5ngebpSFCWMuICEeg.jpg?scale-down-to=2048&width=2400&height=3000",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24005_3d_elevation_mapping_of_durunish.html"
     },  
       {
       id:"24004",
       title:"Roadway Map of Rajshahi City Corporation",
       tags:["GIS","Remote Sensing"],
       image:"https://framerusercontent.com/images/dFcyTXNPUjtJNyMt6RYgrRLSE.jpg?scale-down-to=1024&width=3300&height=3300",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/6a9a8df3aaa6e8211d5ec59697b1448f8f5305f1/Projects/24004%20Roadway%20Map%20of%20Rajshahi%20City%20Corporation/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-activity-7250186285812715523-owPe/?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/dFcyTXNPUjtJNyMt6RYgrRLSE.jpg?scale-down-to=1024&width=3300&height=3300",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24004_roadway_map_of_rajshahi_city_corporation.html"
     },  
     {
       id:"24003",
       title:"Mean Daily Evaporation (ETo) of Bangladesh",
       tags:["GIS"],
       image:"https://framerusercontent.com/images/ynHGlWGDw2pG6oOGQK8hbTXMI.jpg?scale-down-to=2048&width=2550&height=3300",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3b159c959d01e2e396e766317cefdbdcac9750c9/Projects/24003%20Mean%20Daily%20Evaporation%20(ETo)%20of%20Bangladesh/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_evapotranspiration-plays-a-critical-role-activity-7248529907268378624-vT0-?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/ynHGlWGDw2pG6oOGQK8hbTXMI.jpg?scale-down-to=2048&width=2550&height=3300",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24003_mean_daily_evaporation_eto_of_bangladesh.html"
     },
     {
       id:"24002",
       title:"River Network of Bangladesh",
       tags:["GIS","GeoViz"],
       image:"https://framerusercontent.com/images/tsXW0dLGZRYW0G7D9oib6xEU1Po.png?width=940&height=928",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/bd2f561daf4b39309f1d431d0c6026ccf8dff358/Projects/24002%20River%20Network%20of%20Bangladesh/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_30daymapchallenge-activity-7244168353550852098-V2tA?utm_source=share&utm_medium=member_desktop"
+      github:"https://framerusercontent.com/images/tsXW0dLGZRYW0G7D9oib6xEU1Po.png?width=940&height=928",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/24002_river_network_of_bangladesh.html"
     },
     {
       id:"24001",
