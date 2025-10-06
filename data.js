@@ -492,7 +492,7 @@ window.SITE = {
         more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
       }
     ]
-  }
+  },
 
 
   publications: {
@@ -517,6 +517,7 @@ window.SITE = {
     ],
     ordering:["Journal Articles","Book Chapters","Conference proceedings","Reports"]
   },
+
 
   achievements: {
     fellowships:[
