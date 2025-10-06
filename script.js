@@ -358,64 +358,97 @@ function mountProjectsCarousel() {
 
 
 
-function mountExperience(){
-  const list = $('#expList')
-  if(!list) return
-  list.innerHTML = window.SITE.experiences.map(x=>`
+function mountExperience() {
+  const list = $('#expList');
+  if (!list) return;
+
+  // detect if this is the homepage
+  const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+
+  // filter or show all depending on page
+  let experiences = window.SITE.experiences;
+  if (isHome) experiences = experiences.filter(x => x.featured);
+
+  list.innerHTML = experiences.map(x => `
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
         <div>
           <div class="font-semibold">${x.role}</div>
           <div class="text-sm text-slate-600">${x.org}</div>
           <div class="text-xs text-slate-500">${x.date} — ${x.location}</div>
-          <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+          <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">
+            ${x.bullets.map(b => `<li>${b}</li>`).join('')}
+          </ul>
         </div>
         <div class="flex gap-2 md:self-end">
-          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>
-          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>
+          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart"
+             href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>
+          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart"
+             href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>
         </div>
       </div>
     </div>
-  `).join('')
+  `).join('');
 }
 
-function mountPublications(){
-  const rec = $('#pubRecent')
-  if(!rec) return
-  const items = window.SITE.publications.items.slice(0, window.SITE.publications.recentLimit)
-  rec.innerHTML = items.map(p=>`
+
+function mountExperience() {
+  const list = $('#expList');
+  if (!list) return;
+
+  // detect if this is the homepage
+  const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+
+  // get all experiences
+  let experiences = window.SITE.experiences;
+
+  // on home page: show only featured and limit to 5
+  if (isHome) experiences = experiences.filter(x => x.featured).slice(0, 5);
+
+  list.innerHTML = experiences.map(x => `
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
-      <div class="text-sm text-slate-500">${p.type}</div>
-      <div class="font-medium mt-1">${p.title}</div>
-      <div class="text-xs text-slate-500">${p.date} · ${p.venue}</div>
-      <div class="mt-3 flex gap-2 justify-end">
-        <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
-          <i data-lucide="external-link"></i><span class="sr-only">See more</span>
-        </a>
-        ${p.cite ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cite}" target="_blank">
-          <i data-lucide="quote"></i><span class="sr-only">Cite</span>
-        </a>` : ''}
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+        <div>
+          <div class="font-semibold">${x.role}</div>
+          <div class="text-sm text-slate-600">${x.org}</div>
+          <div class="text-xs text-slate-500">${x.date} — ${x.location}</div>
+          <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">
+            ${x.bullets.map(b => `<li>${b}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="flex gap-2 md:self-end">
+          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart"
+             href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>
+          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart"
+             href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>
+        </div>
       </div>
     </div>
-  `).join('')
-  lucide.createIcons()
+  `).join('');
 }
 
-function mountAchievementsPreview(){
-  const wrap = $('#achvPreview')
-  if(!wrap) return
 
-  function renderCard(list, title){
+function mountAchievementsPreview() {
+  const wrap = $('#achvPreview');
+  if (!wrap) return;
+
+  // detect if this is the homepage
+  const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+
+  function renderCard(list, title) {
+    // Limit to 5 items only on the homepage
+    const items = isHome ? list.slice(0, 5) : list;
+
     return `
       <div class="card p-4 bg-white rounded-xl border border-slate-200">
         <div class="font-semibold mb-2">${title}</div>
         <div class="grid gap-2">
-          ${list.map(a=>`
+          ${items.map(a => `
             <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between">
               <div>
                 <div class="text-sm">${a.title}</div>
                 <div class="text-xs text-slate-500">${a.date}</div>
-                ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>` : ''}
+                ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t => `<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>` : ''}
               </div>
               <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank">
                 <i data-lucide="external-link"></i>
@@ -424,19 +457,21 @@ function mountAchievementsPreview(){
           `).join('')}
         </div>
       </div>
-    `
+    `;
   }
 
-  const A = window.SITE.achievements
+  const A = window.SITE.achievements;
+
   wrap.innerHTML = [
     renderCard(A.fellowships, "Fellowships, Awards & Research Grants"),
-    renderCard(A.licenses, "Licenses & Certifications"),
+    renderCard(A.licenses, "License & Certifications"),
     renderCard(A.workshops, "Workshops & Presentations"),
     renderCard(A.volunteering, "Leadership & Volunteering Experience")
-  ].join('')
+  ].join('');
 
-  if(window.lucide) lucide.createIcons()
+  if (window.lucide) lucide.createIcons();
 }
+
 
 
 function mountServices() {
