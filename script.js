@@ -357,11 +357,14 @@ function mountProjectsCarousel() {
 
 
 
-
 function mountExperience(){
   const list = $('#expList')
   if(!list) return
-  list.innerHTML = window.SITE.experiences.map(x=>`
+
+  const recentLimit = window.SITE.experiences.recentLimit || null
+  const itemsToShow = recentLimit ? window.SITE.experiences.items.slice(0, recentLimit) : window.SITE.experiences.items
+
+  list.innerHTML = itemsToShow.map(x=>`
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
         <div>
@@ -379,11 +382,20 @@ function mountExperience(){
   `).join('')
 }
 
-function mountPublications(){
-  const rec = $('#pubRecent')
-  if(!rec) return
-  const items = window.SITE.publications.items.slice(0, window.SITE.publications.recentLimit)
-  rec.innerHTML = items.map(p=>`
+
+
+
+function mountPublications() {
+  const rec = $('#pubRecent');
+  if(!rec) return;
+
+  const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+  // Limit only on homepage
+  const items = isHome 
+    ? window.SITE.publications.items.slice(0, window.SITE.publications.recentLimit)
+    : window.SITE.publications.items;
+
+  rec.innerHTML = items.map(p => `
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
       <div class="text-sm text-slate-500">${p.type}</div>
       <div class="font-medium mt-1">${p.title}</div>
@@ -397,20 +409,23 @@ function mountPublications(){
         </a>` : ''}
       </div>
     </div>
-  `).join('')
-  lucide.createIcons()
+  `).join('');
+
+  lucide.createIcons();
 }
+
 
 function mountAchievementsPreview(){
   const wrap = $('#achvPreview')
   if(!wrap) return
 
-  function renderCard(list, title){
+  function renderCard(list, title, limit = 5){
+    const filtered = list.filter(a => a.featured).slice(0, limit)
     return `
       <div class="card p-4 bg-white rounded-xl border border-slate-200">
         <div class="font-semibold mb-2">${title}</div>
         <div class="grid gap-2">
-          ${list.map(a=>`
+          ${filtered.map(a=>`
             <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between">
               <div>
                 <div class="text-sm">${a.title}</div>
@@ -437,6 +452,7 @@ function mountAchievementsPreview(){
 
   if(window.lucide) lucide.createIcons()
 }
+
 
 
 function mountServices() {
