@@ -153,165 +153,165 @@ window.SITE = {
       title:"Global Risk Index 2025",
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25021%20Risk%20Index%202025%20INFORM/Global%20Risk%20Index%202025.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/1da7d92bb402f81ddd90e8853614d1b10be787a4/Projects/25021%20Risk%20Index%202025%20INFORM",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_can-you-spot-which-regions-are-most-at-risk-activity-7380147740376440832-OBwS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25021%20Risk%20Index%202025%20INFORM/Global%20Risk%20Index%202025.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25021_risk_index_2025_inform.html"
     },
     {
       id:"25020",
       title:"Global Air & Sea Connectivity",
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25020%20Global%20Air%20%26%20Sea%20Connectivity/Global_ShippingLanes_Flights_w.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/b8e5c51176d0e8738d6c8162d335c4c85f30b6b8/Projects/25020%20Global%20Air%20%26%20Sea%20Connectivity/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_global-air-sea-connectivity-activity-7378752270555029518-JKjr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25020%20Global%20Air%20%26%20Sea%20Connectivity/Global_ShippingLanes_Flights_w.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25020_global_air_%26_sea_connectivity.html"
     },
     {
       id:"25019.1",
       title:"Multifunctional AHP & Fuzzy AHP Calculator for OR",
       tags:["Operations Research", "URP", "Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit/ahpfahpss.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/a435fdcda00c6c7ef08ddfac34aef466bf9619cb/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit",
-      details:"https://ahp-fahp-calculator-imtiajiqbalmahfuj.streamlit.app/"
+      github:"https://ahp-fahp-calculator-imtiajiqbalmahfuj.streamlit.app/",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25019_1_ahpfahp_calculator_web_app_by_python.html"
     },    
     {
       id:"25019",
       title:"Advanced AHP Calculator for Operations Research",
       tags:["Operations Research", "URP", "Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit/Screenshot%202025-09-28%20035156.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/bbc87c91abab488d6aaf4e6e610f26fc25190ae3/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit",
-      details:"https://imtiajiqbalmahfuj-ahp-calculator.streamlit.app/"
+      github:"https://imtiajiqbalmahfuj-ahp-calculator.streamlit.app/",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25019_ahp_calculator_web_app_by_python_and_streamlit_copy1.html"
     },
     {
       id:"25018",
       title:"Global Distribution of Billionaires (2024)",
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)/billionaires_map.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/461e28f2ba73691bcac8c2f256ccfd7a319fcebc/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_billionairesmap-activity-7377438313575567360-oxpO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)/billionaires_map.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25018_global_distribution_of_billionaires_2024.html"
     },
     {
       id:"25017",
       title:"Global forest map using Python",
       tags:["Remote Sensing", "Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25017%20Global%20forest%20map/Global%20forest%20map.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/d8c4ac63e47e1f6c454adedfbde469b7dbe8e9d2/Projects/25017%20Global%20forest%20map",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_forest-activity-7375962081419964417-WTSE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25017%20Global%20forest%20map/Global%20forest%20map.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25017_global_forest_map.html"
     },
     {
       id:"25016",
       title:"Global Flight Routes & Airport Network",
       tags:["GIS", "Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map/Global_Airport_Routes_Final.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/a435fdcda00c6c7ef08ddfac34aef466bf9619cb/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_globalairportroutes-activity-7374846086340870144-TQzD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map/Global_Airport_Routes_Final.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25016_global_flight_routes_%26_airport_network_map.html"
     },
     {
       id:"25015",
       title:"Automated Wind Flow Visualization Over Bangladesh Using Python",
       tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines-0000.jpg",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/ed571bdefc805750ccb39e46b3d7e86d97f81cef/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_era5abr10m-xarray-netcdf4-activity-7374184762648875010-rTvb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines-0000.jpg",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25015_automated_wind_flow_map_of_bangladesh.html"
     },
     {
       id:"25014",
       title:"World’s Carbon Dioxide Emissions 2018 Using Geospatial Python",
       tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python/Exports/_co2_emissions_final_map.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/3425bc3f9ac472b7c3446eda2c3460b81714bc86/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_visualizing-global-co%E2%82%82-emissions-2018-activity-7373666235596619776-gEkj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python/Exports/_co2_emissions_final_map.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25014_world_s_carbon_dioxide_emissions_2018_visualizing_with_python.html"
     }, 
       {
       id:"25013",
       title:"Global spread of COVID-19 over time using Geospatial Python",
       tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time/Dynamic%20COVID%2019%20Map%20small.gif",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/87e2742398918479f509ea2311a398962dd9dbd6/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_johnsabrhopkins-activity-7373465359313649666-vE4t?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time/Dynamic%20COVID%2019%20Map%20small.gif",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25013_global_spread_of_covid_19_over_time.html"
     },  
       {
       id:"25012",
       title:"Launched My Geospatial Portfolio Website through GitHub🐈‍⬛",
       tags:["Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25012%20%20My%20Geospatial%20Portfolio%20Website%20through%20GitHub%F0%9F%90%88%E2%80%8D%E2%AC%9B/Screenshot%202025-09-04%20224522.png",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/d17f20759c5ff2d08c061d9f6e287effdbedbb64/Projects/25012%20%20My%20Geospatial%20Portfolio%20Website%20through%20GitHub%F0%9F%90%88%E2%80%8D%E2%AC%9B/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_vibeabrcoding-activity-7369020427072860162-ZTyX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://imtiajiqbalmahfuj.github.io/",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25012_my_geospatial_portfolio_website_through_github.html"
     },  
       {
       id:"25011",
       title:"Developing a Composite Soil Quality Index (SQI) for Kushtia District (2024)",
-      tags:["GIS", "Remote Sensing", "Selected"],
+      tags:["GIS", "Remote Sensing", "Portfolio"],
       image:"https://framerusercontent.com/images/lEJroOaLbqiE0sTyjJF4tqUSs.jpg?scale-down-to=2048&width=2550&height=3300",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/main/Projects/25011%20Developing%20a%20Composite%20Soil%20Quality%20Index%20(SQI)%20for%20Kushtia%20District%20(2024)",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_soil-quality-index-sqi-2024-activity-7364734668937596929-IMrF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/lEJroOaLbqiE0sTyjJF4tqUSs.jpg?scale-down-to=2048&width=2550&height=3300",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25011_developing_a_composite_soil_quality_index_sqi_for_kushtia_district_2024.html"
     },  
       {
       id:"25010",
       title:"Tobacco Crop Cultivation Mapping (2005, 2015, 2024) using GEE & Geospatial Python",
-      tags:["GEE", "Selected", "Geospatial Python"],
+      tags:["GEE", "Portfolio", "Geospatial Python"],
       image:"https://framerusercontent.com/images/XNkXY5w74EQYltXTxYm5nX11YjY.jpg?scale-down-to=2048&width=3000&height=3300",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/3807e385f01cedcadc2f2edc9944061dd835d3b6/Projects/25010%20Tobacco%20Crop%20Cultivation%20Mapping%20(2005%2C%202015%2C%202024)%20using%20Geospatial%20Python/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_tobacco-crop-cultivation-in-kushtia-activity-7348439548479143936-kMjA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/XNkXY5w74EQYltXTxYm5nX11YjY.jpg?scale-down-to=2048&width=3000&height=3300",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25010_tobacco_crop_cultivation_mapping_2005_2015_2024_using_geospatial_python.html"
     },  
       {
       id:"25009",
       title:"𝐄𝐱𝐩𝐥𝐨𝐫𝐢𝐧𝐠 𝐑𝐢𝐯𝐞𝐫 𝐌𝐨𝐫𝐩𝐡𝐨𝐥𝐨𝐠𝐲 𝐰𝐢𝐭𝐡 𝐄𝐚𝐬𝐞 𝐔𝐬𝐢𝐧𝐠 𝐑𝐢𝐯𝐞𝐫𝐑𝐄𝐌",
       tags:["Geospatial Python", "Remote Sensing", "GIS"],
       image:"https://framerusercontent.com/images/IOpBhgHBLAlK4O7xn6oYFYT3eDE.jpg?scale-down-to=1024&width=5100&height=3300",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/befab02d2bb94e751e846c7c4c1ca84b28a57d83/Projects/25009%20%F0%9D%90%84%F0%9D%90%B1%F0%9D%90%A9%F0%9D%90%A5%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%91%F0%9D%90%A2%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%20%F0%9D%90%8C%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%A9%F0%9D%90%A1%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%B2%20%F0%9D%90%B0%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AC%F0%9D%90%9E%20%F0%9D%90%94%F0%9D%90%AC%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%91%F0%9D%90%A2%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%91%F0%9D%90%84%F0%9D%90%8C",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_riverrem-python-package-activity-7329849488481701888-aBdp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/IOpBhgHBLAlK4O7xn6oYFYT3eDE.jpg?scale-down-to=1024&width=5100&height=3300",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25009_exploring_river_morphology_with_ease_using_riverrem.html"
     },  
       {
       id:"25008",
       title:"𝐖𝐚𝐥𝐤𝐚𝐛𝐢𝐥𝐢𝐭𝐲 𝐢𝐧 𝐏𝐮𝐫𝐛𝐚𝐜𝐡𝐚𝐥 𝐍𝐞𝐰 𝐓𝐨𝐰𝐧, 𝐃𝐡𝐚𝐤𝐚 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐈𝐬𝐨𝐜𝐡𝐫𝐨𝐧𝐞 𝐌𝐚𝐩",
-      tags:["Geospatial Python", "Selected", "GIS"],
+      tags:["Geospatial Python", "Portfolio", "GIS"],
       image:"https://framerusercontent.com/images/KNASAyKK8WxSf0KL6RJA4zjI4.jpg?scale-down-to=1024&width=2338&height=2456",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/b5b9fa0b0a306677f1728f80c6ba0ad5804c0435/Projects/25008%20%F0%9D%90%96%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%A4%F0%9D%90%9A%F0%9D%90%9B%F0%9D%90%A2%F0%9D%90%A5%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%B2%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%8F%F0%9D%90%AE%F0%9D%90%AB%F0%9D%90%9B%F0%9D%90%9A%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A5%20%F0%9D%90%8D%F0%9D%90%9E%F0%9D%90%B0%20%F0%9D%90%93%F0%9D%90%A8%F0%9D%90%B0%F0%9D%90%A7%2C%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A%20%F0%9D%90%AD%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%AE%F0%9D%90%A0%F0%9D%90%A1%20%F0%9D%90%88%F0%9D%90%AC%F0%9D%90%A8%F0%9D%90%9C%F0%9D%90%A1%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%8C%F0%9D%90%9A%F0%9D%90%A9",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-isochrones-activity-7329487108484554752-VxkE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/KNASAyKK8WxSf0KL6RJA4zjI4.jpg?scale-down-to=1024&width=2338&height=2456",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25008_walkability_in_purbachal_new_town_dhaka_through_isochrone_map.html"
     },  
       {
       id:"25007",
       title:"Does Money Make You Happy? A Bivariate Map of Happiness Score and GDP per Capita (2017)",
       tags:["GIS"],
       image:"https://framerusercontent.com/images/NjSp1TpVZXC3aUAqG73SEgf7uY.jpg?scale-down-to=1024&width=7200&height=5400",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/7e61cb8424daed84cf359878bb1c1ed85ffc4495/Projects/25007%20Does%20Money%20Make%20You%20Happy%20A%20Bivariate%20Map%20of%20Happiness%20Score%20and%20GDP%20per%20Capita%20(2017)/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_can-money-buy-happiness-activity-7328798192303583233-Mjfz?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/NjSp1TpVZXC3aUAqG73SEgf7uY.jpg?scale-down-to=1024&width=7200&height=5400",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25007_does_money_make_you_happy_a_bivariate_map_of_happiness_score_and_gdp_per_capita_2017.html"
     },  
       {
       id:"25006",
       title:"Exploring the streets of Purbachal New Town, Dhaka through Geospatial Python",
       tags:["Geospatial Python", "GIS"],
       image:"https://framerusercontent.com/images/SEBX76Cwgyt2DfSCLWiVm4Ym6o.jpg?scale-down-to=1024&width=2581&height=2433",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/546ccc876e9df087edc5dce7274be6db37ee42a8/Projects/25006%20Exploring%20the%20streets%20of%20Purbachal%20New%20Town%2C%20Dhaka%20through%20Geospatial%20Python",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-urbandesign-activity-7322575872517931008-ePnF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/SEBX76Cwgyt2DfSCLWiVm4Ym6o.jpg?scale-down-to=1024&width=2581&height=2433",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25006_exploring_the_streets_of_purbachal_new_town_dhaka_through_geospatial_python.html"
     },  
       {
       id:"25005",
       title:"Building footprint map of Dhaka (1000–1000 sqm)",
       tags:["GIS", "Geospatial Python"],
       image:"https://framerusercontent.com/images/JO1miT6GC914EfjKiXgKAtTkqU.jpg?scale-down-to=1024&width=3030&height=2346",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/tree/44f2cd066fe73b83b449c4fee1602f12b2db026a/Projects/25005%20Building%20footprint%20map%20of%20Dhaka%20(1000%E2%80%931000%20sqm)",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialpython-remotesensing-activity-7319417744297275393-SgUL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/JO1miT6GC914EfjKiXgKAtTkqU.jpg?scale-down-to=1024&width=3030&height=2346",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25005_building_footprint_map_of_dhaka_1000_1000_sqm.html"
     },  
       {
       id:"25004",
       title:"LULC and NDWI Analysis of Lalmonirhat: Mapping Land and Water Interactions Using Sentinel-2 Data",
       tags:["GIS", "Remote Sensing"],
       image:"https://framerusercontent.com/images/cTHb3EEMpeMX3sr1UC7mKdzwDQ.png?scale-down-to=1024&width=1514&height=978",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/2bc26b04f31ca635c26bc9596f22065a60d809ee/Projects/25004%20LULC%20and%20NDWI%20Analysis%20of%20Lalmonirhat%20Mapping%20Land%20and%20Water%20Interactions%20Using%20Sentinel-2%20Data/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_geospatial-remotesensing-lulc-activity-7306719738426966016-3i86?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/cTHb3EEMpeMX3sr1UC7mKdzwDQ.png?scale-down-to=1024&width=1514&height=978",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25004_lulc_and_ndwi_analysis_of_lalmonirhat_mapping_land_and_water_interactions_using_sentinel_2_data.html"
     },  
       {
       id:"25003",
       title:"𝗪𝗮𝘁𝗲𝗿𝘀𝗵𝗲𝗱 𝗗𝗲𝗹𝗶𝗻𝗲𝗮𝘁𝗶𝗼𝗻 𝗼𝗳 𝗦𝘆𝗹𝗵𝗲𝘁 𝗗𝗶𝘃𝗶𝘀𝗶𝗼𝗻",
       tags:["GIS", "Remote Sensing"],
       image:"https://framerusercontent.com/images/JAg6Y49uHPSjU2cRzNGggmjWGp4.jpg?scale-down-to=2048&width=2700&height=3600",
-      github:"https://github.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/blob/b9d16b0cc1b8d709c5b23fe8c1d8a07d89662c49/Projects/25003%20%F0%9D%97%AA%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%B2%F0%9D%97%BF%F0%9D%98%80%F0%9D%97%B5%F0%9D%97%B2%F0%9D%97%B1%20%F0%9D%97%97%F0%9D%97%B2%F0%9D%97%B9%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B2%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%B6%F0%9D%97%BC%F0%9D%97%BB%20%F0%9D%97%BC%F0%9D%97%B3%20%F0%9D%97%A6%F0%9D%98%86%F0%9D%97%B9%F0%9D%97%B5%F0%9D%97%B2%F0%9D%98%81%20%F0%9D%97%97%F0%9D%97%B6%F0%9D%98%83%F0%9D%97%B6%F0%9D%98%80%F0%9D%97%B6%F0%9D%97%BC%F0%9D%97%BB/README.md",
-      details:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-remotesensing-floodriskassessment-activity-7306331679449640960-PGmQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      github:"https://framerusercontent.com/images/JAg6Y49uHPSjU2cRzNGggmjWGp4.jpg?scale-down-to=2048&width=2700&height=3600",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25003_watershed_delineation_of_sylhet_division.html"
     },  
       {
       id:"25002",
       title:"A Remote Sensing-Based Analysis of Nighttime Light Pollution and Its Regional Spillover Effects in Dhaka",
-      tags:["Selected", "GEE", "GIS"],
+      tags:["Portfolio", "GEE", "GIS"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25002%20%F0%9D%90%85%F0%9D%90%A2%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%92%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%86%F0%9D%90%A8%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%A5%F0%9D%90%9E%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%8D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%20%F0%9D%90%8F%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7%20(%F0%9D%90%8D%F0%9D%90%8B%F0%9D%90%8F)%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A/Screenshot%202025-10-06%20164542.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25002%20%F0%9D%90%85%F0%9D%90%A2%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%92%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%86%F0%9D%90%A8%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%A5%F0%9D%90%9E%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%8D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%20%F0%9D%90%8F%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7%20(%F0%9D%90%8D%F0%9D%90%8B%F0%9D%90%8F)%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A/Screenshot%202025-10-06%20164542.png",
       details:"https://imtiajiqbalmahfuj.github.io/projects/25002_A_Remote_Sensing-Based_Analysis_of_Nighttime_Light_Pollution_and_Its_Regional_Spillover_Effects_in_Dhaka.html"
@@ -475,8 +475,8 @@ window.SITE = {
         "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC)",
         "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
       ],
-      github:"#",
-      more:"https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link"
+      github:"https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link",
+      more:"https://www.linkedin.com/posts/sercbd_remotesensing-spaceexploration-disastermanagement-activity-7307613299204861953-dFkB?utm_source=share&utm_medium=member_android&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
     {
       org:"Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
