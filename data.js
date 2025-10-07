@@ -136,7 +136,7 @@ window.SITE = {
       id:"25023",
       title:"Global Submarine Internet Cable Network",
       tags:["Geospatial Python", "GeoViz"],
-      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25023%20Global%20Internet%20Cables%20with%20Python%20and%20Leafmap/Global%20Submarine%20Internet%20Cable%20Network.png",
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25023%20Global%20Internet%20Cables%20with%20Python%20and%20Leafmap/0.png",
       github:"https://imtiajiqbalmahfuj.github.io/projects/25023_visualization_leafmap_Global_Submarine_Cables_Map.html",
       details:"https://imtiajiqbalmahfuj.github.io/projects/25023_Global_Internet_Cables_with_Python_and_Leafmap.html"
     },
