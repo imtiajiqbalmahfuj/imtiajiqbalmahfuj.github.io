@@ -29,7 +29,7 @@ window.SITE = {
     {name:"Geemap", icon:""},
     {name:"NumPy", icon:""},
     {name:"Matplotlib", icon:""},
-    {name:"Machine Learning", icon:""},
+    {name:"Machine Learning", icon:""}, 
     {name:"PyTorch", icon:""},
     {name:"Atlas.ti", icon:""},
     {name:"AutoCAD", icon:""},
