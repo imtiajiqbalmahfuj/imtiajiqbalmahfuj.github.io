@@ -125,12 +125,12 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25024",
+      title:"Visualizing Two Decades of Earthquake Fatalities with QGIS",
+      tags:["GIS", "GeoViz"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25024%20Earthquakes%20map%20with%20QGIS/EarthQ.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25024%20Earthquakes%20map%20with%20QGIS/EarthQ.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25024%20Global%20Earthquake%20Map%20(2000–2020)%20with%20QGIS.html"
     },
     {
       id:"25023",
