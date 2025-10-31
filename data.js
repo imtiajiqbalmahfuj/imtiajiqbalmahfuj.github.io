@@ -125,6 +125,46 @@ window.SITE = {
       details:""
     },
     {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25025",
+      title:"Padma River Desiccation Mapping (2001–2025)",
+      tags:["Geospatial Python", "GIS"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25025%20River%20Desiccation%20Mapping%2C%20Rajshahi/River_Desiccation.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25025%20River%20Desiccation%20Mapping%2C%20Rajshahi/River_Desiccation.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25025_River_Desiccation_Mapping.html"
+    },
+    {
       id:"25024",
       title:"Visualizing Two Decades of Earthquake Fatalities with QGIS",
       tags:["GIS", "GeoViz"],
