@@ -419,7 +419,7 @@ function mountAchievementsPreview(){
   const wrap = $('#achvPreview')
   if(!wrap) return
 
-  function renderCard(list, title, limit = 5){
+  function renderCard(list, title, limit = 10){
     const filtered = list.filter(a => a.featured).slice(0, limit)
     return `
       <div class="card p-4 bg-white rounded-xl border border-slate-200">
