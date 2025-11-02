@@ -536,7 +536,7 @@ window.SITE = {
 
 
   publications: {
-    recentLimit: 5,
+    recentLimit: 10,
     items: [
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
@@ -569,6 +569,7 @@ window.SITE = {
     ],
     licenses:[
       { title:"Machine Learning with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"Processing", featured: true },
+      { title:"Spatial Data Science: The New Frontier in Analytics", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6826d5199c22d4e1ad3054a4/-360", date:"November 2025", featured: true },
       { title:"Introduction to Climate Risk Informed Decision Analysis (CRIDA)", tags:["UNESCO","UNESCO Open Learning"], link:"https://openlearning.unesco.org/certificates/2d2231b0141a432587d7903bdb05b290", date:"October 2025" },
       { title:"Cartography", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/68bf5590195e097ac69c7e26/-360", date:"October 2025" },
       { title:"Urban Analytics with Python", tags:["Milan Janosov","Udemy"], link:"https://www.udemy.com/certificate/UC-2bd65b43-8c77-4147-b628-58f08e44f40e/", date:"September 2025", featured: true },
