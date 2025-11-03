@@ -149,17 +149,17 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25026",
+      title:"Annual Rainfall Patterns using GEE (Python API) and PERSIANN-CDR Dataset (2015–2016)",
+      tags:["Geospatial Python", "GEE" ,"GIS"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25026_Precipitation_of_Bangladesh_GEE/Precipitation%20of%20Bangladesh%202015-16%20with%20GEE%20(Python).png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25026_Precipitation_of_Bangladesh_GEE/Precipitation%20of%20Bangladesh%202015-16%20with%20GEE%20(Python).png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25026_Precipitation_of_Bangladesh_GEE.html"
     },
     {
       id:"25025",
       title:"Padma River Desiccation Mapping (2001–2025)",
-      tags:["Geospatial Python", "GIS"],
+      tags:["Geospatial Python","GEE", "GIS"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25025%20River%20Desiccation%20Mapping%2C%20Rajshahi/River_Desiccation.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25025%20River%20Desiccation%20Mapping%2C%20Rajshahi/River_Desiccation.png",
       details:"https://imtiajiqbalmahfuj.github.io/projects/25025_River_Desiccation_Mapping.html"
