@@ -17,7 +17,7 @@ window.SITE = {
   },
 
   tickerIcons: [
-    {name:"GIS", icon:""},
+    {name:"GIS", icon:""}, 
     {name:"Remote Sensing", icon:""},
     {name:"Python", icon:""},
     {name:"Google Earth Engine", icon:""},
