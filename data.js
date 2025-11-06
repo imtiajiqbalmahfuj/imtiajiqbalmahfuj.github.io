@@ -44,12 +44,12 @@ window.SITE = {
   education: [
     {
       title: "Rajshahi University of Engineering & Technology",
-      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.78/4.00 (Class rank 6; Top 10%)",
+      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.79/4.00 (Class rank 7; Top 10%)",
       date: "Dec 2022 – Present",
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
       bullets: [
-        "<u>Relevant course works:</u> Town Planning, Transportation Planning, Environmental Science, Disaster Management, GIS and Remote sensing, Cartography, Social & Physical Survey, Landscape Planning, Participatory Rural Appraisal, Project Management and Evaluation",
+        "<u>Relevant coursework:</u> Urban & Regional Planning, Disaster Management, GIS and Remote sensing, Environmental Studies, Transportation Planning, Cartography, Landscape Planning, Participatory Rural Appraisal, Project Management and Evaluation",
         "Class Representative (January 2023 - September 2024)"
     ]
     },
@@ -79,7 +79,7 @@ window.SITE = {
   skills: [
     {
       title: "Geo-technical Skills",
-      items: ["ArcGIS Pro","Python", "Google Earth Engine", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "QGIS", "Google Earth", "Envi", "R", "R-Studio"]
+      items: ["ArcGIS Pro","Google Earth Engine", "Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "QGIS", "Google Earth", "Envi", "R"]
     },
     {
       title: "Technical Skills",
@@ -87,11 +87,11 @@ window.SITE = {
     },
     {
       title: "Other Skills",
-      items: ["Academic writing","Public Speaking","UIUX design", "Editing", "Adobe CC", "Figma", "DaVinci Resolve"]
+      items: ["Academic writing", "UIUX design", "Editing", "Adobe CC", "Figma", "DaVinci Resolve"]
     },
     {
       title: "Soft Skills",
-      items: ["Leadership","Adaptability","Time management","Problem solving","Team management"]
+      items: ["Leadership", "Public Speaking", "Teaching", "Adaptability","Time management","Problem solving","Team management"]
     },
     {
       title: "Languages",
@@ -495,8 +495,19 @@ window.SITE = {
   ],
 
   experiences: {
-    recentLimit: 5, // number of items to show on home page
+    recentLimit: 10, // number of items to show on home page
     items: [
+      {
+        org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
+        role: "Undergraduate Research Assistant",
+        date: "October 2025 - Present",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Project:</u> Drought <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/-- <br> <u>Supervisor:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Drought vulnerability assessment, PRA, Team lead, Research Skills, Academic writing"
+        ],
+        github: "#",
+        more: "#"
+      },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
@@ -568,7 +579,6 @@ window.SITE = {
       { title:"UDD Bangladesh — Research Grant (2nd place idea)", tags:["Grant"], link:"#", date:"May 2025" }
     ],
     licenses:[
-      { title:"Machine Learning with Python", tags:["IBM","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"Processing", featured: true },
       { title:"Spatial Data Science: The New Frontier in Analytics", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6826d5199c22d4e1ad3054a4/-360", date:"November 2025", featured: true },
       { title:"Introduction to Climate Risk Informed Decision Analysis (CRIDA)", tags:["UNESCO","UNESCO Open Learning"], link:"https://openlearning.unesco.org/certificates/2d2231b0141a432587d7903bdb05b290", date:"October 2025" },
       { title:"Cartography", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/68bf5590195e097ac69c7e26/-360", date:"October 2025" },
