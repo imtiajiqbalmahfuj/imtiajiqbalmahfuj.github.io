@@ -80,7 +80,7 @@ window.SITE = {
   skills: [
     {
       title: "Geospatial & Remote Sensing",
-      items: ["ArcGIS Pro","Google Earth Engine", "QGIS"]
+      items: ["ArcGIS Pro", "Google Earth Engine", "QGIS"]
     },
     {
       title: "Programming Languages",
@@ -508,7 +508,7 @@ window.SITE = {
         date: "October 2025 - Present",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> Drought <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/-- <br> <u>Supervisor:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Drought vulnerability assessment, PRA, Team lead, Research Skills, Academic writing"
+          "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Supervisor:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Leading a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducting Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
         ],
         github: "#",
         more: "#"
@@ -519,9 +519,9 @@ window.SITE = {
         date: "April 2025 - September 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Supervisor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Fuzzy AHP Analysis, Community-Based Research, Research Skills, Academic writing"
+          "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Supervisor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index for Rajshahi City Corporation utilizing GIS based spatial analysis to identify high-risk zones. <br> - Applied Fuzzy AHP to weight contributing factors and proposed mitigation strategies for municipal planning. <br> - <u>Focus:</u> Spatial Analysis, Fuzzy AHP Analysis, Community-Based Research, Urban Safety, Technical Report."
         ],
-        github: "#",
+        github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
         more: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing"
       },
       {
@@ -530,7 +530,7 @@ window.SITE = {
         date: "March 2025 - September 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC)",
+          "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC) <br> - Contributed to the development of a disaster management framework for the Asia-Pacific region, focusing on flood mapping and prediction using Machine Learning.",
           "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
         ],
         github: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link",
@@ -539,12 +539,23 @@ window.SITE = {
       {
         org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
-        date: "August 2025 - February 2025",
+        date: "August 2024 - February 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> <u>Skills:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Team Leadership, Academic writing"
+          "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Facilitated community workshops using PRA tools to design sustainable homestead farming strategies in Khirshan, Rajshahi. <u>Focus:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Sustainable Planning."
         ],
-        github: "#",
+        github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
+        more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+      },
+      {
+        org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
+        role: "Enumerator",
+        date: "May 2024 - July 2024",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Facilitated community workshops using PRA tools to design sustainable homestead farming strategies in Khirshan, Rajshahi. <u>Focus:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Sustainable Planning."
+        ],
+        github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
         more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
       }
     ]
