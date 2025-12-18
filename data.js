@@ -44,7 +44,7 @@ window.SITE = {
   education: [
     {
       title: "Rajshahi University of Engineering & Technology",
-      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.79/4.00 (Class rank 7; Top 10%)",
+      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.79/4.00 | 5th (Top 10%)",
       date: "Dec 2022 – Present",
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
@@ -68,8 +68,9 @@ window.SITE = {
     title: "Research Interests", // will be displayed as header
     items: [
       "GIS & Remote Sensing",
-      "Geospatial Data Science (Python, GEE, GeoAI/ML)",
-      "Climate Change & Disaster Risk Analysis",
+      "Geospatial Data Science (GeoAI, Machine Learning, GEE)",
+      "Climate Change Adaptation",
+      "Disaster Risk Analysis",
       "Environmental Monitoring",
       "Urban Analytics & Planning"
     ]
@@ -78,16 +79,20 @@ window.SITE = {
   
   skills: [
     {
-      title: "Geo-technical Skills",
-      items: ["ArcGIS Pro","Google Earth Engine", "Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "QGIS", "Google Earth", "Envi", "R"]
+      title: "Geospatial & Remote Sensing",
+      items: ["ArcGIS Pro","Google Earth Engine", "QGIS"]
     },
     {
-      title: "Technical Skills",
-      items: ["SPSS","Atlas.ti","AutoCAD", "SketchUp", "Twinmotion", "Blender", "Microsoft Office Suite", "GitHub", "HTML"]
+      title: "Programming Languages",
+      items: ["Python", "Jupyter Lab", "Pandas", "NumPy", "GeoPandas", "Geemap", "Leafmap", "Maplibre", "Rasterio", "Xarray", "GDAL", "Matplotlib", "Seaborn", "DuckDB", "SciPy", "Machine Learning", "Scikit-learn", "PyTorch", "TensorFlow", "JavaScript", "R"]
+    },
+    {
+      title: "Other Applications",
+      items: ["SPSS", "Atlas.ti",  "Google Earth Pro", "Envi", "AutoCAD", "SketchUp", "Twinmotion", "Blender", "Microsoft Office Suite"]
     },
     {
       title: "Other Skills",
-      items: ["Academic writing", "UIUX design", "Editing", "Adobe CC", "Figma", "DaVinci Resolve"]
+      items: ["GitHub", "HTML", "Academic writing", "UIUX design", "Editing", "Adobe CC", "Figma", "DaVinci Resolve"]
     },
     {
       title: "Soft Skills",
