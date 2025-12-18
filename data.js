@@ -12,7 +12,7 @@ window.SITE = {
     cvDownload: "https://drive.google.com/uc?export=download&id=1rxUqGpT1MCqD50ogslthxphAMmEigeZO",
     email: "imtiajiqbal.ruet@gmail.com",
     linkedin: "https://www.linkedin.com/in/imtiajiqbalmahfuj/",
-    linkTargetId: "services", // where the chain-link button scrolls
+    linkTargetId: "socials", // where the chain-link button scrolls
     photo: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbalmahfuj.github.io/refs/heads/main/Assets/Imtiaj%20Iqbal%20Formal%20Pic.jpg" // replace with your own later
   },
 
@@ -508,7 +508,7 @@ window.SITE = {
         date: "October 2025 - Present",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Supervisor:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Leading a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducting Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
+          "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Leading a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducting Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
         ],
         github: "#",
         more: "#"
@@ -519,7 +519,7 @@ window.SITE = {
         date: "April 2025 - September 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Supervisor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index for Rajshahi City Corporation utilizing GIS based spatial analysis to identify high-risk zones. <br> - Applied Fuzzy AHP to weight contributing factors and proposed mitigation strategies for municipal planning. <br> - <u>Focus:</u> Spatial Analysis, Fuzzy AHP Analysis, Community-Based Research, Urban Safety, Technical Report."
+          "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index for Rajshahi City Corporation utilizing GIS based spatial analysis to identify high-risk zones. <br> - Applied Fuzzy AHP to weight contributing factors and proposed mitigation strategies for municipal planning. <br> - <u>Focus:</u> Spatial Analysis, Fuzzy AHP Analysis, Community-Based Research, Urban Safety, Technical Report."
         ],
         github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
         more: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing"
@@ -530,7 +530,7 @@ window.SITE = {
         date: "March 2025 - September 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Supervisor:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC) <br> - Contributed to the development of a disaster management framework for the Asia-Pacific region, focusing on flood mapping and prediction using Machine Learning.",
+          "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Project Director:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC) <br> - Contributed to the development of a disaster management framework for the Asia-Pacific region, focusing on flood mapping and prediction using Machine Learning.",
           "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
         ],
         github: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link",
@@ -553,10 +553,10 @@ window.SITE = {
         date: "May 2024 - July 2024",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Facilitated community workshops using PRA tools to design sustainable homestead farming strategies in Khirshan, Rajshahi. <u>Focus:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Sustainable Planning."
+          "<u>Project:</u> Developing Integrated Municipal Solid Waste Management Strategies for Promoting a Healthy Environment in Urban Areas: A Case Study of Rajshahi City Corporation <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET"
         ],
-        github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
-        more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+        github: "https://drive.google.com/file/d/1hKcxbPDlTKNqTuLPNGz3aLURsgPbGQcD/view?usp=sharing",
+        more: "https://drive.google.com/file/d/1hKcxbPDlTKNqTuLPNGz3aLURsgPbGQcD/view?usp=sharing"
       }
     ]
   },
@@ -566,9 +566,33 @@ window.SITE = {
     recentLimit: 10,
     items: [
       {
+        title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka [Under Review]",
+        date:"October 2025",
+        venue:"Mahfuj, I. I., Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier)",
+        type:"Journal Articles",
+        link:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958",
+        cite:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958"  // <--- Add this field to enable Cite button
+      },
+      {
+        title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives. [Manuscript in Preparation]",
+        date:"",
+        venue:"Mahfuj, I. I., Tamim, N. F., Sultana, N., & Rahman, M. J.",
+        type:"Manuscripts in Preparation",
+        link:"",
+        cite:""  // <--- Add this field to enable Cite button
+      },
+      {
+        title:"Assessing transit-oriented development potential of Karwan Bazar MRT Station: A strategic actions framework for sustainable urban growth",
+        date:"May 2025",
+        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> 4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP)",
+        type:"Conference proceedings",
+        link:"",
+        cite:""  // <--- Add this field to enable Cite button
+      },
+      {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
         date:"April 2025",
-        venue:"Mahfuj, I. I., Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025)",
+        venue:"Mahfuj, I. I., Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology",
         type:"Conference proceedings",
         link:"https://shorturl.at/fmHyq",
         cite:"https://shorturl.at/fmHyq"  // <--- Add this field to enable Cite button
@@ -576,13 +600,13 @@ window.SITE = {
       {
         title:"Revolutionizing waste management in Rajshahi City Corporation: A technological solution for enhanced recycling and community engagement towards zero waste",
         date:"April 2025",
-        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025)",
+        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology",
         type:"Conference proceedings",
         link:"https://shorturl.at/QCbMo",
         cite:"https://shorturl.at/QCbMo"  // <--- Add this field to enable Cite button
       }
     ],
-    ordering:["Journal Articles","Book Chapters","Conference proceedings","Reports"]
+    ordering:["Journal Articles","Book Chapters","Conference proceedings", "Manuscripts in Preparation","Reports"]
   },
 
 
@@ -616,10 +640,10 @@ window.SITE = {
       { title:"General Secretary — RUET GIS Club <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri, featured in mainstream media.  <br> - Coordinated a technical workshop on “Drone-Based Data Collection & Processing” with Tiller.  <br> - Mentored and trained 100+ students in GIS, Remote Sensing, and geospatial software applications.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://community.esri.com/t5/gis-day-2025-forum/geoplan-1-0-the-megaevent-of-gis-day-celebration/m-p/1671138", date:"July 2025 - Present <br> Rajshai, Bangladesh ", featured: true },
       { title:"Volunteer, Disaster Management & Risk Reduction Department — Space and Environment Research Center <br> Volunteer ID: SERC-V20250308", tags:["Research & Projects"], link:"https://www.linkedin.com/posts/sercbd_remotesensing-spaceexploration-disastermanagement-activity-7307613299204861953-dFkB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"March 2025 - Present <br> Rajshai, Bangladesh " },
       { title:"Assistant Graphics and Design Secretary — RUET GIS Club <br> Rajshahi University of Engineering & Technology", tags:["Team work"], link:"https://drive.google.com/file/d/1YWrL9wBppdPBm2kutxmpX8P0ppi8zyWg/view?usp=drivesdk", date:"June 2024 - July 2025 <br> Rajshai, Bangladesh " },
-      { title:"Executive Producer — TEDxRUET <br> Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", date:"August 2024 - February 2025 <br> Rajshai, Bangladesh ", featured: true },
+      { title:"Executive Producer — TEDxRUET <br> - Organized “TEDxRUET – Empowering Imagination” on February 07, 2025 <br> - Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", date:"August 2024 - February 2025 <br> Rajshai, Bangladesh ", featured: true },
       { title:"Class Representative — Department of Urban & Regional Planning <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshai, Bangladesh ", featured: true },
       { title:"Prefect <br> St. Joseph Higher Secondary School", tags:["Leadership"], link:"", date:"July 2019 - January 2021 <br> Dhaka, Bangladesh " },
-      { title:"Corresponding Secretary, Josephite Math Mania, 2020 — Josephite Math Club <br> St. Joseph Higher Secondary School", tags:["Team management"], link:"", date:"December 2019 - January 2021 <br> Rajshai, Bangladesh " },
+      { title:"Joint Secretary, Josephite Math Mania, 2020 — Josephite Math Club <br> St. Joseph Higher Secondary School", tags:["Team management"], link:"", date:"December 2019 - January 2021 <br> Rajshai, Bangladesh " },
       { title:"Trainee & volunteer <br> Bangladesh Red Crescent Society (BDRCS)", tags:["Leadership"], link:"https://drive.google.com/file/d/11LHMQYZD6FQ_HXSaHmDgFZxfRr2aCtmQ/view?usp=drive_link", date:"September 2017 - January 2019 <br> Barguna, Bangladesh " }
     ]
   },
