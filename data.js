@@ -658,7 +658,7 @@ window.SITE = {
 
   blogs: [
     {
-      id: "blog-1",
+      id: "25003",
       title: "Understanding Geospatial Analysis with Python",
       tags: ["Python", "GIS", "Tutorial"],
       date: "Oct 12, 2025",
@@ -666,7 +666,7 @@ window.SITE = {
       link: "projects.html" // Replace with your actual notebook/blog link
     },
     {
-      id: "blog-2",
+      id: "25002",
       title: "My Journey into Remote Sensing",
       tags: ["Career", "Remote Sensing"],
       date: "Sep 28, 2025",
@@ -674,12 +674,12 @@ window.SITE = {
       link: "#"
     },
     {
-      id: "blog-3",
-      title: "Visualizing Climate Data using Google Earth Engine",
-      tags: ["GEE", "Climate", "Code"],
+      id: "25001",
+      title: "Google UX Design Specialization Certificate",
+      tags: ["Achievements"],
       date: "Aug 15, 2025",
-      image: "https://images.unsplash.com/photo-1527484987728-4b3e3e4ff96e?q=80&w=1000&auto=format&fit=crop",
-      link: "#"
+      image: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~ATVPA55PTE8K/CERTIFICATE_LANDING_PAGE~ATVPA55PTE8K.jpeg",
+      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_certificate-for-google-ux-design-specialization-activity-7176480524503322626-q4-w?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     }
     // Add more blog objects here...
   ],
