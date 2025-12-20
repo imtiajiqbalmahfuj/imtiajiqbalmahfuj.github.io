@@ -530,7 +530,7 @@ window.SITE = {
           "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index for Rajshahi City Corporation utilizing GIS based spatial analysis to identify high-risk zones. <br> - Applied Fuzzy AHP to weight contributing factors and proposed mitigation strategies for municipal planning. <br> - <u>Focus:</u> Spatial Analysis, Fuzzy AHP Analysis, Community-Based Research, Urban Safety, Technical Report."
         ],
         github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
-        more: ""
+        more: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing"
       },
       {
         org: "Aeronautics and Space Applications Division <br> Space & Environment Research Center (SERC)",
@@ -552,7 +552,7 @@ window.SITE = {
         bullets: [
           "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Facilitated community workshops using PRA tools to design sustainable homestead farming strategies in Khirshan, Rajshahi. <u>Focus:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Sustainable Planning."
         ],
-        github: "",
+        github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
         more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
       },
       {
@@ -564,7 +564,7 @@ window.SITE = {
           "<u>Project:</u> Developing Integrated Municipal Solid Waste Management Strategies for Promoting a Healthy Environment in Urban Areas: A Case Study of Rajshahi City Corporation <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET"
         ],
         github: "https://drive.google.com/file/d/1hKcxbPDlTKNqTuLPNGz3aLURsgPbGQcD/view?usp=sharing",
-        more: ""
+        more: "https://drive.google.com/file/d/1hKcxbPDlTKNqTuLPNGz3aLURsgPbGQcD/view?usp=sharing"
       }
     ]
   },
