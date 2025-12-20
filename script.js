@@ -38,9 +38,8 @@ function applyNav(){
         e.preventDefault()
         window.scrollTo({top:0, behavior:'smooth'})
       }
-      // else let the normal link work (reloads index.html)
     })
-  }
+  } // <--- THIS WAS MISSING IN YOUR CODE
 
   // Smart scroll only for mobile
   const navbar = $('#navbar');
@@ -49,7 +48,7 @@ function applyNav(){
   if(navbar) {
     window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
-      const isMobile = window.innerWidth < 768; // Tailwind md breakpoint
+      const isMobile = window.innerWidth < 768; 
 
       if (!isMobile) {
         navbar.style.transform = "translateY(0)";
