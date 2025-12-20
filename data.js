@@ -658,12 +658,20 @@ window.SITE = {
 
   blogs: [
     {
+      id: "25008",
+      title: "The Magic of LiDAR Point Clouds",
+      tags: ["Remote Sensing"],
+      date: "Dec 20, 2025",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25008.png", 
+      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_from-sleepless-nights-to-a-national-success-activity-7403829450687119360-dYmk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
+    },
+    {
       id: "25007",
       title: "Organized GeoPlan 1.0",
       tags: ["ECA"],
       date: "Dec, 2025",
       image: "https://media.licdn.com/dms/image/v2/D4D22AQHSi3Ipu6-JLw/feedshare-shrink_2048_1536/B4DZr.vnHPJMAk-/0/1765210485783?e=1767830400&v=beta&t=5AgEm0W9TKu-4z-riUB109L9l1894jIO1WYiPjbPk8o", 
-      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_from-sleepless-nights-to-a-national-success-activity-7403829450687119360-dYmk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
+      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_capturing-reality-one-pulse-at-a-time-the-ugcPost-7408191779205935104-Y1qn?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
     },
     {
       id: "25006",
