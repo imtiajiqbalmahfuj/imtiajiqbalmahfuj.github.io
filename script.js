@@ -463,25 +463,6 @@ function mountServices() {
   lucide.createIcons();
 }
 
-// === NEW: Explicit Function for the Collaborate Button (Footer) ===
-function mountCollaborate() {
-  const btn = $('#footerEmailBtn');
-  // We use the shared helper to keep logic in one place, but the button itself is separate
-  if(btn) setupEmail(btn);
-}
-
-function mountFooter(){
-  const zone = $('#footerLinks')
-  if(!zone) return
-  zone.innerHTML = window.SITE.socials.map(s=>`
-    <a class="footer-link hover:bg-white hover:text-black hover-smart" href="${s.href}" target="_blank">
-      <i data-lucide="${s.icon}"></i><span>${s.label}</span>
-    </a>
-  `).join('')
-  const y = $('#year');
-  if(y) y.textContent = new Date().getFullYear()
-}
-
 
 function mountBlogCarousel() {
   const track = $('#blogTrack');
@@ -570,6 +551,27 @@ function mountBlogsPage() {
   `).join('');
 
   lucide.createIcons();
+}
+
+
+// === NEW: Explicit Function for the Collaborate Button (Footer) ===
+function mountCollaborate() {
+  const btn = $('#footerEmailBtn');
+  // We use the shared helper to keep logic in one place, but the button itself is separate
+  if(btn) setupEmail(btn);
+}
+
+
+function mountFooter(){
+  const zone = $('#footerLinks')
+  if(!zone) return
+  zone.innerHTML = window.SITE.socials.map(s=>`
+    <a class="footer-link hover:bg-white hover:text-black hover-smart" href="${s.href}" target="_blank">
+      <i data-lucide="${s.icon}"></i><span>${s.label}</span>
+    </a>
+  `).join('')
+  const y = $('#year');
+  if(y) y.textContent = new Date().getFullYear()
 }
 
 
