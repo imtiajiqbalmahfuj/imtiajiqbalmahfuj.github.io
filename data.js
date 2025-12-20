@@ -673,24 +673,10 @@ window.SITE = {
       image: "https://media.licdn.com/dms/image/v2/D4D22AQHSi3Ipu6-JLw/feedshare-shrink_2048_1536/B4DZr.vnHPJMAk-/0/1765210485783?e=1767830400&v=beta&t=5AgEm0W9TKu-4z-riUB109L9l1894jIO1WYiPjbPk8o", 
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_capturing-reality-one-pulse-at-a-time-the-ugcPost-7408191779205935104-Y1qn?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
     },
+    
+    
     {
       id: "25006",
-      title: "National Award from 𝘔𝘪𝘯𝘪𝘴𝘵𝘳𝘺 𝘰𝘧 𝘏𝘰𝘶𝘴𝘪𝘯𝘨 𝘢𝘯𝘥 𝘗𝘶𝘣𝘭𝘪𝘤 𝘞𝘰𝘳𝘬𝘴, Bangladesh",
-      tags: ["Achievements"],
-      date: "Jun, 2025",
-      image: "https://media.licdn.com/dms/image/v2/D5622AQFaB_UDq0hXaQ/feedshare-shrink_2048_1536/B56ZcZ1oM9G0As-/0/1748485180806?e=1767830400&v=beta&t=tqDMvXIDe-HkcFGv9dCYF54YaCv_vQQcDN47Zzn-42U", 
-      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_%F0%9D%93%90%F0%9D%94%80%F0%9D%93%AA%F0%9D%93%BB%F0%9D%93%AD-%F0%9D%94%80%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B7%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B0-%F0%9D%93%AA%F0%9D%93%B5%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%BD-activity-7333678422080016384-LcTw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
-    },
-    {
-      id: "25005",
-      title: "First step to publications",
-      tags: ["Achievements"],
-      date: "Apr, 2025",
-      image: "https://media.licdn.com/dms/image/v2/D5622AQFxM0BF9kvElA/feedshare-shrink_2048_1536/B56ZZ2GgP9GoAs-/0/1745738161108?e=1767830400&v=beta&t=ld7W9Jd54tTy9buSJLD00aqa3q8mo9zEvtVh0cCi__s", 
-      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_icerie2025-academicresearch-researchpresentation-activity-7322156568320315393-LwNi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
-    },
-    {
-      id: "25004",
       title: "Paper 5: Dimensionality optimized machine learning retrieval from Google satellite embeddings",
       tags: ["#MyDailyLit"],
       date: "Nov, 2025",
@@ -698,7 +684,7 @@ window.SITE = {
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_mydailylit-paper5-activity-7398070797510139904-hDHk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" // Replace with your actual notebook/blog link
     },
     {
-      id: "25003",
+      id: "25005",
       title: "Paper 4: Agricultural drought risk in aman rice season",
       tags: ["#MyDailyLit"],
       date: "Nov, 2025",
@@ -706,12 +692,28 @@ window.SITE = {
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_mydailylit-paper4-activity-7397000372180934657-Wr8k?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" // Replace with your actual notebook/blog link
     },
     {
-      id: "25002",
+      id: "25004",
+      title: "National Award from 𝘔𝘪𝘯𝘪𝘴𝘵𝘳𝘺 𝘰𝘧 𝘏𝘰𝘶𝘴𝘪𝘯𝘨 𝘢𝘯𝘥 𝘗𝘶𝘣𝘭𝘪𝘤 𝘞𝘰𝘳𝘬𝘴, Bangladesh",
+      tags: ["Achievements"],
+      date: "Jun, 2025",
+      image: "https://media.licdn.com/dms/image/v2/D5622AQFaB_UDq0hXaQ/feedshare-shrink_2048_1536/B56ZcZ1oM9G0As-/0/1748485180806?e=1767830400&v=beta&t=tqDMvXIDe-HkcFGv9dCYF54YaCv_vQQcDN47Zzn-42U", 
+      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_%F0%9D%93%90%F0%9D%94%80%F0%9D%93%AA%F0%9D%93%BB%F0%9D%93%AD-%F0%9D%94%80%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B7%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B0-%F0%9D%93%AA%F0%9D%93%B5%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%BD-activity-7333678422080016384-LcTw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
+    },
+    {
+      id: "25003",
       title: "Paper 3: 𝐒𝐄𝐒𝐀𝐌𝐄 𝐇𝐮𝐦𝐚𝐧-𝐄𝐚𝐫𝐭𝐡 𝐀𝐭𝐥𝐚𝐬",
       tags: ["#MyDailyLit"],
       date: "May, 2025",
       image: "https://media.licdn.com/dms/image/v2/D5622AQGd8c-slHXvug/feedshare-shrink_800/B56ZbaaK7_HUAg-/0/1747421016679?e=1767830400&v=beta&t=Gntc1jHxn4peDURgEqT6A01Rh4dnRjFEjfmRTPg5iMg", // Replace with your image
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_mydailylit-paper3-activity-7329214963942612992-jQik?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" // Replace with your actual notebook/blog link
+    },
+    {
+      id: "25002",
+      title: "First step to publications",
+      tags: ["Achievements"],
+      date: "Apr, 2025",
+      image: "https://media.licdn.com/dms/image/v2/D5622AQFxM0BF9kvElA/feedshare-shrink_2048_1536/B56ZZ2GgP9GoAs-/0/1745738161108?e=1767830400&v=beta&t=ld7W9Jd54tTy9buSJLD00aqa3q8mo9zEvtVh0cCi__s", 
+      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_icerie2025-academicresearch-researchpresentation-activity-7322156568320315393-LwNi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
     },
     {
       id: "25001",
