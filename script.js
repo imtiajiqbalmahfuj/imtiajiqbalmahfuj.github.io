@@ -546,3 +546,85 @@ function mountBlogsPage() {
   }
 
   list.innerHTML = items.map(b => `
+    <div class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
+      <a href="${b.link}" target="_blank" class="block overflow-hidden">
+        <img src="${getThumb(b.image, 400)}" class="w-full h-52 object-cover transition-transform duration-500 hover:scale-105" alt="${b.title}">
+      </a>
+      <div class="p-6 flex flex-col gap-4 grow">
+        <div class="flex items-center justify-between">
+           <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">${b.date}</span>
+        </div>
+        <a href="${b.link}" target="_blank" class="font-bold text-xl hover:underline decoration-2 underline-offset-4">
+          ${b.title}
+        </a>
+        <div class="flex flex-wrap gap-2">
+           ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2.5 py-1 bg-slate-50 text-slate-600 border border-slate-200 rounded-lg hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
+        </div>
+        <div class="mt-auto pt-4 flex justify-end">
+          <a class="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" href="${b.link}" target="_blank">
+            Read more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  lucide.createIcons();
+}
+
+
+// Faster Loading Screen logic
+function mountLoading(){
+  const screen = $('#loadingScreen')
+  if(!screen) return
+
+  let cameFromSameSite = false
+  try {
+    if (document.referrer) {
+      const ref = new URL(document.referrer)
+      cameFromSameSite = ref.origin === location.origin
+    }
+  } catch(e){ cameFromSameSite = false }
+
+  if(cameFromSameSite){
+    screen.style.display = 'none'
+    return
+  }
+
+  // Force hide after max 1.5 seconds, or when window loads (whichever is first)
+  const hide = () => {
+    screen.style.transition = "opacity 0.5s ease"
+    screen.style.opacity = '0'
+    setTimeout(()=> screen.style.display='none', 500)
+  }
+
+  window.addEventListener('load', hide) 
+  setTimeout(hide, 1500) 
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyNav();
+
+  if ($('#loadingScreen')) mountLoading();
+  if ($('#heroName')) { 
+    mountHero(); 
+    mountSlideshow(); 
+  }
+  if ($('#about')) mountAbout();
+  if ($('#projects')) mountProjectsCarousel();
+  if ($('#expList')) mountExperience();
+  if ($('#pubRecent')) mountPublications();
+  if ($('#achvPreview')) mountAchievementsPreview();
+  if ($('#footerLinks')) mountFooter();
+  if ($('#servicesList')) mountServices(); // ensure ID matches HTML
+  
+  if ($('#blogTrack')) mountBlogCarousel();
+  if ($('#blogList')) mountBlogsPage();
+
+  // Initialize Footer/Collaborate Button separate from Hero
+  mountCollaborate();
+
+  if (window.lucide) lucide.createIcons();
+});
