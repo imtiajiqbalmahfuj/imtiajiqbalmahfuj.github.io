@@ -457,7 +457,7 @@ function mountBlogCarousel() {
             ${b.title}
           </a>
           <div class="flex flex-wrap gap-2 mt-1">
-            ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2 py-0.5 bg-slate-100 text-slate-600 border border-slate-200 rounded-md hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
+            ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-3 py-1.5 text-slate-600 border border-slate-200 rounded-xl hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="text-xs text-slate-400">Read article</span>
