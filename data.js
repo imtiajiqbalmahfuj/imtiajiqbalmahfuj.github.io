@@ -673,8 +673,6 @@ window.SITE = {
       image: "https://media.licdn.com/dms/image/v2/D4D22AQHSi3Ipu6-JLw/feedshare-shrink_2048_1536/B4DZr.vnHPJMAk-/0/1765210485783?e=1767830400&v=beta&t=5AgEm0W9TKu-4z-riUB109L9l1894jIO1WYiPjbPk8o", 
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_capturing-reality-one-pulse-at-a-time-the-ugcPost-7408191779205935104-Y1qn?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
     },
-    
-    
     {
       id: "25006",
       title: "Paper 5: Dimensionality optimized machine learning retrieval from Google satellite embeddings",
