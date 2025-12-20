@@ -22,6 +22,7 @@ window.SITE = {
     {name:"Python", icon:""},
     {name:"Google Earth Engine", icon:""},
     {name:"ArcGIS Pro", icon:""},
+    {name:"Pandas", icon:""},
     {name:"GeoPandas", icon:""},
     {name:"TensorFlow", icon:""},
     {name:"Scikit-learn", icon:""},
@@ -31,6 +32,13 @@ window.SITE = {
     {name:"Matplotlib", icon:""},
     {name:"Machine Learning", icon:""}, 
     {name:"PyTorch", icon:""},
+    {name:"Leafmap", icon:""},
+    {name:"Maplibre", icon:""},
+    {name:"Rasterio", icon:""},
+    {name:"Xarray", icon:""},
+    {name:"Matplotlib", icon:""},
+    {name:"Seaborn", icon:""},
+    {name:"DuckDB", icon:""},
     {name:"Atlas.ti", icon:""},
     {name:"AutoCAD", icon:""},
     {name:"Github", icon:""}
@@ -84,7 +92,7 @@ window.SITE = {
     },
     {
       title: "Programming Languages",
-      items: ["Python (Jupyter Lab, Pandas, NumPy, GeoPandas, Geemap, Leafmap, Maplibre, Rasterio, Xarray, GDAL, Matplotlib, Seaborn, DuckDB, SciPy, Scikit-learn, PyTorch, TensorFlow)", "JavaScript", "R"]
+      items: ["Python", "JavaScript", "R"]
     },
     {
       title: "Other Applications",
@@ -107,7 +115,7 @@ window.SITE = {
   counters: [
     { value: 3, label: "Publications" },
     { value: 4, label: "Professional/Research Work Experience" },
-    { value: 30, label: "Projects" },
+    { value: 40, label: "Projects" },
     { value: 4, label: "Workshops" }
   ],
 
@@ -510,8 +518,8 @@ window.SITE = {
         bullets: [
           "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Leading a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducting Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
         ],
-        github: "#",
-        more: "#"
+        github: "",
+        more: ""
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
@@ -522,7 +530,7 @@ window.SITE = {
           "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index for Rajshahi City Corporation utilizing GIS based spatial analysis to identify high-risk zones. <br> - Applied Fuzzy AHP to weight contributing factors and proposed mitigation strategies for municipal planning. <br> - <u>Focus:</u> Spatial Analysis, Fuzzy AHP Analysis, Community-Based Research, Urban Safety, Technical Report."
         ],
         github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
-        more: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing"
+        more: ""
       },
       {
         org: "Aeronautics and Space Applications Division <br> Space & Environment Research Center (SERC)",
@@ -544,7 +552,7 @@ window.SITE = {
         bullets: [
           "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Facilitated community workshops using PRA tools to design sustainable homestead farming strategies in Khirshan, Rajshahi. <u>Focus:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Sustainable Planning."
         ],
-        github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
+        github: "",
         more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
       },
       {
@@ -556,7 +564,7 @@ window.SITE = {
           "<u>Project:</u> Developing Integrated Municipal Solid Waste Management Strategies for Promoting a Healthy Environment in Urban Areas: A Case Study of Rajshahi City Corporation <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET"
         ],
         github: "https://drive.google.com/file/d/1hKcxbPDlTKNqTuLPNGz3aLURsgPbGQcD/view?usp=sharing",
-        more: "https://drive.google.com/file/d/1hKcxbPDlTKNqTuLPNGz3aLURsgPbGQcD/view?usp=sharing"
+        more: ""
       }
     ]
   },
@@ -571,7 +579,7 @@ window.SITE = {
         venue:"Mahfuj, I. I., Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier)",
         type:"Journal Articles",
         link:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958",
-        cite:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958"  // <--- Add this field to enable Cite button
+        cite:""  // <--- Add this field to enable Cite button
       },
       {
         title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives. [Manuscript in Preparation]",
