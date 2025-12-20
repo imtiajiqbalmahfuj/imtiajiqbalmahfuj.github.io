@@ -9,7 +9,7 @@ function getThumb(url, width = 600) {
 function $(sel, scope=document){ return scope.querySelector(sel) }
 function $all(sel, scope=document){ return [...scope.querySelectorAll(sel)] }
 
-// === FIXED: Handle ALL email buttons in one place ===
+// === Handle Button Emails (Hero & About) ===
 function mountAllEmails() {
   if (!window.SITE || !window.SITE.brand) return;
   const email = window.SITE.brand.email;
@@ -26,10 +26,9 @@ function mountAllEmails() {
     }
   };
 
-  // Apply to all 3 buttons
+  // Apply to all buttons
   applyLogic($('#emailBtn'));       // Hero
   applyLogic($('#aboutMailBtn'));   // About
-  applyLogic($('#footerEmailBtn')); // Collaborate (Footer)
 }
 
 function applyNav(){
