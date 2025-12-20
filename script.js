@@ -317,6 +317,7 @@ function mountProjectsCarousel() {
   const tagWrap = $('#projectTags')
 
   // First add ALL button (always first)
+  tagWrap.innerHTML = ''; // Clear existing
   tagWrap.insertAdjacentHTML('beforeend',
     `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
 
@@ -522,7 +523,7 @@ function mountBlogCarousel() {
             ${b.title}
           </a>
           <div class="flex flex-wrap gap-2 mt-1">
-            ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2 py-0.5 bg-slate-100 text-slate-600 border border-slate-200 rounded-md hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
+            ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-3 py-1.5 text-slate-600 border border-slate-200 rounded-xl hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="text-xs text-slate-400">Read article</span>
@@ -597,6 +598,7 @@ function mountBlogsPage() {
 }
 
 
+// Faster Loading Screen logic
 function mountLoading(){
   const screen = $('#loadingScreen')
   if(!screen) return
@@ -646,41 +648,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#blogTrack')) mountBlogCarousel();
   if ($('#blogList')) mountBlogsPage();
 
-  // Contact Form
-  const form = document.querySelector("#contactForm");
-  const sendBtn = document.getElementById("sendBtn");
-
-  if (form && sendBtn) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      sendBtn.disabled = true;
-
-      const data = Object.fromEntries(new FormData(form));
-
-      try {
-        const res = await fetch("https://script.google.com/macros/s/AKfycbxhs7539WwsLweHd-KJ_cB3UbxLrT8qwPYCvSahVc0FeOaPScR9r4fuOxQqf62SDUperQ/exec", {  // <-- replace with your Web App URL
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: { "Content-Type": "application/json;charset=utf-8" }
-        });
-
-        const result = await res.json();
-
-        if (result.status === "success") {
-          alert("Message sent! Thank you.");
-          form.reset();
-        } else {
-          alert("Oops! Something went wrong: " + result.message + "\n\nFor a prompt response, please contact me via email: imtiajiqbal.ruet@gmai.com");
-        }
-
-      } catch(err) {
-        alert("Oops! Something went wrong. Please try again.\n\nFor a prompt response, please contact me via email: imtiajiqbal.ruet@gmai.com");
-        console.error(err);
-      } finally {
-        sendBtn.disabled = false;
-      }
-    });
-  }
 
   if (window.lucide) lucide.createIcons();
 });
