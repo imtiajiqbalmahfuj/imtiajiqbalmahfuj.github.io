@@ -1,4 +1,3 @@
-
 // Helper to compress images on the fly (makes site load instantly)
 function getThumb(url, width = 600) {
   if (!url) return "";
@@ -11,6 +10,19 @@ function getThumb(url, width = 600) {
 function $(sel, scope=document){ return scope.querySelector(sel) }
 function $all(sel, scope=document){ return [...scope.querySelectorAll(sel)] }
 
+// Helper to set email href (Shared to keep logic consistent but buttons separated)
+function setupEmail(btn) {
+  if(!btn) return
+  const email = window.SITE.brand.email;
+  if(/Mobi|Android/i.test(navigator.userAgent)){
+    btn.href = `mailto:${email}`
+  } else {
+    btn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
+    btn.target = '_blank'
+    btn.rel = 'noopener noreferrer'
+  }
+}
+
 function applyNav(){
   const navCenter = $('#navCenter')
   const connectBtn = $('#connectBtn')
@@ -18,50 +30,47 @@ function applyNav(){
   const mmBtn = $('#menuBtn')
   const mobileMenu = $('#mobileMenu')
 
-// Brand click -> if on index, scroll to top; else go home
-if(homeBrand){
-  homeBrand.addEventListener('click', e=>{
-    const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" 
-    if(isHome){
-      e.preventDefault()
-      window.scrollTo({top:0, behavior:'smooth'})
-    }
-    // else let the normal link work (reloads index.html)
-  })
-// Smart scroll only for mobile
-const navbar = $('#navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-  const isMobile = window.innerWidth < 768; // Tailwind md breakpoint
-
-  if (!isMobile) {
-    // Desktop: always visible
-    navbar.style.transform = "translateY(0)";
-    return;
+  // Brand click -> if on index, scroll to top; else go home
+  if(homeBrand){
+    homeBrand.addEventListener('click', e=>{
+      const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" 
+      if(isHome){
+        e.preventDefault()
+        window.scrollTo({top:0, behavior:'smooth'})
+      }
+      // else let the normal link work (reloads index.html)
+    })
   }
 
-  if (currentScroll > lastScroll && currentScroll > 50) {
-    // Scrolling down → hide
-    navbar.style.transform = "translateY(-100%)";
-  } else {
-    // Scrolling up → show
-    navbar.style.transform = "translateY(0)";
+  // Smart scroll only for mobile
+  const navbar = $('#navbar');
+  let lastScroll = 0;
+
+  if(navbar) {
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      const isMobile = window.innerWidth < 768; // Tailwind md breakpoint
+
+      if (!isMobile) {
+        navbar.style.transform = "translateY(0)";
+        return;
+      }
+
+      if (currentScroll > lastScroll && currentScroll > 50) {
+        navbar.style.transform = "translateY(-100%)";
+      } else {
+        navbar.style.transform = "translateY(0)";
+      }
+      lastScroll = currentScroll;
+    });
   }
 
-  lastScroll = currentScroll;
-});
-
-}
-
-  // Connect
+  // Connect Button -> Scrolls to "Want to collaborate"
   if(connectBtn){
     connectBtn.addEventListener('click', (e)=> {
       e.preventDefault();
-      // We target the footer which has id="links" in your index.html
-      const footer = document.getElementById('links'); 
-      if(footer) footer.scrollIntoView({behavior: 'smooth'});
+      const contactSec = document.getElementById('contact'); 
+      if(contactSec) contactSec.scrollIntoView({behavior: 'smooth'});
     })
   }
 
@@ -77,7 +86,7 @@ window.addEventListener('scroll', () => {
     })
   })
 
-  // Mobile menu toggler with white background
+  // Mobile menu toggler
   if(mmBtn && mobileMenu){
     mmBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'))
     $all('#mobileMenu a').forEach(link=> link.addEventListener('click', ()=> mobileMenu.classList.add('hidden')))
@@ -85,29 +94,21 @@ window.addEventListener('scroll', () => {
 }
 
 function mountHero(){
-  const {name, subtitle, cvDownload, email, linkTargetId} = window.SITE.brand
-  $('#heroName').textContent = name
-  $('#heroSubtitle').textContent = subtitle
+  const {name, subtitle, cvDownload} = window.SITE.brand
+  const nameEl = $('#heroName');
+  if(nameEl) nameEl.textContent = name
+  const subEl = $('#heroSubtitle');
+  if(subEl) subEl.textContent = subtitle
+
+  // HERO EMAIL BUTTON
+  setupEmail($('#emailBtn'));
 
   // CV Button
   const cvBtn = $('#cvBtn')
-  cvBtn.href = cvDownload
-  cvBtn.setAttribute('download','Imtiaj-Iqbal-Mahfuj-CV.pdf')
-
-  // Helper to set up email buttons
-  const setupEmail = (btn) => {
-    if(!btn) return
-    if(/Mobi|Android/i.test(navigator.userAgent)){
-      btn.href = `mailto:${email}`
-    } else {
-      btn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
-      btn.target = '_blank'
-      btn.rel = 'noopener noreferrer'
-    }
+  if(cvBtn) {
+    cvBtn.href = cvDownload
+    cvBtn.setAttribute('download','Imtiaj-Iqbal-Mahfuj-CV.pdf')
   }
-
-  setupEmail($('#emailBtn'))       // Hero email button
-  setupEmail($('#footerEmailBtn')) // New footer email button
 
   // Link Button -> Scroll to Blogs
   const linkBtn = $('#linkBtn')
@@ -120,24 +121,26 @@ function mountHero(){
 
   // Ticker content - seamless loop
   const track = $('#tickerTrack')
-  const itemsHTML = window.SITE.tickerIcons.map(it=> `<span class="inline-flex items-center gap-2 mr-8 text-sm text-slate-600">
-    <i data-lucide="${it.icon}"></i>${it.name}
-  </span>`).join('')
+  if(track) {
+    const itemsHTML = window.SITE.tickerIcons.map(it=> `<span class="inline-flex items-center gap-2 mr-8 text-sm text-slate-600">
+      <i data-lucide="${it.icon}"></i>${it.name}
+    </span>`).join('')
 
-  track.innerHTML = `<div class="ticker-inner">${itemsHTML}</div><div class="ticker-inner">${itemsHTML}</div>`
+    track.innerHTML = `<div class="ticker-inner">${itemsHTML}</div><div class="ticker-inner">${itemsHTML}</div>`
 
-  const innerWidth = track.querySelector('.ticker-inner').scrollWidth
-  let pos = 0
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent)
-  const speed = isMobile ? 0.5 : 0.8  
+    const innerWidth = track.querySelector('.ticker-inner').scrollWidth
+    let pos = 0
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent)
+    const speed = isMobile ? 0.5 : 0.8  
 
-  function animateTicker() {
-    pos -= speed
-    if(pos <= -innerWidth) pos = 0
-    track.style.transform = `translateX(${pos}px)`
+    function animateTicker() {
+      pos -= speed
+      if(pos <= -innerWidth) pos = 0
+      track.style.transform = `translateX(${pos}px)`
+      requestAnimationFrame(animateTicker)
+    }
     requestAnimationFrame(animateTicker)
   }
-  requestAnimationFrame(animateTicker)
 
   // Down button scroll
   const downBtn = $('#downBtn')
@@ -151,9 +154,6 @@ function mountHero(){
     })
   }
 }
-
-
-
 
 function mountSlideshow(){
   const slidesWrap = $('#slides');
@@ -179,53 +179,52 @@ function mountSlideshow(){
     slidesWrap.style.transform = `translateX(-${idx * 100}%)`;
   }
 
-  $('#prevSlide').addEventListener('click', ()=> go(idx-1));
-  $('#nextSlide').addEventListener('click', ()=> go(idx+1));
+  const prev = $('#prevSlide');
+  const next = $('#nextSlide');
+  if(prev) prev.addEventListener('click', ()=> go(idx-1));
+  if(next) next.addEventListener('click', ()=> go(idx+1));
   setInterval(()=> go(idx+1), 4500);
 }
 
 
 function mountAbout(){
   const {photo} = window.SITE.brand
-  $('#aboutPhoto').src = photo
-  $('#aboutBio').innerHTML = window.SITE.about.bio
+  const photoEl = $('#aboutPhoto')
+  if(photoEl) photoEl.src = photo
+  const bioEl = $('#aboutBio')
+  if(bioEl) bioEl.innerHTML = window.SITE.about.bio
 
   const msgBtn = $('#msgBtn')
-  msgBtn.addEventListener('click', ()=> window.open(window.SITE.brand.linkedin,'_blank'))
+  if(msgBtn) msgBtn.addEventListener('click', ()=> window.open(window.SITE.brand.linkedin,'_blank'))
 
-  const aboutMailBtn = $('#aboutMailBtn')
-  if (/Mobi|Android/i.test(navigator.userAgent)) {
-    aboutMailBtn.href = `mailto:${window.SITE.brand.email}`
-  } else {
-    aboutMailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(window.SITE.brand.email)}`
-    aboutMailBtn.target = '_blank'
-    aboutMailBtn.rel = 'noopener noreferrer'
-  }
+  // ABOUT EMAIL BUTTON
+  setupEmail($('#aboutMailBtn'));
 
   // Education
   const edu = window.SITE.education
   const list = $('#eduList')
-  list.innerHTML = edu.map((e,i)=>`
-    <div class="card p-4 bg-white rounded-xl border border-slate-200">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <div class="font-semibold">${e.title}</div>
-          <div class="text-sm text-slate-600">${e.degree}</div>
-          <div class="text-xs text-slate-500 mt-1">${e.date}</div>
-          <div class="text-xs text-slate-500">${e.location}</div>
-          ${e.bullets && e.bullets.length 
-            ? `<ul class="list-disc pl-5 mt-2 text-sm text-slate-700">${e.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>` 
-            : ''}
+  if(list) {
+    list.innerHTML = edu.map((e,i)=>`
+      <div class="card p-4 bg-white rounded-xl border border-slate-200">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="font-semibold">${e.title}</div>
+            <div class="text-sm text-slate-600">${e.degree}</div>
+            <div class="text-xs text-slate-500 mt-1">${e.date}</div>
+            <div class="text-xs text-slate-500">${e.location}</div>
+            ${e.bullets && e.bullets.length 
+              ? `<ul class="list-disc pl-5 mt-2 text-sm text-slate-700">${e.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>` 
+              : ''}
+          </div>
+          <a class="icon-btn border border-slate-200 hover:bg-black hover:text-white hover-smart" href="${e.link}" target="_blank" aria-label="Open ${e.title} website">
+            <i data-lucide="arrow-up-right"></i>
+          </a>
         </div>
-        <a class="icon-btn border border-slate-200 hover:bg-black hover:text-white hover-smart" href="${e.link}" target="_blank" aria-label="Open ${e.title} website">
-          <i data-lucide="arrow-up-right"></i>
-        </a>
       </div>
-    </div>
-  `).join('')
+    `).join('')
+  }
   
-  
-  // Research Interests (works just like Skills)
+  // Research Interests
   const researchWrap = $('#research')
   if (researchWrap) {
     researchWrap.innerHTML = `
@@ -241,10 +240,8 @@ function mountAbout(){
       </div>
     `
   }
-
   
-  
-  // Skills (Flexible categories)
+  // Skills
   const skillsWrap = $('#skills')
   if (skillsWrap) {
     skillsWrap.innerHTML = window.SITE.skills.map(group => `
@@ -270,11 +267,10 @@ function mountAbout(){
         <div class="mt-2 text-slate-600">${c.label}</div>
       </div>
     `).join("")
-    initCounters() // animate the counters
+    initCounters() 
   }
 }
 
-// Counter animation
 function initCounters(){
   const counters = document.querySelectorAll('.count-up')
   counters.forEach(counter => {
@@ -299,31 +295,18 @@ function mountProjectsCarousel() {
   const wrap = $('#projectCarousel')
   if (!wrap) return
 
-  // only projects with images
   const items = (window.SITE.projects || []).filter(p => p.image)
-
-  // unique tags
   const uniqueTags = [...new Set(items.flatMap(p => p.tags))]
-
-  // 🎯 define the order you want
   const tagOrder = ["Portfolio", "GIS", "Geospatial Python", "GEE", "ML", "Remote Sensing", "URP", "GeoViz", "Operations Research", "Others"]
-
-  // reorder tags: first by tagOrder, then any new tags alphabetically
   const tags = [
     ...tagOrder.filter(t => uniqueTags.includes(t)),
     ...uniqueTags.filter(t => !tagOrder.includes(t)).sort()
   ]
 
   const tagWrap = $('#projectTags')
-
-  // First add ALL button (always first)
-  tagWrap.innerHTML = ''; // Clear existing
-  tagWrap.insertAdjacentHTML('beforeend',
-    `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
-
-  // Then add ordered tags
-  tags.forEach(t => tagWrap.insertAdjacentHTML('beforeend',
-    `<button data-tag="${t}" class="filter-btn px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`))
+  tagWrap.innerHTML = ''; 
+  tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
+  tags.forEach(t => tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="${t}" class="filter-btn px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`))
 
   let filtered = items.slice()
 
@@ -349,16 +332,12 @@ function mountProjectsCarousel() {
   }
   render()
 
-  // filtering with active state
   tagWrap.addEventListener('click', e => {
     const b = e.target.closest('button[data-tag]')
     if (!b) return
-
     const t = b.dataset.tag
     filtered = (t === "ALL") ? items.slice() : items.filter(p => (p.tags || []).includes(t))
     render()
-
-    // clear active from all, set active on clicked
     tagWrap.querySelectorAll('button[data-tag]').forEach(btn => {
       btn.classList.remove('bg-black', 'text-white')
       btn.classList.add('bg-white')
@@ -367,13 +346,12 @@ function mountProjectsCarousel() {
     b.classList.add('bg-black', 'text-white')
   })
 
-  // carousel buttons (scroll container)
   const track = $('#projectTrackOuter')
-  $('#projPrev').addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }))
-  $('#projNext').addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
+  const prev = $('#projPrev')
+  const next = $('#projNext')
+  if(prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }))
+  if(next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
 }
-
-
 
 
 function mountExperience(){
@@ -402,14 +380,11 @@ function mountExperience(){
 }
 
 
-
-
 function mountPublications() {
   const rec = $('#pubRecent');
   if(!rec) return;
 
   const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-  // Limit only on homepage
   const items = isHome 
     ? window.SITE.publications.items.slice(0, window.SITE.publications.recentLimit)
     : window.SITE.publications.items;
@@ -473,7 +448,6 @@ function mountAchievementsPreview(){
 }
 
 
-
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
   if (!wrap) return;
@@ -489,8 +463,12 @@ function mountServices() {
   lucide.createIcons();
 }
 
-
-
+// === NEW: Explicit Function for the Collaborate Button (Footer) ===
+function mountCollaborate() {
+  const btn = $('#footerEmailBtn');
+  // We use the shared helper to keep logic in one place, but the button itself is separate
+  if(btn) setupEmail(btn);
+}
 
 function mountFooter(){
   const zone = $('#footerLinks')
@@ -500,9 +478,9 @@ function mountFooter(){
       <i data-lucide="${s.icon}"></i><span>${s.label}</span>
     </a>
   `).join('')
-  $('#year').textContent = new Date().getFullYear()
+  const y = $('#year');
+  if(y) y.textContent = new Date().getFullYear()
 }
-
 
 
 function mountBlogCarousel() {
@@ -515,7 +493,7 @@ function mountBlogCarousel() {
     <div class="flex-shrink-0 w-80 md:w-96">
       <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover-smart">
         <a href="${b.link}" target="_blank" class="block relative group">
-          <img src="${getThumb(b.image, 400)}" class="w-full h-48 object-cover alt="${b.title}">
+          <img src="${getThumb(b.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${b.title}">
         </a>
         <div class="p-5 flex flex-col gap-3 grow">
           <div class="text-xs text-slate-500 font-medium">${b.date}</div>
@@ -523,7 +501,7 @@ function mountBlogCarousel() {
             ${b.title}
           </a>
           <div class="flex flex-wrap gap-2 mt-1">
-            ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-3 py-1.5 text-slate-600 border border-slate-200 rounded-xl hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
+            ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2 py-0.5 bg-slate-100 text-slate-600 border border-slate-200 rounded-md hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="text-xs text-slate-400">Read article</span>
@@ -549,14 +527,12 @@ function mountBlogsPage() {
   const list = document.getElementById('blogList');
   if (!list) return;
 
-  // 1. Check for ?tag= in URL
   const params = new URLSearchParams(window.location.search);
   const tagFilter = params.get('tag');
 
   let items = window.SITE.blogs || [];
   
-  // 2. Filter if tag exists
-  const headerDesc = document.querySelector('#blogHeaderDesc'); // We will add this ID in HTML
+  const headerDesc = document.querySelector('#blogHeaderDesc');
   if (tagFilter) {
     items = items.filter(b => b.tags.includes(tagFilter));
     if(headerDesc) {
@@ -564,92 +540,9 @@ function mountBlogsPage() {
     }
   }
 
-  // 3. Render
   if(items.length === 0){
     list.innerHTML = `<div class="col-span-full text-center py-20 text-slate-500">No articles found with the tag "${tagFilter}". <br><a href="blogs.html" class="underline mt-2 inline-block">View all</a></div>`;
     return;
   }
 
   list.innerHTML = items.map(b => `
-    <div class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
-      <a href="${b.link}" target="_blank" class="block overflow-hidden">
-        <img src="${b.image}" class="w-full h-52 object-cover transition-transform duration-500 hover:scale-105" alt="${b.title}">
-      </a>
-      <div class="p-6 flex flex-col gap-4 grow">
-        <div class="flex items-center justify-between">
-           <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">${b.date}</span>
-        </div>
-        <a href="${b.link}" target="_blank" class="font-bold text-xl hover:underline decoration-2 underline-offset-4">
-          ${b.title}
-        </a>
-        <div class="flex flex-wrap gap-2">
-           ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2.5 py-1 bg-slate-50 text-slate-600 border border-slate-200 rounded-lg hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
-        </div>
-        <div class="mt-auto pt-4 flex justify-end">
-          <a class="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" href="${b.link}" target="_blank">
-            Read more <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  `).join('');
-
-  lucide.createIcons();
-}
-
-
-// Faster Loading Screen logic
-function mountLoading(){
-  const screen = $('#loadingScreen')
-  if(!screen) return
-
-  let cameFromSameSite = false
-  try {
-    if (document.referrer) {
-      const ref = new URL(document.referrer)
-      cameFromSameSite = ref.origin === location.origin
-    }
-  } catch(e){ cameFromSameSite = false }
-
-  if(cameFromSameSite){
-    screen.style.display = 'none'
-    return
-  }
-
-  // Force hide after max 1.5 seconds, or when window loads (whichever is first)
-  const hide = () => {
-    screen.style.transition = "opacity 0.5s ease"
-    screen.style.opacity = '0'
-    setTimeout(()=> screen.style.display='none', 500)
-  }
-
-  window.addEventListener('load', hide) // Normal load
-  setTimeout(hide, 1500) // Backup timer (in case a specific image fails to load)
-}
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  applyNav();
-
-  if ($('#loadingScreen')) mountLoading();
-  if ($('#heroName')) { 
-    mountHero(); 
-    mountSlideshow(); 
-  }
-  if ($('#about')) mountAbout();
-  if ($('#projects')) mountProjectsCarousel();
-  if ($('#expList')) mountExperience();
-  if ($('#pubRecent')) mountPublications();
-  if ($('#achvPreview')) mountAchievementsPreview();
-  if ($('#footerLinks')) mountFooter();
-  if ($('#services')) mountServices(); // initialize Services section
-  // Add these lines inside the DOMContentLoaded block:
-  if ($('#blogTrack')) mountBlogCarousel();
-  if ($('#blogList')) mountBlogsPage();
-
-
-  if (window.lucide) lucide.createIcons();
-});
-
-
