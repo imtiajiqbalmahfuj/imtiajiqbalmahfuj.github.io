@@ -1,26 +1,35 @@
 // Helper to compress images on the fly (makes site load instantly)
 function getThumb(url, width = 600) {
   if (!url) return "";
-  if (url.includes('.svg')) return url; // Don't compress SVGs
-  // We use wsrv.nl (free global CDN) to resize GitHub/external images to WebP format
+  if (url.includes('.svg')) return url; 
   return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&q=80&output=webp`;
 }
 
-// Shared helpers across pages
+// Shared helpers
 function $(sel, scope=document){ return scope.querySelector(sel) }
 function $all(sel, scope=document){ return [...scope.querySelectorAll(sel)] }
 
-// Helper to set email href (Shared to keep logic consistent but buttons separated)
-function setupEmail(btn) {
-  if(!btn) return
+// === FIXED: Handle ALL email buttons in one place ===
+function mountAllEmails() {
+  if (!window.SITE || !window.SITE.brand) return;
   const email = window.SITE.brand.email;
-  if(/Mobi|Android/i.test(navigator.userAgent)){
-    btn.href = `mailto:${email}`
-  } else {
-    btn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
-    btn.target = '_blank'
-    btn.rel = 'noopener noreferrer'
-  }
+
+  // Logic to apply to each button
+  const applyLogic = (btn) => {
+    if(!btn) return;
+    if(/Mobi|Android/i.test(navigator.userAgent)){
+      btn.href = `mailto:${email}`
+    } else {
+      btn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
+      btn.target = '_blank'
+      btn.rel = 'noopener noreferrer'
+    }
+  };
+
+  // Apply to all 3 buttons
+  applyLogic($('#emailBtn'));       // Hero
+  applyLogic($('#aboutMailBtn'));   // About
+  applyLogic($('#footerEmailBtn')); // Collaborate (Footer)
 }
 
 function applyNav(){
@@ -30,7 +39,7 @@ function applyNav(){
   const mmBtn = $('#menuBtn')
   const mobileMenu = $('#mobileMenu')
 
-  // Brand click -> if on index, scroll to top; else go home
+  // Brand click
   if(homeBrand){
     homeBrand.addEventListener('click', e=>{
       const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" 
@@ -39,22 +48,19 @@ function applyNav(){
         window.scrollTo({top:0, behavior:'smooth'})
       }
     })
-  } // <--- THIS WAS MISSING IN YOUR CODE
+  } // <--- THIS BRACKET WAS MISSING IN YOUR CODE
 
-  // Smart scroll only for mobile
+  // Smart scroll
   const navbar = $('#navbar');
   let lastScroll = 0;
-
   if(navbar) {
     window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
       const isMobile = window.innerWidth < 768; 
-
       if (!isMobile) {
         navbar.style.transform = "translateY(0)";
         return;
       }
-
       if (currentScroll > lastScroll && currentScroll > 50) {
         navbar.style.transform = "translateY(-100%)";
       } else {
@@ -85,7 +91,7 @@ function applyNav(){
     })
   })
 
-  // Mobile menu toggler
+  // Mobile menu
   if(mmBtn && mobileMenu){
     mmBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'))
     $all('#mobileMenu a').forEach(link=> link.addEventListener('click', ()=> mobileMenu.classList.add('hidden')))
@@ -93,14 +99,12 @@ function applyNav(){
 }
 
 function mountHero(){
+  if (!window.SITE) return;
   const {name, subtitle, cvDownload} = window.SITE.brand
   const nameEl = $('#heroName');
   if(nameEl) nameEl.textContent = name
   const subEl = $('#heroSubtitle');
   if(subEl) subEl.textContent = subtitle
-
-  // HERO EMAIL BUTTON
-  setupEmail($('#emailBtn'));
 
   // CV Button
   const cvBtn = $('#cvBtn')
@@ -118,20 +122,17 @@ function mountHero(){
     })
   }
 
-  // Ticker content - seamless loop
+  // Ticker
   const track = $('#tickerTrack')
   if(track) {
     const itemsHTML = window.SITE.tickerIcons.map(it=> `<span class="inline-flex items-center gap-2 mr-8 text-sm text-slate-600">
       <i data-lucide="${it.icon}"></i>${it.name}
     </span>`).join('')
-
     track.innerHTML = `<div class="ticker-inner">${itemsHTML}</div><div class="ticker-inner">${itemsHTML}</div>`
-
     const innerWidth = track.querySelector('.ticker-inner').scrollWidth
     let pos = 0
     const isMobile = /Mobi|Android/i.test(navigator.userAgent)
     const speed = isMobile ? 0.5 : 0.8  
-
     function animateTicker() {
       pos -= speed
       if(pos <= -innerWidth) pos = 0
@@ -141,7 +142,7 @@ function mountHero(){
     requestAnimationFrame(animateTicker)
   }
 
-  // Down button scroll
+  // Down button
   const downBtn = $('#downBtn')
   if(downBtn){
     downBtn.addEventListener('click', ()=> {
@@ -157,11 +158,8 @@ function mountHero(){
 function mountSlideshow(){
   const slidesWrap = $('#slides');
   if(!slidesWrap) return;
-
-  // Get projects with images,
   const slides = (window.SITE.projects || []).filter(p => p.image).slice();
   const slideCount = slides.length;
-
   slidesWrap.style.display = 'flex';
   slidesWrap.style.transition = 'transform 0.5s ease';
   slidesWrap.innerHTML = slides.map(s => `
@@ -171,13 +169,11 @@ function mountSlideshow(){
       </a>
     </div>
   `).join('');
-
   let idx = 0;
   function go(i){
     idx = (i + slideCount) % slideCount;
     slidesWrap.style.transform = `translateX(-${idx * 100}%)`;
   }
-
   const prev = $('#prevSlide');
   const next = $('#nextSlide');
   if(prev) prev.addEventListener('click', ()=> go(idx-1));
@@ -185,19 +181,15 @@ function mountSlideshow(){
   setInterval(()=> go(idx+1), 4500);
 }
 
-
 function mountAbout(){
+  if (!window.SITE) return;
   const {photo} = window.SITE.brand
   const photoEl = $('#aboutPhoto')
   if(photoEl) photoEl.src = photo
   const bioEl = $('#aboutBio')
   if(bioEl) bioEl.innerHTML = window.SITE.about.bio
-
   const msgBtn = $('#msgBtn')
   if(msgBtn) msgBtn.addEventListener('click', ()=> window.open(window.SITE.brand.linkedin,'_blank'))
-
-  // ABOUT EMAIL BUTTON
-  setupEmail($('#aboutMailBtn'));
 
   // Education
   const edu = window.SITE.education
@@ -236,8 +228,7 @@ function mountAbout(){
             </button>
           `).join("")}
         </div>
-      </div>
-    `
+      </div>`
   }
   
   // Skills
@@ -253,11 +244,10 @@ function mountAbout(){
             </button>
           `).join("")}
         </div>
-      </div>
-    `).join("")
+      </div>`).join("")
   }
 
-  // Counters Section
+  // Counters
   const counterWrap = $('#aboutCounters')
   if (counterWrap) {
     counterWrap.innerHTML = window.SITE.counters.map(c => `
@@ -289,11 +279,9 @@ function initCounters(){
   })
 }
 
-
 function mountProjectsCarousel() {
   const wrap = $('#projectCarousel')
   if (!wrap) return
-
   const items = (window.SITE.projects || []).filter(p => p.image)
   const uniqueTags = [...new Set(items.flatMap(p => p.tags))]
   const tagOrder = ["Portfolio", "GIS", "Geospatial Python", "GEE", "ML", "Remote Sensing", "URP", "GeoViz", "Operations Research", "Others"]
@@ -301,14 +289,11 @@ function mountProjectsCarousel() {
     ...tagOrder.filter(t => uniqueTags.includes(t)),
     ...uniqueTags.filter(t => !tagOrder.includes(t)).sort()
   ]
-
   const tagWrap = $('#projectTags')
   tagWrap.innerHTML = ''; 
   tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
   tags.forEach(t => tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="${t}" class="filter-btn px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`))
-
   let filtered = items.slice()
-
   function render() {
     $('#projectTrack').innerHTML = filtered.map(p => `
       <div class="flex-shrink-0">
@@ -330,7 +315,6 @@ function mountProjectsCarousel() {
     lucide.createIcons()
   }
   render()
-
   tagWrap.addEventListener('click', e => {
     const b = e.target.closest('button[data-tag]')
     if (!b) return
@@ -344,7 +328,6 @@ function mountProjectsCarousel() {
     b.classList.remove('bg-white')
     b.classList.add('bg-black', 'text-white')
   })
-
   const track = $('#projectTrackOuter')
   const prev = $('#projPrev')
   const next = $('#projNext')
@@ -352,14 +335,11 @@ function mountProjectsCarousel() {
   if(next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
 }
 
-
 function mountExperience(){
   const list = $('#expList')
   if(!list) return
-
   const recentLimit = window.SITE.experiences.recentLimit || null
   const itemsToShow = recentLimit ? window.SITE.experiences.items.slice(0, recentLimit) : window.SITE.experiences.items
-
   list.innerHTML = itemsToShow.map(x=>`
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
@@ -378,16 +358,13 @@ function mountExperience(){
   `).join('')
 }
 
-
 function mountPublications() {
   const rec = $('#pubRecent');
   if(!rec) return;
-
   const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
   const items = isHome 
     ? window.SITE.publications.items.slice(0, window.SITE.publications.recentLimit)
     : window.SITE.publications.items;
-
   rec.innerHTML = items.map(p => `
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
       <div class="text-sm text-slate-500">${p.type}</div>
@@ -403,15 +380,12 @@ function mountPublications() {
       </div>
     </div>
   `).join('');
-
   lucide.createIcons();
 }
-
 
 function mountAchievementsPreview(){
   const wrap = $('#achvPreview')
   if(!wrap) return
-
   function renderCard(list, title, limit = 10){
     const filtered = list.filter(a => a.featured).slice(0, limit)
     return `
@@ -431,10 +405,8 @@ function mountAchievementsPreview(){
             </div>
           `).join('')}
         </div>
-      </div>
-    `
+      </div>`
   }
-
   const A = window.SITE.achievements
   wrap.innerHTML = [
     renderCard(A.fellowships, "Fellowships, Awards & Research Grants"),
@@ -442,15 +414,12 @@ function mountAchievementsPreview(){
     renderCard(A.workshops, "Workshops & Presentations"),
     renderCard(A.volunteering, "Leadership & Volunteering Experience")
   ].join('')
-
   if(window.lucide) lucide.createIcons()
 }
-
 
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
   if (!wrap) return;
-
   wrap.innerHTML = window.SITE.services.map(s => `
     <div class="p-6 bg-white border border-slate-200 rounded-xl text-center hover:[transform:scale(1.03)] transition-transform duration-200 hover:shadow-lg hover-smart">
       <i data-lucide="${s.icon}" class="mx-auto mb-3"></i>
@@ -458,17 +427,25 @@ function mountServices() {
       <p class="text-sm text-gray-600 mt-2">${s.description}</p>
     </div>
   `).join("");
-
   lucide.createIcons();
 }
 
+function mountFooter(){
+  const zone = $('#footerLinks')
+  if(!zone) return
+  zone.innerHTML = window.SITE.socials.map(s=>`
+    <a class="footer-link hover:bg-white hover:text-black hover-smart" href="${s.href}" target="_blank">
+      <i data-lucide="${s.icon}"></i><span>${s.label}</span>
+    </a>
+  `).join('')
+  const y = $('#year');
+  if(y) y.textContent = new Date().getFullYear()
+}
 
 function mountBlogCarousel() {
   const track = $('#blogTrack');
   if (!track) return;
-
   const items = window.SITE.blogs || [];
-
   track.innerHTML = items.map(b => `
     <div class="flex-shrink-0 w-80 md:w-96">
       <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover-smart">
@@ -493,9 +470,7 @@ function mountBlogCarousel() {
       </div>
     </div>
   `).join('');
-
   lucide.createIcons();
-
   const outer = $('#blogTrackOuter');
   if(outer){
     $('#blogPrev').addEventListener('click', () => outer.scrollBy({ left: -outer.clientWidth, behavior: 'smooth' }));
@@ -506,12 +481,9 @@ function mountBlogCarousel() {
 function mountBlogsPage() {
   const list = document.getElementById('blogList');
   if (!list) return;
-
   const params = new URLSearchParams(window.location.search);
   const tagFilter = params.get('tag');
-
   let items = window.SITE.blogs || [];
-  
   const headerDesc = document.querySelector('#blogHeaderDesc');
   if (tagFilter) {
     items = items.filter(b => b.tags.includes(tagFilter));
@@ -519,12 +491,10 @@ function mountBlogsPage() {
       headerDesc.innerHTML = `Showing articles tagged: <span class="font-bold text-black">#${tagFilter}</span> <a href="blogs.html" class="ml-2 text-sm text-blue-600 hover:underline">(Clear filter)</a>`;
     }
   }
-
   if(items.length === 0){
     list.innerHTML = `<div class="col-span-full text-center py-20 text-slate-500">No articles found with the tag "${tagFilter}". <br><a href="blogs.html" class="underline mt-2 inline-block">View all</a></div>`;
     return;
   }
-
   list.innerHTML = items.map(b => `
     <div class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
       <a href="${b.link}" target="_blank" class="block overflow-hidden">
@@ -548,37 +518,12 @@ function mountBlogsPage() {
       </div>
     </div>
   `).join('');
-
   lucide.createIcons();
 }
 
-
-// === NEW: Explicit Function for the Collaborate Button (Footer) ===
-function mountCollaborate() {
-  const btn = $('#footerEmailBtn');
-  // We use the shared helper to keep logic in one place, but the button itself is separate
-  if(btn) setupEmail(btn);
-}
-
-
-function mountFooter(){
-  const zone = $('#footerLinks')
-  if(!zone) return
-  zone.innerHTML = window.SITE.socials.map(s=>`
-    <a class="footer-link hover:bg-white hover:text-black hover-smart" href="${s.href}" target="_blank">
-      <i data-lucide="${s.icon}"></i><span>${s.label}</span>
-    </a>
-  `).join('')
-  const y = $('#year');
-  if(y) y.textContent = new Date().getFullYear()
-}
-
-
-// Faster Loading Screen logic
 function mountLoading(){
   const screen = $('#loadingScreen')
   if(!screen) return
-
   let cameFromSameSite = false
   try {
     if (document.referrer) {
@@ -586,26 +531,24 @@ function mountLoading(){
       cameFromSameSite = ref.origin === location.origin
     }
   } catch(e){ cameFromSameSite = false }
-
   if(cameFromSameSite){
     screen.style.display = 'none'
     return
   }
-
-  // Force hide after max 1.5 seconds, or when window loads (whichever is first)
   const hide = () => {
     screen.style.transition = "opacity 0.5s ease"
     screen.style.opacity = '0'
     setTimeout(()=> screen.style.display='none', 500)
   }
-
   window.addEventListener('load', hide) 
   setTimeout(hide, 1500) 
 }
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
+  // 1. Activate ALL email buttons first
+  mountAllEmails(); 
+
+  // 2. Initialize Navigation (Syntax Fixed)
   applyNav();
 
   if ($('#loadingScreen')) mountLoading();
@@ -619,13 +562,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#pubRecent')) mountPublications();
   if ($('#achvPreview')) mountAchievementsPreview();
   if ($('#footerLinks')) mountFooter();
-  if ($('#servicesList')) mountServices(); // ensure ID matches HTML
+  if ($('#servicesList')) mountServices(); 
   
   if ($('#blogTrack')) mountBlogCarousel();
   if ($('#blogList')) mountBlogsPage();
-
-  // Initialize Footer/Collaborate Button separate from Hero
-  mountCollaborate();
 
   if (window.lucide) lucide.createIcons();
 });
