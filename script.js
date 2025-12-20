@@ -441,10 +441,13 @@ function mountFooter(){
   if(y) y.textContent = new Date().getFullYear()
 }
 
+
 function mountBlogCarousel() {
   const track = $('#blogTrack');
   if (!track) return;
+
   const items = window.SITE.blogs || [];
+
   track.innerHTML = items.map(b => `
     <div class="flex-shrink-0 w-80 md:w-96">
       <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover-smart">
@@ -457,7 +460,7 @@ function mountBlogCarousel() {
             ${b.title}
           </a>
           <div class="flex flex-wrap gap-2 mt-1">
-            ${b.tags.map(t => `<a href="blogs.html?tag=${t}"text-xs px-2 py-0.5 bg-white border rounded-full border-slate-200 hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
+            ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2.5 py-1 border border-slate-200 rounded-full text-slate-600 hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="text-xs text-slate-400">Read article</span>
@@ -469,7 +472,9 @@ function mountBlogCarousel() {
       </div>
     </div>
   `).join('');
+
   lucide.createIcons();
+
   const outer = $('#blogTrackOuter');
   if(outer){
     $('#blogPrev').addEventListener('click', () => outer.scrollBy({ left: -outer.clientWidth, behavior: 'smooth' }));
@@ -480,9 +485,12 @@ function mountBlogCarousel() {
 function mountBlogsPage() {
   const list = document.getElementById('blogList');
   if (!list) return;
+
   const params = new URLSearchParams(window.location.search);
   const tagFilter = params.get('tag');
+
   let items = window.SITE.blogs || [];
+  
   const headerDesc = document.querySelector('#blogHeaderDesc');
   if (tagFilter) {
     items = items.filter(b => b.tags.includes(tagFilter));
@@ -490,10 +498,12 @@ function mountBlogsPage() {
       headerDesc.innerHTML = `Showing articles tagged: <span class="font-bold text-black">#${tagFilter}</span> <a href="blogs.html" class="ml-2 text-sm text-blue-600 hover:underline">(Clear filter)</a>`;
     }
   }
+
   if(items.length === 0){
     list.innerHTML = `<div class="col-span-full text-center py-20 text-slate-500">No articles found with the tag "${tagFilter}". <br><a href="blogs.html" class="underline mt-2 inline-block">View all</a></div>`;
     return;
   }
+
   list.innerHTML = items.map(b => `
     <div class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
       <a href="${b.link}" target="_blank" class="block overflow-hidden">
@@ -507,7 +517,7 @@ function mountBlogsPage() {
           ${b.title}
         </a>
         <div class="flex flex-wrap gap-2">
-           ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2.5 py-1 bg-slate-50 text-slate-600 border border-slate-200 rounded-lg hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
+           ${b.tags.map(t => `<a href="blogs.html?tag=${t}" class="text-xs px-2.5 py-1 border border-slate-200 rounded-full text-slate-600 hover:bg-black hover:text-white transition-colors">${t}</a>`).join('')}
         </div>
         <div class="mt-auto pt-4 flex justify-end">
           <a class="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" href="${b.link}" target="_blank">
@@ -517,8 +527,10 @@ function mountBlogsPage() {
       </div>
     </div>
   `).join('');
+
   lucide.createIcons();
 }
+
 
 function mountLoading(){
   const screen = $('#loadingScreen')
