@@ -575,7 +575,7 @@ window.SITE = {
     items: [
       {
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka [Under Review]",
-        date:"October 2025",
+        date:"",
         venue:"Mahfuj, I. I., Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier)",
         type:"Journal Articles",
         link:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958",
@@ -590,9 +590,17 @@ window.SITE = {
         cite:""  // <--- Add this field to enable Cite button
       },
       {
+        title:"Flash flood hazard assessment using a GIS integrated fuzzy AHP-MCDA to inform nature-based solutions in Feni and Noakhali, Bangladesh",
+        date:"February 2026",
+        venue:"Mahfuj, I. I., Tamim, N. F., Rashid, T., & Adib, J. I. <br> 8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh",
+        type:"Conference proceedings",
+        link:"",
+        cite:""  // <--- Add this field to enable Cite button
+      },
+      {
         title:"Assessing transit-oriented development potential of Karwan Bazar MRT Station: A strategic actions framework for sustainable urban growth",
         date:"May 2025",
-        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> 4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP)",
+        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> 4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
         type:"Conference proceedings",
         link:"",
         cite:""  // <--- Add this field to enable Cite button
@@ -600,7 +608,7 @@ window.SITE = {
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
         date:"April 2025",
-        venue:"Mahfuj, I. I., Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology",
+        venue:"Mahfuj, I. I., Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
         type:"Conference proceedings",
         link:"https://shorturl.at/fmHyq",
         cite:"https://shorturl.at/fmHyq"  // <--- Add this field to enable Cite button
@@ -608,7 +616,7 @@ window.SITE = {
       {
         title:"Revolutionizing waste management in Rajshahi City Corporation: A technological solution for enhanced recycling and community engagement towards zero waste",
         date:"April 2025",
-        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology",
+        venue:"Mahfuj, I. I., Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
         type:"Conference proceedings",
         link:"https://shorturl.at/QCbMo",
         cite:"https://shorturl.at/QCbMo"  // <--- Add this field to enable Cite button
