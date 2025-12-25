@@ -113,9 +113,9 @@ window.SITE = {
   ],
 
   counters: [
-    { value: 3, label: "Publications" },
-    { value: 4, label: "Professional/Research Work Experience" },
-    { value: 40, label: "Projects" },
+    { value: 4, label: "Publications" },
+    { value: 5, label: "Professional/Research Experience" },
+    { value: 48, label: "Projects" },
     { value: 4, label: "Workshops" }
   ],
 
