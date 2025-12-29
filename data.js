@@ -146,12 +146,12 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25028",
+      title:"Web Mercator vs True Size: Global Distortion Animation",
+      tags:["Geospatial Python", "GeoViz"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25028_Web_Mercator_vs_True_Size_Country_Shape_Animation_in_Python/projection_timelapse_white_blue.gif",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25028_Web_Mercator_vs_True_Size_Country_Shape_Animation_in_Python/projection_timelapse_white_blue.gif",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/25028_Web_Mercator_vs_True_Size_Country_Shape_Animation_in_Python.html"
     },
     {
       id:"25027",
