@@ -138,12 +138,12 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26001",
+      title:"A Participatory Assessment of Roadside Deforestation Impacts and Locally Led Adaptation Strategies in Charghat",
+      tags:["Geospatial Python", "URP"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26001%20roadside_deforestation_impacts_and_locally_led_adaptation_strategies/PPS_Cover.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26001%20roadside_deforestation_impacts_and_locally_led_adaptation_strategies/PPS_Cover.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26001_roadside_deforestation_impacts_and_locally_led_adaptation_strategies.html"
     },
     {
       id:"25028",
