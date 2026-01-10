@@ -666,6 +666,14 @@ window.SITE = {
 
   blogs: [
     {
+      id: "26001",
+      title: "Trends and Patterns of Vehicle Registration and Ownership in Developing Countries: Evidence from Bangladesh",
+      tags: ["Transportation"],
+      date: "Jan 11, 2026",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26001.png", 
+      link: "https://imtiajiqbalmahfuj.github.io/Blogs/26001.html" 
+    },
+    {
       id: "25008",
       title: "The Magic of LiDAR Point Clouds",
       tags: ["Remote Sensing"],
