@@ -130,17 +130,17 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26002",
+      title:"Revitalizing Riverbank Systems through a Sponge City Framework & NBS",
+      tags:["URP", "GeoViz", "Portfolio"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26002%20Revitalizing%20Riverbank%20Systems%20through%20a%20Sponge%20City/LPS.png",
+      github:"https://drive.google.com/file/d/1eiopXmEY3-SJmPg2EFNRGite97wd4Rgm/view?usp=sharing",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26002_revitalizing_riverbank_systems_through_a_sponge_city_framework.html"
     },
     {
       id:"26001",
       title:"A Participatory Assessment of Roadside Deforestation Impacts and Locally Led Adaptation Strategies in Charghat",
-      tags:["Geospatial Python", "URP"],
+      tags:["Geospatial Python", "URP", "Portfolio"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26001%20roadside_deforestation_impacts_and_locally_led_adaptation_strategies/PPS_Cover.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26001%20roadside_deforestation_impacts_and_locally_led_adaptation_strategies/PPS_Cover.png",
       details:"https://imtiajiqbalmahfuj.github.io/projects/26001_roadside_deforestation_impacts_and_locally_led_adaptation_strategies.html"
