@@ -574,25 +574,41 @@ window.SITE = {
     recentLimit: 10,
     items: [
       {
-        title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka [Under Review]",
-        date:"",
-        venue:"<b>Mahfuj, I. I.</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier)",
-        type:"Journal Articles",
-        link:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958",
-        cite:""  // <--- Add this field to enable Cite button
-      },
-      {
         title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives. [Manuscript in Preparation]",
-        date:"",
-        venue:"<b>Mahfuj, I. I.</b>, Tamim, N. F., Sultana, N., & Rahman, M. J.",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J.",
         type:"Manuscripts in Preparation",
         link:"",
         cite:""  // <--- Add this field to enable Cite button
       },
       {
+        title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi.",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to City and Environment Interactions (Elsevier)",
+        type:"Manuscripts in Preparation",
+        link:"",
+        cite:""  // <--- Add this field to enable Cite button
+      },
+      {
+        title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
+        date:"2026",
+        venue:"Tamim, N. F., <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to Trees, Forests and People (Elsevier). [Under Review]",
+        type:"Journal Articles",
+        link:"",
+        cite:""  // <--- Add this field to enable Cite button
+      },
+      {
+        title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier).  [Under Review]",
+        type:"Journal Articles",
+        link:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958",
+        cite:""  // <--- Add this field to enable Cite button
+      },
+      {
         title:"Flash flood hazard assessment using a GIS integrated fuzzy AHP-MCDA to inform nature-based solutions in Feni and Noakhali, Bangladesh",
         date:"February 2026",
-        venue:"<b>Mahfuj, I. I.</b>, Tamim, N. F., Rashid, T., & Adib, J. I. <br> 8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., & Adib, J. I. <br> 8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh",
         type:"Conference proceedings",
         link:"",
         cite:""  // <--- Add this field to enable Cite button
@@ -600,7 +616,7 @@ window.SITE = {
       {
         title:"Assessing transit-oriented development potential of Karwan Bazar MRT Station: A strategic actions framework for sustainable urban growth",
         date:"May 2025",
-        venue:"<b>Mahfuj, I. I.</b>, Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> 4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> 4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
         type:"Conference proceedings",
         link:"",
         cite:""  // <--- Add this field to enable Cite button
@@ -608,7 +624,7 @@ window.SITE = {
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
         date:"April 2025",
-        venue:"<b>Mahfuj, I. I.</b>, Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
         type:"Conference proceedings",
         link:"https://shorturl.at/fmHyq",
         cite:"https://shorturl.at/fmHyq"  // <--- Add this field to enable Cite button
@@ -616,7 +632,7 @@ window.SITE = {
       {
         title:"Revolutionizing waste management in Rajshahi City Corporation: A technological solution for enhanced recycling and community engagement towards zero waste",
         date:"April 2025",
-        venue:"<b>Mahfuj, I. I.</b>, Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
         type:"Conference proceedings",
         link:"https://shorturl.at/QCbMo",
         cite:"https://shorturl.at/QCbMo"  // <--- Add this field to enable Cite button
@@ -628,6 +644,7 @@ window.SITE = {
 
   achievements: {
     fellowships:[
+      { title:"<b>International Society for Photogrammetry and Remote Sensing (ISPRS)</b><br> Individual Member (ID: 260124112154) <br> Actively engaged in the global network for information from imagery, photogrammetry, and remote sensing. ", tags:["Professional Membership"], link:"https://drive.google.com/file/d/1xfVd8bAk2NcLyFImiZPysnDB9_6HOfLH/view?usp=sharing", date:"Jan 2026 <br> Hannover, Germany", featured: true },
       { title:"Awarded <b>2nd place</b> at 'Youth's Thought in Sustainable Urban Planning - 2025' <br> <u>Awarded by:</u> Urban Development Directorate (UDD), <br> Ministry of Housing and Public Work, Government of the People's Republic of Bangladesh <br> <u>Project Title:</u> The Economic Utilization of the Karnaphuli Tunnel with a Balanced Approach to Economic Growth and Ecological Preservation ", tags:["Award"], link:"https://drive.google.com/file/d/1qa5tKswPKRd8hHw_OqSdBYDdT8r1zg89/view", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
       { title:"<b>Top 10 Finalist</b> at 'Innovative Ideas Presentation competition - 2024' <br> <u>Awarded by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Project Title:</u> Revolutionizing Waste Management in Rajshahi City Corporation: A Technological Solution for Enhanced Recycling and Community Engagement", tags:["Award"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_excited-to-share-that-we-were-shortlisted-activity-7268896507947343872-a74m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"December 2024 <br> Dhaka, Bangladesh", featured: true }
     ],
