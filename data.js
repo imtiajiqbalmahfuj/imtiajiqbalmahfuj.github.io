@@ -574,7 +574,7 @@ window.SITE = {
     recentLimit: 10,
     items: [
       {
-        title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives. [Manuscript in Preparation]",
+        title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J.",
         type:"Manuscripts in Preparation",
@@ -582,7 +582,7 @@ window.SITE = {
         cite:""  // <--- Add this field to enable Cite button
       },
       {
-        title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi.",
+        title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to City and Environment Interactions (Elsevier)",
         type:"Manuscripts in Preparation",
@@ -638,7 +638,7 @@ window.SITE = {
         cite:"https://shorturl.at/QCbMo"  // <--- Add this field to enable Cite button
       }
     ],
-    ordering:["Journal Articles","Book Chapters","Conference proceedings", "Manuscripts in Preparation","Reports"]
+    ordering:["Journal Articles", "Book Chapters", "Conference proceedings", "Manuscripts in Preparation", "Reports"]
   },
 
 
