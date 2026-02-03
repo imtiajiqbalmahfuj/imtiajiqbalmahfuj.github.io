@@ -350,8 +350,8 @@ function mountExperience() {
           <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
         </div>
         <div class="flex gap-2 md:self-end">
-          ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
-          ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
+          ${(x.link && x.link !== "") ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.link}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
+          ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>` : ''}
         </div>
       </div>
     </div>
@@ -399,7 +399,6 @@ function mountAchvPreview() {
   ];
 
   wrap.innerHTML = sections.map(sec => {
-    // Show top 2 items for preview
     const items = (sec.list || []).slice(0, 2);
     if(items.length === 0) return '';
 
@@ -408,17 +407,19 @@ function mountAchvPreview() {
         <h3 class="font-bold text-lg mb-3 text-slate-800">${sec.title}</h3>
         <div class="space-y-3 mb-3">
           ${items.map(i => `
-             <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-start justify-between gap-4">
-               <div>
-                 <div class="font-semibold text-sm">${i.title || i.role}</div>
-                 <div class="text-xs text-slate-500 mt-1">${i.org || i.issuer || i.date || ''}</div>
-               </div>
-               ${i.link ? `<a class="text-xs px-2 py-1 bg-white border rounded hover:bg-black hover:text-white transition flex-shrink-0" href="${i.link}" target="_blank">View</a>` : ''}
-             </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-start justify-between gap-4">
+                <div>
+                  <div class="font-semibold text-sm">${i.title || i.role}</div>
+                  <div class="text-xs text-slate-500 mt-1">
+                    ${i.org || i.issuer || ''} ${ (i.org || i.issuer) && i.date ? '•' : '' } ${i.date || ''}
+                  </div>
+                </div>
+                ${(i.link && i.link !== "" && i.link !== "#") ? `<a class="text-xs px-2 py-1 bg-white border rounded hover:bg-black hover:text-white transition flex-shrink-0" href="${i.link}" target="_blank">View</a>` : ''}
+              </div>
           `).join('')}
         </div>
         <a href="achievements.html#${sec.id}" class="inline-flex items-center gap-1 text-sm font-semibold text-black hover:underline decoration-2 underline-offset-4">
-           See more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            See more <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
       </div>
     `
