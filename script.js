@@ -334,11 +334,12 @@ function mountProjectsCarousel() {
   if(next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
 }
 
-function mountExperience(){
+function mountExperience() {
   const list = $('#expList')
   if(!list) return
   const recentLimit = window.SITE.experiences.recentLimit || null
   const itemsToShow = recentLimit ? window.SITE.experiences.items.slice(0, recentLimit) : window.SITE.experiences.items
+
   list.innerHTML = itemsToShow.map(x=>`
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
@@ -349,8 +350,8 @@ function mountExperience(){
           <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
         </div>
         <div class="flex gap-2 md:self-end">
-          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>
-          <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>
+          ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
+          ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
         </div>
       </div>
     </div>
@@ -382,39 +383,50 @@ function mountPublications() {
   lucide.createIcons();
 }
 
-function mountAchievementsPreview(){
-  const wrap = $('#achvPreview')
-  if(!wrap) return
-  function renderCard(list, title, limit = 10){
-    const filtered = list.filter(a => a.featured).slice(0, limit)
+
+function mountAchvPreview() {
+  const wrap = $('#achvPreview');
+  if(!wrap) return;
+  const A = window.SITE.achievements;
+  if(!A) return;
+
+  const sections = [
+    {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships},
+    {id:'awards', title:'Awards, Honors & Professional Memberships', list: A.awards},
+    {id:'volunteer', title:'Leadership & Volunteering Experience', list: A.volunteering},
+    {id:'licenses', title:'License & Certifications', list: A.licenses},
+    {id:'workshops', title:'Workshops & Presentations', list: A.workshops},
+  ];
+
+  wrap.innerHTML = sections.map(sec => {
+    // Show top 2 items for preview
+    const items = (sec.list || []).slice(0, 2);
+    if(items.length === 0) return '';
+
     return `
-      <div class="card p-4 bg-white rounded-xl border border-slate-200">
-        <div class="font-semibold mb-2">${title}</div>
-        <div class="grid gap-2">
-          ${filtered.map(a=>`
-            <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between">
-              <div>
-                <div class="text-sm">${a.title}</div>
-                <div class="text-xs text-slate-500">${a.date}</div>
-                ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>` : ''}
-              </div>
-              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank">
-                <i data-lucide="external-link"></i>
-              </a>
-            </div>
+      <div>
+        <h3 class="font-bold text-lg mb-3 text-slate-800">${sec.title}</h3>
+        <div class="space-y-3 mb-3">
+          ${items.map(i => `
+             <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-start justify-between gap-4">
+               <div>
+                 <div class="font-semibold text-sm">${i.title || i.role}</div>
+                 <div class="text-xs text-slate-500 mt-1">${i.org || i.issuer || i.date || ''}</div>
+               </div>
+               ${i.link ? `<a class="text-xs px-2 py-1 bg-white border rounded hover:bg-black hover:text-white transition flex-shrink-0" href="${i.link}" target="_blank">View</a>` : ''}
+             </div>
           `).join('')}
         </div>
-      </div>`
-  }
-  const A = window.SITE.achievements
-  wrap.innerHTML = [
-    renderCard(A.fellowships, "Fellowships, Awards & Research Grants"),
-    renderCard(A.licenses, "License & Certifications"),
-    renderCard(A.workshops, "Workshops & Presentations"),
-    renderCard(A.volunteering, "Leadership & Volunteering Experience")
-  ].join('')
-  if(window.lucide) lucide.createIcons()
+        <a href="achievements.html#${sec.id}" class="inline-flex items-center gap-1 text-sm font-semibold text-black hover:underline decoration-2 underline-offset-4">
+           See more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    `
+  }).join('');
+
+  if(window.lucide) lucide.createIcons();
 }
+
 
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
