@@ -576,7 +576,7 @@ window.SITE = {
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
         date:"2026",
-        venue:"Tamim, N. F., <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to Trees, Forests and People (Elsevier). [Under Review]",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to Trees, Forests and People (Elsevier). [Under Review]",
         type:"Journal Articles",
         link:"",
         cite:""  // <--- Add this field to enable Cite button
@@ -632,7 +632,7 @@ window.SITE = {
       {
         title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to City and Environment Interactions (Elsevier)",
+        venue:"Tamim, N. F., <b>Mahfuj, I. I.*</b>, Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to City and Environment Interactions (Elsevier)",
         type:"Manuscripts in Preparation",
         link:"",
         cite:""  // <--- Add this field to enable Cite button
