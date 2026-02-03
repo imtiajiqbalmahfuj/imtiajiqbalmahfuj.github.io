@@ -602,24 +602,24 @@ window.SITE = {
         date:"May 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> 4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
         type:"Conference proceedings",
-        link:"",
-        cite:""  // <--- Add this field to enable Cite button
+        link:"https://doi.org/10.2139/ssrn.5182917",
+        cite:"https://www.researchgate.net/publication/400404964_Assessing_Transit-Oriented_Development_Potential_of_Karwan_Bazar_MRT_Station_A_Strategic_Actions_Framework_for_Sustainable_Urban_Growth"  // <--- Add this field to enable Cite button
       },
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
         date:"April 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
         type:"Conference proceedings",
-        link:"https://shorturl.at/fmHyq",
-        cite:"https://shorturl.at/fmHyq"  // <--- Add this field to enable Cite button
+        link:"",
+        cite:"https://www.researchgate.net/publication/389906076_A_Remote_Sensing-Based_Analysis_of_Nighttime_Light_Pollution_and_Its_Regional_Spillover_Effects_in_Dhaka"  // <--- Add this field to enable Cite button
       },
       {
         title:"Revolutionizing waste management in Rajshahi City Corporation: A technological solution for enhanced recycling and community engagement towards zero waste",
         date:"April 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> 8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh",
         type:"Conference proceedings",
-        link:"https://shorturl.at/QCbMo",
-        cite:"https://shorturl.at/QCbMo"  // <--- Add this field to enable Cite button
+        link:"",
+        cite:"https://www.researchgate.net/publication/389905729_Revolutionizing_Waste_Management_in_Rajshahi_City_Corporation_A_Technological_Solution_for_Enhanced_Recycling_and_Community_Engagement_towards_Zero_Waste"  // <--- Add this field to enable Cite button
       },
       {
         title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives",
