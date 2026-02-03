@@ -47,7 +47,7 @@ function applyNav(){
         window.scrollTo({top:0, behavior:'smooth'})
       }
     })
-  } // <--- THIS BRACKET WAS MISSING IN YOUR CODE
+  }
 
   // Smart scroll
   const navbar = $('#navbar');
@@ -304,8 +304,8 @@ function mountProjectsCarousel() {
             <div class="font-medium">${p.title}</div>
             <div class="flex flex-wrap gap-2">${p.tags.map(t => `<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>
             <div class="mt-auto flex gap-2 justify-end">
-              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="monitor"></i></a>
-              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.details}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i><span class="sr-only">See more</span></a>
+              ${p.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="monitor"></i></a>` : ''}
+              ${p.details ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.details}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i><span class="sr-only">See more</span></a>` : ''}
             </div>
           </div>
         </div>
@@ -334,12 +334,12 @@ function mountProjectsCarousel() {
   if(next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
 }
 
-function mountExperience() {
+// === Updated Experience with Conditional Buttons (Preserved Style) ===
+function mountExperience(){
   const list = $('#expList')
   if(!list) return
   const recentLimit = window.SITE.experiences.recentLimit || null
   const itemsToShow = recentLimit ? window.SITE.experiences.items.slice(0, recentLimit) : window.SITE.experiences.items
-
   list.innerHTML = itemsToShow.map(x=>`
     <div class="card p-4 bg-white rounded-xl border border-slate-200">
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
@@ -350,7 +350,7 @@ function mountExperience() {
           <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
         </div>
         <div class="flex gap-2 md:self-end">
-          ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
+          ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
           ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
         </div>
       </div>
@@ -358,6 +358,7 @@ function mountExperience() {
   `).join('')
 }
 
+// === Updated Publications with Conditional Buttons (Preserved Style) ===
 function mountPublications() {
   const rec = $('#pubRecent');
   if(!rec) return;
@@ -371,9 +372,9 @@ function mountPublications() {
       <div class="font-medium mt-1">${p.title}</div>
       <div class="text-xs text-slate-500">${p.date} · ${p.venue}</div>
       <div class="mt-3 flex gap-2 justify-end">
-        <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
+        ${p.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
           <i data-lucide="external-link"></i><span class="sr-only">See more</span>
-        </a>
+        </a>` : ''}
         ${p.cite ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cite}" target="_blank">
           <i data-lucide="quote"></i><span class="sr-only">Cite</span>
         </a>` : ''}
@@ -383,13 +384,14 @@ function mountPublications() {
   lucide.createIcons();
 }
 
+// === Updated Achievements (5 Sections + Preserved Style + See More Button) ===
+function mountAchvPreview(){
+  const wrap = $('#achvPreview')
+  if(!wrap) return
+  const A = window.SITE.achievements
+  if(!A) return
 
-function mountAchvPreview() {
-  const wrap = $('#achvPreview');
-  if(!wrap) return;
-  const A = window.SITE.achievements;
-  if(!A) return;
-
+  // 1. Define the 5 new sections
   const sections = [
     {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships},
     {id:'awards', title:'Awards, Honors & Professional Memberships', list: A.awards},
@@ -398,34 +400,42 @@ function mountAchvPreview() {
     {id:'workshops', title:'Workshops & Presentations', list: A.workshops},
   ];
 
+  // 2. Render using your original "Card" style
   wrap.innerHTML = sections.map(sec => {
+    // Top 2 items only
     const items = (sec.list || []).slice(0, 2);
-    if(items.length === 0) return '';
+    if(items.length === 0) return ''; // Skip empty sections
 
     return `
-      <div>
-        <h3 class="font-bold text-lg mb-3 text-slate-800">${sec.title}</h3>
-        <div class="space-y-3 mb-3">
-          ${items.map(i => `
-              <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-start justify-between gap-4">
-                <div>
-                  <div class="font-semibold text-sm">${i.title || i.role}</div>
-                  <div class="text-xs text-slate-500 mt-1">
-                    ${i.org || i.issuer || ''} ${ (i.org || i.issuer) && i.date ? '•' : '' } ${i.date || ''}
-                  </div>
-                </div>
-                ${(i.link && i.link !== "" && i.link !== "#") ? `<a class="text-xs px-2 py-1 bg-white border rounded hover:bg-black hover:text-white transition flex-shrink-0" href="${i.link}" target="_blank">View</a>` : ''}
+      <div class="card p-4 bg-white rounded-xl border border-slate-200 flex flex-col h-full">
+        <div class="font-semibold mb-3 text-lg">${sec.title}</div>
+        
+        <div class="grid gap-2 mb-4">
+          ${items.map(a => `
+            <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between">
+              <div>
+                <div class="text-sm font-medium">${a.title || a.role}</div>
+                <div class="text-xs text-slate-500 mt-1">${a.date || ''}</div>
+                ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50">${t}</span>`).join('')}</div>` : ''}
               </div>
+              ${a.link ? `
+              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart ml-3" href="${a.link}" target="_blank">
+                <i data-lucide="external-link"></i>
+              </a>` : ''}
+            </div>
           `).join('')}
         </div>
-        <a href="achievements.html#${sec.id}" class="inline-flex items-center gap-1 text-sm font-semibold text-black hover:underline decoration-2 underline-offset-4">
-            See more <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
+        
+        <div class="mt-auto pt-2 border-t border-slate-100">
+           <a href="achievements.html#${sec.id}" class="inline-flex items-center gap-1 text-sm font-semibold text-black hover:underline decoration-2 underline-offset-4">
+             See more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+           </a>
+        </div>
       </div>
     `
-  }).join('');
+  }).join('')
 
-  if(window.lucide) lucide.createIcons();
+  if(window.lucide) lucide.createIcons()
 }
 
 
