@@ -350,8 +350,8 @@ function mountExperience() {
           <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
         </div>
         <div class="flex gap-2 md:self-end">
-          ${(x.link && x.link !== "") ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.link}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
-          ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>` : ''}
+          ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
+          ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
         </div>
       </div>
     </div>
