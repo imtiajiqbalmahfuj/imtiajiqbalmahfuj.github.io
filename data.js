@@ -643,7 +643,12 @@ window.SITE = {
 
 
   achievements: {
-    fellowships:[
+    // 1. Fellowships & Research Grants
+    fellowships: [
+      { title:"Intern, Sheltech Consultants Pvt. Ltd.", org:"Sheltech Consultants Pvt. Ltd.", date:"Jan 2026 - Present", location:"Dhaka, Bangladesh", role: "Intern", bullets: ["Assisted in GIS data analysis and mapping.", "Supported urban planning projects and field surveys."], link:"" }
+    ],
+    // 2. Awards, Honors & Professional Memberships
+    awards:[
       { title:"<b>International Society for Photogrammetry and Remote Sensing (ISPRS)</b><br> Individual Member (ID: 260124112154) <br> Actively engaged in the global network for information from imagery, photogrammetry, and remote sensing. ", tags:["Professional Membership"], link:"https://drive.google.com/file/d/1xfVd8bAk2NcLyFImiZPysnDB9_6HOfLH/view?usp=sharing", date:"Jan 2026 <br> Hannover, Germany", featured: true },
       { title:"Awarded <b>2nd place</b> at 'Youth's Thought in Sustainable Urban Planning - 2025' <br> <u>Awarded by:</u> Urban Development Directorate (UDD), <br> Ministry of Housing and Public Work, Government of the People's Republic of Bangladesh <br> <u>Project Title:</u> The Economic Utilization of the Karnaphuli Tunnel with a Balanced Approach to Economic Growth and Ecological Preservation ", tags:["Award"], link:"https://drive.google.com/file/d/1qa5tKswPKRd8hHw_OqSdBYDdT8r1zg89/view", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
       { title:"<b>Top 10 Finalist</b> at 'Innovative Ideas Presentation competition - 2024' <br> <u>Awarded by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Project Title:</u> Revolutionizing Waste Management in Rajshahi City Corporation: A Technological Solution for Enhanced Recycling and Community Engagement", tags:["Award"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_excited-to-share-that-we-were-shortlisted-activity-7268896507947343872-a74m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"December 2024 <br> Dhaka, Bangladesh", featured: true }
@@ -651,6 +656,17 @@ window.SITE = {
     awardsAndGrants:[
       { title:"UDD Bangladesh — Research Grant (2nd place idea)", tags:["Grant"], link:"#", date:"May 2025" }
     ],
+    // 3. Leadership & Volunteering Experience
+    volunteering:[
+      { title:"<b>General Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri, featured in mainstream media.  <br> - Coordinated a technical workshop on “Drone-Based Data Collection & Processing” with Tiller.  <br> - Mentored and trained 100+ students in GIS, Remote Sensing, and geospatial software applications.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://community.esri.com/t5/gis-day-2025-forum/geoplan-1-0-the-megaevent-of-gis-day-celebration/m-p/1671138", date:"July 2025 - Present <br> Rajshai, Bangladesh ", featured: true },
+      { title:"<b>Assistant Graphics and Design Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology", tags:["Team work"], link:"https://drive.google.com/file/d/1YWrL9wBppdPBm2kutxmpX8P0ppi8zyWg/view?usp=drivesdk", date:"June 2024 - July 2025 <br> Rajshai, Bangladesh " },
+      { title:"<b>Executive Producer — TEDxRUET</b> <br> - Organized “TEDxRUET – Empowering Imagination” on February 07, 2025 <br> - Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", date:"August 2024 - February 2025 <br> Rajshai, Bangladesh ", featured: true },
+      { title:"<b>Class Representative — Department of Urban & Regional Planning</b> <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshai, Bangladesh ", featured: true },
+      { title:"<b>Prefect <br> St. Joseph Higher Secondary School</b>", tags:["Leadership"], link:"", date:"July 2019 - January 2021 <br> Dhaka, Bangladesh " },
+      { title:"<b>Joint Secretary, Josephite Math Mania, 2020</b> — Josephite Math Club <br> St. Joseph Higher Secondary School", tags:["Team management"], link:"", date:"December 2019 - January 2021 <br> Rajshai, Bangladesh " },
+      { title:"<b>Trainee & volunteer <br> Bangladesh Red Crescent Society (BDRCS)</b>", tags:["Leadership"], link:"https://drive.google.com/file/d/11LHMQYZD6FQ_HXSaHmDgFZxfRr2aCtmQ/view?usp=drive_link", date:"September 2017 - January 2019 <br> Barguna, Bangladesh " }
+    ],
+    // 4. License & Certifications
     licenses:[
       { title:"A Standalone Project: Develop an Earthquake Prediction Model Using Python", tags:["LinkedIn","LinkedIn Learning"], link:"https://www.linkedin.com/learning/certificates/3bc1d147599cea16c24a22368114ec89bb3e2e86cb8193f0f6bcf67bbdd8ed34?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BFdDouBcQoOvQT0%2FRTOIEA%3D%3D", date:"December 2025" },
       { title:"Spatial Data Science: The New Frontier in Analytics", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6826d5199c22d4e1ad3054a4/-360", date:"November 2025", featured: true },
@@ -666,18 +682,10 @@ window.SITE = {
       { title:"Python Basics", tags:["University of Michigan","Coursera"], link:"https://www.coursera.org/account/accomplishments/verify/4ZIT0O30GY65", date:"June 2025" },
       { title:"Google UX Design Specialization", tags:["Google","Coursera"], link:"https://www.coursera.org/account/accomplishments/specialization/ATVPA55PTE8K", date:"March 2024" }
     ],
+    // 5. Workshops & Presentations
     workshops:[
       { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> Redesigning Karwan Bazar MRT Station as a Transit- Oriented Development (TOD) Neighborhood: A Mixed Land Use Approach", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
       { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> A REMOTE SENSING-BASED ANALYSIS OF NIGHTTIME LIGHT POLLUTION AND ITS REGIONAL SPILLOVER EFFECTS IN DHAKA", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
-    ],
-    volunteering:[
-      { title:"<b>General Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri, featured in mainstream media.  <br> - Coordinated a technical workshop on “Drone-Based Data Collection & Processing” with Tiller.  <br> - Mentored and trained 100+ students in GIS, Remote Sensing, and geospatial software applications.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://community.esri.com/t5/gis-day-2025-forum/geoplan-1-0-the-megaevent-of-gis-day-celebration/m-p/1671138", date:"July 2025 - Present <br> Rajshai, Bangladesh ", featured: true },
-      { title:"<b>Assistant Graphics and Design Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology", tags:["Team work"], link:"https://drive.google.com/file/d/1YWrL9wBppdPBm2kutxmpX8P0ppi8zyWg/view?usp=drivesdk", date:"June 2024 - July 2025 <br> Rajshai, Bangladesh " },
-      { title:"<b>Executive Producer — TEDxRUET</b> <br> - Organized “TEDxRUET – Empowering Imagination” on February 07, 2025 <br> - Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", date:"August 2024 - February 2025 <br> Rajshai, Bangladesh ", featured: true },
-      { title:"<b>Class Representative — Department of Urban & Regional Planning</b> <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshai, Bangladesh ", featured: true },
-      { title:"<b>Prefect <br> St. Joseph Higher Secondary School</b>", tags:["Leadership"], link:"", date:"July 2019 - January 2021 <br> Dhaka, Bangladesh " },
-      { title:"<b>Joint Secretary, Josephite Math Mania, 2020</b> — Josephite Math Club <br> St. Joseph Higher Secondary School", tags:["Team management"], link:"", date:"December 2019 - January 2021 <br> Rajshai, Bangladesh " },
-      { title:"<b>Trainee & volunteer <br> Bangladesh Red Crescent Society (BDRCS)</b>", tags:["Leadership"], link:"https://drive.google.com/file/d/11LHMQYZD6FQ_HXSaHmDgFZxfRr2aCtmQ/view?usp=drive_link", date:"September 2017 - January 2019 <br> Barguna, Bangladesh " }
     ]
   },
 
@@ -772,6 +780,11 @@ window.SITE = {
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_certificate-for-google-ux-design-specialization-activity-7176480524503322626-q4-w?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     }
     // Add more blog objects here...
+  ],
+
+
+  media: [
+    
   ],
   
 
