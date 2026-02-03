@@ -57,29 +57,43 @@
   </div>
 </section>
 <script>
-document.addEventListener('DOMContentLoaded', ()=>{
-  function render(id, title, list){
-    const el = document.getElementById(id)
-    el.innerHTML = `
-      <div class="text-lg font-semibold mb-3">${title}</div>
-      <div class="grid gap-3">
-        ${list.map(a=>`
-          <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between">
-            <div>
-              <div class="text-sm">${a.title}</div>
-              <div class="text-xs text-slate-500">${a.date}</div>
-              ${a.tags?.length? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>`:''}
+document.addEventListener('DOMContentLoaded', () => {
+  const wrap = document.getElementById('achvList')
+  if(!wrap || !window.SITE.achievements) return
+
+  const render = (id, title, items) => {
+    if(!items || !items.length) return
+    wrap.innerHTML += `
+      <div id="${id}" class="pt-16 -mt-16 mb-12">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <span class="w-8 h-1 bg-black rounded-full"></span> ${title}
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          ${items.map(x => `
+            <div class="card p-5 bg-white border border-slate-200 rounded-xl hover-smart flex flex-col">
+              ${x.featured ? `<div class="mb-2"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded uppercase tracking-wide">Featured</span></div>` : ''}
+              <h3 class="font-bold text-lg">${x.title}</h3>
+              ${x.issuer ? `<div class="text-sm text-slate-600 mt-1">${x.issuer}</div>` : ''}
+              ${x.date ? `<div class="text-xs text-slate-500 mt-2">${x.date}</div>` : ''}
+              <div class="flex-grow"></div>
+              ${x.link ? `
+              <div class="flex gap-2 mt-4 pt-4 border-t border-slate-100">
+                <a class="p-2 bg-slate-50 rounded-lg hover:bg-black hover:text-white transition-colors" href="${x.link}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+              </div>` : ''}
             </div>
-            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank"><i data-lucide="external-link"></i></a>
-          </div>
-        `).join('')}
+          `).join('')}
+        </div>
       </div>`
   }
   const A = window.SITE.achievements
-  render('fellows', 'Fellowships, Awards & Research Grants', A.fellowships)
+
+  // 5 New Subsections
+  render('fellowships', 'Fellowships & Research Grants', A.fellowships)
+  render('awards', 'Awards, Honors & Professional Memberships', A.awards)
+  render('volunteer', 'Leadership & Volunteering Experience', A.volunteering)
   render('licenses', 'Licenses & Certifications', A.licenses)
   render('workshops', 'Workshops & Presentations', A.workshops)
-  render('volunteer', 'Leadership & Volunteering Experience', A.volunteering)
+
   if(window.lucide) lucide.createIcons()
 })
 </script>
