@@ -431,7 +431,7 @@ function mountAchvPreview(){
         
         <div class="mt-2">
            <a href="achievements.html#${sec.id}" class="inline-flex items-center gap-2 text-sm font-bold text-black hover:underline decoration-2 underline-offset-4 group">
-             See all ${sec.title.split(' ')[0]} <i data-lucide="${sec.icon}" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
+             See all <i data-lucide="${sec.icon}" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
            </a>
         </div>
       </div>
