@@ -417,7 +417,7 @@ function mountAchvPreview(){
           ${items.map(a => `
             <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between hover-smart">
               <div>
-                <div class="text-sm font-semibold">${a.title || a.role}</div>
+                <div class="font-semibold">${a.title || a.role}</div>
                 <div class="text-xs text-slate-500 mt-1">${a.date || ''}</div>
                 ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50">${t}</span>`).join('')}</div>` : ''}
               </div>
@@ -440,7 +440,6 @@ function mountAchvPreview(){
 
   if(window.lucide) lucide.createIcons()
 }
-
 
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
