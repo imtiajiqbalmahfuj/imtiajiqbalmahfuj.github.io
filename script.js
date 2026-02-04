@@ -401,7 +401,7 @@ function mountAchvPreview(){
     {id:'workshops', title:'Workshops & Presentations', list: A.workshops, icon:'presentation'},
   ];
 
-  // 2. Render using your original "Card" style for items, but removed from sub-sections
+  // 2. Render using your original "Card" style for items
   wrap.innerHTML = sections.map(sec => {
     // Top 2 items only
     const items = (sec.list || []).slice(0, 2);
@@ -418,9 +418,14 @@ function mountAchvPreview(){
             <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between hover-smart">
               <div>
                 <div class="font-semibold">${a.title || a.role}</div>
-                <div class="text-xs text-slate-500 mt-1">${a.date || ''}</div>
-                ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50">${t}</span>`).join('')}</div>` : ''}
+                
+                ${(a.org || a.issuer) ? `<div class="text-sm text-slate-600">${a.org || a.issuer}</div>` : ''}
+                
+                <div class="text-xs text-slate-500">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
+                
+                ${a.tags?.length ? `<div class="mt-2 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50 text-slate-600">${t}</span>`).join('')}</div>` : ''}
               </div>
+              
               ${a.link ? `
               <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart ml-3 flex-shrink-0" href="${a.link}" target="_blank">
                 <i data-lucide="external-link" class="w-4 h-4"></i>
@@ -440,6 +445,7 @@ function mountAchvPreview(){
 
   if(window.lucide) lucide.createIcons()
 }
+
 
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
