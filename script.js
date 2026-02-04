@@ -417,10 +417,10 @@ function mountAchvPreview(){
           ${items.map(a => `
             <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between hover-smart">
               <div>
-                <div class="font-semibold">${a.title || a.role}</div>
+                <div class="text-sm font-medium">${a.title || a.role}</div>
                 ${(a.org || a.issuer) ? `<div class="text-sm text-slate-600">${a.org || a.issuer}</div>` : ''}
-                <div class="text-xs text-slate-500">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
-                ${a.tags?.length ? `<div class="mt-2 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="mt-2 list-disc pl-5 text-sm text-slate-700">${t}</span>`).join('')}</div>` : ''}
+                <div class="text-xs text-slate-500 mt-1">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
+                ${a.tags?.length ? `<div class="mt-2 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50">${t}</span>`).join('')}</div>` : ''}
               </div>
               
               ${a.link ? `
