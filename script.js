@@ -384,6 +384,7 @@ function mountPublications() {
   lucide.createIcons();
 }
 
+
 // === Updated Achievements (5 Sections + Preserved Style + See More Button) ===
 function mountAchvPreview(){
   const wrap = $('#achvPreview')
@@ -391,44 +392,46 @@ function mountAchvPreview(){
   const A = window.SITE.achievements
   if(!A) return
 
-  // 1. Define the 5 new sections
+  // 1. Define the 5 new sections with relative icons
   const sections = [
-    {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships},
-    {id:'awards', title:'Awards, Honors & Professional Memberships', list: A.awards},
-    {id:'volunteer', title:'Leadership & Volunteering Experience', list: A.volunteering},
-    {id:'licenses', title:'License & Certifications', list: A.licenses},
-    {id:'workshops', title:'Workshops & Presentations', list: A.workshops},
+    {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships, icon:'graduation-cap'},
+    {id:'awards', title:'Awards, Honors & Professional Memberships', list: A.awards, icon:'award'},
+    {id:'volunteer', title:'Leadership & Volunteering Experience', list: A.volunteering, icon:'users'},
+    {id:'licenses', title:'License & Certifications', list: A.licenses, icon:'shield-check'},
+    {id:'workshops', title:'Workshops & Presentations', list: A.workshops, icon:'presentation'},
   ];
 
-  // 2. Render using your original "Card" style
+  // 2. Render using your original "Card" style for items, but removed from sub-sections
   wrap.innerHTML = sections.map(sec => {
     // Top 2 items only
     const items = (sec.list || []).slice(0, 2);
     if(items.length === 0) return ''; // Skip empty sections
 
     return `
-      <div class="card p-4 bg-white rounded-xl border border-slate-200 flex flex-col h-full">
-        <div class="font-semibold mb-3 text-lg">${sec.title}</div>
+      <div class="flex flex-col h-full mb-8">
+        <div class="font-bold mb-4 text-xl flex items-center gap-2">
+           ${sec.title}
+        </div>
         
-        <div class="grid gap-2 mb-4">
+        <div class="grid gap-3 mb-4">
           ${items.map(a => `
-            <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between">
+            <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between hover-smart">
               <div>
-                <div class="text-sm font-medium">${a.title || a.role}</div>
+                <div class="text-sm font-semibold">${a.title || a.role}</div>
                 <div class="text-xs text-slate-500 mt-1">${a.date || ''}</div>
                 ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50">${t}</span>`).join('')}</div>` : ''}
               </div>
               ${a.link ? `
-              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart ml-3" href="${a.link}" target="_blank">
-                <i data-lucide="external-link"></i>
+              <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart ml-3 flex-shrink-0" href="${a.link}" target="_blank">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
               </a>` : ''}
             </div>
           `).join('')}
         </div>
         
-        <div class="mt-auto pt-2 border-t border-slate-100">
-           <a href="achievements.html#${sec.id}" class="inline-flex items-center gap-1 text-sm font-semibold text-black hover:underline decoration-2 underline-offset-4">
-             See more <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        <div class="mt-2">
+           <a href="achievements.html#${sec.id}" class="inline-flex items-center gap-2 text-sm font-bold text-black hover:underline decoration-2 underline-offset-4 group">
+             See all ${sec.title.split(' ')[0]} <i data-lucide="${sec.icon}" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
            </a>
         </div>
       </div>
