@@ -403,8 +403,8 @@ function mountAchvPreview(){
 
   // 2. Render using your original "Card" style for items
   wrap.innerHTML = sections.map(sec => {
-    // Top 2 items only
-    const items = (sec.list || []).slice(0, 2);
+    // Top 5 items only
+    const items = (sec.list || []).slice(0, 5);
     if(items.length === 0) return ''; // Skip empty sections
 
     return `
