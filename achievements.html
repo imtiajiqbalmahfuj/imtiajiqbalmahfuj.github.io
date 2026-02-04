@@ -46,63 +46,51 @@
   </header>
 
   <main>
-    <section class="max-w-6xl mx-auto px-4 py-24">
-      <h1 class="text-3xl font-bold mb-10">Achievements & Activities</h1>
-      <div class="grid gap-12">
-        <div id="fellows"></div>
-        <div id="awards"></div>
-        <div id="volunteer"></div>
-        <div id="licenses"></div>
-        <div id="workshops"></div>
-      </div>
-    </section>
+<section class="max-w-6xl mx-auto px-4 py-24"> <h1 class="text-2xl font-bold mb-6">Achievements & Activities</h1>
+  <div class="grid gap-10">
+    <div id="fellowships"></div>
+    <div id="awards"></div>
+    <div id="volunteer"></div>
+    <div id="licenses"></div>
+    <div id="workshops"></div>
+  </div>
+</section>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      function render(id, title, list) {
-        const el = document.getElementById(id);
-        if (!el || !list || list.length === 0) return;
-        
-        el.innerHTML = `
-          <div class="flex items-center gap-3 mb-6">
-            <span class="w-8 h-1 bg-black rounded-full"></span>
-            <h2 class="text-xl font-bold text-slate-900">${title}</h2>
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  function render(id, title, list){
+    const el = document.getElementById(id)
+    if(!el || !list || list.length === 0) return // Fixed: ensure element exists and list has items
+    el.innerHTML = `
+      <div class="text-lg font-semibold mb-3">${title}</div>
+      <div class="grid md:grid-cols-2 gap-3"> ${list.map(a=>`
+          <div class="card p-4 bg-white rounded-xl border border-slate-200 flex items-start justify-between">
+            <div>
+              <div class="text-sm font-medium">${a.title || a.role}</div>
+              <div class="text-xs text-slate-500 mt-1">${a.date}</div>
+              ${a.tags?.length? `<div class="mt-2 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50">${t}</span>`).join('')}</div>`:''}
+            </div>
+            ${(a.link && a.link !== "") ? `
+            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart ml-3 flex-shrink-0" href="${a.link}" target="_blank">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>` : ''}
           </div>
-          <div class="grid md:grid-cols-2 gap-4">
-            ${list.map(a => `
-              <div class="card p-5 bg-white rounded-xl border border-slate-200 flex flex-col justify-between hover-smart shadow-sm">
-                <div>
-                  ${a.featured ? `<div class="mb-2"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-[10px] font-bold rounded uppercase tracking-wider">Featured</span></div>` : ''}
-                  <div class="text-base font-bold leading-snug">${a.title}</div>
-                  <div class="text-xs text-slate-500 mt-2 flex items-center gap-1">
-                    <i data-lucide="calendar" class="w-3 h-3"></i> ${a.date.replace('<br>', ' — ')}
-                  </div>
-                  ${a.tags?.length ? `<div class="mt-3 flex flex-wrap gap-1">${a.tags.map(t => `<span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full border border-slate-200">${t}</span>`).join('')}</div>` : ''}
-                </div>
-                ${(a.link && a.link !== "" && a.link !== "#") ? `
-                <div class="mt-4 pt-4 border-t border-slate-50 flex justify-end">
-                  <a class="p-2 bg-slate-50 rounded-xl hover:bg-black hover:text-white transition-all border border-slate-100" href="${a.link}" target="_blank" rel="noopener noreferrer">
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                  </a>
-                </div>` : ''}
-              </div>
-            `).join('')}
-          </div>`;
-      }
+        `).join('')}
+      </div>`
+  }
+  const A = window.SITE.achievements
 
-      const A = window.SITE.achievements;
-      if (A) {
-        render('fellows', 'Fellowships & Research Grants', A.fellowships);
-        render('awards', 'Awards, Honors & Professional Memberships', A.awards);
-        render('volunteer', 'Leadership & Volunteering Experience', A.volunteering);
-        render('licenses', 'Licenses & Certifications', A.licenses);
-        render('workshops', 'Workshops & Presentations', A.workshops);
-      }
-      
-      if (window.lucide) lucide.createIcons();
-    });
-    </script>
-  </main>
+  // Sequence organized as requested
+  render('fellowships', 'Fellowships & Research Grants', A.fellowships)
+  render('awards', 'Awards, Honors & Professional Memberships', A.awards)
+  render('volunteer', 'Leadership & Volunteering Experience', A.volunteering)
+  render('licenses', 'Licenses & Certifications', A.licenses)
+  render('workshops', 'Workshops & Presentations', A.workshops)
+
+  if(window.lucide) lucide.createIcons()
+})
+</script>
+</main>
 
   <footer class="mt-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-[2fr,1fr] gap-8 items-start">
@@ -112,13 +100,13 @@
       </div>
       <div class="footer-nav">
         <div class="text-sm font-semibold mb-3 text-slate-300">Navigate</div>
-        <div class="grid gap-2 text-slate-400 text-sm">
-          <a href="index.html#about" class="hover:text-white transition">About</a>
-          <a href="index.html#projects" class="hover:text-white transition">Projects</a>
-          <a href="index.html#experience" class="hover:text-white transition">Experiences</a>
-          <a href="index.html#publications" class="hover:text-white transition">Publications</a>
-          <a href="index.html#achievements" class="hover:text-white transition">Achievements</a>
-          <a href="index.html#blogs" class="hover:text-white transition">Blogs</a>
+        <div class="grid gap-2">
+          <a href="index.html#about">About</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#experience">Experiences</a>
+          <a href="index.html#publications">Publications</a>
+          <a href="index.html#achievements">Achievements</a>
+          <a href="index.html#blogs">Blogs</a>
         </div>
       </div>
     </div>
