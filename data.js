@@ -781,7 +781,20 @@ window.SITE = {
 
 
   media: [
-    
+    {
+      title: "GeoPlan 1.0 (Featured on: Bangladesh Institute of Planners)",
+      link: "https://www.facebook.com/share/p/1D6V5GGFzT/",
+      image: "https://scontent.fdac183-1.fna.fbcdn.net/v/t39.30808-6/596470586_1264921365661932_8169312764683464074_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHGVXE-pAunMXk8jqM-wp6DwHqmOjpGCxbAeqY6OkYLFrXiUCWD-BdxAflnJEkSEsDnLyhbWx5-Puftjn5x6Bn0&_nc_ohc=SJ76hXyCidEQ7kNvwG6eeIL&_nc_oc=AdlVTsAME-jxIKPFTc2YSTOgZ8DUp-u8pqx9Y2wQneRaO5FmSlG_tonAF7ywW5-eQ9E&_nc_zt=23&_nc_ht=scontent.fdac183-1.fna&_nc_gid=r5P0OqXAogClV9KWmsN0rA&oh=00_Afso037k96pBl9ilo8T1kb2y_ps2T_EkN5JYheXQPzXuyw&oe=698862EC", // Direct link to an image
+      date: "December, 2025",
+      tags: ["Event"]
+    },
+    {
+      title: "𝐆𝐞𝐨𝐩𝐥𝐚𝐧 𝟏.𝟎’: 𝐑𝐔𝐄𝐓 𝐜𝐞𝐥𝐞𝐛𝐫𝐚𝐭𝐞𝐬 𝐖𝐨𝐫𝐥𝐝 𝐓𝐨𝐰𝐧 𝐏𝐥𝐚𝐧𝐧𝐢𝐧𝐠 𝐃𝐚𝐲 𝐚𝐧𝐝 𝐆𝐈𝐒 𝐃𝐚𝐲 (TBS Graduates)",
+      link: "https://www.facebook.com/share/p/1AZpGRiG78/",
+      image: "https://scontent.fdac183-1.fna.fbcdn.net/v/t39.30808-6/596815513_892906533306004_8023160649065202466_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeESRjiIBQVWlCq74oIVcpIDZU0wgUWmy-RlTTCBRabL5M4wMUuSqTasMtdxUFlBHt-RlfEKPmOL45eFn46vjupC&_nc_ohc=XyTQpq5QCakQ7kNvwEtceFL&_nc_oc=AdniRF4K-LwtNK1p5K5s-UXdyUO87cWMYrdGPqzeJNKEPc-2anu34zmqubemQaaqcIQ&_nc_zt=23&_nc_ht=scontent.fdac183-1.fna&_nc_gid=IhENi4t3Xi2lr4LNXix1Ww&oh=00_Afsurlze5NBeIW3DO5iULn3-lPoEf_aRnAqOq4YNIR_qng&oe=69886C3F",
+      date: "December, 2025",
+      tags: ["News"]
+    }
   ],
   
 
