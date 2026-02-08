@@ -773,7 +773,7 @@ window.SITE = {
       title: "Google UX Design Specialization Certificate",
       tags: ["Achievements"],
       date: "May 21, 2024",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/24001.jpeg",
+      image: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~ATVPA55PTE8K/CERTIFICATE_LANDING_PAGE~ATVPA55PTE8K.jpeg",
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_certificate-for-google-ux-design-specialization-activity-7176480524503322626-q4-w?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     }
     // Add more blog objects here...
