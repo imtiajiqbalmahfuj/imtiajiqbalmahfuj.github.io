@@ -797,7 +797,7 @@ window.SITE = {
     },
     {
       title: "Took an insightful workshop on 'An Introduction to GIS & Remote Sensing' (RUET GIS Club)",
-      link: "https://www.facebook.com/share/p/1B7mvaNuN4/",
+      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Featured%20On/25003.jpg",
       date: "May, 2025",
       tags: ["News"]
