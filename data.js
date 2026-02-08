@@ -709,7 +709,7 @@ window.SITE = {
       title: "Organized GeoPlan 1.0",
       tags: ["ECA"],
       date: "Dec, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25007.png", 
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25007.jpeg", 
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_from-sleepless-nights-to-a-national-success-activity-7403829450687119360-dYmk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
     },
     {
@@ -717,7 +717,7 @@ window.SITE = {
       title: "Paper 5: Dimensionality optimized machine learning retrieval from Google satellite embeddings",
       tags: ["#MyDailyLit"],
       date: "Nov, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25006.png", // Replace with your image
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25006.jpeg", // Replace with your image
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_mydailylit-paper5-activity-7398070797510139904-hDHk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" // Replace with your actual notebook/blog link
     },
     {
@@ -725,7 +725,7 @@ window.SITE = {
       title: "Paper 4: Agricultural drought risk in aman rice season",
       tags: ["#MyDailyLit"],
       date: "Nov, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25005.png", // Replace with your image
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25005.jpeg", // Replace with your image
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_mydailylit-paper4-activity-7397000372180934657-Wr8k?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" // Replace with your actual notebook/blog link
     },
     {
@@ -733,7 +733,7 @@ window.SITE = {
       title: "National Award from 𝘔𝘪𝘯𝘪𝘴𝘵𝘳𝘺 𝘰𝘧 𝘏𝘰𝘶𝘴𝘪𝘯𝘨 𝘢𝘯𝘥 𝘗𝘶𝘣𝘭𝘪𝘤 𝘞𝘰𝘳𝘬𝘴, Bangladesh",
       tags: ["Achievements"],
       date: "Jun, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25004.png", 
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25004.jpeg", 
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_%F0%9D%93%90%F0%9D%94%80%F0%9D%93%AA%F0%9D%93%BB%F0%9D%93%AD-%F0%9D%94%80%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B7%F0%9D%93%B2%F0%9D%93%B7%F0%9D%93%B0-%F0%9D%93%AA%F0%9D%93%B5%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%BD-activity-7333678422080016384-LcTw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
     },
     {
@@ -741,7 +741,7 @@ window.SITE = {
       title: "Paper 3: 𝐒𝐄𝐒𝐀𝐌𝐄 𝐇𝐮𝐦𝐚𝐧-𝐄𝐚𝐫𝐭𝐡 𝐀𝐭𝐥𝐚𝐬",
       tags: ["#MyDailyLit"],
       date: "May, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25003.png", // Replace with your image
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25003.jpeg", // Replace with your image
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_mydailylit-paper3-activity-7329214963942612992-jQik?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" // Replace with your actual notebook/blog link
     },
     {
@@ -749,7 +749,7 @@ window.SITE = {
       title: "First step to publications",
       tags: ["Achievements"],
       date: "Apr, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25002.png", 
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25002.jpeg", 
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_icerie2025-academicresearch-researchpresentation-activity-7322156568320315393-LwNi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
     },
     {
@@ -757,7 +757,7 @@ window.SITE = {
       title: "Paper 2: 𝐑𝐢𝐯𝐞𝐫𝐛𝐚𝐧𝐤 𝐄𝐫𝐨𝐬𝐢𝐨𝐧 𝐔𝐬𝐢𝐧𝐠 𝐆𝐈𝐒-𝐃𝐒𝐀𝐒 𝐓𝐨𝐨𝐥𝐬",
       tags: ["#MyDailyLit"],
       date: "Feb, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25001.png", // Replace with your image
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/25001.jpeg", // Replace with your image
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_gis-geospatialanalysis-urbanplanning-activity-7288437250521022465-1pX9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" // Replace with your actual notebook/blog link
     },
     {
@@ -765,7 +765,7 @@ window.SITE = {
       title: "Paper 1: 𝐏𝐞𝐝𝐞𝐬𝐭𝐫𝐢𝐚𝐧 𝐁𝐞𝐡𝐚𝐯𝐢𝐨𝐫 & 𝐒𝐞𝐫𝐯𝐢𝐜𝐞 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 𝐢𝐧 𝐑𝐚𝐣𝐬𝐡𝐚𝐡𝐢 𝐂𝐢𝐭𝐲",
       tags: ["#MyDailyLit"],
       date: "Dec, 2025",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/24002.png",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/24002.jpeg",
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_mydailylit-paper1-paper1-activity-7281293503979048960-wzUV?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     },
     {
@@ -773,7 +773,7 @@ window.SITE = {
       title: "Google UX Design Specialization Certificate",
       tags: ["Achievements"],
       date: "May 21, 2024",
-      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/24001.png",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/24001.jpeg",
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_certificate-for-google-ux-design-specialization-activity-7176480524503322626-q4-w?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
     }
     // Add more blog objects here...
