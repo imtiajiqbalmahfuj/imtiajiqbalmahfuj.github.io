@@ -70,11 +70,19 @@ function applyNav(){
   }
 
   // Connect Button -> Scrolls to "Want to collaborate"
+  // Connect Button -> Smart redirect or scroll
   if(connectBtn){
     connectBtn.addEventListener('click', (e)=> {
       e.preventDefault();
       const contactSec = document.getElementById('contact'); 
-      if(contactSec) contactSec.scrollIntoView({behavior: 'smooth'});
+      
+      if(contactSec) {
+        // We are on index.html, just scroll
+        contactSec.scrollIntoView({behavior: 'smooth'});
+      } else {
+        // We are on another page, go to index.html contact section
+        window.location.href = "index.html#contact";
+      }
     })
   }
 
