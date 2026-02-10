@@ -425,18 +425,9 @@ function mountAchvPreview(){
               <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
                 
                 <div>
-                  <div class="font-semibold">${a.title || a.role}</div>
-                  
-                  ${(a.org || a.issuer) ? `<div class="text-sm text-slate-600">${a.org || a.issuer}</div>` : ''}
-                  
-                  <div class="text-xs text-slate-500">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
-                  
-                  ${a.description ? `<div class="mt-2 text-sm text-slate-700">${a.description}</div>` : ''}
-                  
-                  ${a.tags?.length ? `
-                    <div class="mt-2 flex flex-wrap gap-1">
-                      ${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50 text-slate-700">${t}</span>`).join('')}
-                    </div>` : ''}
+                  <div class="text-sm">${a.title}</div>
+                  <div class="text-xs text-slate-500">${a.date || ''}</div>
+                  ${a.tags?.length ? `<div class="mt-1 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>` : ''}
                 </div>
                 
                 <div class="flex gap-2 md:self-end">
