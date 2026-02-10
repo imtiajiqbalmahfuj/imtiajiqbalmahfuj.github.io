@@ -409,7 +409,7 @@ function mountAchvPreview(){
     {id:'workshops', title:'Workshops & Presentations', list: A.workshops, icon:'presentation'},
   ];
 
-  // 2. Render using your original "Card" style for items
+  // 2. Render using the Experience "Card" style
   wrap.innerHTML = sections.map(sec => {
     // Top 5 items only
     const items = (sec.list || []).slice(0, 5);
@@ -422,18 +422,21 @@ function mountAchvPreview(){
         </div>
         
         <div class="grid gap-3 mb-4">
-          /* --- Replace the previous items.map content with this --- */
           ${items.map(a => `
             <div class="card p-4 bg-white rounded-xl border border-slate-200">
               <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
                 <div class="w-full">
                   <div class="font-semibold text-black">${a.title || a.role}</div>
                   ${(a.org || a.issuer) ? `<div class="text-sm text-slate-600">${a.org || a.issuer}</div>` : ''}
-                  <div class="text-xs text-slate-500 mt-0.5">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
+                  <div class="text-xs text-slate-500 mt-1">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
                   ${a.tags?.length ? `<div class="mt-2 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50 text-slate-700">${t}</span>`).join('')}</div>` : ''}
                 </div>
+                
                 <div class="flex gap-2 md:self-end flex-shrink-0">
-                  ${a.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank"><i data-lucide="external-link" class="w-4 h-4"></i></a>` : ''}
+                  ${a.link ? `
+                  <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>` : ''}
                 </div>
               </div>
             </div>
