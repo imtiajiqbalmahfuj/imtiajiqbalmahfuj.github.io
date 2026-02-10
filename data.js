@@ -516,7 +516,7 @@ window.SITE = {
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
         bullets: [
-          "<u>Unit:</u> Urban Development & Regional Planning (UD&RP)"
+          "Recruited by Japan's <u>#1</u> international engineering consultancy and a global leader in infrastructure development (ID&E Group), operating in over 160 countries."
         ],
         github: "",
         more: ""
