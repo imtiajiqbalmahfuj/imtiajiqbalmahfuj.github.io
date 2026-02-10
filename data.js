@@ -578,7 +578,7 @@ window.SITE = {
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to Trees, Forests and People (Elsevier). [Under Review]",
         type:"Journal Articles",
-        link:"",
+        link:"https://dx.doi.org/10.2139/ssrn.6208220",
         cite:""  // <--- Add this field to enable Cite button
       },
       {
@@ -586,7 +586,7 @@ window.SITE = {
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier).  [Under Review]",
         type:"Journal Articles",
-        link:"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5450958",
+        link:"https://dx.doi.org/10.2139/ssrn.5450958",
         cite:""  // <--- Add this field to enable Cite button
       },
       {
