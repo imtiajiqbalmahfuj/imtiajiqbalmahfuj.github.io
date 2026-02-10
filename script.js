@@ -424,13 +424,13 @@ function mountAchvPreview(){
               <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
                 
                 <div>
-                  <div class="font-semibold text-black">${a.title || a.role}</div>
+                  <div class="font-semibold">${a.title || a.role}</div>
                   
                   ${(a.org || a.issuer) ? `<div class="text-sm text-slate-600">${a.org || a.issuer}</div>` : ''}
                   
                   <div class="text-xs text-slate-500">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
                   
-                  ${a.description ? `<div class="mt-2 text-sm text-slate-700 leading-relaxed">${a.description}</div>` : ''}
+                  ${a.description ? `<div class="mt-2 text-sm text-slate-700">${a.description}</div>` : ''}
                   
                   ${a.tags?.length ? `
                     <div class="mt-2 flex flex-wrap gap-1">
@@ -438,7 +438,7 @@ function mountAchvPreview(){
                     </div>` : ''}
                 </div>
                 
-                <div class="flex gap-2 md:self-end flex-shrink-0">
+                <div class="flex gap-2 md:self-end">
                   ${a.link ? `
                   <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank">
                     <i data-lucide="external-link" class="w-4 h-4"></i>
