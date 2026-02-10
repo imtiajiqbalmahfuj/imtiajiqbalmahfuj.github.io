@@ -400,7 +400,6 @@ function mountAchvPreview(){
   const A = window.SITE.achievements
   if(!A) return
 
-  // 1. Define the 5 new sections with relative icons
   const sections = [
     {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships, icon:'graduation-cap'},
     {id:'awards', title:'Awards, Honors & Professional Memberships', list: A.awards, icon:'award'},
@@ -409,7 +408,6 @@ function mountAchvPreview(){
     {id:'workshops', title:'Workshops & Presentations', list: A.workshops, icon:'presentation'},
   ];
 
-  // 2. Render using the exact hierarchy of Experience cards
   wrap.innerHTML = sections.map(sec => {
     const items = (sec.list || []).slice(0, 5);
     if(items.length === 0) return ''; 
@@ -424,6 +422,7 @@ function mountAchvPreview(){
           ${items.map(a => `
             <div class="card p-4 bg-white rounded-xl border border-slate-200">
               <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+                
                 <div>
                   <div class="font-semibold text-black">${a.title || a.role}</div>
                   
