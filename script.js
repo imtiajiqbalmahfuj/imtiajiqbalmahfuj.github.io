@@ -393,14 +393,13 @@ function mountPublications() {
 }
 
 
-// === Updated Achievements (5 Sections + Preserved Style + See More Button) ===
+// === (5 Sections + Preserved Style + See More Button) ===
 function mountAchvPreview(){
   const wrap = $('#achvPreview')
   if(!wrap) return
   const A = window.SITE.achievements
   if(!A) return
 
-  // 1. Define the 5 new sections with relative icons
   const sections = [
     {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships, icon:'graduation-cap'},
     {id:'awards', title:'Awards, Honors & Professional Memberships', list: A.awards, icon:'award'},
@@ -409,11 +408,9 @@ function mountAchvPreview(){
     {id:'workshops', title:'Workshops & Presentations', list: A.workshops, icon:'presentation'},
   ];
 
-  // 2. Render using the Experience "Card" style
   wrap.innerHTML = sections.map(sec => {
-    // Top 5 items only
     const items = (sec.list || []).slice(0, 5);
-    if(items.length === 0) return ''; // Skip empty sections
+    if(items.length === 0) return ''; 
 
     return `
       <div class="flex flex-col h-full mb-8">
@@ -427,9 +424,17 @@ function mountAchvPreview(){
               <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
                 <div class="w-full">
                   <div class="font-semibold text-black">${a.title || a.role}</div>
+                  
                   ${(a.org || a.issuer) ? `<div class="text-sm text-slate-600">${a.org || a.issuer}</div>` : ''}
-                  <div class="text-xs text-slate-500 mt-1">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
-                  ${a.tags?.length ? `<div class="mt-2 flex flex-wrap gap-1">${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50 text-slate-700">${t}</span>`).join('')}</div>` : ''}
+                  
+                  <div class="text-xs text-slate-500">${a.date || ''} ${a.location ? `— ${a.location}` : ''}</div>
+                  
+                  ${a.description ? `<div class="mt-2 text-sm text-slate-700 leading-relaxed">${a.description}</div>` : ''}
+                  
+                  ${a.tags?.length ? `
+                    <div class="mt-2 flex flex-wrap gap-1">
+                      ${a.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full bg-slate-50 text-slate-700">${t}</span>`).join('')}
+                    </div>` : ''}
                 </div>
                 
                 <div class="flex gap-2 md:self-end flex-shrink-0">
