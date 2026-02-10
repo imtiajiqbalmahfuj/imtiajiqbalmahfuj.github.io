@@ -511,7 +511,7 @@ window.SITE = {
     recentLimit: 10, // number of items to show on home page
     items: [
       {
-        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD)",
+        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD), Urban Development & Regional Planning (UD&RP) Unit",
         role: "Intern",
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
