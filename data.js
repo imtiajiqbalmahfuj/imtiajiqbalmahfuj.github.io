@@ -656,7 +656,7 @@ window.SITE = {
   achievements: {
     // 1. Fellowships & Research Grants
     fellowships: [
-      { title:"Intern", org:"Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technology Development (ETD) Department  <br>Urban Development & Regional Planning (UD&RP) Unit", date:"Jan 2026 - Present", location:"Dhaka, Bangladesh", role: "Intern", bullets: ["Assisted in GIS data analysis and mapping.", "Supported urban planning projects and field surveys."], link:"" }
+      { title:"<b>Intern</b><br> Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technology Development (ETD) Department, Urban Development & Regional Planning (UD&RP) Unit", tags:["Professional Membership"], link:"", date:"February 2026 - March 2026  <br> Dhaka, Bangladesh", featured: true }
     ],
     // 2. Awards, Honors & Professional Memberships
     awards:[
