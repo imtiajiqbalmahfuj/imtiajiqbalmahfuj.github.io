@@ -511,6 +511,17 @@ window.SITE = {
     recentLimit: 10, // number of items to show on home page
     items: [
       {
+        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technology Development (ETD) Department",
+        role: "Intern",
+        date: "February 2026 - March 2026",
+        location: "Dhaka, Bangladesh",
+        bullets: [
+          "<u>Unit:</u> Urban Development & Rural Planning (UD&RP)"
+        ],
+        github: "",
+        more: ""
+      },
+      {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
         date: "October 2025 - Present",
