@@ -552,8 +552,8 @@ window.SITE = {
           "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Project Director:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC) <br> - Contributed to the development of a disaster management framework for the Asia-Pacific region, focusing on flood mapping and prediction using Machine Learning.",
           "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Working Group 1 <br> Dialogue on Climate Security – DCS 2025, SERC, Rajshahi-6205, Bangladesh <br> <u>Group Chair:</u> Kazi Akramul Haque Tanin (BSc, MIST), Working Group 1, DCS 2025, SERC"
         ],
-        github: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link",
-        more: "https://www.linkedin.com/posts/sercbd_remotesensing-spaceexploration-disastermanagement-activity-7307613299204861953-dFkB?utm_source=share&utm_medium=member_android&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+        github: "",
+        more: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link"
       },
       {
         org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
