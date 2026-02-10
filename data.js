@@ -656,7 +656,7 @@ window.SITE = {
   achievements: {
     // 1. Fellowships & Research Grants
     fellowships: [
-      { title:"Intern, Sheltech Consultants Pvt. Ltd.", org:"Sheltech Consultants Pvt. Ltd.", date:"Jan 2026 - Present", location:"Dhaka, Bangladesh", role: "Intern", bullets: ["Assisted in GIS data analysis and mapping.", "Supported urban planning projects and field surveys."], link:"" }
+      { title:"Intern, <u>Unit:</u> Urban Development & Rural Planning (UD&RP)", org:"Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technology Development (ETD) Department", date:"Jan 2026 - Present", location:"Dhaka, Bangladesh", role: "Intern", bullets: ["Assisted in GIS data analysis and mapping.", "Supported urban planning projects and field surveys."], link:"" }
     ],
     // 2. Awards, Honors & Professional Memberships
     awards:[
