@@ -511,12 +511,12 @@ window.SITE = {
     recentLimit: 10, // number of items to show on home page
     items: [
       {
-        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technology Development (ETD) Department",
+        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD)",
         role: "Intern",
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
         bullets: [
-          "<u>Unit:</u> Urban Development & Rural Planning (UD&RP)"
+          "<u>Unit:</u> Urban Development & Regional Planning (UD&RP)"
         ],
         github: "",
         more: ""
