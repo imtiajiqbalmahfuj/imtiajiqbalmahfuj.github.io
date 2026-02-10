@@ -524,7 +524,7 @@ window.SITE = {
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
-        date: "April 2025 - September 2025",
+        date: "March 2025 - September 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index for Rajshahi City Corporation utilizing GIS based spatial analysis to identify high-risk zones. <br> - Applied Fuzzy AHP to weight contributing factors and proposed mitigation strategies for municipal planning. <br> - <u>Focus:</u> Spatial Analysis, Fuzzy AHP Analysis, Community-Based Research, Urban Safety, Technical Report."
