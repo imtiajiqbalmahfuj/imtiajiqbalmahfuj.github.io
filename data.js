@@ -121,13 +121,45 @@ window.SITE = {
 
 
   projects: [
-      {
+    {
       id:"25000",
       title:"",
       tags:[""],
       image:"",
       github:"",
       details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"25000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"26003",
+      title:"Tracking Dust & PM2.5 Spikes with Python & Earth Engine",
+      tags:["Geospatial Python","GEE"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26003%20PM2.5%20Mapping%20and%20Monitoring/BD_pm25.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26003%20PM2.5%20Mapping%20and%20Monitoring/map_spatial.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26003_PM2.5_Mapping_and_Monitoring.html"
     },
     {
       id:"26002",
