@@ -7,7 +7,7 @@ window.SITE = {
   brand: {
     homeLabel: "Imtiaj.",
     name: "Imtiaj Iqbal Mahfuj",
-    subtitle: "GIS · Remote Sensing · Geospatial Data Science (Python, ML)",
+    subtitle: "GIS · Remote Sensing · Geospatial Data Science (GeoAI, ML, GEE)",
     // direct download link provided by you
     cvDownload: "https://drive.google.com/uc?export=download&id=1rxUqGpT1MCqD50ogslthxphAMmEigeZO",
     email: "imtiajiqbal.ruet@gmail.com",
