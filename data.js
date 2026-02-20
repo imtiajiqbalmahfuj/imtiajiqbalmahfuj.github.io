@@ -739,7 +739,7 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
   blogs: [
     {
       id: "26002",
-      title: "Joining Japan’s #1 & a Global Leader in Engineering, Nippon Koei Bangladesh Ltd. as an intern",
+      title: "Joining Japan’s #1 & a Global Leader in Engineering, Nippon Koei Bangladesh Ltd., as an intern",
       tags: ["Achievements"],
       date: "Feb 17 , 2026",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26002.jpeg", 
