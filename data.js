@@ -549,12 +549,12 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
     recentLimit: 10, // number of items to show on home page
     items: [
       {
-        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD), Urban Development & Regional Planning (UD&RP) Unit",
+        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD), Urban & Regional Development Unit (UDU)",
         role: "Intern",
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
         bullets: [
-          "Recruited by Japan's <u>#1</u> international engineering consultancy and a global leader in infrastructure development (ID&E Group), operating in over 160 countries."
+          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br> Recruited by Japan's <u>#𝟏</u> international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br> Supported in drafting high-level TOD policy frameworks by conducting GIS land-use inventories and visual impact assessments to optimize urban density and connectivity around major mass transit hubs."
         ],
         github: "",
         more: ""
@@ -737,6 +737,14 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
 
 
   blogs: [
+    {
+      id: "26002",
+      title: "Joining Japan’s #1 & a Global Leader in Engineering, Nippon Koei Bangladesh Ltd. as an intern",
+      tags: ["Achievements"],
+      date: "Feb 17 , 2026",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26002.jpeg", 
+      link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_joining-japans-1-a-global-leader-in-engineering-activity-7429552475302518784-L0f5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0" 
+    },
     {
       id: "26001",
       title: "Trends and Patterns of Vehicle Registration and Ownership in Developing Countries: Evidence from Bangladesh",
