@@ -359,7 +359,7 @@ function mountExperience(){
         </div>
         <div class="flex gap-2 md:self-end">
           ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
-          ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="award"></i></a>` : ''}
+          ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
         </div>
       </div>
     </div>
@@ -433,7 +433,7 @@ function mountAchvPreview(){
                 <div class="flex gap-2 md:self-end">
                   ${a.link ? `
                   <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank">
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <i data-lucide="external-link"></i>
                   </a>` : ''}
                 </div>
               </div>
