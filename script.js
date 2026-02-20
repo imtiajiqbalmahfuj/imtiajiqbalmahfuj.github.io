@@ -503,8 +503,8 @@ function mountBlogCarousel() {
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="text-xs text-slate-400">Read article</span>
-            <a class="px-3 py-1.5 bg-black text-white rounded-xl hover:scale-105 transition-transform" href="${b.link}" target="_blank">
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${b.link}" target="_blank">
+              <i data-lucide="external-link"></i>
             </a>
           </div>
         </div>
