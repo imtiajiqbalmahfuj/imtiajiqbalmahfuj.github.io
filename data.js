@@ -554,7 +554,7 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
         bullets: [
-          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br> Recruited by Japan's <u>#𝟏</u> international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br> Supported in drafting high-level TOD policy frameworks by conducting GIS land-use inventories and visual impact assessments to optimize urban density and connectivity around major mass transit hubs."
+          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br> Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br> Supported in drafting high-level TOD policy frameworks by conducting GIS land-use inventories and visual impact assessments to optimize urban density and connectivity around major mass transit hubs."
         ],
         github: "",
         more: ""
@@ -568,7 +568,7 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
           "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Leading a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducting Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
         ],
         github: "",
-        more: ""
+        more: "https://nkbangladesh.co.bd/en"
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
