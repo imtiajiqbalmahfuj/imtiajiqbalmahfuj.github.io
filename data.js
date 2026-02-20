@@ -568,7 +568,7 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
           "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Leading a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducting Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
         ],
         github: "",
-        more: "https://nkbangladesh.co.bd/en"
+        more: ""
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
@@ -601,8 +601,8 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
         bullets: [
           "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Facilitated community workshops using PRA tools to design sustainable homestead farming strategies in Khirshan, Rajshahi. <u>Focus:</u> GIS, Participatory Rural Appraisal, Community-Based Research, Sustainable Planning."
         ],
-        github: "",
-        more: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
+        github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
+        more: ""
       },
       {
         org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
