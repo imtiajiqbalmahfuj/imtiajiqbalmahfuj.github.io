@@ -554,7 +554,7 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
         bullets: [
-          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br> Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br> Supported in drafting high-level TOD policy frameworks by conducting GIS land-use inventories and visual impact assessments to optimize urban density and connectivity around major mass transit hubs."
+          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br>- Supported in drafting high-level TOD policy frameworks by conducting GIS land-use inventories and visual impact assessments to optimize urban density and connectivity around major mass transit hubs."
         ],
         github: "",
         more: ""
