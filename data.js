@@ -565,7 +565,7 @@ window.SITE = {
         date: "October 2025 - Present",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Leading a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducting Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
+          "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a research team to assess drought vulnerability using Fuzzy AHP and remote sensing data. <br> - Conducted Participatory Rural Appraisal (PRA) to validate satellite-derived indices with ground-level community feedback. <br> - <u>Focus:</u> GIS, Drought Risk, Team Leadership"
         ],
         github: "",
         more: ""
