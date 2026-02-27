@@ -63,7 +63,7 @@ window.SITE = {
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
       bullets: [
-        "<u>Relevant coursework:</u> Urban & Regional Planning, Disaster Management, GIS and Remote sensing, Environmental Studies, Operations Research, Transportation Planning, Water Resources Planning, Programming Techniques, Cartography, Landscape Planning, Participatory Rural Appraisal, Housing & Real Estate, Statistics, Project Management and Evaluation",
+        "<u>Relevant coursework:</u> GIS and Remote sensing, Environmental Planning and Management, Operations Research & System Analysis, Natural Hazards and Disaster Management, Water Resources Planning, Programming Techniques, Statistics for Planners, Urban & Regional Planning, Transportation Planning, Landscape Planning, Participatory Rural Appraisal, Housing & Real Estate, Project Management and Evaluation",
         "Class Representative (January 2023 - September 2024)"
     ]
     },
