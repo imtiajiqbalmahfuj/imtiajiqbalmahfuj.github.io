@@ -588,7 +588,7 @@ window.SITE = {
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Project Director:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC) <br> - Contributed to the development of a disaster management framework for the Asia-Pacific region, focusing on flood mapping and prediction using Machine Learning.",
-          "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br> Contributed to the Dialogue on Climate Security (DCS 2025) to advance space-based monitoring and early warning systems for regional climate resilience."
+          "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br>- Contributed to the Dialogue on Climate Security (DCS 2025) to advance space-based monitoring and early warning systems for regional climate resilience."
         ],
         github: "",
         more: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link"
