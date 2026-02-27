@@ -45,14 +45,14 @@ window.SITE = {
   ],
 
   about: {
-    bio: `I’m Imtiaj Iqbal Mahfuj, an undergraduate researcher and aspiring Geospatial Data Scientist at Rajshahi University of Engineering & Technology (RUET), driven by a commitment to solving critical environmental challenges through advanced spatial analytics. My work sits at the intersection of Remote Sensing, GeoAI, and Climate Resilience, bridging the gap between theoretical urban planning and data-driven decision-making.
-
-My academic journey is defined by a rigorous pursuit of "where" and "why." I leverage tools like GIS, Google Earth Engine (GEE), Python, and Machine Learning to model complex environmental dynamics, from mapping drought vulnerability in Rajshahi to analyzing flash flood hazards in Feni. Beyond the lab, I translated this technical expertise into professional practice as an intern at Nippon Koei (ID&E Holdings). At Japan’s #1 engineering consultancy, I supported national-scale infrastructure and disaster resilience projects within the Urban Development (UD&RP) unit of the Engineering & Technical Department (ETD).
-
-I believe research must drive action. My findings have been featured in international conferences such as ICERIE, ICURP, and ICCESD. Currently, my manuscripts on roadside deforestation and tobacco-induced soil degradation are under review in high-impact Elsevier journals. As General Secretary of the RUET GIS Club, I also strive to democratize geospatial knowledge, mentoring over 100 students and organizing nationwide events like "GEOPLAN 1.0."
-
-I am actively seeking Master of Science (MS) opportunities in Geography, Geoinformatics, or Environmental Science, where I can further explore the applications of GeoAI in building climate-resilient futures. If you are looking for a dedicated researcher ready to tackle global environmental problems with spatial intelligence, let’s connect.`,
-    location: "Rajshahi, Bangladesh"
+      bio: `I’m Imtiaj Iqbal Mahfuj, an undergraduate researcher and aspiring Geospatial Data Scientist at Rajshahi University of Engineering & Technology (RUET), driven by a commitment to solving critical environmental challenges through advanced spatial analytics. My work sits at the intersection of Remote Sensing, GeoAI, and Climate Resilience, bridging the gap between theoretical urban planning and data-driven decision-making.
+  
+  My academic journey is defined by a rigorous pursuit of "where" and "why." I leverage tools like GIS, Google Earth Engine (GEE), Python, and Machine Learning to model complex environmental dynamics, from mapping drought vulnerability in Rajshahi to analyzing flash flood hazards in Feni. Beyond the lab, I translated this technical expertise into professional practice as an intern at Nippon Koei (ID&E Holdings). At Japan’s #1 engineering consultancy, I supported the development of Transit-Oriented Development (TOD) policy guidelines by conducting GIS-based spatial assessments and technical visualizations to evaluate urban density and connectivity for mass transit hubs.
+  
+  I believe research must drive action. My findings have been featured in international conferences such as ICERIE, ICURP, and ICCESD. Currently, my manuscripts on roadside deforestation and tobacco-induced soil degradation are under review in high-impact Elsevier journals. As General Secretary of the RUET GIS Club, I also strive to democratize geospatial knowledge, mentoring over 100 students and organizing nationwide events like "GEOPLAN 1.0."
+  
+  I am actively seeking Master of Science (MS) opportunities in Geography, Geoinformatics, or Environmental Science, where I can further explore the applications of GeoAI in building climate-resilient futures. If you are looking for a dedicated researcher ready to tackle global environmental problems with spatial intelligence, let’s connect.`,
+      location: "Rajshahi, Bangladesh"
   },
 
   education: [
@@ -554,7 +554,7 @@ I am actively seeking Master of Science (MS) opportunities in Geography, Geoinfo
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
         bullets: [
-          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br>- Supported in drafting high-level TOD policy frameworks by conducting GIS land-use inventories and visual impact assessments to optimize urban density and connectivity around major mass transit hubs."
+          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br>- Supported the development of TOD policy guidelines by conducting GIS-based spatial assessments and technical visualizations to evaluate urban density and connectivity for mass transit hubs."
         ],
         github: "",
         more: ""
