@@ -549,7 +549,7 @@ window.SITE = {
     recentLimit: 10, // number of items to show on home page
     items: [
       {
-        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD), Urban & Regional Development Unit (UDU)",
+        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD), Urban & Regional Development Group",
         role: "Intern",
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
