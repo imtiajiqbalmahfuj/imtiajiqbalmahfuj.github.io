@@ -152,12 +152,12 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26004",
+      title:"Flash Flood Hazard Assessment & NbS Framework: Feni & Noakhali",
+      tags:["GIS", "Remote Sensing", "Portfolio"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26004_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY/26004.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26004_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY/Screenshot%202026-03-06%20233118.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26004_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY .html"
     },
     {
       id:"26003",
