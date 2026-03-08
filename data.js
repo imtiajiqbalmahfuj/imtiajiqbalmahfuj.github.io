@@ -643,7 +643,7 @@ window.SITE = {
         date:"February 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., & Adib, J. I. <br> 8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh",
         type:"Conference proceedings",
-        link:"",
+        link:"https://iccesd.kuet.ac.bd/Papers/277.pdf",
         cite:"https://www.researchgate.net/publication/400576696_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY_AHP-MCDA_TO_INFORM_NATURE-BASED_SOLUTIONS_IN_FENI_AND_NOAKHALI_BANGLADESH"  // <--- Add this field to enable Cite button
       },
       {
