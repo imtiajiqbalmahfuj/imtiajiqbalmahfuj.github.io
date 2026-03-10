@@ -45,7 +45,7 @@ window.SITE = {
   ],
 
   about: {
-      bio: `I’m Imtiaj Iqbal Mahfuj, an undergraduate researcher and aspiring Geospatial Data Scientist at Rajshahi University of Engineering & Technology (RUET), driven by a commitment to solving critical environmental challenges through advanced spatial analytics. My work sits at the intersection of Remote Sensing, GeoAI, and Climate Resilience, bridging the gap between theoretical urban planning and data-driven decision-making.
+      bio: `I’m Imtiaj Iqbal (Mahfuj), an undergraduate researcher and aspiring Geospatial Data Scientist at Rajshahi University of Engineering & Technology (RUET), driven by a commitment to solving critical environmental challenges through advanced spatial analytics. My work sits at the intersection of Remote Sensing, GeoAI, and Climate Resilience, bridging the gap between theoretical urban planning and data-driven decision-making.
   
   My academic journey is defined by a rigorous pursuit of "where" and "why." I leverage tools like GIS, Google Earth Engine (GEE), Python, and Machine Learning to model complex environmental dynamics, from mapping drought vulnerability in Rajshahi to analyzing flash flood hazards in Feni. Beyond the lab, I translated this technical expertise into professional practice as an intern at Nippon Koei (ID&E Holdings). At Japan’s #1 engineering consultancy, I supported the development of Transit-Oriented Development (TOD) policy guidelines by conducting GIS-based spatial assessments and technical visualizations to evaluate urban density and connectivity for mass transit hubs.
   
