@@ -714,6 +714,7 @@ window.SITE = {
     ],
     // 4. License & Certifications
     licenses:[
+      { title:"Fundamentals of Remote Sensing", tags:["NASA","The NASA Applied Remote Sensing Training (ARSET) Program"], link:"https://drive.google.com/file/d/1ji5SR47Tu9W1O-G7l4FIL_hotttByv3N/view?usp=drivesdk", date:"March 2026" },
       { title:"Going Places with Spatial Analysis", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/68bf563f0ac66f76aadcdd65/-360", date:"February 2026" },
       { title:"A Standalone Project: Develop an Earthquake Prediction Model Using Python", tags:["LinkedIn","LinkedIn Learning"], link:"https://www.linkedin.com/learning/certificates/3bc1d147599cea16c24a22368114ec89bb3e2e86cb8193f0f6bcf67bbdd8ed34?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BFdDouBcQoOvQT0%2FRTOIEA%3D%3D", date:"December 2025" },
       { title:"Spatial Data Science: The New Frontier in Analytics", tags:["Esri","Esri Academy"], link:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6826d5199c22d4e1ad3054a4/-360", date:"November 2025", featured: true },
