@@ -136,12 +136,12 @@ window.SITE = {
       details:""
     },
     {
-      id:"25000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"25006",
+      title:"Project for Development of Policy and Guidelines for Transit-Oriented Development (TOD) along the Mass Transit Corridors",
+      tags:["URP","Portfolio", "Others"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26006_TOD_Guideline/All%20Principles%201.1.png",
+      github:"https://drive.google.com/file/d/1hERDhKSHUltRdxqJ_fnYjmWBHn9Rn6cD/view",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html"
     },
     {
       id:"25005",
@@ -556,8 +556,8 @@ window.SITE = {
         bullets: [
           "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries. <br>- Supported the development of TOD policy guidelines by conducting GIS-based spatial assessments and technical visualizations to evaluate urban density and connectivity for mass transit hubs."
         ],
-        github: "",
-        more: ""
+        github: "https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html",
+        more: "https://drive.google.com/file/d/1ZPl6kG5Xu4VaxK7B7RZQWSJuXaRLyE-1/view"
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
