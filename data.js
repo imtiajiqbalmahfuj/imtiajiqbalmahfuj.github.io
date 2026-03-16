@@ -740,6 +740,14 @@ window.SITE = {
 
   blogs: [
     {
+      id: "26003",
+      title: "Joining Japan’s #1 & a Global Leader in Engineering, Nippon Koei Bangladesh Ltd., as an intern",
+      tags: ["Achievements"],
+      date: "March 16 , 2026",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26003.jpg", 
+      link: "https://imtiajiqbalmahfuj.github.io/Blogs/26002_blogs.html" 
+    },
+    {
       id: "26002",
       title: "Joining Japan’s #1 & a Global Leader in Engineering, Nippon Koei Bangladesh Ltd., as an intern",
       tags: ["Achievements"],
