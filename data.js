@@ -741,7 +741,7 @@ window.SITE = {
   blogs: [
     {
       id: "26003",
-      title: "Joining Japan’s #1 & a Global Leader in Engineering, Nippon Koei Bangladesh Ltd., as an intern",
+      title: "My Internship Journey at Nippon Koei Bangladesh Ltd.",
       tags: ["Achievements"],
       date: "March 16 , 2026",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26003.jpg", 
