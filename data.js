@@ -1,4 +1,3 @@
-i
 // ===== all content lives here =====
 // Edit this file only to update your site. No coding knowledge needed.
 // Strings accept basic HTML (e.g., <br> for line breaks).
@@ -548,6 +547,17 @@ window.SITE = {
   experiences: {
     recentLimit: 10, // number of items to show on home page
     items: [
+      {
+        org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD), Urban Development & Regional Planning (UD&RP) Unit",
+        role: "Intern",
+        date: "February 2026 - March 2026",
+        location: "Dhaka, Bangladesh",
+        bullets: [
+          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Supported the development of TOD policy guidelines by conducting spatial assessments and technical visualizations to propose site-specific development strategies. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (Nippon Koei Co. Ltd. & ID&E Holdings), operating in over 160 countries."
+        ],
+        github: "https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html",
+        more: "https://drive.google.com/file/d/1ZPl6kG5Xu4VaxK7B7RZQWSJuXaRLyE-1/view"
+      },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
