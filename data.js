@@ -554,7 +554,7 @@ window.SITE = {
         date: "February 2026 - March 2026",
         location: "Dhaka, Bangladesh",
         bullets: [
-          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Supported the development of TOD policy guidelines by conducting spatial assessments and technical visualizations to propose site-specific development strategies. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (𝐍𝐢𝐩𝐩𝐨𝐧 𝐊𝐨𝐞𝐢 𝐂𝐨., 𝐋𝐭𝐝. & ID&E Holdings), operating in over 160 countries."
+          "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Supported the development of TOD policy guidelines by conducting spatial assessments and technical visualizations to propose site-specific development strategies. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (Nippon Koei Co. Ltd. & ID&E Holdings), operating in over 160 countries."
         ],
         github: "https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html",
         more: "https://drive.google.com/file/d/1ZPl6kG5Xu4VaxK7B7RZQWSJuXaRLyE-1/view"
