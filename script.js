@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if ($('#about')) mountAbout();
   if ($('#projects')) mountProjectsCarousel();
-  if ($('#expList')) mountExperience();
+  if ($('#profExpList') || $('#resExpList')) mountExperience();
   if ($('#pubRecent')) mountPublications();
   if ($('#achvPreview')) mountAchvPreview();
   if ($('#footerLinks')) mountFooter();
