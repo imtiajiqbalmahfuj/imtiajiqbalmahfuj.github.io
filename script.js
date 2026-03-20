@@ -342,44 +342,63 @@ function mountProjectsCarousel() {
   if(next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
 }
 
+
 // === Updated Experience with Conditional Buttons (Preserved Style) ===
 function mountExperience(){
-  const profList = $('#profExpList')
-  const resList = $('#resExpList')
+  const list = $('#expList')
+  if(!list) return
   
-  // If neither list exists on the page, don't run the function
-  if(!profList && !resList) return
+  const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+  const E = window.SITE.experiences;
+  if (!E) return;
 
-  const recentLimit = window.SITE.experiences.recentLimit || null
-  const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/"
+  const sections = [
+    { id: 'professional', title: 'Professional Experience', list: E.professional, icon: 'briefcase' },
+    { id: 'research', title: 'Research Experience', list: E.research, icon: 'microscope' }
+  ];
 
-  // Create a helper function to build the HTML cards so we don't repeat code
-  const buildCards = (itemsArray) => {
-    if (!itemsArray) return ""
-    // Only limit items if we are on the Home page, otherwise show all
-    const itemsToShow = (recentLimit && isHome) ? itemsArray.slice(0, recentLimit) : itemsArray
-    
-    return itemsToShow.map(x=>`
-      <div class="card p-4 bg-white rounded-xl border border-slate-200">
-        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-          <div>
-            <div class="font-semibold">${x.role}</div>
-            <div class="text-sm text-slate-600">${x.org}</div>
-            <div class="text-xs text-slate-500">${x.date} — ${x.location}</div>
-            <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
-          </div>
-          <div class="flex gap-2 md:self-end">
-            ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
-            ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
-          </div>
+  list.innerHTML = sections.map(sec => {
+    // If on homepage, only show the 3 most recent items per category to keep it clean
+    const items = isHome ? (sec.list || []).slice(0, 3) : (sec.list || []);
+    if(items.length === 0) return '';
+
+    return `
+      <div class="flex flex-col h-full mb-8" id="${sec.id}">
+        <div class="font-bold mb-4 text-xl flex items-center gap-2">
+           ${sec.title}
         </div>
+        
+        <div class="grid gap-3 mb-4">
+          ${items.map(x=>`
+            <div class="card p-4 bg-white rounded-xl border border-slate-200">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+                <div>
+                  <div class="font-semibold">${x.role}</div>
+                  <div class="text-sm text-slate-600">${x.org}</div>
+                  <div class="text-xs text-slate-500">${x.date} — ${x.location}</div>
+                  <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+                </div>
+                <div class="flex gap-2 md:self-end">
+                  ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
+                  ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        
+        ${isHome && sec.list.length > 3 ? `
+        <div class="mt-2">
+           <a href="experience.html#${sec.id}" class="inline-flex items-center gap-2 text-sm font-bold text-black hover:underline decoration-2 underline-offset-4 group">
+             See all ${sec.title.toLowerCase()} <i data-lucide="${sec.icon}" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
+           </a>
+        </div>
+        ` : ''}
       </div>
-    `).join('')
-  }
+    `
+  }).join('')
 
-  // Inject the cards into the HTML containers using data from data.js
-  if (profList) profList.innerHTML = buildCards(window.SITE.experiences.professional)
-  if (resList) resList.innerHTML = buildCards(window.SITE.experiences.research)
+  if(window.lucide) lucide.createIcons()
 }
 
 // === Updated Publications with Conditional Buttons (Preserved Style) ===
@@ -624,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if ($('#about')) mountAbout();
   if ($('#projects')) mountProjectsCarousel();
-  if ($('#profExpList') || $('#resExpList')) mountExperience();
+  if ($('#expList')) mountExperience();
   if ($('#pubRecent')) mountPublications();
   if ($('#achvPreview')) mountAchvPreview();
   if ($('#footerLinks')) mountFooter();
