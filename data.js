@@ -543,10 +543,10 @@ window.SITE = {
       details:""
     }
   ],
-
+  
   experiences: {
     recentLimit: 10, // number of items to show on home page
-    items: [
+    professional: [
       {
         org: "Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technical Department (ETD), Urban Development & Regional Planning (UD&RP) Unit",
         role: "Intern",
@@ -557,7 +557,9 @@ window.SITE = {
         ],
         github: "https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html",
         more: "https://drive.google.com/file/d/1ZPl6kG5Xu4VaxK7B7RZQWSJuXaRLyE-1/view"
-      },
+      }//,
+    ],
+    research: [
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
@@ -565,6 +567,17 @@ window.SITE = {
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a multi-disciplinary research team to assess drought risk vulnerability using Fuzzy AHP and remote sensing data, integrating GIS mapping with Participatory Rural Appraisal (PRA) for ground-truth validation."
+        ],
+        github: "",
+        more: ""
+      },
+      {
+        org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
+        role: "Undergraduate Research Assistant",
+        date: "October 2025 - Present",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Project:</u> Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Conducted a quantified evaluation and gap analysis of fire safety compliance in commercial buildings, formulating actionable recommendations to enhance disaster preparedness in Rajshahi City Corporation."
         ],
         github: "",
         more: ""
