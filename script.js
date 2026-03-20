@@ -387,7 +387,7 @@ function mountExperience(){
           `).join('')}
         </div>
         
-        ${isHome && sec.list.length > 3 ? `
+        ${isHome ? `
         <div class="mt-2">
            <a href="experience.html#${sec.id}" class="inline-flex items-center gap-2 text-sm font-bold text-black hover:underline decoration-2 underline-offset-4 group">
              See all ${sec.title.toLowerCase()} <i data-lucide="${sec.icon}" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
@@ -400,6 +400,7 @@ function mountExperience(){
 
   if(window.lucide) lucide.createIcons()
 }
+
 
 // === Updated Publications with Conditional Buttons (Preserved Style) ===
 function mountPublications() {
