@@ -359,7 +359,7 @@ function mountExperience(){
 
   list.innerHTML = sections.map(sec => {
     // If on homepage, only show the 3 most recent items per category to keep it clean
-    const items = isHome ? (sec.list || []).slice(0, 3) : (sec.list || []);
+    const items = isHome ? (sec.list || []).slice(0, 8) : (sec.list || []);
     if(items.length === 0) return '';
 
     return `
