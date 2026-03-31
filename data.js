@@ -135,6 +135,14 @@ window.SITE = {
       details:""
     },
     {
+      id:"25007",
+      title:"Bivariate Climate Map (Temperature × Precipitation) of Bangladesh and India",
+      tags:["Geospatial Python", "GeoViz"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26007%20Bivariate%20Map%20Temperature%20vs%20Precipitation%20(Bangladesh)/bivariate_india_bangladesh3.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26007%20Bivariate%20Map%20Temperature%20vs%20Precipitation%20(Bangladesh)/bivariate_india_bangladesh3.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26007_Bivariate_Temperature_Precipitation.html"
+    },
+    {
       id:"25006",
       title:"Project for Development of Policy and Guidelines for Transit-Oriented Development (TOD) along the Mass Transit Corridors",
       tags:["URP","Portfolio", "Others"],
