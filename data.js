@@ -136,7 +136,7 @@ window.SITE = {
     },
     {
       id:"25007",
-      title:"Bivariate Climate Map (Temperature × Precipitation) of Bangladesh and India",
+      title:"Bivariate Climate Map (Temperature × Precipitation) of Bangladesh and India using Python",
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26007%20Bivariate%20Map%20Temperature%20vs%20Precipitation%20(Bangladesh)/bivariate_india_bangladesh3.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26007%20Bivariate%20Map%20Temperature%20vs%20Precipitation%20(Bangladesh)/bivariate_india_bangladesh3.png",
