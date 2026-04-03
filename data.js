@@ -890,6 +890,13 @@ window.SITE = {
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Featured%20On/25003.jpg",
       date: "May, 2025",
       tags: ["News"]
+    },
+    {
+      title: "TEDxRUET - Empowering Imagination 2025",
+      link: "https://www.tbsnews.net/economy/corporates/tedxruet-empowering-imagination-2025-1068941",
+      image: "https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2025/02/15/img_1306.jpg",
+      date: "February, 2025",
+      tags: ["News"]
     }
   ],
   
