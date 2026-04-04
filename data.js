@@ -82,7 +82,7 @@ window.SITE = {
     items: [
       "Geospatial Data Science (GeoAI & ML)",
       "Remote Sensing & Env. Monitoring (GEE)",
-      "Disaster Risk Analysis & Resilience",
+      "Disaster Risk & Geo-Hazard Modeling",
       "Climate Change Adaptation",
       "GIScience & Spatial Modeling",
       "Urban Analytics & Planning"
