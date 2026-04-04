@@ -6,7 +6,7 @@ window.SITE = {
   brand: {
     homeLabel: "Imtiaj.",
     name: "Imtiaj Iqbal Mahfuj",
-    subtitle: "GIS · Remote Sensing · Geospatial Data Science (GeoAI, ML, GEE)",
+    subtitle: "Geospatial Data Science (GeoAI & ML) · Remote Sensing & Environmental Monitoring (GEE) · Climate Change & Disaster Risk Analysis",
     // direct download link provided by you
     cvDownload: "https://drive.google.com/uc?export=download&id=1rxUqGpT1MCqD50ogslthxphAMmEigeZO",
     email: "imtiajiqbal.ruet@gmail.com",
@@ -80,11 +80,10 @@ window.SITE = {
   research: {
     title: "Research Interests", // will be displayed as header
     items: [
-      "GIS & Remote Sensing",
-      "Geospatial Data Science (GeoAI, Machine Learning, GEE)",
+      "Geospatial Data Science (GeoAI & ML)",
+      "Remote Sensing & Environmental Monitoring (GEE)",
       "Climate Change Adaptation",
-      "Disaster Risk Analysis",
-      "Environmental Monitoring",
+      "Disaster Risk Analysis & Resilience",
       "Urban Analytics & Planning"
     ]
   },
