@@ -659,6 +659,22 @@ window.SITE = {
         cite:""  // <--- Add this field to enable Cite button
       },
       {
+        title: "Spatiotemporal assessment of urban thermal discomfort in major cities of Bangladesh using cloud-based geospatial indices",
+        date: "April 2026",
+        venue: "Tamim, N. F., Rafi, M. R. I., Ahmed, S., & <b>Mahfuj, I. I.*</b> <br> 8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh",
+        type: "Conference proceedings",
+        link: "", // Add paper link when available
+        cite: ""  // Add ResearchGate/Citation link when available
+      },
+      {
+        title: "A spatio-temporal assessment of urban ecological quality influenced by land surface temperature dynamics and thermal field variance in Dhaka",
+        date: "April 2026",
+        venue: "<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rafi, M. R. I., & Ahmed, S. <br> 8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh",
+        type: "Conference proceedings",
+        link: "", // Add paper link when available
+        cite: ""  // Add ResearchGate/Citation link when available
+      },
+      {
         title:"Flash flood hazard assessment using a GIS integrated fuzzy AHP-MCDA to inform nature-based solutions in Feni and Noakhali, Bangladesh",
         date:"February 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., & Adib, J. I. <br> 8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh",
