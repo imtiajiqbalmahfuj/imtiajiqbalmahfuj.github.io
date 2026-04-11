@@ -618,7 +618,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         date: "August 2024 - February 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Facilitated community-based research workshops using PRA tools to design sustainable and resilient homestead farming strategies for Khirshan, Rajshahi."
+          "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Utilized Participatory Rural Appraisal (PRA) tools to collect and synthesize community data, contributing to the development of a resilient land-use framework for rural Rajshahi."
         ],
         github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
         more: ""
