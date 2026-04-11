@@ -652,7 +652,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier).  [Under Review]",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br>City and Environment Interactions (Elsevier)",
         type:"Journal Articles",
         cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
         link:"https://dx.doi.org/10.2139/ssrn.5450958"
