@@ -655,7 +655,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> <i>City and Environment Interactions (Elsevier)</i>",
         type:"Journal Articles",
         cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
-        link:"https://dx.doi.org/10.2139/ssrn.5450958"
+        link:""
       },
       {
         title: "A spatio-temporal assessment of urban ecological quality influenced by land surface temperature dynamics and thermal field variance in Dhaka",
