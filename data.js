@@ -658,19 +658,19 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         link:"https://dx.doi.org/10.2139/ssrn.5450958"
       },
       {
-        title: "Spatiotemporal assessment of urban thermal discomfort in major cities of Bangladesh using cloud-based geospatial indices",
-        date: "April 2026",
-        venue: "Tamim, N. F., Rafi, M. R. I., Ahmed, S., & <b>Mahfuj, I. I.*</b> <br> 8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh",
-        type: "Conference proceedings",
-        cite: "",  // Add ResearchGate/Citation link when available
-        link: "" // Add paper link when available
-      },
-      {
         title: "A spatio-temporal assessment of urban ecological quality influenced by land surface temperature dynamics and thermal field variance in Dhaka",
         date: "April 2026",
         venue: "<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rafi, M. R. I., & Ahmed, S. <br> 8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh",
         type: "Conference proceedings",
-        cite: "",  // Add ResearchGate/Citation link when available
+        cite: "https://www.researchgate.net/publication/403723956_A_spatio-temporal_assessment_of_urban_ecological_quality_influenced_by_land_surface_temperature_dynamics_and_thermal_field_variance_in_Dhaka",  // Add ResearchGate/Citation link when available
+        link: "" // Add paper link when available
+      },
+      {
+        title: "Spatiotemporal assessment of urban thermal discomfort in major cities of Bangladesh using cloud-based geospatial indices",
+        date: "April 2026",
+        venue: "Tamim, N. F., Rafi, M. R. I., Ahmed, S., & <b>Mahfuj, I. I.*</b> <br> 8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh",
+        type: "Conference proceedings",
+        cite: "https://www.researchgate.net/publication/403721473_Spatiotemporal_assessment_of_urban_thermal_discomfort_in_major_cities_of_Bangladesh_using_cloud-based_geospatial_indices",  // Add ResearchGate/Citation link when available
         link: "" // Add paper link when available
       },
       {
