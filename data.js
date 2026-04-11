@@ -573,7 +573,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         date: "October 2025 - Present",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u>  Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a multi-disciplinary research team to assess drought risk vulnerability using Fuzzy AHP and remote sensing data, integrating GIS mapping with Participatory Rural Appraisal (PRA) for ground-truth validation."
+          "<u>Project:</u> Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a multi-disciplinary research team to assess drought risk vulnerability using Fuzzy AHP and remote sensing data, integrating GIS mapping with Participatory Rural Appraisal (PRA) for ground-truth validation."
         ],
         github: "",
         more: ""
@@ -646,48 +646,48 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to Trees, Forests and People (Elsevier). [Under Review]",
         type:"Journal Articles",
-        link:"https://dx.doi.org/10.2139/ssrn.6208220",
-        cite:""  // <--- Add this field to enable Cite button
+        cite:"",  // <--- Add this field to enable Cite button
+        link:"https://dx.doi.org/10.2139/ssrn.6208220"
       },
       {
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> Submitted to City and Environment Interactions (Elsevier).  [Under Review]",
         type:"Journal Articles",
-        link:"https://dx.doi.org/10.2139/ssrn.5450958",
-        cite:""  // <--- Add this field to enable Cite button
+        cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
+        link:"https://dx.doi.org/10.2139/ssrn.5450958"
       },
       {
         title: "Spatiotemporal assessment of urban thermal discomfort in major cities of Bangladesh using cloud-based geospatial indices",
         date: "April 2026",
         venue: "Tamim, N. F., Rafi, M. R. I., Ahmed, S., & <b>Mahfuj, I. I.*</b> <br> 8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh",
         type: "Conference proceedings",
-        link: "", // Add paper link when available
-        cite: ""  // Add ResearchGate/Citation link when available
+        cite: "",  // Add ResearchGate/Citation link when available
+        link: "" // Add paper link when available
       },
       {
         title: "A spatio-temporal assessment of urban ecological quality influenced by land surface temperature dynamics and thermal field variance in Dhaka",
         date: "April 2026",
         venue: "<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rafi, M. R. I., & Ahmed, S. <br> 8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh",
         type: "Conference proceedings",
-        link: "", // Add paper link when available
-        cite: ""  // Add ResearchGate/Citation link when available
+        cite: "",  // Add ResearchGate/Citation link when available
+        link: "" // Add paper link when available
       },
       {
         title:"Flash flood hazard assessment using a GIS integrated fuzzy AHP-MCDA to inform nature-based solutions in Feni and Noakhali, Bangladesh",
         date:"February 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., & Adib, J. I. <br> 8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh",
         type:"Conference proceedings",
-        link:"https://iccesd.kuet.ac.bd/Papers/277.pdf",
-        cite:"https://www.researchgate.net/publication/400576696_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY_AHP-MCDA_TO_INFORM_NATURE-BASED_SOLUTIONS_IN_FENI_AND_NOAKHALI_BANGLADESH"  // <--- Add this field to enable Cite button
+        cite:"https://www.researchgate.net/publication/400576696_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY_AHP-MCDA_TO_INFORM_NATURE-BASED_SOLUTIONS_IN_FENI_AND_NOAKHALI_BANGLADESH",  // <--- Add this field to enable Cite button
+        link:"https://iccesd.kuet.ac.bd/Papers/277.pdf"
       },
       {
         title:"Assessing transit-oriented development potential of Karwan Bazar MRT Station: A strategic actions framework for sustainable urban growth",
         date:"May 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> 4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
         type:"Conference proceedings",
-        link:"https://doi.org/10.2139/ssrn.5182917",
-        cite:"https://www.researchgate.net/publication/400404964_Assessing_Transit-Oriented_Development_Potential_of_Karwan_Bazar_MRT_Station_A_Strategic_Actions_Framework_for_Sustainable_Urban_Growth"  // <--- Add this field to enable Cite button
+        cite:"https://www.researchgate.net/publication/400404964_Assessing_Transit-Oriented_Development_Potential_of_Karwan_Bazar_MRT_Station_A_Strategic_Actions_Framework_for_Sustainable_Urban_Growth",  // <--- Add this field to enable Cite button
+        link:"https://doi.org/10.2139/ssrn.5182917"
       },
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
@@ -710,8 +710,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J.",
         type:"Manuscripts in Preparation",
-        link:"",
-        cite:""  // <--- Add this field to enable Cite button
+        cite:"",  // <--- Add this field to enable Cite button
+        link: "" // Add paper link when available
       },
       {
         title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi",
