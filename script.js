@@ -416,11 +416,11 @@ function mountPublications() {
       <div class="font-medium mt-1">${p.title}</div>
       <div class="text-xs text-slate-500">${p.date} · ${p.venue}</div>
       <div class="mt-3 flex gap-2 justify-end">
-        ${p.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
-          <i data-lucide="external-link"></i><span class="sr-only">See more</span>
-        </a>` : ''}
         ${p.cite ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cite}" target="_blank">
           <i data-lucide="quote"></i><span class="sr-only">Cite</span>
+        </a>` : ''}
+        ${p.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
+          <i data-lucide="external-link"></i><span class="sr-only">See more</span>
         </a>` : ''}
       </div>
     </div>
