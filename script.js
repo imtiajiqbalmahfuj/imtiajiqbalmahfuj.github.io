@@ -83,20 +83,18 @@ function applyNav(){
     })
   }
 
-  // UPDATED: Smooth scroll for anchors with OFFSET
+  // Smooth scroll for anchors with OFFSET
   $all('a[href*="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      // Check if the link points to the current page
       const url = new URL(a.href, window.location.href);
       if (url.pathname === window.location.pathname && url.hash.length > 1) {
         const el = $(url.hash);
         if (el) {
           e.preventDefault();
-          const offset = 85; // Height of the navbar + padding
+          const offset = 85; 
           const y = el.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top: y, behavior: 'smooth' });
           
-          // If on mobile, close the menu after clicking
           if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
              mobileMenu.classList.add('hidden');
           }
@@ -108,6 +106,20 @@ function applyNav(){
   // Mobile menu
   if(mmBtn && mobileMenu){
     mmBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'))
+  }
+
+  // --- FIX FOR CROSS-PAGE ANCHOR LINKS ---
+  // If arriving from another page with a hash (e.g. achievements.html#awards),
+  // correct the scroll position so it doesn't hide under the navbar.
+  if (window.location.hash) {
+    setTimeout(() => {
+      const el = $(window.location.hash);
+      if (el) {
+        const offset = 85;
+        const y = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 150); // Small delay ensures the page is rendered before scrolling
   }
 }
 
