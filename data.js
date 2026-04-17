@@ -716,7 +716,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
         date:"2026 (Forthcoming)",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity (Elsevier’s EARTH OBSERVATION series)</i>. [Book Chapter]",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity (Elsevier)</i>. [Book Chapter]",
         type:"Manuscripts in Preparation",
         cite:"",  // <--- Add this field to enable Cite button
         link:""
