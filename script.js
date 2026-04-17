@@ -31,6 +31,7 @@ function mountAllEmails() {
   applyLogic($('#aboutMailBtn'));   // About
 }
 
+
 function applyNav(){
   const navCenter = $('#navCenter')
   const connectBtn = $('#connectBtn')
@@ -69,21 +70,35 @@ function applyNav(){
     });
   }
 
+  // Helper function to calculate exact scroll position
+  const scrollToElement = (el) => {
+    let targetEl = el;
+    
+    // If it's a main section, scroll to its heading to ignore huge padding spaces
+    if (el.tagName.toLowerCase() === 'section' || el.tagName.toLowerCase() === 'main') {
+      const heading = el.querySelector('h1, h2, h3');
+      if (heading) targetEl = heading;
+    }
+
+    const offset = 80; // Navbar height + breathing room
+    const y = targetEl.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  };
+
+  // Connect Button
   if(connectBtn){
     connectBtn.addEventListener('click', (e)=> {
       e.preventDefault();
       const contactSec = document.getElementById('contact'); 
       if(contactSec) {
-        const offset = 70;
-        const y = contactSec.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({top: y, behavior: 'smooth'});
+        scrollToElement(contactSec);
       } else {
         window.location.href = "index.html#contact";
       }
     })
   }
 
-  // Smooth scroll for anchors with OFFSET
+  // Smooth scroll for anchors with smart OFFSET
   $all('a[href*="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const url = new URL(a.href, window.location.href);
@@ -91,10 +106,9 @@ function applyNav(){
         const el = $(url.hash);
         if (el) {
           e.preventDefault();
-          const offset = 70; 
-          const y = el.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
+          scrollToElement(el);
           
+          // Close mobile menu if open
           if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
              mobileMenu.classList.add('hidden');
           }
@@ -103,23 +117,19 @@ function applyNav(){
     });
   });
 
-  // Mobile menu
+  // Mobile menu toggle
   if(mmBtn && mobileMenu){
     mmBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'))
   }
 
-  // --- FIX FOR CROSS-PAGE ANCHOR LINKS ---
-  // If arriving from another page with a hash (e.g. achievements.html#awards),
-  // correct the scroll position so it doesn't hide under the navbar.
+  // FIX FOR CROSS-PAGE ANCHOR LINKS (e.g. clicking from subpage back to index)
   if (window.location.hash) {
     setTimeout(() => {
       const el = $(window.location.hash);
       if (el) {
-        const offset = 70;
-        const y = el.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
+        scrollToElement(el);
       }
-    }, 150); // Small delay ensures the page is rendered before scrolling
+    }, 150); // Small delay ensures the page is fully rendered before scrolling
   }
 }
 
