@@ -70,7 +70,8 @@ function applyNav(){
     });
   }
 
-  // Helper function to calculate exact scroll position
+  // === THE RESPONSIVE FIX ===
+  // Helper function to calculate exact scroll position for both Mobile & Desktop
   const scrollToElement = (el) => {
     let targetEl = el;
     
@@ -80,7 +81,10 @@ function applyNav(){
       if (heading) targetEl = heading;
     }
 
-    const offset = 80; // Navbar height + breathing room
+    // Dynamic offset: Tighter on mobile, spacious on desktop
+    const isMobile = window.innerWidth < 768;
+    const offset = isMobile ? 65 : 85; 
+
     const y = targetEl.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   };
