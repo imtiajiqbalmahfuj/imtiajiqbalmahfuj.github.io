@@ -403,29 +403,89 @@ function mountExperience(){
 
 
 // === Updated Publications with Conditional Buttons (Preserved Style) ===
+// === Updated Publications with Subsections and See All Buttons ===
 function mountPublications() {
   const rec = $('#pubRecent');
   if(!rec) return;
+
   const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-  const items = isHome 
-    ? window.SITE.publications.items.slice(0, window.SITE.publications.recentLimit)
-    : window.SITE.publications.items;
-  rec.innerHTML = items.map(p => `
-    <div class="card p-4 bg-white rounded-xl border border-slate-200">
-      <div class="text-sm text-slate-500">${p.type}</div>
-      <div class="font-medium mt-1">${p.title}</div>
-      <div class="text-xs text-slate-500">${p.date} · ${p.venue}</div>
-      <div class="mt-3 flex gap-2 justify-end">
-        ${p.cite ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cite}" target="_blank">
-          <i data-lucide="quote"></i><span class="sr-only">Cite</span>
-        </a>` : ''}
-        ${p.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
-          <i data-lucide="external-link"></i><span class="sr-only">See more</span>
-        </a>` : ''}
+  const P = window.SITE.publications;
+  if (!P) return;
+
+  const order = P.ordering || [];
+  const items = P.items || [];
+
+  // Group items by type
+  const grouped = {};
+  items.forEach(item => {
+    if (!grouped[item.type]) grouped[item.type] = [];
+    grouped[item.type].push(item);
+  });
+
+  // Ensure types not in 'ordering' are still rendered at the end
+  const typesToRender = [...order];
+  Object.keys(grouped).forEach(t => {
+    if (!typesToRender.includes(t)) typesToRender.push(t);
+  });
+
+  // Map icons for "See all" buttons
+  const icons = {
+    "Journal Articles": "book-open",
+    "Book Chapters": "book",
+    "Conference proceedings": "users",
+    "Manuscripts in Preparation": "file-edit",
+    "Reports": "file-text"
+  };
+
+  rec.innerHTML = typesToRender.map(type => {
+    let groupItems = grouped[type] || [];
+
+    // If on homepage, limit to 3 items per subsection (similar to professional highlights)
+    if (isHome) {
+      groupItems = groupItems.slice(0, 6);
+    }
+
+    // If subsection data is missing, don't render it
+    if (groupItems.length === 0) return '';
+
+    const secId = type.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const icon = icons[type] || "library";
+
+    return `
+      <div class="flex flex-col h-full mb-8" id="${secId}">
+        <div class="font-bold mb-4 text-xl flex items-center gap-2">
+           ${type}
+        </div>
+
+        <div class="grid gap-3 mb-4">
+          ${groupItems.map(p => `
+            <div class="card p-4 bg-white rounded-xl border border-slate-200">
+              <div class="font-medium mt-1">${p.title}</div>
+              <div class="text-xs text-slate-500">${p.date} · ${p.venue}</div>
+              <div class="mt-3 flex gap-2 justify-end">
+                ${p.cite ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cite}" target="_blank">
+                  <i data-lucide="quote"></i><span class="sr-only">Cite</span>
+                </a>` : ''}
+                ${p.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
+                  <i data-lucide="external-link"></i><span class="sr-only">See more</span>
+                </a>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        ${isHome ? `
+        <div class="mt-2">
+           <a href="publications.html#${secId}" class="inline-flex items-center gap-2 text-sm font-bold text-black hover:underline decoration-2 underline-offset-4 group">
+             See all <i data-lucide="${icon}" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
+           </a>
+        </div>
+        ` : ''}
       </div>
-    </div>
-  `).join('');
-  lucide.createIcons();
+    `;
+  }).join('');
+
+  if(window.lucide) lucide.createIcons();
 }
 
 
