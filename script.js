@@ -667,6 +667,84 @@ function mountBlogsPage() {
 }
 
 
+// === Dynamically Build Navigation & Dropdowns ===
+function mountNavigation() {
+  const navCenter = $('#navCenter');
+  const mobileMenuGrid = $('#mobileMenu > div');
+  if (!navCenter || !mobileMenuGrid || !window.SITE) return;
+
+  const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+  const basePath = isHome ? "" : "index.html";
+
+  // 1. Gather active subsections (only include if they have data)
+  const exps = window.SITE.experiences || {};
+  const expLinks = [
+    { id: 'professional', label: 'Professional Experience', data: exps.professional },
+    { id: 'research', label: 'Research Experience', data: exps.research }
+  ].filter(x => x.data && x.data.length > 0);
+
+  const pubs = window.SITE.publications || { items: [], ordering: [] };
+  const pubCounts = {};
+  pubs.items.forEach(p => { pubCounts[p.type] = (pubCounts[p.type] || 0) + 1; });
+  const pubLinks = (pubs.ordering || []).filter(type => pubCounts[type] > 0).map(type => ({
+    id: type.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+    label: type
+  }));
+
+  const achvs = window.SITE.achievements || {};
+  const achvLinks = [
+    { id: 'fellowships', label: 'Fellowships & Research Grants', data: achvs.fellowships },
+    { id: 'awards', label: 'Awards, Honors & Memberships', data: achvs.awards },
+    { id: 'volunteer', label: 'Leadership & Volunteering', data: achvs.volunteering },
+    { id: 'licenses', label: 'License & Certifications', data: achvs.licenses },
+    { id: 'workshops', label: 'Workshops & Presentations', data: achvs.workshops }
+  ].filter(x => x.data && x.data.length > 0);
+
+  // 2. Desktop Dropdown Builder
+  const makeDesktopDropdown = (href, label, links, alignRight = false) => {
+    if (links.length === 0) return `<a href="${basePath}${href}" class="hover-underline text-slate-700">${label}</a>`;
+    const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
+    return `
+      <div class="relative group">
+        <a href="${basePath}${href}" class="hover-underline text-slate-700 pb-4">${label}</a>
+        <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/60 backdrop-blur-lg border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl p-2 min-w-[240px] z-50">
+          ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item p-2.5 text-sm hover:bg-black/5 rounded-xl transition-colors text-slate-700">${l.label}</a>`).join('')}
+        </div>
+      </div>
+    `;
+  };
+
+  // 3. Mobile Dropdown Builder
+  const makeMobileDropdown = (href, label, links) => {
+    if (links.length === 0) return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
+    return `
+      <div class="group flex flex-col gap-2">
+        <a class="hover-underline font-medium text-slate-700 inline-block w-fit" href="${basePath}${href}">${label}</a>
+        <div class="hidden group-hover:flex flex-col pl-4 gap-2 border-l-2 border-slate-100 mt-1">
+           ${links.map(l => `<a href="${basePath}#${l.id}" class="text-sm text-slate-500 py-1">${l.label}</a>`).join('')}
+        </div>
+      </div>
+    `;
+  };
+
+  // 4. Inject HTML
+  const staticLinks = `
+    <a href="${basePath}#about" class="hover-underline text-slate-700">About</a>
+    <a href="${basePath}#projects" class="hover-underline text-slate-700">Projects</a>
+  `;
+  
+  navCenter.innerHTML = staticLinks + 
+    makeDesktopDropdown('#experience', 'Experiences', expLinks) +
+    makeDesktopDropdown('#publications', 'Publications', pubLinks) +
+    makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks, true);
+
+  mobileMenuGrid.innerHTML = staticLinks.replace(/text-slate-700/g, "font-medium text-slate-700") + 
+    makeMobileDropdown('#experience', 'Experiences', expLinks) +
+    makeMobileDropdown('#publications', 'Publications', pubLinks) +
+    makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
+}
+
+
 function mountLoading(){
   const screen = $('#loadingScreen')
   if(!screen) return
@@ -694,7 +772,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Activate ALL email buttons first
   mountAllEmails(); 
 
-  // 2. Initialize Navigation (Syntax Fixed)
+// 2. Build Navigation dynamically
+  mountNavigation();
+
+  // 3. Initialize Navigation (Smooth scroll, etc.)
   applyNav();
 
   if ($('#loadingScreen')) mountLoading();
