@@ -785,6 +785,14 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
 
   blogs: [
     {
+      id: "26004",
+      title: "My Journey to a Q1 Publication",
+      tags: ["Achievements"],
+      date: "April 07 , 2026",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26004.png", 
+      link: "https://imtiajiqbalmahfuj.github.io/Blogs/26004.html" 
+    },
+    {
       id: "26003",
       title: "My Internship Journey at Nippon Koei Bangladesh Ltd.",
       tags: ["Achievements"],
