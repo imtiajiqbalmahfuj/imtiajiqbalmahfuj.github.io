@@ -153,3 +153,22 @@ html, body {
   letter-spacing: -0.02em;
 }
 
+
+/* --- Glassmorphism Dropdown Animation --- */
+.group:hover .dropdown-item {
+  animation: fadeUp 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.group:hover .dropdown-item:nth-child(1) { animation-delay: 0.05s; }
+.group:hover .dropdown-item:nth-child(2) { animation-delay: 0.10s; }
+.group:hover .dropdown-item:nth-child(3) { animation-delay: 0.15s; }
+.group:hover .dropdown-item:nth-child(4) { animation-delay: 0.20s; }
+.group:hover .dropdown-item:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.group .absolute { margin-top: 0px; top: 100%; }
