@@ -74,7 +74,7 @@ function applyNav(){
       e.preventDefault();
       const contactSec = document.getElementById('contact'); 
       if(contactSec) {
-        const offset = 85;
+        const offset = 70;
         const y = contactSec.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({top: y, behavior: 'smooth'});
       } else {
@@ -91,7 +91,7 @@ function applyNav(){
         const el = $(url.hash);
         if (el) {
           e.preventDefault();
-          const offset = 85; 
+          const offset = 70; 
           const y = el.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top: y, behavior: 'smooth' });
           
@@ -115,7 +115,7 @@ function applyNav(){
     setTimeout(() => {
       const el = $(window.location.hash);
       if (el) {
-        const offset = 85;
+        const offset = 70;
         const y = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
