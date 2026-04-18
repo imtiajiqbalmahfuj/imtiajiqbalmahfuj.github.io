@@ -83,7 +83,7 @@ function applyNav(){
 
     // Dynamic offset: Tighter on mobile, spacious on desktop
     const isMobile = window.innerWidth < 768;
-    const offset = isMobile ? 45 : 85; 
+    const offset = isMobile ? 55 : 85; 
 
     const y = targetEl.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
