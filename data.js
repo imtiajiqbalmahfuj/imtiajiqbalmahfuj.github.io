@@ -724,7 +724,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi",
         date:"2026",
-        venue:"Tamim, N. F., <b>Mahfuj, I. I.*</b>, Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> Submitted to City and Environment Interactions (Elsevier)",
+        venue:"Tamim, N. F., <b>Mahfuj, I. I.*</b>, Gourab, M. B., Sultana, N., & Rafi, M. L. S.",
         type:"Manuscripts in Preparation",
         link:"",
         cite:""  // <--- Add this field to enable Cite button
