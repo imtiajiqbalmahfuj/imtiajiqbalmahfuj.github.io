@@ -153,7 +153,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       id:"26008",
       title:"Multi-Criteria Factor Extraction and Spatial Mapping using Google Earth Engine & Python",
       tags:["Geospatial Python","GEE"],
-      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py/Exports/Composite_3x3_Barind_Tract.jpg",
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py/Exports/26008.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py/Exports/Composite_3x3_Barind_Tract.jpg",
       details:"https://imtiajiqbalmahfuj.github.io/projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py.html"
     },
