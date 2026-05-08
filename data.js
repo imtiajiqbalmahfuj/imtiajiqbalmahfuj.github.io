@@ -666,6 +666,14 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     recentLimit: 10,
     items: [
       {
+        title:"Spatiotemporal assessment of the correlation between surface thermal field variance and human thermal discomfort in Dhaka",
+        date:"May 2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Organized by <b>MDPI</b></i>",
+        type:"Posters",
+        cite:"",  // <--- Add this field to enable Cite button
+        link:""
+      },
+      {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
         date:"2026",
         venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Submitted to Global Ecology and Conservation (Elsevier)</i>. [Under Review]",
@@ -676,7 +684,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
         date:"April 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> <i>City and Environment Interactions (Elsevier)</i> <br> <i>doi.org/10.1016/j.cacint.2026.100358</i>",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> <i>City and Environment Interactions <b>(Elsevier)</b></i> <br> <i>doi.org/10.1016/j.cacint.2026.100358</i>",
         type:"Journal Articles",
         cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
         link:""
@@ -754,7 +762,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         cite:""  // <--- Add this field to enable Cite button
       }
     ],
-    ordering:["Journal Articles", "Book Chapters", "Conference proceedings", "Manuscripts in Preparation", "Reports"]
+    ordering:["Journal Articles", "Book Chapters", "Conference proceedings", "Manuscripts in Preparation", "Posters"]
   },
 
 
