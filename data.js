@@ -668,7 +668,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Spatiotemporal assessment of the correlation between surface thermal field variance and human thermal discomfort in Dhaka",
         date:"May 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Organized by <b>MDPI</b></i>",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Organized by: <b>MDPI</b></i>",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
         link:""
@@ -720,6 +720,22 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         type:"Conference proceedings",
         cite:"https://www.researchgate.net/publication/400404964_Assessing_Transit-Oriented_Development_Potential_of_Karwan_Bazar_MRT_Station_A_Strategic_Actions_Framework_for_Sustainable_Urban_Growth",  // <--- Add this field to enable Cite button
         link:"https://doi.org/10.2139/ssrn.5182917"
+      },
+      {
+        title:"A REMOTE SENSING-BASED ANALYSIS OF NIGHTTIME LIGHT POLLUTION AND ITS REGIONAL SPILLOVER EFFECTS IN DHAKA",
+        date:"May 2025",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid T., Hossain M. S., Amin M. A. A., Hasan M. M.<br><i>4th International Conference of Urban & Regional Planning, 2025</i> <br>Organized by: Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
+        type:"Posters",
+        cite:"",  // <--- Add this field to enable Cite button
+        link:""
+      },
+      {
+        title:"Redesigning Karwan Bazar MRT Station as a Transit-Oriented Development (TOD) Neighborhood: A Mixed Land Use Approach",
+        date:"May 2025",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, J. A. B. A., Nuruzzaman M.<br><i>4th International Conference of Urban & Regional Planning, 2025</i> <br> Organized by: Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
+        type:"Posters",
+        cite:"",  // <--- Add this field to enable Cite button
+        link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0"
       },
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
@@ -809,8 +825,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     ],
     // 5. Workshops & Presentations
     workshops:[
-      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> Redesigning Karwan Bazar MRT Station as a Transit-Oriented Development (TOD) Neighborhood: A Mixed Land Use Approach", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
-      { title:"Poster Presentation at 4th International Conference of Urban & Regional Planning, 2025 <br> <u>Organized by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Title:</u> A REMOTE SENSING-BASED ANALYSIS OF NIGHTTIME LIGHT POLLUTION AND ITS REGIONAL SPILLOVER EFFECTS IN DHAKA", tags:["Poster"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_postersbipicurp2025-activity-7328084290297049088-HdhN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
+      { title:"An Introduction to GIS & Remote Sensing <br> <u>Organized by:</u> RUET GIS Club <br> Speaker: Imtiaj Iqbal Mahfuj, General Secretary, RUET GIS Club", tags:["Session"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Rajshahi, Bangladesh", featured: true },
+      { title:"Drone Based Data Collection & Processing <br> <u>Organized by:</u> Tiller <br>Coordinated by: RUET GIS Club", tags:["Workshop"], link:"", date:"December 2024 <br> Rajshahi, Bangladesh", featured: true },
     ]
   },
 
