@@ -668,7 +668,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Sultana, N., & Rafi, M. L. S. <br> <i>Submitted to Trees, Forests and People (Elsevier)</i>. [Under Review]",
+        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Submitted to Global Ecology and Conservation (Elsevier)</i>. [Under Review]",
         type:"Journal Articles",
         cite:"",  // <--- Add this field to enable Cite button
         link:"https://dx.doi.org/10.2139/ssrn.6208220"
