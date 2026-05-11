@@ -762,6 +762,14 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         link: "" // Add paper link when available
       },
       {
+        title:"Predicting cascading transport network failures under multi-hazard scenarios in Chattogram using graph neural networks and satellite-derived risk exposure",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Gourab, M. B., Rini. M, Ghosh B.",
+        type:"Manuscripts in Preparation",
+        cite:"",  // <--- Add this field to enable Cite button
+        link: "" // Add paper link when available
+      },
+      {
         title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
         date:"2026 (Forthcoming)",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity (Elsevier)</i>. [Book Chapter]",
