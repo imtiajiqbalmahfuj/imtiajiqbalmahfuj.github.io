@@ -671,7 +671,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Organized by: <b>MDPI</b></i>",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
-        link:""
+        link:"https://sciforum.net/paper/view/31069"
       },
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
