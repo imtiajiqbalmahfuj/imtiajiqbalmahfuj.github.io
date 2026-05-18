@@ -147,7 +147,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python","GEE"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26009_VCI_GEEPy/VCI_Cartographic_Map_2026_04.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26009_VCI_GEEPy/VCI_Cartographic_Map_2026_04.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26009_VCI_GEEPy/26009_VCI_GEEPy.html"
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26009_VCI_GEEPy.html"
     },
     {
       id:"26008",
