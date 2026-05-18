@@ -560,6 +560,7 @@ function mountAchvPreview(){
                 </div>
                 
                 <div class="flex gap-2 md:self-end">
+                  ${a.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.cert}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
                   ${a.link ? `
                   <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank">
                     <i data-lucide="external-link"></i>
