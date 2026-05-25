@@ -139,7 +139,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.html"
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.html"
     },
     {
       id:"26009",
