@@ -412,7 +412,8 @@ function mountExperience(){
                 </div>
                 <div class="flex gap-2 md:self-end">
                   ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
-                  ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
+                  ${x.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.cert}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
+                  ${x.more ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.more}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
                 </div>
               </div>
             </div>
@@ -497,6 +498,9 @@ function mountPublications() {
               <div class="mt-3 flex gap-2 justify-end">
                 ${p.cite ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cite}" target="_blank">
                   <i data-lucide="quote"></i><span class="sr-only">Cite</span>
+                </a>` : ''}
+                ${p.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cert}" target="_blank">
+                  <i data-lucide="badge-check"></i><span class="sr-only">Cite</span>
                 </a>` : ''}
                 ${p.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank">
                   <i data-lucide="external-link"></i><span class="sr-only">See more</span>
