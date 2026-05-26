@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
               <div class="text-xs text-slate-500 mt-1">${p.date}${p.venue? ' · '+p.venue:''}</div>
               <div class="mt-3 flex gap-2 justify-end">
                 ${p.cite ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cite}" target="_blank" title="Cite"><i data-lucide="quote"></i></a>` : ''}
-                ${p.link ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.link}" target="_blank"><i data-lucide="external-link"></i></a>` : ''}
+                ${p.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cert}" target="_blank" title="Cite"><i data-lucide="badge-check"></i></a>` : ''}
+                ${p.details ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.details}" target="_blank"><i data-lucide="external-link"></i></a>` : ''}
               </div>
             </div>
           `).join('')}
