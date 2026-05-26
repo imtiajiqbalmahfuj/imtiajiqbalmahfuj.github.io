@@ -587,7 +587,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Supported the development of TOD policy guidelines by conducting spatial assessments and technical visualizations to propose site-specific development strategies. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (Nippon Koei Co. Ltd. & ID&E Holdings), operating in over 160 countries."
         ],
         github: "https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html",
-        more: "https://drive.google.com/file/d/1ZPl6kG5Xu4VaxK7B7RZQWSJuXaRLyE-1/view"
+        cert: "https://drive.google.com/file/d/1ZPl6kG5Xu4VaxK7B7RZQWSJuXaRLyE-1/view",
+        details: ""
       }//,
     ],
     research: [
@@ -600,7 +601,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a multi-disciplinary research team to assess drought risk vulnerability using Fuzzy AHP and remote sensing data, integrating GIS mapping with Participatory Rural Appraisal (PRA) for ground-truth validation."
         ],
         github: "",
-        more: ""
+        cert: "",
+        details: ""
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
@@ -611,7 +613,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Conducted a quantified evaluation and gap analysis of fire safety compliance in commercial buildings, formulating actionable recommendations to enhance disaster preparedness in Rajshahi City Corporation."
         ],
         github: "",
-        more: ""
+        cert: "",
+        details: ""
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
@@ -622,7 +625,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index and technical report for Rajshahi City Corporation (RCC) utilizing Fuzzy AHP and GIS-based spatial analysis to identify and mitigate high-risk urban safety zones."
         ],
         github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
-        more: ""
+        cert: "",
+        details: ""
       },
       {
         org: "Aeronautics and Space Applications Division <br> Space & Environment Research Center (SERC)",
@@ -634,7 +638,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> The Role of Space Technology in Climate Monitoring and Early Warning <br>- Contributed to the Dialogue on Climate Security (DCS 2025) to advance space-based monitoring and early warning systems for regional climate resilience."
         ],
         github: "",
-        more: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link"
+        cert: "https://drive.google.com/file/d/1OvDLy-v7BiLJQjIgxvGACsi5DTFQMUME/view?usp=drive_link",
+        details: ""
       },
       {
         org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
@@ -645,7 +650,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Utilized Participatory Rural Appraisal (PRA) tools to collect and synthesize community data, contributing to the development of a resilient land-use framework for rural Rajshahi."
         ],
         github: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_pra-pra-homesteadfarming-activity-7280535321799282688-E8e4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
-        more: ""
+        cert: "",
+        details: ""
       },
       {
         org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
@@ -656,7 +662,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> Developing Integrated Municipal Solid Waste Management Strategies for Promoting a Healthy Environment in Urban Areas: A Case Study of Rajshahi City Corporation <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET"
         ],
         github: "https://drive.google.com/file/d/1hKcxbPDlTKNqTuLPNGz3aLURsgPbGQcD/view?usp=sharing",
-        more: ""
+        cert: "",
+        details: ""
       }
     ]
   },
@@ -671,7 +678,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Organized by: <b>MDPI</b></i>",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
-        link:"https://sciforum.net/paper/view/31069"
+        cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
+        details:"https://sciforum.net/paper/view/31069"
       },
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
@@ -679,7 +687,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Submitted to Global Ecology and Conservation (Elsevier)</i>. [Under Review]",
         type:"Journal Articles",
         cite:"",  // <--- Add this field to enable Cite button
-        link:"https://dx.doi.org/10.2139/ssrn.6208220"
+        cert: "",
+        details:"https://dx.doi.org/10.2139/ssrn.6208220"
       },
       {
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
@@ -687,7 +696,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> <i>City and Environment Interactions <b>(Elsevier)</b></i> <br> <i>doi.org/10.1016/j.cacint.2026.100358</i>",
         type:"Journal Articles",
         cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
-        link:""
+        cert: "",
+        details:""
       },
       {
         title: "A spatio-temporal assessment of urban ecological quality influenced by land surface temperature dynamics and thermal field variance in Dhaka",
@@ -695,7 +705,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue: "<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rafi, M. R. I., & Ahmed, S. <br> <i>8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh</i>",
         type: "Conference proceedings",
         cite: "https://www.researchgate.net/publication/403723956_A_spatio-temporal_assessment_of_urban_ecological_quality_influenced_by_land_surface_temperature_dynamics_and_thermal_field_variance_in_Dhaka",  // Add ResearchGate/Citation link when available
-        link: "" // Add paper link when available
+        cert: "",
+        details: "" // Add paper link when available
       },
       {
         title: "Spatiotemporal assessment of urban thermal discomfort in major cities of Bangladesh using cloud-based geospatial indices",
@@ -703,7 +714,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue: "Tamim, N. F., Rafi, M. R. I., Ahmed, S., & <b>Mahfuj, I. I.*</b> <br> <i>8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh</i>",
         type: "Conference proceedings",
         cite: "https://www.researchgate.net/publication/403721473_Spatiotemporal_assessment_of_urban_thermal_discomfort_in_major_cities_of_Bangladesh_using_cloud-based_geospatial_indices",  // Add ResearchGate/Citation link when available
-        link: "" // Add paper link when available
+        cert: "",
+        details: "" // Add paper link when available
       },
       {
         title:"Flash flood hazard assessment using a GIS integrated fuzzy AHP-MCDA to inform nature-based solutions in Feni and Noakhali, Bangladesh",
@@ -711,15 +723,17 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., & Adib, J. I. <br> <i>8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh</i>",
         type:"Conference proceedings",
         cite:"https://www.researchgate.net/publication/400576696_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY_AHP-MCDA_TO_INFORM_NATURE-BASED_SOLUTIONS_IN_FENI_AND_NOAKHALI_BANGLADESH",  // <--- Add this field to enable Cite button
-        link:"https://iccesd.kuet.ac.bd/Papers/277.pdf"
+        cert: "",
+        details:"https://iccesd.kuet.ac.bd/Papers/277.pdf"
       },
       {
         title:"Assessing transit-oriented development potential of Karwan Bazar MRT Station: A strategic actions framework for sustainable urban growth",
         date:"May 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> <i>4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh</i>",
         type:"Conference proceedings",
+        cert: "",
         cite:"https://www.researchgate.net/publication/400404964_Assessing_Transit-Oriented_Development_Potential_of_Karwan_Bazar_MRT_Station_A_Strategic_Actions_Framework_for_Sustainable_Urban_Growth",  // <--- Add this field to enable Cite button
-        link:"https://doi.org/10.2139/ssrn.5182917"
+        details:"https://doi.org/10.2139/ssrn.5182917"
       },
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
@@ -727,7 +741,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid T., Hossain M. S., Amin M. A. A., Hasan M. M.<br><i>4th International Conference of Urban & Regional Planning, 2025</i> <br>Organized by: Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
-        link:"https://www.researchgate.net/publication/391700930_A_REMOTE_SENSING-BASED_ANALYSIS_OF_NIGHTTIME_LIGHT_POLLUTION_AND_ITS_REGIONAL_SPILLOVER_EFFECTS_IN_DHAKA?channel=doi&linkId=682352846b5a287c3041129b&showFulltext=true"
+        cert: "",
+        details:"https://www.researchgate.net/publication/391700930_A_REMOTE_SENSING-BASED_ANALYSIS_OF_NIGHTTIME_LIGHT_POLLUTION_AND_ITS_REGIONAL_SPILLOVER_EFFECTS_IN_DHAKA?channel=doi&linkId=682352846b5a287c3041129b&showFulltext=true"
       },
       {
         title:"Redesigning Karwan Bazar MRT station as a transit-oriented development (TOD) neighborhood: A mixed land use approach",
@@ -735,14 +750,16 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, J. A. B. A., Nuruzzaman M.<br><i>4th International Conference of Urban & Regional Planning, 2025</i> <br> Organized by: Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
-        link:"https://www.researchgate.net/publication/391700748_Redesigning_Karwan_Bazar_MRT_Station_as_a_Transit-_Oriented_Development_TOD_Neighborhood_A_Mixed_Land_Use_Approach?channel=doi&linkId=68235431df0e3f544f542e9e&showFulltext=true"
+        cert: "",
+        details:"https://www.researchgate.net/publication/391700748_Redesigning_Karwan_Bazar_MRT_Station_as_a_Transit-_Oriented_Development_TOD_Neighborhood_A_Mixed_Land_Use_Approach?channel=doi&linkId=68235431df0e3f544f542e9e&showFulltext=true"
       },
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
         date:"April 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> <i>8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh</i>",
         type:"Conference proceedings",
-        link:"",
+        details:"",
+        cert: "https://drive.google.com/file/d/1n_sCQjYPB9jxWhoQ3YJMQXozqpXOwfsv/view?usp=drive_link",
         cite:"https://www.researchgate.net/publication/389906076_A_Remote_Sensing-Based_Analysis_of_Nighttime_Light_Pollution_and_Its_Regional_Spillover_Effects_in_Dhaka"  // <--- Add this field to enable Cite button
       },
       {
@@ -750,7 +767,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         date:"April 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> <i>8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh</i>",
         type:"Conference proceedings",
-        link:"",
+        details:"",
+        cert: "https://drive.google.com/file/d/1T2XHFaBCSTqV_YFsh60g0GsG2ulWq_Qq/view?usp=drive_link",
         cite:"https://www.researchgate.net/publication/389905729_Revolutionizing_Waste_Management_in_Rajshahi_City_Corporation_A_Technological_Solution_for_Enhanced_Recycling_and_Community_Engagement_towards_Zero_Waste"  // <--- Add this field to enable Cite button
       },
       {
@@ -759,7 +777,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J.",
         type:"Manuscripts in Preparation",
         cite:"",  // <--- Add this field to enable Cite button
-        link: "" // Add paper link when available
+        cert: "",
+        details: "" // Add paper link when available
       },
       {
         title:"Predicting cascading transport network failures under multi-hazard scenarios in Chattogram using graph neural networks and satellite-derived risk exposure",
@@ -767,7 +786,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Gourab, M. B., Rini. M, Ghosh B.",
         type:"Manuscripts in Preparation",
         cite:"",  // <--- Add this field to enable Cite button
-        link: "" // Add paper link when available
+        cert: "",
+        details: "" // Add paper link when available
       },
       {
         title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
@@ -775,15 +795,17 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity (Elsevier)</i>. [Book Chapter]",
         type:"Manuscripts in Preparation",
         cite:"",  // <--- Add this field to enable Cite button
-        link:""
+        cert: "",
+        details:""
       },
       {
         title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi",
         date:"2026",
         venue:"Tamim, N. F., <b>Mahfuj, I. I.*</b>, Gourab, M. B., Sultana, N., & Rafi, M. L. S.",
         type:"Manuscripts in Preparation",
-        link:"",
-        cite:""  // <--- Add this field to enable Cite button
+        cite:"",
+        cert: "",
+        details:""  // <--- Add this field to enable Cite button
       }
     ],
     ordering:["Journal Articles", "Book Chapters", "Conference proceedings", "Manuscripts in Preparation", "Posters"]
