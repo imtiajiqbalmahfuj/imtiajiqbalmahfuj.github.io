@@ -134,6 +134,62 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       details:""
     },
     {
+      id:"26000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"26000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"26000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"26000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"26000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"26000",
+      title:"",
+      tags:[""],
+      image:"",
+      github:"",
+      details:""
+    },
+    {
+      id:"26011",
+      title:"Topological Network Analysis and Centrality Mapping of Chittagong City Center",
+      tags:["Geospatial Python", "GeoViz","GEE"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26011_Network_Analysis_and_Centrality_Mapping_Chittagong/26011.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26011_Network_Analysis_and_Centrality_Mapping_Chittagong/26011.png",
+      details:"https://imtiajiqbalmahfuj.github.io/projects/26011_Network_Analysis_and_Centrality_Mapping_Chittagong.html"
+    },
+    {
       id:"26010",
       title:"Iris Dataset: Exploratory Data Analysis",
       tags:["Geospatial Python", "GeoViz"],
