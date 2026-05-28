@@ -61,6 +61,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
       bullets: [
+        "<u>Thesis:</u> A Hybrid Grey Wolf Optimized XGBoost and Deep Learning Framework for Explainable GeoAI-driven Spatiotemporal Agricultural Drought Hazard Assessment and Prediction in the Barind Tract, Bangladesh",
         "<u>Relevant coursework:</u> GIS and Remote sensing, Environmental Planning and Management, Operations Research & System Analysis, Natural Hazards and Disaster Management, Water Resources Planning, Programming Techniques, Statistics for Planners, Urban & Regional Planning, Transportation Planning, Landscape Planning, Participatory Rural Appraisal, Housing & Real Estate, Project Management and Evaluation",
         "Class Representative (January 2023 - September 2024)"
     ]
