@@ -719,7 +719,8 @@ function mountNavigation() {
     const exps = window.SITE.experiences || {};
     const expLinks = [
       { id: 'exp-professional', label: 'Professional Experience', data: exps.professional },
-      { id: 'exp-research', label: 'Research Experience', data: exps.research }
+      { id: 'exp-research', label: 'Research Experience', data: exps.research },
+      { id: 'exp-teach', label: 'Teaching Experience', data: exps.teach }
     ].filter(x => x.data && x.data.length > 0);
 
     // 2. Safely extract publications
