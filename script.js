@@ -388,7 +388,7 @@ function mountExperience(){
   const sections = [
     { id: 'exp-professional', title: 'Professional Experience', list: E.professional, icon: 'briefcase' },
     { id: 'exp-research', title: 'Research Experience', list: E.research, icon: 'microscope' },
-    { id: 'exp-teach', title: 'Teaching Experience', list: E.teach, icon: 'chalkboard-user' }
+    { id: 'exp-teach', title: 'Teaching Experience', list: E.teach, icon: 'presentation' }
   ];
 
   list.innerHTML = sections.map(sec => {
