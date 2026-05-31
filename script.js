@@ -387,7 +387,8 @@ function mountExperience(){
   // UPDATED: Changed IDs to 'exp-professional' and 'exp-research'
   const sections = [
     { id: 'exp-professional', title: 'Professional Experience', list: E.professional, icon: 'briefcase' },
-    { id: 'exp-research', title: 'Research Experience', list: E.research, icon: 'microscope' }
+    { id: 'exp-research', title: 'Research Experience', list: E.research, icon: 'microscope' },
+    { id: 'exp-teach', title: 'Teaching Experience', list: E.teach, icon: 'chalkboard-user' }
   ];
 
   list.innerHTML = sections.map(sec => {
