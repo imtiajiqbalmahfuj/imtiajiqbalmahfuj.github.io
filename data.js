@@ -661,18 +661,18 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         cert: "",
         details: ""
       },
-      {
-        org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
-        role: "Undergraduate Research Assistant",
-        date: "October 2025 - Present",
-        location: "Rajshahi, Bangladesh",
-        bullets: [
-          "<u>Project:</u> Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Conducted a quantified evaluation and gap analysis of fire safety compliance in commercial buildings, formulating actionable recommendations to enhance disaster preparedness in Rajshahi City Corporation."
-        ],
-        github: "",
-        cert: "",
-        details: ""
-      },
+      // {
+      //   org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
+      //   role: "Undergraduate Research Assistant",
+      //   date: "October 2025 - Present",
+      //   location: "Rajshahi, Bangladesh",
+      //   bullets: [
+      //     "<u>Project:</u> Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Conducted a quantified evaluation and gap analysis of fire safety compliance in commercial buildings, formulating actionable recommendations to enhance disaster preparedness in Rajshahi City Corporation."
+      //   ],
+      //   github: "",
+      //   cert: "",
+      //   details: ""
+      // },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
@@ -722,6 +722,20 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         cert: "",
         details: ""
       }
+    ],
+    teach: [
+      {
+        org: "Department of Urban & Regional Planning, <br>Rajshahi University of Engineering & Technology",
+        role: "Undergraduate Teaching Assistant",
+        date: "October 2025 - Present",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Course Instructor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning <br> Mentored a class of 60 undergraduate students within the Housing and Real Estate Development (URP 4105) course, covering 'Housing Hazards & Resilient Habitats,' the 29 HHSRS hazards, global resilience strategies, and AI-driven solutions for urban hazard mitigation."
+        ],
+        github: "",
+        cert: "",
+        details: ""
+      } //,
     ]
   },
 
@@ -883,7 +897,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     ],
     // 3. Leadership & Volunteering Experience
     volunteering:[
-      { title:"<b>General Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri, featured in mainstream media.  <br> - Coordinated a technical workshop on “Drone-Based Data Collection & Processing” with Tiller.  <br> - Mentored and trained 100+ students in GIS, Remote Sensing, and geospatial software applications.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://community.esri.com/t5/gis-day-2025-forum/geoplan-1-0-the-megaevent-of-gis-day-celebration/m-p/1671138", cert:"https://drive.google.com/file/d/1d9hJBV29BwDhrzh2Lwk3sjlaQmsqSckw/view?usp=drivesdk", date:"July 2025 - Present <br> Rajshahi, Bangladesh ", featured: true },
+      { title:"<b>General Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri, featured in mainstream media.  <br> - Coordinated a technical workshop on “Drone-Based Data Collection & Processing” with Tiller.  <br> - Mentored and trained 100+ undergraduate students in GIS, Remote Sensing, and geospatial software applications.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://community.esri.com/t5/gis-day-2025-forum/geoplan-1-0-the-megaevent-of-gis-day-celebration/m-p/1671138", cert:"https://drive.google.com/file/d/1d9hJBV29BwDhrzh2Lwk3sjlaQmsqSckw/view?usp=drivesdk", date:"July 2025 - Present <br> Rajshahi, Bangladesh ", featured: true },
       { title:"<b>Assistant Graphics and Design Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology", tags:["Teamwork"], cert:"https://drive.google.com/file/d/1YWrL9wBppdPBm2kutxmpX8P0ppi8zyWg/view?usp=drivesdk", date:"June 2024 - July 2025 <br> Rajshahi, Bangladesh " },
       { title:"<b>Executive Producer — TEDxRUET</b> <br> - Organized “TEDxRUET – Empowering Imagination” on February 07, 2025 <br> - Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", cert: "https://drive.google.com/file/d/1l_eahnrzEMvz5_1yRmbLC9KDzlDDd_LX/view?usp=sharing", date:"August 2024 - February 2025 <br> Rajshahi, Bangladesh ", featured: true },
       { title:"<b>Class Representative — Department of Urban & Regional Planning</b> <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshahi, Bangladesh ", featured: true },
