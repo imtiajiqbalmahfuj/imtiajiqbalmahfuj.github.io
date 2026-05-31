@@ -732,7 +732,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         bullets: [
           "<u>Course Instructor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning <br> Mentored a class of 60 undergraduate students within the Housing and Real Estate Development (URP 4105) course, covering 'Housing Hazards & Resilient Habitats,' the 29 HHSRS hazards, global resilience strategies, and AI-driven solutions for urban hazard mitigation."
         ],
-        github: "",
+        github: "https://drive.google.com/file/d/1-SNP3-t34V47YPk8aoKQE-TFo1wC5nAe/view?usp=sharing",
         cert: "",
         details: ""
       } //,
