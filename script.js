@@ -471,7 +471,7 @@ function mountPublications() {
     "Manuscripts Under Review": "eye",
     "Manuscripts in Preparation": "file-edit",
     "Reports": "file-text",
-    "Posters": "image"
+    "Posters": "layout-template"
   };
 
   rec.innerHTML = typesToRender.map(type => {
