@@ -464,7 +464,7 @@ function mountPublications() {
 
   // Map icons for "See all" buttons
   const icons = {
-    "Peer-Reviewed Journal Articles": "book-open",
+    "Peer-Reviewed Journal Articles": "book-check",
     "Journal Articles": "book-open",
     "Book Chapters": "book",
     "Conference proceedings": "users",
