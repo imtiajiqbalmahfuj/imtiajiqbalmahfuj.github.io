@@ -464,11 +464,14 @@ function mountPublications() {
 
   // Map icons for "See all" buttons
   const icons = {
+    "Peer-Reviewed Journal Articles": "book-open",
     "Journal Articles": "book-open",
     "Book Chapters": "book",
     "Conference proceedings": "users",
+    "Manuscripts Under Review": "eye",
     "Manuscripts in Preparation": "file-edit",
-    "Reports": "file-text"
+    "Reports": "file-text",
+    "Posters": "image"
   };
 
   rec.innerHTML = typesToRender.map(type => {
