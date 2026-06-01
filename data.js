@@ -756,7 +756,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
         date:"2026",
         venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Submitted to Environmental and Sustainability Indicators (Elsevier)</i>. [Under Review]",
-        type:"Journal Articles",
+        type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
         details:"https://dx.doi.org/10.2139/ssrn.6208220"
@@ -765,7 +765,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
         date:"April 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> <i>City and Environment Interactions <b>(Elsevier)</b></i> <br> <i>doi.org/10.1016/j.cacint.2026.100358</i>",
-        type:"Journal Articles",
+        type:"Peer-Reviewed Journal Articles",
         cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
         cert: "",
         details:""
@@ -879,7 +879,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         details:""  // <--- Add this field to enable Cite button
       }
     ],
-    ordering:["Journal Articles", "Book Chapters", "Conference proceedings", "Manuscripts in Preparation", "Posters"]
+    ordering:["Peer-Reviewed Journal Articles", "Manuscripts Under Review", "Book Chapters", "Conference proceedings", "Manuscripts in Preparation", "Posters"]
   },
 
 
