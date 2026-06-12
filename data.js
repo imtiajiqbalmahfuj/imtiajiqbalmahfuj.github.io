@@ -746,7 +746,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Spatiotemporal assessment of the correlation between surface thermal field variance and human thermal discomfort in Dhaka",
         date:"May 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Organized by: <b>MDPI</b></i>",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), <b>MDPI</b>, Basel, Switzerland</i>",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
