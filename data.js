@@ -744,9 +744,18 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     recentLimit: 10,
     items: [
       {
+        title: "Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation",
+        date: "June 2026",
+        venue: "<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Islam M. <br> <i>Pabna University of Science and Technology (PUST), Pabna, Bangladesh & Universiti Malaysia Perlis (UniMAP), Malaysia.</i>",
+        type: "Conference proceedings",
+        cite: "",  // Add ResearchGate/Citation link when available
+        cert: "",
+        details: "" // Add paper link when available
+      },
+      {
         title:"Spatiotemporal assessment of the correlation between surface thermal field variance and human thermal discomfort in Dhaka",
         date:"May 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), <b>MDPI</b>, Basel, Switzerland</i>",
+        venue:"<b>Mahfuj, I. I.*</b>, & Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), <b>MDPI</b>, Basel, Switzerland</i>",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
