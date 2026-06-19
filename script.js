@@ -658,6 +658,49 @@ function mountBlogCarousel() {
   }
 }
 
+
+
+function mountMediaCarousel() {
+  const track = $('#mediaTrack');
+  if (!track) return;
+
+  const items = window.SITE.media || [];
+
+  track.innerHTML = items.map(m => `
+    <div class="flex-shrink-0 w-80 md:w-96">
+      <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover-smart">
+        <a href="${m.link}" target="_blank" class="block relative group">
+          <img src="${getThumb(m.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${m.title}">
+        </a>
+        <div class="p-5 flex flex-col gap-3 grow">
+          <div class="text-xs text-slate-500 font-medium">${m.date}</div>
+          <a href="${m.link}" target="_blank" class="font-bold text-lg leading-tight hover:text-slate-600 transition-colors">
+            ${m.title}
+          </a>
+          <div class="flex flex-wrap gap-2 mt-1">
+            ${(m.tags||[]).map(t => `<span class="text-xs px-2.5 py-1 border border-slate-200 rounded-full text-slate-600">${t}</span>`).join('')}
+          </div>
+          <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
+            <span class="text-xs text-slate-400">View media</span>
+            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${m.link}" target="_blank">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  if(window.lucide) lucide.createIcons();
+
+  const outer = $('#mediaTrackOuter');
+  if(outer){
+    $('#mediaPrev').addEventListener('click', () => outer.scrollBy({ left: -outer.clientWidth, behavior: 'smooth' }));
+    $('#mediaNext').addEventListener('click', () => outer.scrollBy({ left: outer.clientWidth, behavior: 'smooth' }));
+  }
+}
+
+
 function mountBlogsPage() {
   const list = document.getElementById('blogList');
   if (!list) return;
@@ -847,6 +890,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#servicesList')) mountServices(); 
   
   if ($('#blogTrack')) mountBlogCarousel();
+  if ($('#mediaTrack')) mountMediaCarousel(); // Add this line!
   if ($('#blogList')) mountBlogsPage();
 
   if (window.lucide) lucide.createIcons();
