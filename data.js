@@ -118,10 +118,10 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
   ],
 
   counters: [
-    { value: 6, label: "Publications" },
+    { value: 8, label: "Publications" },
     { value: 3, label: "Years of Experience" },
-    { value: 7, label: "Projects" },
-    { value: 4, label: "Workshops" }
+    { value: 57, label: "Technical Projects" },
+    { value: 7, label: "Research Projects" }
   ],
 
 
@@ -188,7 +188,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz","GEE"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26011_Network_Analysis_and_Centrality_Mapping_Chittagong/26011.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26011_Network_Analysis_and_Centrality_Mapping_Chittagong/26011.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26011_Network_Analysis_and_Centrality_Mapping_Chittagong.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26011_Network_Analysis_and_Centrality_Mapping_Chittagong.html"
     },
     {
       id:"26010",
@@ -196,7 +196,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26010_Section_1_2_Iris_Dataset_Exploratory_Data_Analysis.html"
     },
     {
       id:"26009",
@@ -204,7 +204,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python","GEE"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26009_VCI_GEEPy/VCI_Cartographic_Map_2026_04.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26009_VCI_GEEPy/VCI_Cartographic_Map_2026_04.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26009_VCI_GEEPy.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26009_VCI_GEEPy.html"
     },
     {
       id:"26008",
@@ -212,7 +212,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python","GEE"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py/Exports/26008.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py/Exports/Composite_3x3_Barind_Tract.jpg",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26008_Multi_Criteria_Factor_Extraction_and_Spatial_Mapping_GEE_Py.html"
     },
     {
       id:"25007",
@@ -220,7 +220,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26007%20Bivariate%20Map%20Temperature%20vs%20Precipitation%20(Bangladesh)/bivariate_india_bangladesh3.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26007%20Bivariate%20Map%20Temperature%20vs%20Precipitation%20(Bangladesh)/bivariate_india_bangladesh3.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26007_Bivariate_Temperature_Precipitation.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26007_Bivariate_Temperature_Precipitation.html"
     },
     {
       id:"25006",
@@ -228,7 +228,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["URP","Portfolio", "Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26006_TOD_Guideline/All%20Principles%201.1.png",
       github:"https://drive.google.com/file/d/1hERDhKSHUltRdxqJ_fnYjmWBHn9Rn6cD/view",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26006_TOD_Guideline.html"
     },
     {
       id:"25005",
@@ -236,7 +236,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python","GEE", "Portfolio"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26005%20UTCIxUTFVI/Final%20exports/26005Cover.jpg",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26005%20UTCIxUTFVI/Final%20exports/Master_Grid_4x3_Dhaka.jpg",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26005_UTCIxUTFVI.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26005_UTCIxUTFVI.html"
     },
     {
       id:"26004",
@@ -244,7 +244,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "Remote Sensing", "Portfolio"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26004_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY/26004.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26004_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY/Screenshot%202026-03-06%20233118.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26004_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY .html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26004_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY .html"
     },
     {
       id:"26003",
@@ -252,7 +252,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python","GEE"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26003%20PM2.5%20Mapping%20and%20Monitoring/BD_pm25.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26003%20PM2.5%20Mapping%20and%20Monitoring/map_spatial.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26003_PM2.5_Mapping_and_Monitoring.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26003_PM2.5_Mapping_and_Monitoring.html"
     },
     {
       id:"26002",
@@ -260,7 +260,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["URP", "GeoViz", "Portfolio"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26002%20Revitalizing%20Riverbank%20Systems%20through%20a%20Sponge%20City/LPS.png",
       github:"https://drive.google.com/file/d/1eiopXmEY3-SJmPg2EFNRGite97wd4Rgm/view?usp=sharing",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26002_revitalizing_riverbank_systems_through_a_sponge_city_framework.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26002_revitalizing_riverbank_systems_through_a_sponge_city_framework.html"
     },
     {
       id:"26001",
@@ -268,7 +268,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "URP", "Portfolio"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26001%20roadside_deforestation_impacts_and_locally_led_adaptation_strategies/PPS_Cover.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26001%20roadside_deforestation_impacts_and_locally_led_adaptation_strategies/PPS_Cover.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/26001_roadside_deforestation_impacts_and_locally_led_adaptation_strategies.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26001_roadside_deforestation_impacts_and_locally_led_adaptation_strategies.html"
     },
     {
       id:"25028",
@@ -276,7 +276,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25028_Web_Mercator_vs_True_Size_Country_Shape_Animation_in_Python/projection_timelapse_white_blue.gif",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25028_Web_Mercator_vs_True_Size_Country_Shape_Animation_in_Python/projection_timelapse_white_blue.gif",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25028_Web_Mercator_vs_True_Size_Country_Shape_Animation_in_Python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25028_Web_Mercator_vs_True_Size_Country_Shape_Animation_in_Python.html"
     },
     {
       id:"25027",
@@ -284,7 +284,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25027_3D_Map_of_Moon_suface_using_NASA_data_and_Python/MOON.jpg",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25027_3D_Map_of_Moon_suface_using_NASA_data_and_Python/MOON.jpg",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25027_3D_Map_of_Moon_suface_using_NASA_data_and_Python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25027_3D_Map_of_Moon_suface_using_NASA_data_and_Python.html"
     },
     {
       id:"25026",
@@ -292,7 +292,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GEE" ,"GIS"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25026_Precipitation_of_Bangladesh_GEE/Precipitation%20of%20Bangladesh%202015-16%20with%20GEE%20(Python).png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25026_Precipitation_of_Bangladesh_GEE/Precipitation%20of%20Bangladesh%202015-16%20with%20GEE%20(Python).png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25026_Precipitation_of_Bangladesh_GEE.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25026_Precipitation_of_Bangladesh_GEE.html"
     },
     {
       id:"25025",
@@ -300,7 +300,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python","GEE", "GIS"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25025%20River%20Desiccation%20Mapping%2C%20Rajshahi/River_Desiccation.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25025%20River%20Desiccation%20Mapping%2C%20Rajshahi/River_Desiccation.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25025_River_Desiccation_Mapping.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25025_River_Desiccation_Mapping.html"
     },
     {
       id:"25024",
@@ -308,7 +308,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25024%20Earthquakes%20map%20with%20QGIS/EarthQ.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25024%20Earthquakes%20map%20with%20QGIS/EarthQ.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25024%20Global%20Earthquake%20Map%20(2000–2020)%20with%20QGIS.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25024%20Global%20Earthquake%20Map%20(2000–2020)%20with%20QGIS.html"
     },
     {
       id:"25023",
@@ -316,7 +316,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25023%20Global%20Internet%20Cables%20with%20Python%20and%20Leafmap/0.png",
       github:"https://imtiajiqbalmahfuj.github.io/projects/25023_visualization_leafmap_Global_Submarine_Cables_Map.html",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25023_Global_Internet_Cables_with_Python_and_Leafmap.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25023_Global_Internet_Cables_with_Python_and_Leafmap.html"
     },
     {
       id:"25022",
@@ -324,7 +324,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25022%20Climate%20Change%20Risk%20Index%202022/Climate%20Change%20Risk%20Index%202022.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25022%20Climate%20Change%20Risk%20Index%202022/Climate%20Change%20Risk%20Index%202022.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25022_Climate_Change_Risk_Index_2022.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25022_Climate_Change_Risk_Index_2022.html"
     },
     {
       id:"25021",
@@ -332,7 +332,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25021%20Risk%20Index%202025%20INFORM/Global%20Risk%20Index%202025.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25021%20Risk%20Index%202025%20INFORM/Global%20Risk%20Index%202025.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25021_risk_index_2025_inform.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25021_risk_index_2025_inform.html"
     },
     {
       id:"25020",
@@ -340,7 +340,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25020%20Global%20Air%20%26%20Sea%20Connectivity/Global_ShippingLanes_Flights_w.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25020%20Global%20Air%20%26%20Sea%20Connectivity/Global_ShippingLanes_Flights_w.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25020_global_air_%26_sea_connectivity.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25020_global_air_%26_sea_connectivity.html"
     },
     {
       id:"25019.1",
@@ -348,7 +348,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Operations Research", "URP", "Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit/ahpfahpss.png",
       github:"https://ahp-fahp-calculator-imtiajiqbalmahfuj.streamlit.app/",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25019_1_ahpfahp_calculator_web_app_by_python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25019_1_ahpfahp_calculator_web_app_by_python.html"
     },    
     {
       id:"25019",
@@ -356,7 +356,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Operations Research", "URP", "Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25019%20AHP%20Calculator%20web%20app%20by%20Python%20and%20Streamlit/Screenshot%202025-09-28%20035156.png",
       github:"https://imtiajiqbalmahfuj-ahp-calculator.streamlit.app/",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25019_ahp_calculator_web_app_by_python_and_streamlit_copy1.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25019_ahp_calculator_web_app_by_python_and_streamlit_copy1.html"
     },
     {
       id:"25018",
@@ -364,7 +364,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)/billionaires_map.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25018%20Global%20Distribution%20of%20Billionaires%20(2024)/billionaires_map.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25018_global_distribution_of_billionaires_2024.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25018_global_distribution_of_billionaires_2024.html"
     },
     {
       id:"25017",
@@ -372,7 +372,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Remote Sensing", "Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25017%20Global%20forest%20map/Global%20forest%20map.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25017%20Global%20forest%20map/Global%20forest%20map.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25017_global_forest_map.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25017_global_forest_map.html"
     },
     {
       id:"25016",
@@ -380,7 +380,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "Geospatial Python", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map/Global_Airport_Routes_Final.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25016%20Global%20Flight%20Routes%20%26%20Airport%20Network%20Map/Global_Airport_Routes_Final.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25016_global_flight_routes_%26_airport_network_map.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25016_global_flight_routes_%26_airport_network_map.html"
     },
     {
       id:"25015",
@@ -388,7 +388,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines-0000.jpg",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25015%20Automated%20wind%20flow%20map%20of%20Bangladesh/Bangladesh_Wind_Streamlines-0000.jpg",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25015_automated_wind_flow_map_of_bangladesh.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25015_automated_wind_flow_map_of_bangladesh.html"
     },
     {
       id:"25014",
@@ -396,7 +396,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python/Exports/_co2_emissions_final_map.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25014%20World%E2%80%99s%20Carbon%20Dioxide%20Emissions%202018%2C%20Visualizing%20with%20Python/Exports/_co2_emissions_final_map.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25014_world_s_carbon_dioxide_emissions_2018_visualizing_with_python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25014_world_s_carbon_dioxide_emissions_2018_visualizing_with_python.html"
     }, 
       {
       id:"25013",
@@ -404,7 +404,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GIS", "GeoViz"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time/Dynamic%20COVID%2019%20Map%20small.gif",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25013%20Global%20spread%20of%20COVID-19%20over%20time/Dynamic%20COVID%2019%20Map%20small.gif",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25013_global_spread_of_covid_19_over_time.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25013_global_spread_of_covid_19_over_time.html"
     },  
       {
       id:"25012",
@@ -412,7 +412,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Others"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25012%20%20My%20Geospatial%20Portfolio%20Website%20through%20GitHub%F0%9F%90%88%E2%80%8D%E2%AC%9B/Screenshot%202025-09-04%20224522.png",
       github:"https://imtiajiqbalmahfuj.github.io/",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25012_my_geospatial_portfolio_website_through_github.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25012_my_geospatial_portfolio_website_through_github.html"
     },  
       {
       id:"25011",
@@ -420,7 +420,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "Remote Sensing", "Portfolio"],
       image:"https://framerusercontent.com/images/lEJroOaLbqiE0sTyjJF4tqUSs.jpg?scale-down-to=2048&width=2550&height=3300",
       github:"https://framerusercontent.com/images/lEJroOaLbqiE0sTyjJF4tqUSs.jpg?scale-down-to=2048&width=2550&height=3300",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25011_developing_a_composite_soil_quality_index_sqi_for_kushtia_district_2024.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25011_developing_a_composite_soil_quality_index_sqi_for_kushtia_district_2024.html"
     },  
       {
       id:"25010",
@@ -428,7 +428,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GEE", "Portfolio", "Geospatial Python"],
       image:"https://framerusercontent.com/images/XNkXY5w74EQYltXTxYm5nX11YjY.jpg?scale-down-to=2048&width=3000&height=3300",
       github:"https://framerusercontent.com/images/XNkXY5w74EQYltXTxYm5nX11YjY.jpg?scale-down-to=2048&width=3000&height=3300",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25010_tobacco_crop_cultivation_mapping_2005_2015_2024_using_geospatial_python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25010_tobacco_crop_cultivation_mapping_2005_2015_2024_using_geospatial_python.html"
     },  
       {
       id:"25009",
@@ -436,7 +436,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "Remote Sensing", "GIS"],
       image:"https://framerusercontent.com/images/IOpBhgHBLAlK4O7xn6oYFYT3eDE.jpg?scale-down-to=1024&width=5100&height=3300",
       github:"https://framerusercontent.com/images/IOpBhgHBLAlK4O7xn6oYFYT3eDE.jpg?scale-down-to=1024&width=5100&height=3300",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25009_exploring_river_morphology_with_ease_using_riverrem.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25009_exploring_river_morphology_with_ease_using_riverrem.html"
     },  
       {
       id:"25008",
@@ -444,7 +444,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "Portfolio", "GIS"],
       image:"https://framerusercontent.com/images/KNASAyKK8WxSf0KL6RJA4zjI4.jpg?scale-down-to=1024&width=2338&height=2456",
       github:"https://framerusercontent.com/images/KNASAyKK8WxSf0KL6RJA4zjI4.jpg?scale-down-to=1024&width=2338&height=2456",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25008_walkability_in_purbachal_new_town_dhaka_through_isochrone_map.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25008_walkability_in_purbachal_new_town_dhaka_through_isochrone_map.html"
     },  
       {
       id:"25007",
@@ -452,7 +452,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS"],
       image:"https://framerusercontent.com/images/NjSp1TpVZXC3aUAqG73SEgf7uY.jpg?scale-down-to=1024&width=7200&height=5400",
       github:"https://framerusercontent.com/images/NjSp1TpVZXC3aUAqG73SEgf7uY.jpg?scale-down-to=1024&width=7200&height=5400",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25007_does_money_make_you_happy_a_bivariate_map_of_happiness_score_and_gdp_per_capita_2017.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25007_does_money_make_you_happy_a_bivariate_map_of_happiness_score_and_gdp_per_capita_2017.html"
     },  
       {
       id:"25006",
@@ -460,7 +460,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GIS"],
       image:"https://framerusercontent.com/images/SEBX76Cwgyt2DfSCLWiVm4Ym6o.jpg?scale-down-to=1024&width=2581&height=2433",
       github:"https://framerusercontent.com/images/SEBX76Cwgyt2DfSCLWiVm4Ym6o.jpg?scale-down-to=1024&width=2581&height=2433",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25006_exploring_the_streets_of_purbachal_new_town_dhaka_through_geospatial_python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25006_exploring_the_streets_of_purbachal_new_town_dhaka_through_geospatial_python.html"
     },  
       {
       id:"25005",
@@ -468,7 +468,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "Geospatial Python"],
       image:"https://framerusercontent.com/images/JO1miT6GC914EfjKiXgKAtTkqU.jpg?scale-down-to=1024&width=3030&height=2346",
       github:"https://framerusercontent.com/images/JO1miT6GC914EfjKiXgKAtTkqU.jpg?scale-down-to=1024&width=3030&height=2346",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25005_building_footprint_map_of_dhaka_1000_1000_sqm.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25005_building_footprint_map_of_dhaka_1000_1000_sqm.html"
     },  
       {
       id:"25004",
@@ -476,7 +476,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "Remote Sensing"],
       image:"https://framerusercontent.com/images/cTHb3EEMpeMX3sr1UC7mKdzwDQ.png?scale-down-to=1024&width=1514&height=978",
       github:"https://framerusercontent.com/images/cTHb3EEMpeMX3sr1UC7mKdzwDQ.png?scale-down-to=1024&width=1514&height=978",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25004_lulc_and_ndwi_analysis_of_lalmonirhat_mapping_land_and_water_interactions_using_sentinel_2_data.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25004_lulc_and_ndwi_analysis_of_lalmonirhat_mapping_land_and_water_interactions_using_sentinel_2_data.html"
     },  
       {
       id:"25003",
@@ -484,7 +484,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "Remote Sensing"],
       image:"https://framerusercontent.com/images/JAg6Y49uHPSjU2cRzNGggmjWGp4.jpg?scale-down-to=2048&width=2700&height=3600",
       github:"https://framerusercontent.com/images/JAg6Y49uHPSjU2cRzNGggmjWGp4.jpg?scale-down-to=2048&width=2700&height=3600",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25003_watershed_delineation_of_sylhet_division.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25003_watershed_delineation_of_sylhet_division.html"
     },  
       {
       id:"25002",
@@ -492,7 +492,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Portfolio", "GEE", "GIS"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25002%20%F0%9D%90%85%F0%9D%90%A2%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%92%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%86%F0%9D%90%A8%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%A5%F0%9D%90%9E%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%8D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%20%F0%9D%90%8F%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7%20(%F0%9D%90%8D%F0%9D%90%8B%F0%9D%90%8F)%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A/Screenshot%202025-10-06%20164542.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/25002%20%F0%9D%90%85%F0%9D%90%A2%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%20%F0%9D%90%92%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%AC%20%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%86%F0%9D%90%A8%F0%9D%90%A8%F0%9D%90%A0%F0%9D%90%A5%F0%9D%90%9E%20%F0%9D%90%84%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%A1%20%F0%9D%90%84%F0%9D%90%A7%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%20%F0%9D%90%80%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A5%F0%9D%90%B2%F0%9D%90%B3%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20%F0%9D%90%8D%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A6%F0%9D%90%9E%20%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%A0%F0%9D%90%A1%F0%9D%90%AD%20%F0%9D%90%8F%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7%20(%F0%9D%90%8D%F0%9D%90%8B%F0%9D%90%8F)%20%F0%9D%90%A2%F0%9D%90%A7%20%F0%9D%90%83%F0%9D%90%A1%F0%9D%90%9A%F0%9D%90%A4%F0%9D%90%9A/Screenshot%202025-10-06%20164542.png",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25002_A_Remote_Sensing-Based_Analysis_of_Nighttime_Light_Pollution_and_Its_Regional_Spillover_Effects_in_Dhaka.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25002_A_Remote_Sensing-Based_Analysis_of_Nighttime_Light_Pollution_and_Its_Regional_Spillover_Effects_in_Dhaka.html"
     },  
       {
       id:"25001",
@@ -500,7 +500,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GIS"],
       image:"https://framerusercontent.com/images/RjUpkQD8I1p0yZ26cwvesm2Vp88.png?scale-down-to=2048&width=5000&height=5000",
       github:"https://framerusercontent.com/images/RjUpkQD8I1p0yZ26cwvesm2Vp88.png?scale-down-to=2048&width=5000&height=5000",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/25001_building_footprint_map_of_eixample_barcelona.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/25001_building_footprint_map_of_eixample_barcelona.html"
     },  
       {
       id:"24015",
@@ -508,7 +508,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GIS", "Remote Sensing"],
       image:"https://framerusercontent.com/images/vJKEs5iNPNDKHzRYx8i1tONM.png?width=1173&height=898",
       github:"https://framerusercontent.com/images/vJKEs5iNPNDKHzRYx8i1tONM.png?width=1173&height=898",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24015_the_rivers_of_asia_using_geospatial_python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24015_the_rivers_of_asia_using_geospatial_python.html"
     },  
       {
       id:"24014",
@@ -516,7 +516,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS"],
       image:"https://framerusercontent.com/images/8VbqtxAPYhPNn6bJGjsfzpfdhQw.png?width=859&height=900",
       github:"https://framerusercontent.com/images/8VbqtxAPYhPNn6bJGjsfzpfdhQw.png?width=859&height=900",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24014_analyzing_vegetation_health_using_ndvi_in_kushtia_district_using_ndvi.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24014_analyzing_vegetation_health_using_ndvi_in_kushtia_district_using_ndvi.html"
     },  
       {
       id:"24013",
@@ -524,7 +524,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GIS"],
       image:"https://framerusercontent.com/images/nGUGypoHUOXCG49NjBc4no8XRE.png?scale-down-to=1024&width=1063&height=889",
       github:"https://framerusercontent.com/images/nGUGypoHUOXCG49NjBc4no8XRE.png?scale-down-to=1024&width=1063&height=889",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24013_road_network_of_rajshahi_city_%26_singapore_city_with_geospatial_python.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24013_road_network_of_rajshahi_city_%26_singapore_city_with_geospatial_python.html"
     },  
       {
       id:"24012",
@@ -532,7 +532,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS","Remote Sensing", "ML"],
       image:"https://framerusercontent.com/images/3tE82LWv8lKMpzMXLNsG8tdceMw.png?width=1474&height=979",
       github:"https://framerusercontent.com/images/3tE82LWv8lKMpzMXLNsG8tdceMw.png?width=1474&height=979",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24012_analyzing_30_years_of_land_use_land_cover_lulc_changes_in_ishwardi_upazila.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24012_analyzing_30_years_of_land_use_land_cover_lulc_changes_in_ishwardi_upazila.html"
     },  
       {
       id:"24011",
@@ -540,7 +540,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS","ML"],
       image:"https://framerusercontent.com/images/dFvSFFYBNJrnAe7ub5oGsj14ns.png?width=939&height=942",
       github:"https://framerusercontent.com/images/dFvSFFYBNJrnAe7ub5oGsj14ns.png?width=939&height=942",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24011_land_use_land_cover_lulc_map_of_dhaka_2024.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24011_land_use_land_cover_lulc_map_of_dhaka_2024.html"
     },  
       {
       id:"24010",
@@ -548,7 +548,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python"],
       image:"https://framerusercontent.com/images/nIMcqPxOxc3v6jm7xE60DrTyh8.jpg?scale-down-to=2048&width=3600&height=3600",
       github:"https://framerusercontent.com/images/nIMcqPxOxc3v6jm7xE60DrTyh8.jpg?scale-down-to=2048&width=3600&height=3600",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24010_my_first_project_in_geospatial_python_on_karwan_bazar_mrt_station.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24010_my_first_project_in_geospatial_python_on_karwan_bazar_mrt_station.html"
     },  
       {
       id:"24009",
@@ -556,7 +556,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS"],
       image:"https://framerusercontent.com/images/dHuS4l1BUcUXJUesi5gNOcTAIKg.png?width=1082&height=781",
       github:"https://framerusercontent.com/images/dHuS4l1BUcUXJUesi5gNOcTAIKg.png?width=1082&height=781",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24009_relative_elevation_model_rem_of_the_canadian_river.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24009_relative_elevation_model_rem_of_the_canadian_river.html"
     },  
       {
       id:"24008",
@@ -564,7 +564,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS", "GeoViz"],
       image:"https://framerusercontent.com/images/U5ENRPvVdpomhh2B3RJJFevSlc.png?width=939&height=944",
       github:"https://framerusercontent.com/images/U5ENRPvVdpomhh2B3RJJFevSlc.png?width=939&height=944",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24008_building_density_map_visualization_of_bangladesh.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24008_building_density_map_visualization_of_bangladesh.html"
     },  
       {
       id:"24007",
@@ -572,7 +572,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS"],
       image:"https://framerusercontent.com/images/efVjdGzv7ACoKjHDlDr7s4adk.png?width=778&height=921",
       github:"https://framerusercontent.com/images/efVjdGzv7ACoKjHDlDr7s4adk.png?width=778&height=921",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24007_transit_oriented_development_tod_potential_of_karwan_bazar_metro_rail_station.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24007_transit_oriented_development_tod_potential_of_karwan_bazar_metro_rail_station.html"
     },  
       {
       id:"24006",
@@ -580,7 +580,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS"],
       image:"https://framerusercontent.com/images/88bULa3UdqqSNV3XqxxUIKK0cQ.png?width=775&height=928",
       github:"https://framerusercontent.com/images/88bULa3UdqqSNV3XqxxUIKK0cQ.png?width=775&height=928",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24006_3d_elevation_map_of_bangladesh.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24006_3d_elevation_map_of_bangladesh.html"
     },  
     {
       id:"24005",
@@ -588,7 +588,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS"],
       image:"https://framerusercontent.com/images/hIWc1ZFDPE5ngebpSFCWMuICEeg.jpg?scale-down-to=2048&width=2400&height=3000",
       github:"https://framerusercontent.com/images/hIWc1ZFDPE5ngebpSFCWMuICEeg.jpg?scale-down-to=2048&width=2400&height=3000",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24005_3d_elevation_mapping_of_durunish.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24005_3d_elevation_mapping_of_durunish.html"
     },  
       {
       id:"24004",
@@ -596,7 +596,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS","Remote Sensing"],
       image:"https://framerusercontent.com/images/dFcyTXNPUjtJNyMt6RYgrRLSE.jpg?scale-down-to=1024&width=3300&height=3300",
       github:"https://framerusercontent.com/images/dFcyTXNPUjtJNyMt6RYgrRLSE.jpg?scale-down-to=1024&width=3300&height=3300",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24004_roadway_map_of_rajshahi_city_corporation.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24004_roadway_map_of_rajshahi_city_corporation.html"
     },  
     {
       id:"24003",
@@ -604,7 +604,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS"],
       image:"https://framerusercontent.com/images/ynHGlWGDw2pG6oOGQK8hbTXMI.jpg?scale-down-to=2048&width=2550&height=3300",
       github:"https://framerusercontent.com/images/ynHGlWGDw2pG6oOGQK8hbTXMI.jpg?scale-down-to=2048&width=2550&height=3300",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24003_mean_daily_evaporation_eto_of_bangladesh.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24003_mean_daily_evaporation_eto_of_bangladesh.html"
     },
     {
       id:"24002",
@@ -612,7 +612,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["GIS","GeoViz"],
       image:"https://framerusercontent.com/images/tsXW0dLGZRYW0G7D9oib6xEU1Po.png?width=940&height=928",
       github:"https://framerusercontent.com/images/tsXW0dLGZRYW0G7D9oib6xEU1Po.png?width=940&height=928",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24002_river_network_of_bangladesh.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24002_river_network_of_bangladesh.html"
     },
     {
       id:"24001",
@@ -620,7 +620,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["URP"],
       image:"https://framerusercontent.com/images/3KeH4PY9JcAqsoyBAgLFcEJRw0.jpeg?width=600&height=480",
       github:"https://framerusercontent.com/images/3KeH4PY9JcAqsoyBAgLFcEJRw0.jpeg?width=600&height=480",
-      details:"https://imtiajiqbalmahfuj.github.io/projects/24001_an_imaginary_subdivision_layout_plan_for_a_sustainable_30_acres_neighborhood.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/24001_an_imaginary_subdivision_layout_plan_for_a_sustainable_30_acres_neighborhood.html"
     },
     {
       id:"25000",
@@ -948,7 +948,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags: ["Achievements"],
       date: "April 07 , 2026",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26004.png", 
-      link: "https://imtiajiqbalmahfuj.github.io/Blogs/26004.html" 
+      link: "https://imtiajiqbalmahfuj.github.io/portfolio/Blogs/26004.html" 
     },
     {
       id: "26003",
@@ -956,7 +956,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags: ["Achievements"],
       date: "March 16 , 2026",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26003.jpg", 
-      link: "https://imtiajiqbalmahfuj.github.io/Blogs/26002_blogs.html" 
+      link: "https://imtiajiqbalmahfuj.github.io/portfolio/Blogs/26002_blogs.html" 
     },
     {
       id: "26002",
@@ -972,7 +972,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags: ["Transportation"],
       date: "Jan 11, 2026",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26001.png", 
-      link: "https://imtiajiqbalmahfuj.github.io/Blogs/26001.html" 
+      link: "https://imtiajiqbalmahfuj.github.io/portfolio/Blogs/26001.html" 
     },
     {
       id: "25008",
