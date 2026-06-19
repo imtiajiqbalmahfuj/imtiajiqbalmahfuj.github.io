@@ -866,6 +866,159 @@ function mountLoading(){
   setTimeout(hide, 1500) 
 }
 
+
+
+
+// === Digital Minimal Colorful Magic Mode ===
+function mountMagicMode() {
+  const btn = $('#magicBtn');
+  if (!btn) return;
+
+  let isMagic = false;
+  let canvas, ctx, animationId;
+  let particles = [];
+  
+  // Mouse position tracker
+  let mouse = { x: null, y: null, radius: 120 };
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
+  });
+  window.addEventListener('mouseout', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  // Particle Class
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.speedX = (Math.random() - 0.5) * 0.8;
+      this.speedY = (Math.random() - 0.5) * 0.8;
+      // Alternate between Cyan and Magenta
+      this.color = Math.random() > 0.5 ? '#00ffff' : '#ff00ff';
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      // Bounce off edges
+      if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+      if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+    }
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Generate lines between close particles & mouse
+  function connectParticles() {
+    for (let a = 0; a < particles.length; a++) {
+      for (let b = a; b < particles.length; b++) {
+        let dx = particles[a].x - particles[b].x;
+        let dy = particles[a].y - particles[b].y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Connect particles to each other
+        if (distance < 100) {
+          ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 100})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.stroke();
+        }
+      }
+
+      // Connect particles to mouse
+      if (mouse.x && mouse.y) {
+        let mx = particles[a].x - mouse.x;
+        let my = particles[a].y - mouse.y;
+        let mDistance = Math.sqrt(mx * mx + my * my);
+        if (mDistance < mouse.radius) {
+          ctx.strokeStyle = `rgba(255, 0, 255, ${1 - mDistance / mouse.radius})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    if (!isMagic) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+    connectParticles();
+    animationId = requestAnimationFrame(animate);
+  }
+
+  // Handle Button Click
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    isMagic = !isMagic;
+    document.body.classList.toggle('magic-mode', isMagic);
+
+    if (isMagic) {
+      // Create canvas dynamically
+      canvas = document.createElement('canvas');
+      canvas.id = 'magicCanvas';
+      document.body.prepend(canvas);
+      ctx = canvas.getContext('2d');
+      
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Create efficient number of particles based on screen size
+      let particleCount = Math.min((canvas.width * canvas.height) / 12000, 100);
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      animate();
+      
+      // Update Button Text/Icon
+      const btnSpan = btn.querySelector('span');
+      if(btnSpan) btnSpan.textContent = "Normal";
+      btn.innerHTML = `<i data-lucide="power-off"></i><span>Normal</span>`;
+      lucide.createIcons();
+      
+    } else {
+      // Destroy canvas and stop animation to save memory
+      cancelAnimationFrame(animationId);
+      const existingCanvas = document.getElementById('magicCanvas');
+      if (existingCanvas) existingCanvas.remove();
+      
+      // Restore Button Text/Icon
+      btn.innerHTML = `<i data-lucide="wand-2"></i><span>Magic</span>`;
+      lucide.createIcons();
+    }
+  });
+
+  // Handle Window Resize while active
+  window.addEventListener('resize', () => {
+    if (isMagic && canvas) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+  });
+}
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Activate ALL email buttons first
   mountAllEmails(); 
@@ -888,10 +1041,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#achvPreview')) mountAchvPreview();
   if ($('#footerLinks')) mountFooter();
   if ($('#servicesList')) mountServices(); 
-  
   if ($('#blogTrack')) mountBlogCarousel();
-  if ($('#mediaTrack')) mountMediaCarousel(); // Add this line!
+  if ($('#mediaTrack')) mountMediaCarousel(); 
   if ($('#blogList')) mountBlogsPage();
+  if ($('#magicBtn')) mountMagicMode(); 
 
   if (window.lucide) lucide.createIcons();
 });
