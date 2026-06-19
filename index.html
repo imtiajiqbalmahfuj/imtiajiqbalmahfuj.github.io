@@ -304,6 +304,37 @@
     </div>
   </div>
 </section>
+
+<!-- Featured On (Media) -->
+<section id="media" class="bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-center justify-between mb-8">
+      <h3 class="text-xl font-semibold text-center w-full">Featured On (Media Appearances)</h3>
+    </div>
+
+    <div class="relative group">
+      <button id="mediaPrev" class="icon-btn absolute -left-4 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 hidden md:flex">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      
+      <button id="mediaNext" class="icon-btn absolute -right-4 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 hidden md:flex">
+        <i data-lucide="chevron-right"></i>
+      </button>
+
+      <div id="mediaTrackOuter" class="overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar">
+        <div id="mediaTrack" class="flex gap-6 pb-4 px-2">
+          <!-- Media cards injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <a href="media.html" class="px-4 py-2 bg-white rounded-2xl border border-slate-200 hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
+        <i data-lucide="tv"></i><span>See all</span>
+      </a>
+    </div>
+  </div>
+</section>  
   
 <!-- Services -->  
 <section id="services" class="py-16 bg-slate-50">
