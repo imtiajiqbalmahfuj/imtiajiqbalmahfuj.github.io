@@ -213,3 +213,98 @@ html, body {
 .theme-dark .text-slate-600 {
   color: #94a3b8 !important;
 }
+
+
+
+
+
+/* =========================================
+   MAGIC MODE: Digital Minimal Colorful
+   ========================================= */
+
+/* Global Dark Base */
+body.magic-mode {
+  background-color: #07070a !important; 
+  color: #e2e8f0 !important;
+  transition: background-color 0.5s ease;
+}
+
+/* Canvas Background (holds the particles) */
+#magicCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Keeps it behind everything */
+  pointer-events: none; /* Allows clicking through it */
+}
+
+/* Make backgrounds transparent to see particles */
+body.magic-mode section, body.magic-mode main {
+  background-color: transparent !important;
+}
+
+/* Glassmorphic Navbar */
+body.magic-mode #navbar {
+  background-color: rgba(7, 7, 10, 0.7) !important;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+body.magic-mode #navbar a, body.magic-mode #homeBrand {
+  color: #f8fafc !important;
+}
+
+/* Vibrant Gradient Headings */
+body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated Glass Cards */
+body.magic-mode .card, body.magic-mode .bg-white {
+  background: rgba(15, 15, 20, 0.6) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+  transition: all 0.3s ease;
+}
+
+/* Glowing Hover Effect for Cards */
+body.magic-mode .card:hover {
+  border-color: rgba(0, 255, 255, 0.5) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15), inset 0 0 15px rgba(255, 0, 255, 0.05);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Neon Outlined Buttons */
+body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .icon-btn {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(0, 255, 255, 0.3) !important;
+  color: #00ffff !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+/* Button Hover State (RGB shift) */
+body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .icon-btn:hover {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border-color: #ff00ff !important;
+  color: #ff00ff !important;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+/* Main Call-To-Action Buttons (Gradient Fill) */
+body.magic-mode .bg-black {
+  background: linear-gradient(45deg, #00ffff, #ff00ff) !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+body.magic-mode .bg-black:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+/* Subtext color correction */
+body.magic-mode .text-slate-500, body.magic-mode .text-slate-600 {
+  color: #94a3b8 !important;
+}
