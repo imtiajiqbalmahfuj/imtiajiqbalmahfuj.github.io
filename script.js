@@ -989,10 +989,8 @@ function mountMagicMode() {
 
       animate();
       
-      // Update Button Text/Icon
-      const btnSpan = btn.querySelector('span');
-      if(btnSpan) btnSpan.textContent = "Normal";
-      btn.innerHTML = `<i data-lucide="power-off"></i><span>Normal</span>`;
+      // Update Button Icon
+      btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5"></i>`;
       lucide.createIcons();
       
     } else {
@@ -1002,7 +1000,7 @@ function mountMagicMode() {
       if (existingCanvas) existingCanvas.remove();
       
       // Restore Button Text/Icon
-      btn.innerHTML = `<i data-lucide="wand-2"></i><span>Magic</span>`;
+      btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
       lucide.createIcons();
     }
   });
