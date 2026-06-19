@@ -260,6 +260,13 @@ body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* Gradient Counter Numbers */
+body.magic-mode #aboutCounters .count-up {
+  background: linear-gradient(90deg, #00ffff, #ff00ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important; /* Fallback */
+}
 
 /* Animated Glass Cards */
 body.magic-mode .card, body.magic-mode .bg-white {
