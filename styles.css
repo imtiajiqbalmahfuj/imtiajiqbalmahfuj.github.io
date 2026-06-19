@@ -172,3 +172,44 @@ html, body {
 }
 
 .group .absolute { margin-top: 0px; top: 100%; }
+
+
+/* === Digital Minimal Dark Theme Utility === */
+.theme-dark {
+  background-color: #0b0b0b !important;
+  color: #f8fafc !important; /* Slate 50 */
+}
+
+/* Invert headings and base text inside dark sections */
+.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4 {
+  color: #ffffff !important;
+}
+
+/* Make inner cards dark and adjust borders */
+.theme-dark .card, 
+.theme-dark .bg-white {
+  background-color: #151515 !important;
+  border-color: #262626 !important;
+  color: #e2e8f0 !important;
+}
+
+/* Invert standard buttons inside dark theme */
+.theme-dark .card a.bg-white,
+.theme-dark .card button.bg-white {
+  background-color: #262626 !important;
+  border-color: #404040 !important;
+  color: #f8fafc !important;
+}
+
+/* Hover effects for buttons in dark mode */
+.theme-dark .card a.bg-white:hover,
+.theme-dark .card button.bg-white:hover {
+  background-color: #f8fafc !important;
+  color: #0b0b0b !important;
+}
+
+/* Adjust secondary text (like dates/locations) */
+.theme-dark .text-slate-500, 
+.theme-dark .text-slate-600 {
+  color: #94a3b8 !important;
+}
