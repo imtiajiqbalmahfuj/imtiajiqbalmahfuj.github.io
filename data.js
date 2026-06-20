@@ -744,9 +744,18 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     recentLimit: 10,
     items: [
       {
+        title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios in Chattogram using Explainable Graph Neural Networks",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b> ", 
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "" // Add paper link when available
+      },
+      {
         title: "Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation",
         date: "June 2026",
-        venue: "<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Islam M. <br> <i>Pabna University of Science and Technology (PUST), Pabna, Bangladesh & Universiti Malaysia Perlis (UniMAP), Malaysia.</i>",
+        venue: "Islam M.*, <b>Mahfuj, I. I.</b>, & Tamim, N. F.,<br> <i>International Conference on Emerging Frontiers in Advanced Sciences and Technologies, Pabna University of Science and Technology (PUST), Pabna, Bangladesh & Universiti Malaysia Perlis (UniMAP), Malaysia.</i>",
         type: "Conference proceedings",
         cite: "",  // Add ResearchGate/Citation link when available
         cert: "",
@@ -755,7 +764,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Spatiotemporal assessment of the correlation between surface thermal field variance and human thermal discomfort in Dhaka",
         date:"May 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, & Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), <b>MDPI</b>, Basel, Switzerland</i>",
+        venue:"<b>Mahfuj, I. I.*</b>, & Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Basel, Switzerland</i>. <b>MDPI.</b>",
         type:"Posters",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
@@ -764,7 +773,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
         date:"2026",
-        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Submitted to Environmental and Sustainability Indicators (Elsevier)</i>. [Under Review]",
+        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Environmental and Sustainability Indicators (Elsevier)</i>. [Under Review]",
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -855,15 +864,6 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J.",
-        type:"Manuscripts in Preparation",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details: "" // Add paper link when available
-      },
-      {
-        title:"Predicting cascading transport network failures under multi-hazard scenarios in Chattogram using graph neural networks and satellite-derived risk exposure",
-        date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Gourab, M. B., Rini. M, Ghosh B.",
         type:"Manuscripts in Preparation",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
