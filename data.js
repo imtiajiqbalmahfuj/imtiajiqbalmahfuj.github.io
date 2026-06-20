@@ -755,7 +755,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title: "Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation",
         date: "June 2026",
-        venue: "Islam M.*, <b>Mahfuj, I. I.</b>, & Tamim, N. F.,<br> <i>International Conference on Emerging Frontiers in Advanced Sciences and Technologies, Pabna University of Science and Technology (PUST), Pabna, Bangladesh & Universiti Malaysia Perlis (UniMAP), Malaysia.</i>",
+        venue: "Islam M.*, <b>Mahfuj, I. I.</b>, & Tamim, N. F.,<br> <i>International Conference on Emerging Frontiers in Advanced Sciences and Technologies (EFAST), Pabna University of Science and Technology (PUST), Pabna, Bangladesh & Universiti Malaysia Perlis (UniMAP), Malaysia.</i>",
         type: "Conference proceedings",
         cite: "",  // Add ResearchGate/Citation link when available
         cert: "",
