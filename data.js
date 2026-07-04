@@ -757,7 +757,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         date: "June 2026",
         venue: "Islam M.*, <b>Mahfuj, I. I.</b>, & Tamim, N. F.,<br> <i>International Conference on Emerging Frontiers in Advanced Sciences and Technologies (EFAST), Pabna University of Science and Technology (PUST), Pabna, Bangladesh & Universiti Malaysia Perlis (UniMAP), Malaysia.</i>",
         type: "Conference proceedings",
-        cite: "",  // Add ResearchGate/Citation link when available
+        cite: "https://www.researchgate.net/publication/408461295_Urban_Fire_Disaster_Preparedness_and_Safety_Practices_in_Commercial_Buildings_of_Rajshahi_City_Corporation",  // Add ResearchGate/Citation link when available
         cert: "",
         details: "" // Add paper link when available
       },
