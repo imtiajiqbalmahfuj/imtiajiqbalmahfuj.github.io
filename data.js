@@ -175,12 +175,12 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       details:""
     },
     {
-      id:"26000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26012",
+      title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios using Explainable Graph Neural Networks",
+      tags:["Geospatial Python", "GeoViz","GEE","URP","Portfolio"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26012_Transport_Network_Failures_Multi_Hazard_GNN_XAI_GAE/_Cover.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26012_Transport_Network_Failures_Multi_Hazard_GNN_XAI_GAE/_Cover.png",
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26012_Transport_Network_Failures_Multi_Hazard_GNN_XAI_GAE.html"
     },
     {
       id:"26011",
