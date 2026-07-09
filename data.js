@@ -180,7 +180,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags:["Geospatial Python", "GeoViz","GEE","URP","Portfolio"],
       image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26012_Transport_Network_Failures_Multi_Hazard_GNN_XAI_GAE/_Cover.png",
       github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26012_Transport_Network_Failures_Multi_Hazard_GNN_XAI_GAE/_Cover.png",
-      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26012_Transport_Network_Failures_Multi_Hazard_GNN_XAI_GAE.html"
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/ 26012_Transport_Network_Failures_Multi_Hazard_GNN_XAI_GAE.html"
     },
     {
       id:"26011",
