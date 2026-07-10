@@ -159,20 +159,20 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       details:""
     },
     {
-      id:"26000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26014",
+      title:"Machine Learning-Driven Flash Drought Susceptibility Modeling with XAI Analytics",
+      tags:["Geospatial Python", "GEE", "Portfolio"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26014_Flash_drought_PCA_ML_XAI/_Cover.jpg",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26014_Flash_drought_PCA_ML_XAI/_Cover.jpg",
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/ 26014_Flash_drought_PCA_ML_XAI.html"
     },
     {
-      id:"26000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26013",
+      title:"El Niño-Driven Agrarian Moisture Stress Analysis",
+      tags:["Geospatial Python", "GEE", "Portfolio"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26013_El%20Ni%C3%B1o-driven%20agrarian%20moisture%20stress/Exports/_Cover.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26013_El%20Ni%C3%B1o-driven%20agrarian%20moisture%20stress/Exports/_Cover.png",
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/ 26013_El_Niño_driven_agrarian_moisture_stress.html"
     },
     {
       id:"26012",
