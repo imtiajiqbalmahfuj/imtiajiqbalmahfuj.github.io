@@ -151,12 +151,12 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       details:""
     },
     {
-      id:"26000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26015",
+      title:"Thermal Effects of Highway Expansion: Spatiotemporal Analysis of Microclimatic Penalties and Buffer Optimization",
+      tags:["Geospatial Python", "GEE", "Portfolio"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26015_Thermal_Effects_of_Highway_Capacity_Expansion/Exports/_Cover.jpg",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26015_Thermal_Effects_of_Highway_Capacity_Expansion/Exports/_Cover.jpg",
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26015_Thermal_Effects_of_Highway_Capacity_Expansion.html"
     },
     {
       id:"26014",
