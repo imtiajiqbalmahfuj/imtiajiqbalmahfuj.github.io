@@ -937,6 +937,13 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     workshops:[
       { title:"An Introduction to GIS & Remote Sensing <br> Organized by: RUET GIS Club <br> Speaker: Imtiaj Iqbal Mahfuj, General Secretary, RUET GIS Club", tags:["Session"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Rajshahi, Bangladesh", featured: true },
       { title:"Drone Based Data Collection & Processing <br> Organized by: Tiller <br>Coordinated by: RUET GIS Club", tags:["Workshop"], cert:"https://drive.google.com/file/d/1sjFph2jBxavufmvoUk1woN_TQlSWsZ8x/view?usp=sharing", date:"December 2024 <br> Rajshahi, Bangladesh", featured: true },
+    ],
+    prof_services: [
+      { 
+        title: "<b>Journal Reviewing</b><br>Springer Nature: Frontiers of Urban and Rural Planning", 
+        tags: ["Professional Service"], 
+        date: "Current" 
+      }
     ]
   },
 
