@@ -787,7 +787,8 @@ function mountNavigation() {
       { id: 'awards', label: 'Awards, Honors & Memberships', data: achvs.awards },
       { id: 'volunteer', label: 'Leadership & Volunteering', data: achvs.volunteering },
       { id: 'licenses', label: 'License & Certifications', data: achvs.licenses },
-      { id: 'workshops', label: 'Workshops & Presentations', data: achvs.workshops }
+      { id: 'workshops', label: 'Workshops & Presentations', data: achvs.workshops },
+      { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
     // UPDATED Desktop Dropdown Builder (Solid color + hover-underline)
