@@ -943,6 +943,14 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
 
   blogs: [
     {
+      id: "26005",
+      title: "My First Q1 Journal Peer Review",
+      tags: ["Achievements"],
+      date: "July 15, 2026",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26005.png", 
+      link: "https://imtiajiqbalmahfuj.github.io/portfolio/Blogs/26005_first_peer_review.html" 
+    },
+    {
       id: "26004",
       title: "My Journey to a Q1 Publication",
       tags: ["Achievements"],
