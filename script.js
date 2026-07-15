@@ -543,6 +543,7 @@ function mountAchvPreview(){
     {id:'volunteer', title:'Leadership & Volunteering Experience', list: A.volunteering, icon:'users'},
     {id:'licenses', title:'License & Certifications', list: A.licenses, icon:'shield-check'},
     {id:'workshops', title:'Workshops & Presentations', list: A.workshops, icon:'presentation'},
+    {id:'prof_services', title:'Professional Services', list: A.prof_services, icon:'briefcase'}
   ];
 
   wrap.innerHTML = sections.map(sec => {
