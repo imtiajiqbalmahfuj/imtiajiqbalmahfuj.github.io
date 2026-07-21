@@ -652,7 +652,19 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
-        date: "October 2025 - Present",
+        date: "October 2025 - December 2025",
+        location: "Rajshahi, Bangladesh",
+        bullets: [
+          "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index and technical report for Rajshahi City Corporation (RCC) utilizing Fuzzy AHP and GIS-based spatial analysis to identify and mitigate high-risk urban safety zones."
+        ],
+        github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
+        cert: "",
+        details: ""
+      },
+      {
+        org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
+        role: "Undergraduate Research Assistant",
+        date: "July 2025 - September 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Project:</u> Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a multi-disciplinary research team to assess drought risk vulnerability using Fuzzy AHP and remote sensing data, integrating GIS mapping with Participatory Rural Appraisal (PRA) for ground-truth validation."
@@ -674,21 +686,9 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       //   details: ""
       // },
       {
-        org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
-        role: "Undergraduate Research Assistant",
-        date: "March 2025 - September 2025",
-        location: "Rajshahi, Bangladesh",
-        bullets: [
-          "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index and technical report for Rajshahi City Corporation (RCC) utilizing Fuzzy AHP and GIS-based spatial analysis to identify and mitigate high-risk urban safety zones."
-        ],
-        github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
-        cert: "",
-        details: ""
-      },
-      {
         org: "Aeronautics and Space Applications Division <br> Space & Environment Research Center (SERC)",
         role: "Program Executive",
-        date: "March 2025 - September 2025",
+        date: "March 2025 - July 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Project:</u> Developing Space-Based Integrated Disaster Management System in Asia and the Pacific <br> <u>Project No:</u> SP-9/24, SERC Disaster Management Program, SERC, Rajshahi-6205, Bangladesh. <br> <u>Project Director:</u> Mithun Kumar, Scientific Officer & Head, Aeronautics & Space Applications Division, Space and Environment Research Center (SERC) <br> - Contributed to the development of a disaster management framework for the Asia-Pacific region, focusing on flood mapping and prediction using Machine Learning.",
@@ -701,7 +701,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
-        date: "August 2024 - February 2025",
+        date: "December 2024 - February 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Project:</u> A Participatory Approach to Develop Homestead Farming in Khirshan, Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/60; Date: 13/08/2024 <br> <u>Project Director:</u> MD. Naimur Rahman, Lecturer, Department of Urban and Regional Planning, RUET <br> - Utilized Participatory Rural Appraisal (PRA) tools to collect and synthesize community data, contributing to the development of a resilient land-use framework for rural Rajshahi."
@@ -713,7 +713,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         org: "Director of Research and Extension (R&E), <br> Rajshahi University of Engineering & Technology",
         role: "Enumerator",
-        date: "May 2024 - July 2024",
+        date: "October 2024 - December 2024",
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Project:</u> Developing Integrated Municipal Solid Waste Management Strategies for Promoting a Healthy Environment in Urban Areas: A Case Study of Rajshahi City Corporation <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET"
@@ -727,7 +727,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         org: "Department of Urban & Regional Planning, <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Teaching Assistant",
-        date: "October 2025 - Present",
+        date: "April 2026 - June 2026",
         location: "Rajshahi, Bangladesh",
         bullets: [
           "<u>Course Instructor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning <br> Mentored a class of 60 undergraduate students within the Housing and Real Estate Development (URP 4105) course, covering 'Housing Hazards & Resilient Habitats,' the 29 HHSRS hazards, global resilience strategies, and AI-driven solutions for urban hazard mitigation."
