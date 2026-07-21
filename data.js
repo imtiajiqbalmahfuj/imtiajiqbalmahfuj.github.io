@@ -659,7 +659,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         ],
         github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
         cert: "",
-        details: ""
+        details: "https://www.researchgate.net/publication/408461295_Urban_Fire_Disaster_Preparedness_and_Safety_Practices_in_Commercial_Buildings_of_Rajshahi_City_Corporation"
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
