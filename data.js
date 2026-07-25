@@ -658,7 +658,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Project:</u> Urban Fire Hazard Vulnerability in Focus: A Comprehensive Assessment of Rajshahi City Corporation <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2024-25/17 <br> <u>Project Director:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Developed a comprehensive fire risk index and technical report for Rajshahi City Corporation (RCC) utilizing Fuzzy AHP and GIS-based spatial analysis to identify and mitigate high-risk urban safety zones."
         ],
         github: "https://drive.google.com/file/d/17aNeXiX2aSZKUyIdYx3pGylj29x0L4dt/view?usp=sharing",
-        cert: "",
+        cert: "https://drive.google.com/file/d/1jSv2Qce0_R8GaHYMm8pECeeNknbB6KZu/view?usp=sharing",
         details: "https://www.researchgate.net/publication/408461295_Urban_Fire_Disaster_Preparedness_and_Safety_Practices_in_Commercial_Buildings_of_Rajshahi_City_Corporation"
       },
       {
@@ -733,7 +733,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
           "<u>Course Instructor:</u> Muhaiminul Islam, Assistant Professor, Department of Urban and Regional Planning <br> Mentored a class of 60 undergraduate students within the Housing and Real Estate Development (URP 4105) course, covering 'Housing Hazards & Resilient Habitats,' the 29 HHSRS hazards, global resilience strategies, and AI-driven solutions for urban hazard mitigation."
         ],
         github: "https://drive.google.com/file/d/1-SNP3-t34V47YPk8aoKQE-TFo1wC5nAe/view?usp=sharing",
-        cert: "",
+        cert: "https://drive.google.com/file/d/14sJbhyd2RDqkj_D_97g4jVFAiv2zPIGf/view?usp=sharing",
         details: ""
       } //,
     ]
