@@ -219,7 +219,7 @@ html, body {
 
 
 /* =========================================
-   MAGIC MODE: Digital Minimal Colorful
+   MAGIC MODE: Digital Metallic & Core Green
    ========================================= */
 
 /* Global Dark Base */
@@ -236,11 +236,10 @@ body.magic-mode {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1; /* Keeps it behind everything */
-  pointer-events: none; /* Allows clicking through it */
+  z-index: -1; 
+  pointer-events: none; 
 }
 
-/* Make backgrounds transparent to see particles */
 body.magic-mode section, body.magic-mode main {
   background-color: transparent !important;
 }
@@ -248,24 +247,25 @@ body.magic-mode section, body.magic-mode main {
 /* Glassmorphic Navbar */
 body.magic-mode #navbar {
   background-color: rgba(7, 7, 10, 0.7) !important;
-  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 255, 170, 0.2);
 }
 body.magic-mode #navbar a, body.magic-mode #homeBrand {
   color: #f8fafc !important;
 }
 
-/* Vibrant Gradient Headings */
+/* Metallic/Green Gradient Headings */
 body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
-  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  background: linear-gradient(90deg, #9ca3af, #00ffaa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 /* Gradient Counter Numbers */
 body.magic-mode #aboutCounters .count-up {
-  background: linear-gradient(90deg, #00ffff, #ff00ff) !important;
+  background: linear-gradient(90deg, #9ca3af, #00ffaa) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  color: transparent !important; /* Fallback */
+  color: transparent !important; 
 }
 
 /* Animated Glass Cards */
@@ -279,49 +279,39 @@ body.magic-mode .card, body.magic-mode .bg-white {
 
 /* Glowing Hover Effect for Cards */
 body.magic-mode .card:hover {
-  border-color: rgba(0, 255, 255, 0.5) !important;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15), inset 0 0 15px rgba(255, 0, 255, 0.05);
+  border-color: rgba(0, 255, 170, 0.5) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.15), inset 0 0 15px rgba(156, 163, 175, 0.05);
   transform: translateY(-4px) scale(1.01);
 }
 
 /* Neon Outlined Buttons */
 body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .icon-btn {
   background: rgba(0, 0, 0, 0.5) !important;
-  border: 1px solid rgba(0, 255, 255, 0.3) !important;
-  color: #00ffff !important;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 170, 0.3) !important;
+  color: #00ffaa !important;
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.1);
 }
 
-/* Button Hover State (RGB shift) */
+/* Button Hover State */
 body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .icon-btn:hover {
-  background: rgba(0, 255, 255, 0.1) !important;
-  border-color: #ff00ff !important;
-  color: #ff00ff !important;
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+  background: rgba(0, 255, 170, 0.1) !important;
+  border-color: #00ffaa !important;
+  color: #00ffaa !important;
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
 }
 
-/* Main Call-To-Action Buttons (Gradient Fill) */
+/* Main Call-To-Action Buttons */
 body.magic-mode .bg-black {
-  background: linear-gradient(45deg, #00ffff, #ff00ff) !important;
+  background: linear-gradient(45deg, #4b5563, #00ffaa) !important;
   color: #000 !important;
   border: none !important;
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.4);
 }
 body.magic-mode .bg-black:hover {
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.6);
 }
 
 /* Subtext color correction */
 body.magic-mode .text-slate-500, body.magic-mode .text-slate-600 {
   color: #94a3b8 !important;
-}
-
-
-.hero-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
 }
