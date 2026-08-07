@@ -871,6 +871,122 @@ function mountLoading(){
 
 
 
+
+
+// Particle everywhere
+function initDefaultParticles() {
+  // Create canvas dynamically
+  const canvas = document.createElement('canvas');
+  canvas.id = 'magicCanvas';
+  document.body.prepend(canvas);
+  const ctx = canvas.getContext('2d');
+  
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+  let mouse = { x: null, y: null, radius: 120 };
+
+  // Mouse position tracker
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
+  });
+  window.addEventListener('mouseout', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  // Particle Class
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.speedX = (Math.random() - 0.5) * 0.8;
+      this.speedY = (Math.random() - 0.5) * 0.8;
+      // Alternate between Cyan and Magenta
+      this.color = Math.random() > 0.5 ? '#00ffff' : '#ff00ff';
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+      if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+    }
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Generate lines between close particles & mouse
+  function connectParticles() {
+    for (let a = 0; a < particles.length; a++) {
+      for (let b = a; b < particles.length; b++) {
+        let dx = particles[a].x - particles[b].x;
+        let dy = particles[a].y - particles[b].y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 100) {
+          ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 100})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.stroke();
+        }
+      }
+
+      if (mouse.x && mouse.y) {
+        let mx = particles[a].x - mouse.x;
+        let my = particles[a].y - mouse.y;
+        let mDistance = Math.sqrt(mx * mx + my * my);
+        if (mDistance < mouse.radius) {
+          ctx.strokeStyle = `rgba(255, 0, 255, ${1 - mDistance / mouse.radius})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+    connectParticles();
+    requestAnimationFrame(animate);
+  }
+
+  // Create efficient number of particles based on screen size
+  let particleCount = Math.min((canvas.width * canvas.height) / 12000, 100);
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  animate();
+
+  // Handle Window Resize
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+}
+
+
+
+
+
+
+
 // === Digital Minimal Colorful Magic Mode ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
