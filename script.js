@@ -871,7 +871,7 @@ function mountLoading(){
 
 
 
-// === Digital Minimal Colorful Magic Mode ===
+// === Digital 3D Metallic "IM" Particle Mode ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
@@ -881,75 +881,113 @@ function mountMagicMode() {
   let particles = [];
   
   // Mouse position tracker
-  let mouse = { x: null, y: null, radius: 120 };
+  let mouse = { x: null, y: null, radius: 100 }; // Radius dictates how far the mouse repels particles
 
   window.addEventListener('mousemove', (e) => {
-    mouse.x = e.x;
-    mouse.y = e.y;
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
   });
   window.addEventListener('mouseout', () => {
     mouse.x = null;
     mouse.y = null;
   });
 
-  // Particle Class
+  // Particle Class for the "IM" structure
   class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 1.5 + 0.5;
-      this.speedX = (Math.random() - 0.5) * 0.8;
-      this.speedY = (Math.random() - 0.5) * 0.8;
-      // Alternate between Cyan and Magenta
-      this.color = Math.random() > 0.5 ? '#00ffff' : '#ff00ff';
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
+    constructor(x, y) {
+      this.baseX = x; // Original X target (forming the letter)
+      this.baseY = y; // Original Y target (forming the letter)
+      
+      // Start them randomly scattered across the screen before forming the logo
+      this.x = Math.random() * window.innerWidth;
+      this.y = Math.random() * window.innerHeight;
+      
+      // Random sizes to give a textured 3D blocky feel
+      this.size = Math.random() * 2.5 + 1;
+      this.density = (Math.random() * 30) + 1;
 
-      // Bounce off edges
-      if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-      if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+      // Color assignment: 85% Metallic/Silver, 15% Glowing Green Cores
+      let isCore = Math.random() > 0.85;
+      if (isCore) {
+        this.color = ['#00ffaa', '#00ffcc', '#00e699'][Math.floor(Math.random() * 3)];
+      } else {
+        this.color = ['#d1d5db', '#9ca3af', '#6b7280', '#e5e7eb'][Math.floor(Math.random() * 4)];
+      }
     }
+    
+    update() {
+      // Gentle floating/breathing effect
+      let floatY = Math.sin((Date.now() / 1000) + (this.baseX / 100)) * 0.5;
+      let targetY = this.baseY + floatY;
+
+      let dx = mouse.x - this.x;
+      let dy = mouse.y - this.y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+      
+      // Mouse interaction (Repel)
+      if (distance < mouse.radius && mouse.x !== null) {
+        let forceDirectionX = dx / distance;
+        let forceDirectionY = dy / distance;
+        let force = (mouse.radius - distance) / mouse.radius;
+        
+        let directionX = forceDirectionX * force * this.density;
+        let directionY = forceDirectionY * force * this.density;
+        
+        this.x -= directionX;
+        this.y -= directionY;
+      } else {
+        // Return to the base position to reform the "IM" shape
+        if (this.x !== this.baseX) {
+          let dxBase = this.x - this.baseX;
+          this.x -= dxBase / 15;
+        }
+        if (this.y !== targetY) {
+          let dyBase = this.y - targetY;
+          this.y -= dyBase / 15;
+        }
+      }
+    }
+    
     draw() {
       ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
+      // Using fillRect instead of arc gives it that blocky, structural feel from your image
+      ctx.fillRect(this.x, this.y, this.size, this.size);
     }
   }
 
-  // Generate lines between close particles & mouse
-  function connectParticles() {
-    for (let a = 0; a < particles.length; a++) {
-      for (let b = a; b < particles.length; b++) {
-        let dx = particles[a].x - particles[b].x;
-        let dy = particles[a].y - particles[b].y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
+  // Function to map the text to particles
+  function initParticles() {
+    particles = [];
+    
+    // Create an invisible canvas to map the text
+    const offCanvas = document.createElement('canvas');
+    const offCtx = offCanvas.getContext('2d');
+    offCanvas.width = canvas.width;
+    offCanvas.height = canvas.height;
 
-        // Connect particles to each other
-        if (distance < 100) {
-          ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 100})`;
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(particles[b].x, particles[b].y);
-          ctx.stroke();
-        }
-      }
+    // Draw the "IM" text
+    offCtx.fillStyle = 'white';
+    let fontSize = Math.min(canvas.width * 0.4, 400); // Responsive size
+    offCtx.font = `800 ${fontSize}px "Space Grotesk", sans-serif`;
+    offCtx.textAlign = 'center';
+    offCtx.textBaseline = 'middle';
+    offCtx.fillText('IM', offCanvas.width / 2, offCanvas.height / 2);
 
-      // Connect particles to mouse
-      if (mouse.x && mouse.y) {
-        let mx = particles[a].x - mouse.x;
-        let my = particles[a].y - mouse.y;
-        let mDistance = Math.sqrt(mx * mx + my * my);
-        if (mDistance < mouse.radius) {
-          ctx.strokeStyle = `rgba(255, 0, 255, ${1 - mDistance / mouse.radius})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
+    // Read the pixels
+    const textData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height).data;
+    
+    // Step size controls particle density (lower step = more particles)
+    let step = canvas.width < 768 ? 5 : 8; 
+    
+    for (let y = 0; y < offCanvas.height; y += step) {
+      for (let x = 0; x < offCanvas.width; x += step) {
+        // Check the alpha channel to see if a pixel is present
+        const alpha = textData[(y * offCanvas.width + x) * 4 + 3];
+        if (alpha > 128) {
+          // Add slight random jitter to coordinates for a chunky 3D effect
+          let jitterX = (Math.random() - 0.5) * 6;
+          let jitterY = (Math.random() - 0.5) * 6;
+          particles.push(new Particle(x + jitterX, y + jitterY));
         }
       }
     }
@@ -957,12 +995,15 @@ function mountMagicMode() {
 
   function animate() {
     if (!isMagic) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Slight transparency on the background clear creates a cool motion trail effect
+    ctx.fillStyle = 'rgba(7, 7, 10, 0.3)'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
       particles[i].draw();
     }
-    connectParticles();
     animationId = requestAnimationFrame(animate);
   }
 
@@ -973,7 +1014,6 @@ function mountMagicMode() {
     document.body.classList.toggle('magic-mode', isMagic);
 
     if (isMagic) {
-      // Create canvas dynamically
       canvas = document.createElement('canvas');
       canvas.id = 'magicCanvas';
       document.body.prepend(canvas);
@@ -982,26 +1022,17 @@ function mountMagicMode() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      // Create efficient number of particles based on screen size
-      let particleCount = Math.min((canvas.width * canvas.height) / 12000, 100);
-      particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-
+      initParticles();
       animate();
       
-      // Update Button Icon
       btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5"></i>`;
       lucide.createIcons();
       
     } else {
-      // Destroy canvas and stop animation to save memory
       cancelAnimationFrame(animationId);
       const existingCanvas = document.getElementById('magicCanvas');
       if (existingCanvas) existingCanvas.remove();
       
-      // Restore Button Text/Icon
       btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
       lucide.createIcons();
     }
@@ -1012,9 +1043,12 @@ function mountMagicMode() {
     if (isMagic && canvas) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      initParticles(); // Re-center and re-calculate "IM" position
     }
   });
 }
+
+
 
 
 
