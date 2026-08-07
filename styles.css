@@ -28,6 +28,7 @@
   white-space: nowrap;
 }
 
+
 /* Floating down arrow inside the button (Lucide SVG) */
 #downBtn svg {
   display: inline-block;          /* ensures transform works */
@@ -39,15 +40,12 @@
   50% { transform: translateY(8px); } /* moves down 8px in the middle */
 }
 
-/* Card hover & Frosted Glass Default */
-.card, .bg-white { 
-  background: rgba(255, 255, 255, 0.72) !important;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(20, 24, 27, 0.08) !important;
-  color: #23272b !important;
-  transition: transform .18s var(--ease-smart), box-shadow .18s var(--ease-smart);
-}
-.card:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.07) }
+
+
+
+/* Card hover */
+.card{ transition: transform .18s var(--ease-smart), box-shadow .18s var(--ease-smart) }
+.card:hover{ transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.07) }
 
 /* Mobile menu overlay for clarity */
 #mobileMenu{ box-shadow: 0 10px 24px rgba(0,0,0,.06) }
@@ -85,6 +83,7 @@
     margin-bottom: 3rem; /* lift arrow higher so it's not cut off */
   }
 }
+
 
 /* Project carousel cards */
 #projectTrackOuter .flex-shrink-0 {
@@ -129,40 +128,17 @@
   transition: transform 0.3s ease;
 }
 
-/* Prevent content overlap & Default Magic Mode Background */
+/* Prevent content overlap */
 body {
   padding-top: 64px; /* adjust to match navbar height */
-  background-color: #eef1f2 !important;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.025) 0px,
-    rgba(0,0,0,0.025) 1px,
-    transparent 1px,
-    transparent 26px
-  );
-  color: #23272b !important;
 }
+
 
 html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-/* Let the particles show through behind every section */
-section, main {
-  background-color: transparent !important;
-}
-
-/* WebGL canvas holding the animated particles */
-#magicCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; 
-  pointer-events: none; 
-}
 
 /* Counter */
 #aboutCounters .card {
@@ -175,6 +151,7 @@ section, main {
 #aboutCounters .stat-number {
   letter-spacing: -0.02em;
 }
+
 
 /* --- Glassmorphism Dropdown Animation --- */
 .group:hover .dropdown-item {
@@ -195,45 +172,48 @@ section, main {
 
 .group .absolute { margin-top: 0px; top: 100%; }
 
-/* === Digital Minimal Dark Theme Utility (Adapted for Default Magic Mode) === */
+
+/* === Digital Minimal Dark Theme Utility === */
 .theme-dark {
-  background-color: transparent !important;
-  color: #23272b !important;
-}
-
-/* Ensure headings inside previously dark sections are readable */
-.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4 {
-  color: #14181b !important;
-}
-
-/* Make inner cards match the glass effect instead of dark theme */
-.theme-dark .card, 
-.theme-dark .bg-white {
-  background: rgba(255, 255, 255, 0.72) !important;
-  border-color: rgba(20, 24, 27, 0.08) !important;
-  color: #23272b !important;
-}
-
-/* Standard buttons inside adapted theme */
-.theme-dark .card a.bg-white,
-.theme-dark .card button.bg-white {
-  background-color: #ffffff !important;
-  border-color: #e2e8f0 !important;
-  color: #0f172a !important;
-}
-
-/* Hover effects for buttons */
-.theme-dark .card a.bg-white:hover,
-.theme-dark .card button.bg-white:hover {
   background-color: #0b0b0b !important;
+  color: #f8fafc !important; /* Slate 50 */
+}
+
+/* Invert headings and base text inside dark sections */
+.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4 {
   color: #ffffff !important;
 }
 
-/* Adjust secondary text */
+/* Make inner cards dark and adjust borders */
+.theme-dark .card, 
+.theme-dark .bg-white {
+  background-color: #151515 !important;
+  border-color: #262626 !important;
+  color: #e2e8f0 !important;
+}
+
+/* Invert standard buttons inside dark theme */
+.theme-dark .card a.bg-white,
+.theme-dark .card button.bg-white {
+  background-color: #262626 !important;
+  border-color: #404040 !important;
+  color: #f8fafc !important;
+}
+
+/* Hover effects for buttons in dark mode */
+.theme-dark .card a.bg-white:hover,
+.theme-dark .card button.bg-white:hover {
+  background-color: #f8fafc !important;
+  color: #0b0b0b !important;
+}
+
+/* Adjust secondary text (like dates/locations) */
 .theme-dark .text-slate-500, 
 .theme-dark .text-slate-600 {
-  color: #5b6570 !important;
+  color: #94a3b8 !important;
 }
+
+
 
 .hero-grid {
   background-size: 40px 40px;
@@ -242,4 +222,111 @@ section, main {
     linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+
+
+/* =========================================
+   MAGIC MODE: Modern AI Lab (light silver studio)
+   ========================================= */
+
+/* Global light studio base — soft off-white with a faint horizontal ridge
+   texture, echoing the backdrop behind the voxel render */
+body.magic-mode {
+  background-color: #eef1f2 !important;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.025) 0px,
+    rgba(0,0,0,0.025) 1px,
+    transparent 1px,
+    transparent 26px
+  );
+  color: #23272b !important;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* WebGL canvas holding the animated voxel "IM" object */
+#magicCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* stays behind page content */
+  pointer-events: none; /* clicks pass through to the page */
+}
+
+/* Let the object show through behind every section */
+body.magic-mode section, body.magic-mode main {
+  background-color: transparent !important;
+}
+
+/* Frosted glass navbar */
+body.magic-mode #navbar {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(19, 194, 194, 0.18);
+}
+body.magic-mode #navbar a, body.magic-mode #homeBrand {
+  color: #1c2024 !important;
+}
+
+/* Clean dark headings — no neon, just crisp modern type */
+body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
+  color: #14181b !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* Counter numbers pick up a single teal accent instead of a rainbow gradient */
+body.magic-mode #aboutCounters .count-up {
+  color: #0fb8b8 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* Frosted glass cards */
+body.magic-mode .card, body.magic-mode .bg-white {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(20, 24, 27, 0.08) !important;
+  color: #23272b !important;
+  transition: all 0.3s ease;
+}
+
+/* Soft teal glow on card hover, matching the render's accent glow */
+body.magic-mode .card:hover {
+  border-color: rgba(15, 184, 184, 0.45) !important;
+  box-shadow: 0 12px 26px rgba(15, 184, 184, 0.16);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Light glass buttons/icons */
+body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .icon-btn {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(20, 24, 27, 0.12) !important;
+  color: #14181b !important;
+  box-shadow: 0 4px 12px rgba(20, 24, 27, 0.06);
+}
+body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .icon-btn:hover {
+  border-color: rgba(15, 184, 184, 0.5) !important;
+  color: #0fb8b8 !important;
+  box-shadow: 0 0 16px rgba(15, 184, 184, 0.25);
+}
+
+/* Primary CTA buttons — graphite with a teal glow ring instead of neon fill */
+body.magic-mode .bg-black {
+  background: #14181b !important;
+  color: #f4fbfb !important;
+  border: 1px solid rgba(15, 184, 184, 0.35) !important;
+  box-shadow: 0 0 18px rgba(15, 184, 184, 0.25);
+}
+body.magic-mode .bg-black:hover {
+  box-shadow: 0 0 26px rgba(15, 184, 184, 0.45);
+}
+
+/* Secondary text stays legible slate grey */
+body.magic-mode .text-slate-500, body.magic-mode .text-slate-600 {
+  color: #5b6570 !important;
 }
