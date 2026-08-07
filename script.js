@@ -871,7 +871,7 @@ function mountLoading(){
 
 
 
-// === Digital 3D Metallic "IM" Particle Mode ===
+// === Digital Minimal Colorful Magic Mode — "IM" particle logo, mouse-reactive ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
@@ -879,115 +879,119 @@ function mountMagicMode() {
   let isMagic = false;
   let canvas, ctx, animationId;
   let particles = [];
-  
-  // Mouse position tracker
-  let mouse = { x: null, y: null, radius: 100 }; // Radius dictates how far the mouse repels particles
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  // Mouse position tracker (viewport coords — canvas is position:fixed)
+  let mouse = { x: null, y: null, radius: 110 };
 
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
   });
-  window.addEventListener('mouseout', () => {
+  window.addEventListener('mouseleave', () => {
     mouse.x = null;
     mouse.y = null;
   });
+  // Let it react on touch devices too
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+    }
+  }, { passive: true });
 
-  // Particle Class for the "IM" structure
+  // Build a point cloud shaped like the "IM" mark by sampling text drawn to an offscreen canvas
+  function buildShapePoints(w, h) {
+    const off = document.createElement('canvas');
+    off.width = w;
+    off.height = h;
+    const octx = off.getContext('2d');
+    octx.clearRect(0, 0, w, h);
+    octx.fillStyle = '#fff';
+    octx.textAlign = 'center';
+    octx.textBaseline = 'middle';
+
+    const isMobile = w < 768;
+    const fontSize = Math.min(w, h) * (isMobile ? 0.5 : 0.36);
+    octx.font = `800 ${fontSize}px 'Space Grotesk', sans-serif`;
+    octx.fillText('IM', w / 2, h / 2);
+
+    const gap = isMobile ? 7 : 5; // sampling density — lower = more particles
+    const { data } = octx.getImageData(0, 0, w, h);
+    const pts = [];
+    for (let y = 0; y < h; y += gap) {
+      for (let x = 0; x < w; x += gap) {
+        if (data[(y * w + x) * 4 + 3] > 128) pts.push({ x, y });
+      }
+    }
+    return pts;
+  }
+
   class Particle {
-    constructor(x, y) {
-      this.baseX = x; // Original X target (forming the letter)
-      this.baseY = y; // Original Y target (forming the letter)
-      
-      // Start them randomly scattered across the screen before forming the logo
-      this.x = Math.random() * window.innerWidth;
-      this.y = Math.random() * window.innerHeight;
-      
-      // Random sizes to give a textured 3D blocky feel
-      this.size = Math.random() * 2.5 + 1;
-      this.density = (Math.random() * 30) + 1;
-
-      // Color assignment: 85% Metallic/Silver, 15% Glowing Green Cores
-      let isCore = Math.random() > 0.85;
-      if (isCore) {
-        this.color = ['#00ffaa', '#00ffcc', '#00e699'][Math.floor(Math.random() * 3)];
-      } else {
-        this.color = ['#d1d5db', '#9ca3af', '#6b7280', '#e5e7eb'][Math.floor(Math.random() * 4)];
-      }
+    constructor(home) {
+      this.home = home;
+      // Spawn scattered so the logo "assembles" itself on activation
+      this.x = Math.random() * canvas.clientWidth;
+      this.y = Math.random() * canvas.clientHeight;
+      this.vx = 0;
+      this.vy = 0;
+      this.size = Math.random() * 1.5 + 0.6;
+      this.spring = 0.045 + Math.random() * 0.03;
+      this.friction = 0.88 + Math.random() * 0.03;
+      this.tint = Math.random() > 0.4 ? '0,255,255' : '255,0,255'; // cyan / magenta
+      this.flicker = Math.random() * Math.PI * 2;
     }
-    
     update() {
-      // Gentle floating/breathing effect
-      let floatY = Math.sin((Date.now() / 1000) + (this.baseX / 100)) * 0.5;
-      let targetY = this.baseY + floatY;
+      // Spring back toward its position in the "IM" shape
+      const dx = this.home.x - this.x;
+      const dy = this.home.y - this.y;
+      this.vx += dx * this.spring;
+      this.vy += dy * this.spring;
 
-      let dx = mouse.x - this.x;
-      let dy = mouse.y - this.y;
-      let distance = Math.sqrt(dx * dx + dy * dy);
-      
-      // Mouse interaction (Repel)
-      if (distance < mouse.radius && mouse.x !== null) {
-        let forceDirectionX = dx / distance;
-        let forceDirectionY = dy / distance;
-        let force = (mouse.radius - distance) / mouse.radius;
-        
-        let directionX = forceDirectionX * force * this.density;
-        let directionY = forceDirectionY * force * this.density;
-        
-        this.x -= directionX;
-        this.y -= directionY;
-      } else {
-        // Return to the base position to reform the "IM" shape
-        if (this.x !== this.baseX) {
-          let dxBase = this.x - this.baseX;
-          this.x -= dxBase / 15;
-        }
-        if (this.y !== targetY) {
-          let dyBase = this.y - targetY;
-          this.y -= dyBase / 15;
+      // Mouse repels nearby particles — this is what makes the logo react as you move the cursor
+      if (mouse.x != null) {
+        const mdx = this.x - mouse.x;
+        const mdy = this.y - mouse.y;
+        const dist = Math.hypot(mdx, mdy) || 1;
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          this.vx += (mdx / dist) * force * 3.4;
+          this.vy += (mdy / dist) * force * 3.4;
         }
       }
+
+      this.vx *= this.friction;
+      this.vy *= this.friction;
+      this.x += this.vx;
+      this.y += this.vy;
+      this.flicker += 0.06;
     }
-    
     draw() {
-      ctx.fillStyle = this.color;
-      // Using fillRect instead of arc gives it that blocky, structural feel from your image
-      ctx.fillRect(this.x, this.y, this.size, this.size);
+      const disp = Math.hypot(this.x - this.home.x, this.y - this.home.y);
+      const excited = Math.min(1, disp / 35); // glows brighter the further mouse pushes it
+      const alpha = 0.5 + excited * 0.5 + Math.sin(this.flicker) * 0.06;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${this.tint},${Math.max(0.15, alpha)})`;
+      ctx.arc(this.x, this.y, this.size + excited * 1.1, 0, Math.PI * 2);
+      ctx.fill();
     }
   }
 
-  // Function to map the text to particles
-  function initParticles() {
-    particles = [];
-    
-    // Create an invisible canvas to map the text
-    const offCanvas = document.createElement('canvas');
-    const offCtx = offCanvas.getContext('2d');
-    offCanvas.width = canvas.width;
-    offCanvas.height = canvas.height;
-
-    // Draw the "IM" text
-    offCtx.fillStyle = 'white';
-    let fontSize = Math.min(canvas.width * 0.4, 400); // Responsive size
-    offCtx.font = `800 ${fontSize}px "Space Grotesk", sans-serif`;
-    offCtx.textAlign = 'center';
-    offCtx.textBaseline = 'middle';
-    offCtx.fillText('IM', offCanvas.width / 2, offCanvas.height / 2);
-
-    // Read the pixels
-    const textData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height).data;
-    
-    // Step size controls particle density (lower step = more particles)
-    let step = canvas.width < 768 ? 5 : 8; 
-    
-    for (let y = 0; y < offCanvas.height; y += step) {
-      for (let x = 0; x < offCanvas.width; x += step) {
-        // Check the alpha channel to see if a pixel is present
-        const alpha = textData[(y * offCanvas.width + x) * 4 + 3];
-        if (alpha > 128) {
-          // Add slight random jitter to coordinates for a chunky 3D effect
-          let jitterX = (Math.random() - 0.5) * 6;
-          let jitterY = (Math.random() - 0.5) * 6;
-          particles.push(new Particle(x + jitterX, y + jitterY));
+  // Faint links between neighboring particles for the "digital" wireframe feel
+  function connectParticles() {
+    const cell = 16;
+    for (let a = 0; a < particles.length; a++) {
+      for (let b = a + 1; b < Math.min(a + 8, particles.length); b++) {
+        const dx = particles[a].x - particles[b].x;
+        const dy = particles[a].y - particles[b].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < cell) {
+          ctx.strokeStyle = `rgba(0,255,255,${0.18 * (1 - dist / cell)})`;
+          ctx.lineWidth = 0.4;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.stroke();
         }
       }
     }
@@ -995,16 +999,27 @@ function mountMagicMode() {
 
   function animate() {
     if (!isMagic) return;
-    
-    // Slight transparency on the background clear creates a cool motion trail effect
-    ctx.fillStyle = 'rgba(7, 7, 10, 0.3)'; 
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
       particles[i].draw();
     }
+    connectParticles();
     animationId = requestAnimationFrame(animate);
+  }
+
+  function sizeCanvas() {
+    const w = window.innerWidth, h = window.innerHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function buildParticles() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    particles = buildShapePoints(w, h).map(p => new Particle(p));
   }
 
   // Handle Button Click
@@ -1018,37 +1033,34 @@ function mountMagicMode() {
       canvas.id = 'magicCanvas';
       document.body.prepend(canvas);
       ctx = canvas.getContext('2d');
-      
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
 
-      initParticles();
+      sizeCanvas();
+      buildParticles();
       animate();
-      
+
       btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5"></i>`;
       lucide.createIcons();
-      
     } else {
       cancelAnimationFrame(animationId);
       const existingCanvas = document.getElementById('magicCanvas');
       if (existingCanvas) existingCanvas.remove();
-      
+
       btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
       lucide.createIcons();
     }
   });
 
-  // Handle Window Resize while active
+  // Rebuild the shape (debounced) on resize so it stays centered and crisp
+  let resizeTimeout;
   window.addEventListener('resize', () => {
-    if (isMagic && canvas) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles(); // Re-center and re-calculate "IM" position
-    }
+    if (!isMagic || !canvas) return;
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      sizeCanvas();
+      buildParticles();
+    }, 200);
   });
 }
-
-
 
 
 
