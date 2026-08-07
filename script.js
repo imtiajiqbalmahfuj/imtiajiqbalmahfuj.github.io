@@ -871,7 +871,7 @@ function mountLoading(){
 
 
 
-// === Digital 3D Metallic "IM" Particle Mode ===
+// === Molecular AI "IM" Particle Mode ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
@@ -880,8 +880,8 @@ function mountMagicMode() {
   let canvas, ctx, animationId;
   let particles = [];
   
-  // Mouse position tracker
-  let mouse = { x: null, y: null, radius: 100 }; // Radius dictates how far the mouse repels particles
+  // Mouse tracker
+  let mouse = { x: null, y: null, radius: 180 };
 
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
@@ -892,102 +892,130 @@ function mountMagicMode() {
     mouse.y = null;
   });
 
-  // Particle Class for the "IM" structure
+  // Dual-Layer Particle Class
   class Particle {
-    constructor(x, y) {
-      this.baseX = x; // Original X target (forming the letter)
-      this.baseY = y; // Original Y target (forming the letter)
+    constructor(x, y, isCore) {
+      // Add random jitter to make it look like a chunky, 3D crust/core
+      this.baseX = x + (Math.random() - 0.5) * 12;
+      this.baseY = y + (Math.random() - 0.5) * 12;
       
-      // Start them randomly scattered across the screen before forming the logo
+      // Start particles randomly scattered across the screen for intro animation
       this.x = Math.random() * window.innerWidth;
       this.y = Math.random() * window.innerHeight;
       
-      // Random sizes to give a textured 3D blocky feel
-      this.size = Math.random() * 2.5 + 1;
-      this.density = (Math.random() * 30) + 1;
+      this.isCore = isCore;
 
-      // Color assignment: 85% Metallic/Silver, 15% Glowing Green Cores
-      let isCore = Math.random() > 0.85;
-      if (isCore) {
-        this.color = ['#00ffaa', '#00ffcc', '#00e699'][Math.floor(Math.random() * 3)];
+      if (this.isCore) {
+        // CORE: Glowing Cyan/Teal, Smaller, Tightly packed
+        this.size = Math.random() * 2 + 1;
+        this.color = ['#00e5ff', '#00ffcc', '#14b8a6'][Math.floor(Math.random() * 3)];
+        this.friction = 0.08; 
       } else {
-        this.color = ['#d1d5db', '#9ca3af', '#6b7280', '#e5e7eb'][Math.floor(Math.random() * 4)];
+        // CRUST: Dark Metallic Silver, Larger, loosely packed
+        this.size = Math.random() * 3.5 + 1.5;
+        this.color = ['#334155', '#475569', '#1e293b', '#64748b'][Math.floor(Math.random() * 4)];
+        this.friction = 0.04; 
       }
     }
     
     update() {
-      // Gentle floating/breathing effect
-      let floatY = Math.sin((Date.now() / 1000) + (this.baseX / 100)) * 0.5;
-      let targetY = this.baseY + floatY;
-
       let dx = mouse.x - this.x;
       let dy = mouse.y - this.y;
       let distance = Math.sqrt(dx * dx + dy * dy);
       
-      // Mouse interaction (Repel)
-      if (distance < mouse.radius && mouse.x !== null) {
-        let forceDirectionX = dx / distance;
-        let forceDirectionY = dy / distance;
+      // Mouse Interaction
+      if (mouse.x !== null && distance < mouse.radius) {
+        // The closer the mouse, the stronger the force
         let force = (mouse.radius - distance) / mouse.radius;
+        let forceX = (dx / distance) * force;
+        let forceY = (dy / distance) * force;
         
-        let directionX = forceDirectionX * force * this.density;
-        let directionY = forceDirectionY * force * this.density;
-        
-        this.x -= directionX;
-        this.y -= directionY;
+        if (this.isCore) {
+          // Core barely moves (just wiggles slightly)
+          this.x -= forceX * 2;
+          this.y -= forceY * 2;
+        } else {
+          // Crust blows violently away to reveal the core
+          this.x -= forceX * 25;
+          this.y -= forceY * 25;
+        }
       } else {
-        // Return to the base position to reform the "IM" shape
-        if (this.x !== this.baseX) {
-          let dxBase = this.x - this.baseX;
-          this.x -= dxBase / 15;
-        }
-        if (this.y !== targetY) {
-          let dyBase = this.y - targetY;
-          this.y -= dyBase / 15;
-        }
+        // Float back to base position to reform the "IM"
+        this.x += (this.baseX - this.x) * this.friction;
+        this.y += (this.baseY - this.y) * this.friction;
       }
     }
     
     draw() {
       ctx.fillStyle = this.color;
-      // Using fillRect instead of arc gives it that blocky, structural feel from your image
+      // Using fillRect gives that blocky 3D voxel/crust texture from your image
       ctx.fillRect(this.x, this.y, this.size, this.size);
     }
   }
 
-  // Function to map the text to particles
   function initParticles() {
     particles = [];
     
-    // Create an invisible canvas to map the text
+    // Create an invisible canvas to draw the blobby "IM" mask
     const offCanvas = document.createElement('canvas');
     const offCtx = offCanvas.getContext('2d');
     offCanvas.width = canvas.width;
     offCanvas.height = canvas.height;
 
-    // Draw the "IM" text
-    offCtx.fillStyle = 'white';
-    let fontSize = Math.min(canvas.width * 0.4, 400); // Responsive size
-    offCtx.font = `800 ${fontSize}px "Space Grotesk", sans-serif`;
-    offCtx.textAlign = 'center';
-    offCtx.textBaseline = 'middle';
-    offCtx.fillText('IM', offCanvas.width / 2, offCanvas.height / 2);
-
-    // Read the pixels
-    const textData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height).data;
+    // Draw Molecular blob shape
+    offCtx.fillStyle = 'black';
+    offCtx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Step size controls particle density (lower step = more particles)
-    let step = canvas.width < 768 ? 5 : 8; 
+    offCtx.strokeStyle = 'white';
+    offCtx.lineCap = 'round';
+    offCtx.lineJoin = 'round';
+    
+    // Scale the IM dynamically based on screen size
+    let scale = Math.min(canvas.width / 1000, 1.2);
+    if (scale < 0.5) scale = 0.5;
+    
+    let blobThickness = 120 * scale; 
+    offCtx.lineWidth = blobThickness;
+
+    let cx = canvas.width / 2;
+    let cy = canvas.height / 2;
+    let h = 100 * scale; // height of the letters
+
+    // Draw Blobby 'I' (Dumbbell shape)
+    let iX = cx - (150 * scale);
+    offCtx.beginPath();
+    offCtx.moveTo(iX, cy - h);
+    offCtx.lineTo(iX, cy + h);
+    offCtx.stroke();
+
+    // Draw Blobby 'M' (Connected nodes)
+    let mX = cx + (80 * scale);
+    let mSpan = 110 * scale;
+    offCtx.beginPath();
+    offCtx.moveTo(mX - mSpan, cy + h); // Left leg bottom
+    offCtx.lineTo(mX - mSpan, cy - h); // Left leg top
+    offCtx.lineTo(mX, cy + (h * 0.2)); // Middle dip
+    offCtx.lineTo(mX + mSpan, cy - h); // Right leg top
+    offCtx.lineTo(mX + mSpan, cy + h); // Right leg bottom
+    offCtx.stroke();
+
+    // Read the pixels to spawn particles
+    const textData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height).data;
+    let step = canvas.width < 768 ? 6 : 8; // Adjust density based on screen
     
     for (let y = 0; y < offCanvas.height; y += step) {
       for (let x = 0; x < offCanvas.width; x += step) {
-        // Check the alpha channel to see if a pixel is present
-        const alpha = textData[(y * offCanvas.width + x) * 4 + 3];
+        let alpha = textData[(y * offCanvas.width + x) * 4]; 
         if (alpha > 128) {
-          // Add slight random jitter to coordinates for a chunky 3D effect
-          let jitterX = (Math.random() - 0.5) * 6;
-          let jitterY = (Math.random() - 0.5) * 6;
-          particles.push(new Particle(x + jitterX, y + jitterY));
+          // Spawn both a Core particle AND a Crust particle in the same area
+          // 40% chance to be core, 60% chance to be crust
+          let isCore = Math.random() < 0.4;
+          particles.push(new Particle(x, y, isCore));
+          
+          // Spawn an extra crust particle for density
+          if (Math.random() < 0.5) {
+             particles.push(new Particle(x, y, false));
+          }
         }
       }
     }
@@ -996,18 +1024,25 @@ function mountMagicMode() {
   function animate() {
     if (!isMagic) return;
     
-    // Slight transparency on the background clear creates a cool motion trail effect
-    ctx.fillStyle = 'rgba(7, 7, 10, 0.3)'; 
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Clear the canvas completely every frame
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     
+    // Update all particles
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
-      particles[i].draw();
     }
+    
+    // DRAWING ORDER MATTERS: Draw Core first (bottom), then Crust (top)
+    for (let i = 0; i < particles.length; i++) {
+      if (particles[i].isCore) particles[i].draw();
+    }
+    for (let i = 0; i < particles.length; i++) {
+      if (!particles[i].isCore) particles[i].draw();
+    }
+    
     animationId = requestAnimationFrame(animate);
   }
 
-  // Handle Button Click
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     isMagic = !isMagic;
@@ -1027,7 +1062,6 @@ function mountMagicMode() {
       
       btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5"></i>`;
       lucide.createIcons();
-      
     } else {
       cancelAnimationFrame(animationId);
       const existingCanvas = document.getElementById('magicCanvas');
@@ -1038,12 +1072,11 @@ function mountMagicMode() {
     }
   });
 
-  // Handle Window Resize while active
   window.addEventListener('resize', () => {
     if (isMagic && canvas) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      initParticles(); // Re-center and re-calculate "IM" position
+      initParticles(); 
     }
   });
 }
