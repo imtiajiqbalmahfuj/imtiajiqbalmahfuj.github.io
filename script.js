@@ -793,11 +793,11 @@ function mountNavigation() {
 
     // UPDATED Desktop Dropdown Builder (Solid color + hover-underline)
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
-      if (links.length === 0) return `<a href="${basePath}${href}" class="hover-underline text-slate-700 py-4">${label}</a>`;
+      if (links.length === 0) return `<a href="${basePath}${href}" class="nav-link hover-underline text-slate-700 py-4">${label}</a>`;
       const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
       return `
         <div class="relative group flex items-center h-full">
-          <a href="${basePath}${href}" class="hover-underline text-slate-700 py-4 inline-block">${label}</a>
+          <a href="${basePath}${href}" class="nav-link hover-underline text-slate-700 py-4 inline-block">${label}</a>
           <div class="absolute ${alignClass} top-full mt-0 hidden group-hover:flex flex-col bg-white border border-slate-200 shadow-xl rounded-2xl p-5 min-w-[260px] z-50 gap-4">
             ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
           </div>
@@ -819,8 +819,8 @@ function mountNavigation() {
     };
 
     const staticLinks = `
-      <a href="${basePath}#about" class="hover-underline text-slate-700 py-4">About</a>
-      <a href="${basePath}#projects" class="hover-underline text-slate-700 py-4">Projects</a>
+      <a href="${basePath}#about" class="nav-link hover-underline text-slate-700 py-4">About</a>
+      <a href="${basePath}#projects" class="nav-link hover-underline text-slate-700 py-4">Projects</a>
     `;
     
     navCenter.innerHTML = staticLinks + 
@@ -871,93 +871,137 @@ function mountLoading(){
 
 
 
-
-
-// === Apple Liquid Glass Theme Mode ===
+// === Magic Mode — colorful glass theme toggle (no 3D sculpture) ===
+// Simply flips the "magic-mode" class on/off. All visual flair now lives in
+// the Liquid Glass hover system (see mountLiquidGlass) instead of a 3D scene.
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
 
   let isMagic = false;
-  let spotlightHandler;
-  let scrollSpyHandler;
 
-  // Function to handle the macOS-style Spotlight / Glare tracking
-  function initGlassTracking() {
-    // 1. Mouse Tracking for Liquid Glass Glare
-    const glassElements = document.querySelectorAll('.card, .bg-white, .bg-black, .icon-btn');
-    
-    spotlightHandler = (e) => {
-      glassElements.forEach(el => {
-        // Calculate mouse position relative to each specific element
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        // Pass coordinates to CSS variables
-        el.style.setProperty('--mouse-x', `${x}px`);
-        el.style.setProperty('--mouse-y', `${y}px`);
-      });
-    };
-    window.addEventListener('mousemove', spotlightHandler);
-
-    // 2. ScrollSpy for Navbar Active State
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('#navCenter a, #mobileMenu a');
-
-    scrollSpyHandler = () => {
-      let currentSection = '';
-
-      sections.forEach(sec => {
-        // Get the top position of the section, offset by a bit for smooth transitions
-        const sectionTop = sec.offsetTop;
-        if (window.scrollY >= sectionTop - 200) {
-          currentSection = sec.getAttribute('id');
-        }
-      });
-
-      // Apply the Liquid Glass 'active' state to the navbar
-      navLinks.forEach(link => {
-        link.classList.remove('active-glass');
-        const href = link.getAttribute('href');
-        if (href && href.includes('#' + currentSection) && currentSection !== '') {
-          link.classList.add('active-glass');
-        }
-      });
-    };
-    
-    window.addEventListener('scroll', scrollSpyHandler);
-    scrollSpyHandler(); // Trigger once on load to highlight the current section
-  }
-
-  // Clean up listeners if Magic Mode is turned off
-  function cleanupGlassTracking() {
-    if (spotlightHandler) window.removeEventListener('mousemove', spotlightHandler);
-    if (scrollSpyHandler) window.removeEventListener('scroll', scrollSpyHandler);
-    
-    document.querySelectorAll('.active-glass').forEach(el => el.classList.remove('active-glass'));
-    document.querySelectorAll('.card, .bg-white, .bg-black, .icon-btn').forEach(el => {
-      el.style.removeProperty('--mouse-x');
-      el.style.removeProperty('--mouse-y');
-    });
-  }
-
-  // Handle Button Click
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     isMagic = !isMagic;
     document.body.classList.toggle('magic-mode', isMagic);
-
-    if (isMagic) {
-      btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5"></i>`;
-      lucide.createIcons();
-      initGlassTracking(); // Start tracking
-    } else {
-      btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
-      lucide.createIcons();
-      cleanupGlassTracking(); // Stop tracking
-    }
+    btn.innerHTML = isMagic
+      ? `<i data-lucide="power-off" class="w-5 h-5"></i>`
+      : `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
+    if (window.lucide) lucide.createIcons();
   });
+}
+
+
+// === Liquid Glass hover system ===
+// Applies an Apple-style "Liquid Glass" pointer-tracked specular highlight to
+// every button, icon-button and card on the site (including dynamically
+// injected ones), by writing --mx/--my CSS custom properties as the pointer
+// moves over each element. The actual glass look (blur, sheen, lift) lives in
+// styles.css; this just feeds it live pointer coordinates.
+function mountLiquidGlass() {
+  const SELECTOR = '.hover-smart, .icon-btn, .card, .liquid-glass';
+
+  const bindOne = (el) => {
+    if (el.dataset.glassBound) return;
+    el.dataset.glassBound = '1';
+
+    // Only force relative positioning if the element isn't already positioned,
+    // so we never clobber elements that rely on absolute/fixed placement.
+    const pos = getComputedStyle(el).position;
+    if (pos === 'static') el.style.position = 'relative';
+
+    const move = (e) => {
+      const r = el.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+      el.style.setProperty('--mx', x + '%');
+      el.style.setProperty('--my', y + '%');
+    };
+    el.addEventListener('pointermove', move);
+    el.addEventListener('pointerenter', move);
+    el.addEventListener('pointerleave', () => {
+      el.style.setProperty('--mx', '50%');
+      el.style.setProperty('--my', '50%');
+    });
+  };
+
+  const bindAll = () => $all(SELECTOR).forEach(bindOne);
+  bindAll();
+
+  // Site content (cards, project lists, etc.) is injected after this runs,
+  // so keep watching the DOM and bind any newly added glass elements.
+  const mo = new MutationObserver(() => bindAll());
+  mo.observe(document.body, { childList: true, subtree: true });
+}
+
+
+// === Nav Liquid Glass indicator ===
+// A frosted pill that glides under whichever nav link the pointer is over,
+// and — once the pointer leaves the nav — settles back onto (and stays on)
+// whichever section is currently in view, updating live as the user scrolls
+// or clicks a link.
+function mountNavLiquidSpy() {
+  const navCenter = $('#navCenter');
+  if (!navCenter) return;
+
+  let pill = document.getElementById('navLiquidPill');
+  if (!pill) {
+    pill = document.createElement('div');
+    pill.id = 'navLiquidPill';
+    navCenter.prepend(pill);
+  }
+
+  const getLinks = () => $all('a.nav-link', navCenter);
+  let activeLink = null;
+
+  const movePill = (link, locked) => {
+    if (!link) return;
+    const navRect = navCenter.getBoundingClientRect();
+    const r = link.getBoundingClientRect();
+    pill.style.left = (r.left - navRect.left) + 'px';
+    pill.style.width = r.width + 'px';
+    pill.style.opacity = '1';
+    pill.classList.toggle('nav-pill-locked', !!locked);
+  };
+
+  const setActive = (link) => {
+    if (!link) return;
+    getLinks().forEach(a => a.classList.remove('nav-active'));
+    link.classList.add('nav-active');
+    activeLink = link;
+    movePill(link, true);
+  };
+
+  getLinks().forEach(a => {
+    a.addEventListener('pointerenter', () => movePill(a, false));
+    a.addEventListener('click', () => setActive(a));
+  });
+
+  navCenter.addEventListener('pointerleave', () => {
+    if (activeLink) movePill(activeLink, true);
+    else pill.style.opacity = '0';
+  });
+
+  // Scrollspy: keep the pill locked onto whichever main section is in view.
+  const sectionIds = ['about', 'projects', 'experience', 'publications', 'achievements'];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  if (sections.length && 'IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      let best = null;
+      entries.forEach(en => {
+        if (en.isIntersecting && (!best || en.intersectionRatio > best.intersectionRatio)) best = en;
+      });
+      if (best) {
+        const link = getLinks().find(a => (a.getAttribute('href') || '').includes('#' + best.target.id));
+        if (link) setActive(link);
+      }
+    }, { rootMargin: '-35% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  window.addEventListener('resize', () => { if (activeLink) movePill(activeLink, true); });
 }
 
 
@@ -972,6 +1016,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Initialize Navigation (Smooth scroll, etc.)
   applyNav();
+
+  // 3b. Nav Liquid Glass hover/active indicator + global Liquid Glass hover system
+  mountNavLiquidSpy();
+  mountLiquidGlass();
 
   if ($('#loadingScreen')) mountLoading();
   if ($('#heroName')) { 
