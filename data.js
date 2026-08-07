@@ -746,7 +746,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Assessing agrarian moisture sensitivity in the Barind Tract through a principal component analysis-weighted geospatial framework",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Sustainability (Springer Nature)</i>. [Under Review]", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Geoscience (Springer Nature)</i>. [Under Review]", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
