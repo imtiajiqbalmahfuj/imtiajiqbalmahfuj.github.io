@@ -227,15 +227,23 @@ html, body {
 
 
 
+
 /* =========================================
-   MAGIC MODE: Digital Metallic & Core Green
+   MAGIC MODE: Modern AI Laboratory Theme
    ========================================= */
 
-/* Global Dark Base */
+/* Clean Light/Silver Base mimicking the image background */
 body.magic-mode {
-  background-color: #07070a !important; 
-  color: #e2e8f0 !important;
-  transition: background-color 0.5s ease;
+  /* Subtle horizontal bands to match the reference images */
+  background: repeating-linear-gradient(
+    180deg,
+    #ffffff,
+    #ffffff 40px,
+    #f1f5f9 42px,
+    #f8fafc 80px
+  ) !important;
+  color: #0f172a !important; /* Dark slate text for high readability */
+  transition: all 0.5s ease;
 }
 
 /* Canvas Background (holds the particles) */
@@ -249,78 +257,95 @@ body.magic-mode {
   pointer-events: none; 
 }
 
+/* Make backgrounds transparent to see the floating IM */
 body.magic-mode section, body.magic-mode main {
   background-color: transparent !important;
 }
 
-/* Glassmorphic Navbar */
+/* Glassmorphic Navbar - Light */
 body.magic-mode #navbar {
-  background-color: rgba(7, 7, 10, 0.7) !important;
-  border-bottom: 1px solid rgba(0, 255, 170, 0.2);
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.3);
 }
 body.magic-mode #navbar a, body.magic-mode #homeBrand {
-  color: #f8fafc !important;
+  color: #0f172a !important;
 }
 
-/* Metallic/Green Gradient Headings */
+/* Headings get a dark metallic gradient */
 body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
-  background: linear-gradient(90deg, #9ca3af, #00ffaa);
+  background: linear-gradient(90deg, #0f172a, #334155);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Gradient Counter Numbers */
 body.magic-mode #aboutCounters .count-up {
-  background: linear-gradient(90deg, #9ca3af, #00ffaa) !important;
+  background: linear-gradient(90deg, #00e5ff, #0f172a) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important; 
 }
 
-/* Animated Glass Cards */
+/* Bright Glass Cards ensuring text remains readable */
 body.magic-mode .card, body.magic-mode .bg-white {
-  background: rgba(15, 15, 20, 0.6) !important;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  color: #cbd5e1 !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 229, 255, 0.2) !important;
+  color: #334155 !important;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-/* Glowing Hover Effect for Cards */
+/* Cyan Glowing Hover Effect for Cards */
 body.magic-mode .card:hover {
-  border-color: rgba(0, 255, 170, 0.5) !important;
-  box-shadow: 0 0 20px rgba(0, 255, 170, 0.15), inset 0 0 15px rgba(156, 163, 175, 0.05);
+  border-color: rgba(0, 229, 255, 0.6) !important;
+  box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
   transform: translateY(-4px) scale(1.01);
 }
 
-/* Neon Outlined Buttons */
+/* AI Styled Buttons (White to Cyan) */
 body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .icon-btn {
-  background: rgba(0, 0, 0, 0.5) !important;
-  border: 1px solid rgba(0, 255, 170, 0.3) !important;
-  color: #00ffaa !important;
-  box-shadow: 0 0 10px rgba(0, 255, 170, 0.1);
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 229, 255, 0.4) !important;
+  color: #0f172a !important;
 }
 
 /* Button Hover State */
 body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .icon-btn:hover {
-  background: rgba(0, 255, 170, 0.1) !important;
-  border-color: #00ffaa !important;
-  color: #00ffaa !important;
-  box-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
+  background: #00e5ff !important;
+  border-color: #00e5ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
 }
 
 /* Main Call-To-Action Buttons */
 body.magic-mode .bg-black {
-  background: linear-gradient(45deg, #4b5563, #00ffaa) !important;
-  color: #000 !important;
-  border: none !important;
-  box-shadow: 0 0 15px rgba(0, 255, 170, 0.4);
+  background: linear-gradient(45deg, #0f172a, #334155) !important;
+  color: #00e5ff !important;
+  border: 1px solid #00e5ff !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 body.magic-mode .bg-black:hover {
-  box-shadow: 0 0 25px rgba(0, 255, 170, 0.6);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
 }
 
-/* Subtext color correction */
+/* Ensure secondary text is readable in light mode */
 body.magic-mode .text-slate-500, body.magic-mode .text-slate-600 {
-  color: #94a3b8 !important;
+  color: #475569 !important;
+}
+
+/* Force dark text in footer for Magic Mode */
+body.magic-mode footer, body.magic-mode #links {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-top: 1px solid rgba(0, 229, 255, 0.2);
+}
+body.magic-mode footer .text-slate-300, body.magic-mode footer .text-slate-400 {
+  color: #64748b !important;
+}
+body.magic-mode .footer-link {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(0, 229, 255, 0.4) !important;
 }
