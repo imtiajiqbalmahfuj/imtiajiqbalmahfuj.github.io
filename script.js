@@ -1145,6 +1145,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Initialize Navigation (Smooth scroll, etc.)
   applyNav();
 
+  // 1. Initialize Default Particles
+  initDefaultParticles();
+
   if ($('#loadingScreen')) mountLoading();
   if ($('#heroName')) { 
     mountHero(); 
