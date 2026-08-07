@@ -43,9 +43,9 @@
 
 
 
-/* Card hover */
-.card{ transition: transform .18s var(--ease-smart), box-shadow .18s var(--ease-smart) }
-.card:hover{ transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.07) }
+/* Card hover (base motion; the Liquid Glass sheen/blur is added below) */
+.card{ transition: transform .3s var(--ease-smart), box-shadow .3s var(--ease-smart), border-color .3s var(--ease-smart) }
+.card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,.10) }
 
 /* Mobile menu overlay for clarity */
 #mobileMenu{ box-shadow: 0 10px 24px rgba(0,0,0,.06) }
@@ -215,6 +215,96 @@ html, body {
 
 
 
+
+
+/* =========================================
+   MAGIC MODE: Digital Minimal Colorful
+   ========================================= */
+
+/* Global Dark Base */
+body.magic-mode {
+  background-color: #07070a !important; 
+  color: #e2e8f0 !important;
+  transition: background-color 0.5s ease;
+}
+
+/* Make backgrounds transparent to see the magic-mode gradient */
+body.magic-mode section, body.magic-mode main {
+  background-color: transparent !important;
+}
+
+/* Glassmorphic Navbar */
+body.magic-mode #navbar {
+  background-color: rgba(7, 7, 10, 0.7) !important;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+body.magic-mode #navbar a, body.magic-mode #homeBrand {
+  color: #f8fafc !important;
+}
+
+/* Vibrant Gradient Headings */
+body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Gradient Counter Numbers */
+body.magic-mode #aboutCounters .count-up {
+  background: linear-gradient(90deg, #00ffff, #ff00ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important; /* Fallback */
+}
+
+/* Animated Glass Cards */
+body.magic-mode .card, body.magic-mode .bg-white {
+  background: rgba(15, 15, 20, 0.6) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+  transition: all 0.3s ease;
+}
+
+/* Glowing Hover Effect for Cards */
+body.magic-mode .card:hover {
+  border-color: rgba(0, 255, 255, 0.5) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15), inset 0 0 15px rgba(255, 0, 255, 0.05);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Neon Outlined Buttons */
+body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .icon-btn {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(0, 255, 255, 0.3) !important;
+  color: #00ffff !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+/* Button Hover State (RGB shift) */
+body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .icon-btn:hover {
+  background: rgba(0, 255, 255, 0.1) !important;
+  border-color: #ff00ff !important;
+  color: #ff00ff !important;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+/* Main Call-To-Action Buttons (Gradient Fill) */
+body.magic-mode .bg-black {
+  background: linear-gradient(45deg, #00ffff, #ff00ff) !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+body.magic-mode .bg-black:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+/* Subtext color correction */
+body.magic-mode .text-slate-500, body.magic-mode .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+
 .hero-grid {
   background-size: 40px 40px;
   background-image: 
@@ -225,123 +315,150 @@ html, body {
 }
 
 
+/* =========================================================================
+   LIQUID GLASS INTERACTION SYSTEM
+   Apple-style frosted glass: every button, icon-button and card gets a soft
+   blur + a specular highlight that tracks the pointer (via --mx/--my, set
+   live by mountLiquidGlass() in script.js), plus a gentle lift on hover.
+   ========================================================================= */
 
-
-/* =========================================
-   MAGIC MODE: Apple Liquid Glass Theme
-   ========================================= */
-
-/* Animated, fluid, macOS-style background */
-body.magic-mode {
-  background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #e0c3fc, #8ec5fc) !important;
-  background-size: 400% 400% !important;
-  animation: liquidBackground 15s ease infinite !important;
-  color: #1d1d1f !important; /* Apple's standard dark text color */
-  transition: color 0.5s ease;
+.hover-smart,
+.icon-btn,
+.card {
+  --mx: 50%;
+  --my: 50%;
 }
 
-@keyframes liquidBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Hide standard background colors for sections to let the gradient bleed through */
-body.magic-mode section, body.magic-mode main, body.magic-mode footer {
-  background-color: transparent !important;
-}
-
-/* Glassmorphic Navbar */
-body.magic-mode #navbar {
-  background-color: rgba(255, 255, 255, 0.4) !important;
-  backdrop-filter: blur(25px) saturate(200%);
-  -webkit-backdrop-filter: blur(25px) saturate(200%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* The Magic Glass Panel Base applied to Cards, Academic Blocks, and Buttons */
-body.magic-mode .card,
-body.magic-mode .bg-white,
-body.magic-mode .bg-black,
-body.magic-mode .icon-btn {
-  background: rgba(255, 255, 255, 0.35) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
-  color: #1d1d1f !important;
-  position: relative;
-  overflow: hidden; /* Keeps the spotlight glare inside the rounded borders */
-  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
-}
-
-/* The Liquid Glass Spotlight (Glare Tracking) */
-body.magic-mode .card::before,
-body.magic-mode .bg-white::before,
-body.magic-mode .bg-black::before,
-body.magic-mode .icon-btn::before {
+/* The pointer-tracked sheen sits just under the content, above the surface */
+.hover-smart::before,
+.icon-btn::before,
+.card::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  /* Uses the coordinates passed from JavaScript to draw a soft white glow */
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-    rgba(255, 255, 255, 0.65), 
-    transparent 40%
-  );
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(160px circle at var(--mx) var(--my),
+              rgba(255,255,255,.65), rgba(255,255,255,0) 62%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity .35s var(--ease-smart);
   pointer-events: none;
-  z-index: 1; /* Sits below the text, above the background */
 }
-
-/* Reveal the glare when hovering over any block */
-body.magic-mode .card:hover::before,
-body.magic-mode .bg-white:hover::before,
-body.magic-mode .bg-black:hover::before,
-body.magic-mode .icon-btn:hover::before {
+.hover-smart:hover::before,
+.icon-btn:hover::before,
+.card:hover::before {
   opacity: 1;
 }
 
-/* Lift blocks slightly on hover */
-body.magic-mode .card:hover,
-body.magic-mode .bg-white:hover,
-body.magic-mode .bg-black:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1);
-}
-
-/* Ensure content stays above the glare */
-body.magic-mode .card > *,
-body.magic-mode .bg-white > *,
-body.magic-mode .bg-black > *,
-body.magic-mode .icon-btn > * {
+/* Keep real content/icons above the sheen layer */
+.hover-smart > *,
+.icon-btn > *,
+.card > * {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
-/* Text overrides for readability in Liquid Glass mode */
-body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
-  color: #000 !important;
+/* Frosted-glass surface, only "activates" its blur on hover so idle pages
+   aren't paying a compositing cost for elements off-screen */
+.hover-smart,
+.icon-btn {
+  transition: transform .3s var(--ease-smart), box-shadow .3s var(--ease-smart),
+              backdrop-filter .3s ease, border-color .3s var(--ease-smart);
 }
-body.magic-mode .text-slate-500, body.magic-mode .text-slate-600 {
-  color: #4b5563 !important;
+.hover-smart:hover,
+.icon-btn:hover {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  transform: translateY(-2px) scale(1.035);
+  box-shadow: 0 12px 28px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.55);
+  border-color: rgba(255,255,255,.7);
 }
-body.magic-mode .border-slate-200 {
-  border-color: rgba(255, 255, 255, 0.4) !important;
+.hover-smart:active,
+.icon-btn:active {
+  transform: translateY(0) scale(.96);
+  transition-duration: 90ms;
 }
 
-/* Active Navbar Section Pill */
-body.magic-mode .active-glass {
-  background: rgba(255, 255, 255, 0.5) !important;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  border-radius: 99px !important; /* Apple pill shape */
-  padding: 6px 16px !important;
-  margin: -6px -16px; /* Offset to prevent navbar layout jumping */
-  color: #007aff !important; /* Apple system blue */
-  font-weight: 700 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+/* Cards: same sheen, slightly heavier glass since they're bigger surfaces */
+.card:hover {
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border-color: rgba(0,0,0,.12);
+}
+
+/* Dark surfaces (theme-dark sections, magic-mode) get a cyan/magenta-tinted
+   sheen instead of plain white, matching the rest of the dark palette */
+.theme-dark .hover-smart::before, .theme-dark .icon-btn::before, .theme-dark .card::before,
+body.magic-mode .hover-smart::before, body.magic-mode .icon-btn::before, body.magic-mode .card::before {
+  background: radial-gradient(160px circle at var(--mx) var(--my),
+              rgba(0,255,255,.28), rgba(255,0,255,.08) 55%, rgba(255,255,255,0) 70%);
+}
+.theme-dark .hover-smart:hover, .theme-dark .icon-btn:hover,
+body.magic-mode .hover-smart:hover, body.magic-mode .icon-btn:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.18);
+  border-color: rgba(0,255,255,.35);
+}
+
+/* Respect reduced-motion preferences: keep the sheen, drop the movement */
+@media (prefers-reduced-motion: reduce) {
+  .hover-smart:hover, .icon-btn:hover, .card:hover {
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================================
+   NAV LIQUID GLASS INDICATOR
+   A frosted pill that glides to whichever nav link the pointer is over, and
+   settles onto (and stays locked to) the section currently in view.
+   ========================================================================= */
+
+#navCenter {
+  position: relative;
+}
+
+#navLiquidPill {
+  position: absolute;
+  top: 4px;
+  height: calc(100% - 8px);
+  border-radius: 9999px;
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: 0 6px 18px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.75);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: left .45s var(--ease-smart), width .45s var(--ease-smart),
+              opacity .25s ease, background .3s ease, border-color .3s ease;
+}
+
+/* A slightly different tint marks "locked" (scroll/click-selected) vs the
+   lighter, more transient hover state */
+#navLiquidPill.nav-pill-locked {
+  background: rgba(0,0,0,.05);
+  border-color: rgba(0,0,0,.08);
+}
+
+#navCenter a.nav-link {
+  position: relative;
+  z-index: 1;
+}
+#navCenter a.nav-link.nav-active {
+  color: #000;
+}
+
+body.magic-mode #navLiquidPill {
+  background: rgba(0,255,255,.14);
+  border-color: rgba(0,255,255,.4);
+  box-shadow: 0 0 18px rgba(0,255,255,.25), inset 0 1px 0 rgba(255,255,255,.18);
+}
+body.magic-mode #navLiquidPill.nav-pill-locked {
+  background: rgba(255,0,255,.12);
+  border-color: rgba(255,0,255,.4);
+  box-shadow: 0 0 18px rgba(255,0,255,.2), inset 0 1px 0 rgba(255,255,255,.14);
+}
+body.magic-mode #navCenter a.nav-link.nav-active {
+  color: #fff;
 }
