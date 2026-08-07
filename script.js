@@ -871,176 +871,236 @@ function mountLoading(){
 
 
 
-// === Molecular AI "IM" Particle Mode ===
+// === Modern AI Lab Magic Mode — animated voxel-cube "IM" sculpture (Three.js) ===
+// Two shapes, matching the reference render:
+//   "I" = a vertical dumbbell (two round lobes joined by a thin neck)
+//   "M" = an arch/bridge of three lobes (left-top-right), like two dumbbells sharing a peak
+// Both are built as fields of small cubes sampled off a smooth revolved/tube surface,
+// then kept in constant gentle motion and pushed/lit up wherever the mouse gets close.
 function mountMagicMode() {
   const btn = $('#magicBtn');
-  if (!btn) return;
+  if (!btn || typeof THREE === 'undefined') return;
 
   let isMagic = false;
-  let canvas, ctx, animationId;
-  let particles = [];
-  
-  // Mouse tracker
-  let mouse = { x: null, y: null, radius: 180 };
+  let renderer, scene, camera, group, voxels;
+  let animId, resizeTimeout;
+  let clockStart = 0;
 
+  // Per-cube data we track ourselves (InstancedMesh doesn't store this for us)
+  let basePositions = [];  // THREE.Vector3 — resting spot in the sculpture
+  let baseNormals = [];    // THREE.Vector3 — outward direction, used for shimmer + push
+  let phases = [];         // float — per-cube animation offset so motion isn't uniform
+  const baseColor = new THREE.Color(0xe9ecee);
+  const glowColor = new THREE.Color(0x1fd6d6);
+  const tmpColor = new THREE.Color();
+  const tmpMatrix = new THREE.Matrix4();
+  const tmpPos = new THREE.Vector3();
+  const tmpQuat = new THREE.Quaternion();
+  const tmpScale = new THREE.Vector3();
+  const tmpVec = new THREE.Vector3();
+
+  // Mouse, tracked in normalized (-1..1) and raw pixel form
+  let mouse = { nx: 0, ny: 0, px: -9999, py: -9999, active: false };
   window.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    mouse.nx = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.ny = (e.clientY / window.innerHeight) * 2 - 1;
+    mouse.px = e.clientX; mouse.py = e.clientY;
+    mouse.active = true;
   });
-  window.addEventListener('mouseout', () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
-
-  // Dual-Layer Particle Class
-  class Particle {
-    constructor(x, y, isCore) {
-      // Add random jitter to make it look like a chunky, 3D crust/core
-      this.baseX = x + (Math.random() - 0.5) * 12;
-      this.baseY = y + (Math.random() - 0.5) * 12;
-      
-      // Start particles randomly scattered across the screen for intro animation
-      this.x = Math.random() * window.innerWidth;
-      this.y = Math.random() * window.innerHeight;
-      
-      this.isCore = isCore;
-
-      if (this.isCore) {
-        // CORE: Glowing Cyan/Teal, Smaller, Tightly packed
-        this.size = Math.random() * 2 + 1;
-        this.color = ['#00e5ff', '#00ffcc', '#14b8a6'][Math.floor(Math.random() * 3)];
-        this.friction = 0.08; 
-      } else {
-        // CRUST: Dark Metallic Silver, Larger, loosely packed
-        this.size = Math.random() * 3.5 + 1.5;
-        this.color = ['#334155', '#475569', '#1e293b', '#64748b'][Math.floor(Math.random() * 4)];
-        this.friction = 0.04; 
-      }
+  window.addEventListener('mouseleave', () => { mouse.active = false; });
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      const t = e.touches[0];
+      mouse.nx = (t.clientX / window.innerWidth) * 2 - 1;
+      mouse.ny = (t.clientY / window.innerHeight) * 2 - 1;
+      mouse.px = t.clientX; mouse.py = t.clientY;
+      mouse.active = true;
     }
-    
-    update() {
-      let dx = mouse.x - this.x;
-      let dy = mouse.y - this.y;
-      let distance = Math.sqrt(dx * dx + dy * dy);
-      
-      // Mouse Interaction
-      if (mouse.x !== null && distance < mouse.radius) {
-        // The closer the mouse, the stronger the force
-        let force = (mouse.radius - distance) / mouse.radius;
-        let forceX = (dx / distance) * force;
-        let forceY = (dy / distance) * force;
-        
-        if (this.isCore) {
-          // Core barely moves (just wiggles slightly)
-          this.x -= forceX * 2;
-          this.y -= forceY * 2;
-        } else {
-          // Crust blows violently away to reveal the core
-          this.x -= forceX * 25;
-          this.y -= forceY * 25;
-        }
-      } else {
-        // Float back to base position to reform the "IM"
-        this.x += (this.baseX - this.x) * this.friction;
-        this.y += (this.baseY - this.y) * this.friction;
-      }
+  }, { passive: true });
+
+  // Radius of a sphere of radius R centered at c, at position x along one axis (0 outside)
+  function sphereRadius(x, c, R) {
+    const d = x - c, v = R * R - d * d;
+    return v > 0 ? Math.sqrt(v) : 0;
+  }
+
+  // ---- Shape 1: "I" — vertical dumbbell, built as a lathe (revolve around Y) ----
+  function buildDumbbellProfile() {
+    const H = 1.05, LOBE_C = 0.62, LOBE_R = 0.42, NECK = 0.12, STEPS = 44;
+    const pts = [];
+    for (let i = 0; i <= STEPS; i++) {
+      const h = -H + (2 * H) * (i / STEPS);
+      const r = Math.max(NECK, sphereRadius(h, -LOBE_C, LOBE_R), sphereRadius(h, LOBE_C, LOBE_R));
+      pts.push(new THREE.Vector2(Math.max(r, 0.01), h));
     }
-    
-    draw() {
-      ctx.fillStyle = this.color;
-      // Using fillRect gives that blocky 3D voxel/crust texture from your image
-      ctx.fillRect(this.x, this.y, this.size, this.size);
+    return pts;
+  }
+
+  function sampleDumbbellVoxels(offsetX) {
+    const geo = new THREE.LatheGeometry(buildDumbbellProfile(), 14);
+    geo.computeVertexNormals();
+    const pos = geo.attributes.position, nor = geo.attributes.normal;
+    for (let i = 0; i < pos.count; i++) {
+      basePositions.push(new THREE.Vector3(pos.getX(i) + offsetX, pos.getY(i), pos.getZ(i)));
+      baseNormals.push(new THREE.Vector3(nor.getX(i), nor.getY(i), nor.getZ(i)));
+      phases.push(Math.random() * Math.PI * 2);
+    }
+    geo.dispose();
+  }
+
+  // ---- Shape 2: "M" — arch of 3 lobes along a curved path (not axis-symmetric, so we
+  // hand-build rings of vertices around a Catmull-Rom curve instead of using Lathe) ----
+  function sampleArchVoxels(offsetX) {
+    const curve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-1.15, -0.82, 0),
+      new THREE.Vector3(-0.70, 0.10, 0),
+      new THREE.Vector3(0.00, 0.80, 0),
+      new THREE.Vector3(0.70, 0.10, 0),
+      new THREE.Vector3(1.15, -0.82, 0),
+    ]);
+    const archLen = curve.getLength();
+    const NECK = 0.11, LOBE_R = 0.40, STEPS = 70, RADIAL = 12;
+    const forward = new THREE.Vector3(), sideways = new THREE.Vector3(), up = new THREE.Vector3(0, 0, 1);
+
+    for (let i = 0; i <= STEPS; i++) {
+      const t = i / STEPS;
+      const s = t * archLen;
+      const r = Math.max(
+        NECK,
+        sphereRadius(s, 0, LOBE_R),
+        sphereRadius(s, archLen / 2, LOBE_R),
+        sphereRadius(s, archLen, LOBE_R)
+      );
+      const center = curve.getPointAt(t);
+      forward.copy(curve.getTangentAt(t)).normalize();
+      sideways.crossVectors(forward, up).normalize();
+      const outOfPlane = new THREE.Vector3().crossVectors(forward, sideways).normalize();
+
+      for (let j = 0; j < RADIAL; j++) {
+        const a = (j / RADIAL) * Math.PI * 2;
+        const nx = Math.cos(a), ny = Math.sin(a);
+        tmpVec.set(0, 0, 0)
+          .addScaledVector(sideways, nx)
+          .addScaledVector(outOfPlane, ny);
+        const normal = tmpVec.clone().normalize();
+        const p = new THREE.Vector3(center.x + offsetX, center.y, center.z).addScaledVector(tmpVec, r);
+        basePositions.push(p);
+        baseNormals.push(normal);
+        phases.push(Math.random() * Math.PI * 2);
+      }
     }
   }
 
-  function initParticles() {
-    particles = [];
-    
-    // Create an invisible canvas to draw the blobby "IM" mask
-    const offCanvas = document.createElement('canvas');
-    const offCtx = offCanvas.getContext('2d');
-    offCanvas.width = canvas.width;
-    offCanvas.height = canvas.height;
+  function buildScene() {
+    basePositions = []; baseNormals = []; phases = [];
+    sampleDumbbellVoxels(-1.55);  // "I"
+    sampleArchVoxels(0.55);       // "M"
 
-    // Draw Molecular blob shape
-    offCtx.fillStyle = 'black';
-    offCtx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    offCtx.strokeStyle = 'white';
-    offCtx.lineCap = 'round';
-    offCtx.lineJoin = 'round';
-    
-    // Scale the IM dynamically based on screen size
-    let scale = Math.min(canvas.width / 1000, 1.2);
-    if (scale < 0.5) scale = 0.5;
-    
-    let blobThickness = 120 * scale; 
-    offCtx.lineWidth = blobThickness;
+    const count = basePositions.length;
+    const cubeSize = 0.045;
+    const cubeGeo = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+    const mat = new THREE.MeshStandardMaterial({
+      color: 0xffffff, vertexColors: true, roughness: 0.82, metalness: 0.12,
+    });
+    voxels = new THREE.InstancedMesh(cubeGeo, mat, count);
+    voxels.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(count * 3), 3);
 
-    let cx = canvas.width / 2;
-    let cy = canvas.height / 2;
-    let h = 100 * scale; // height of the letters
-
-    // Draw Blobby 'I' (Dumbbell shape)
-    let iX = cx - (150 * scale);
-    offCtx.beginPath();
-    offCtx.moveTo(iX, cy - h);
-    offCtx.lineTo(iX, cy + h);
-    offCtx.stroke();
-
-    // Draw Blobby 'M' (Connected nodes)
-    let mX = cx + (80 * scale);
-    let mSpan = 110 * scale;
-    offCtx.beginPath();
-    offCtx.moveTo(mX - mSpan, cy + h); // Left leg bottom
-    offCtx.lineTo(mX - mSpan, cy - h); // Left leg top
-    offCtx.lineTo(mX, cy + (h * 0.2)); // Middle dip
-    offCtx.lineTo(mX + mSpan, cy - h); // Right leg top
-    offCtx.lineTo(mX + mSpan, cy + h); // Right leg bottom
-    offCtx.stroke();
-
-    // Read the pixels to spawn particles
-    const textData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height).data;
-    let step = canvas.width < 768 ? 6 : 8; // Adjust density based on screen
-    
-    for (let y = 0; y < offCanvas.height; y += step) {
-      for (let x = 0; x < offCanvas.width; x += step) {
-        let alpha = textData[(y * offCanvas.width + x) * 4]; 
-        if (alpha > 128) {
-          // Spawn both a Core particle AND a Crust particle in the same area
-          // 40% chance to be core, 60% chance to be crust
-          let isCore = Math.random() < 0.4;
-          particles.push(new Particle(x, y, isCore));
-          
-          // Spawn an extra crust particle for density
-          if (Math.random() < 0.5) {
-             particles.push(new Particle(x, y, false));
-          }
-        }
-      }
+    for (let i = 0; i < count; i++) {
+      const shade = 0.9 + Math.random() * 0.15;
+      tmpColor.copy(baseColor).multiplyScalar(shade);
+      voxels.setColorAt(i, tmpColor);
+      tmpQuat.setFromEuler(new THREE.Euler(Math.random() * 6, Math.random() * 6, Math.random() * 6));
+      tmpMatrix.compose(basePositions[i], tmpQuat, new THREE.Vector3(1, 1, 1));
+      voxels.setMatrixAt(i, tmpMatrix);
     }
+
+    group = new THREE.Group();
+    group.add(voxels);
+    scene.add(group);
+  }
+
+  function sizeScaleFor(w, h) {
+    // Keep the sculpture large and centered — bigger on desktop, still readable on mobile
+    const base = Math.min(w, h);
+    return (w < 768 ? base * 0.0022 : base * 0.0032);
+  }
+
+  function initThree() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'magicCanvas';
+    document.body.prepend(canvas);
+
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
+
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 6.2);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+    const key = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(2, 3, 4); scene.add(key);
+    const fill = new THREE.DirectionalLight(0xdfffff, 0.35); fill.position.set(-3, -1, 2); scene.add(fill);
+
+    buildScene();
+    group.scale.setScalar(sizeScaleFor(window.innerWidth, window.innerHeight));
+
+    clockStart = performance.now();
+    animate();
   }
 
   function animate() {
     if (!isMagic) return;
-    
-    // Clear the canvas completely every frame
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Update all particles
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
+    const t = (performance.now() - clockStart) / 1000;
+
+    // Idle motion: slow spin + gentle breathing/bob, always moving even without the mouse
+    group.rotation.y = t * 0.18 + mouse.nx * 0.35;
+    group.rotation.x = Math.sin(t * 0.35) * 0.05 + mouse.ny * 0.18;
+    const breathe = 1 + Math.sin(t * 0.8) * 0.02;
+    group.scale.setScalar(sizeScaleFor(window.innerWidth, window.innerHeight) * breathe);
+    group.position.y = Math.sin(t * 0.6) * 0.06;
+
+    const count = basePositions.length;
+    for (let i = 0; i < count; i++) {
+      const shimmer = Math.sin(t * 1.6 + phases[i]) * 0.012;
+      tmpPos.copy(basePositions[i]).addScaledVector(baseNormals[i], shimmer);
+
+      // Mouse proximity: project this cube to screen space and glow/push it if the cursor is near
+      let excite = 0;
+      if (mouse.active) {
+        tmpVec.copy(basePositions[i]).applyMatrix4(group.matrixWorld).project(camera);
+        const sx = (tmpVec.x * 0.5 + 0.5) * window.innerWidth;
+        const sy = (-tmpVec.y * 0.5 + 0.5) * window.innerHeight;
+        const dist = Math.hypot(sx - mouse.px, sy - mouse.py);
+        const radius = 140;
+        if (dist < radius) excite = 1 - dist / radius;
+      }
+      if (excite > 0) tmpPos.addScaledVector(baseNormals[i], excite * 0.12);
+
+      tmpQuat.setFromEuler(new THREE.Euler(t * 0.2 + phases[i], t * 0.15 + phases[i], 0));
+      tmpScale.setScalar(1 + excite * 0.6);
+      tmpMatrix.compose(tmpPos, tmpQuat, tmpScale);
+      voxels.setMatrixAt(i, tmpMatrix);
+
+      if (excite > 0) tmpColor.copy(baseColor).lerp(glowColor, excite);
+      else tmpColor.copy(baseColor).multiplyScalar(0.95 + (i % 7) * 0.01);
+      voxels.setColorAt(i, tmpColor);
     }
-    
-    // DRAWING ORDER MATTERS: Draw Core first (bottom), then Crust (top)
-    for (let i = 0; i < particles.length; i++) {
-      if (particles[i].isCore) particles[i].draw();
-    }
-    for (let i = 0; i < particles.length; i++) {
-      if (!particles[i].isCore) particles[i].draw();
-    }
-    
-    animationId = requestAnimationFrame(animate);
+    voxels.instanceMatrix.needsUpdate = true;
+    voxels.instanceColor.needsUpdate = true;
+
+    renderer.render(scene, camera);
+    animId = requestAnimationFrame(animate);
+  }
+
+  function disposeThree() {
+    cancelAnimationFrame(animId);
+    if (voxels) { voxels.geometry.dispose(); voxels.material.dispose(); }
+    if (renderer) renderer.dispose();
+    const existingCanvas = document.getElementById('magicCanvas');
+    if (existingCanvas) existingCanvas.remove();
+    renderer = scene = camera = group = voxels = null;
   }
 
   btn.addEventListener('click', (e) => {
@@ -1049,39 +1109,25 @@ function mountMagicMode() {
     document.body.classList.toggle('magic-mode', isMagic);
 
     if (isMagic) {
-      canvas = document.createElement('canvas');
-      canvas.id = 'magicCanvas';
-      document.body.prepend(canvas);
-      ctx = canvas.getContext('2d');
-      
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      initParticles();
-      animate();
-      
+      initThree();
       btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5"></i>`;
-      lucide.createIcons();
     } else {
-      cancelAnimationFrame(animationId);
-      const existingCanvas = document.getElementById('magicCanvas');
-      if (existingCanvas) existingCanvas.remove();
-      
+      disposeThree();
       btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
-      lucide.createIcons();
     }
+    lucide.createIcons();
   });
 
   window.addEventListener('resize', () => {
-    if (isMagic && canvas) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles(); 
-    }
+    if (!isMagic || !renderer) return;
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }, 150);
   });
 }
-
-
 
 
 
