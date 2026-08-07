@@ -744,9 +744,18 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     recentLimit: 10,
     items: [
       {
+        title:"Assessing agrarian moisture sensitivity in the Barind Tract through a principal component analysis-weighted geospatial framework",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Sustainability (Springer Nature)</i>. [Under Review]", 
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "" // Add paper link when available
+      },
+      {
         title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios in Chattogram using Explainable Graph Neural Networks",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b> ", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>. [Under Review]", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -773,7 +782,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
         date:"2026",
-        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Environmental and Sustainability Indicators (Elsevier)</i>. [Under Review]",
+        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability (Springer Nature)</i>. [Under Review]",
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
