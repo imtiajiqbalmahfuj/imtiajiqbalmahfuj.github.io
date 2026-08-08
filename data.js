@@ -56,7 +56,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
   education: [
     {
       title: "Rajshahi University of Engineering & Technology",
-      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.79/4.00 (5th)",
+      degree: "BURP in Urban & Regional Planning <br> CGPA: 3.80/4.00 (5th)",
       date: "Dec 2022 – Present",
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
