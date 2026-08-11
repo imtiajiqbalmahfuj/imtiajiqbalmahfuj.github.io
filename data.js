@@ -120,8 +120,8 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
   counters: [
     { value: 8, label: "Publications" },
     { value: 3, label: "Years of Experience" },
-    { value: 57, label: "Technical Projects" },
-    { value: 7, label: "Research Projects" }
+    { value: 7, label: "Research Projects" },
+    { value: 15000, label: "Linkedin Followers" }
   ],
 
 
