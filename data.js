@@ -744,6 +744,15 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
     recentLimit: 10,
     items: [
       {
+        title:"Forecasting Construction-Induced Thermal Anomalies and Land Conversion in Ishwardi Using Agent-Based Modelling and Multitemporal Machine Learning Classification",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ali, M. K., & Salan, M. S. A.<br> <i>Rajshahi University of Engineering & Technology, Rajshahi, Bangladesh.</i>", 
+        type:"Conference proceedings",
+        cite:"https://www.researchgate.net/publication/412829287_FORECASTING_CONSTRUCTION-INDUCED_THERMAL_ANOMALIES_AND_LAND_CONVERSION_IN_ISHWARDI_USING_AGENT-BASED_MODELLING_AND_MULTITEMPORAL_MACHINE_LEARNING_CLASSIFICATION",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "" // Add paper link when available
+      },
+      {
         title:"Assessing agrarian moisture sensitivity in the Barind Tract through a principal component analysis-weighted geospatial framework",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Geoscience (Springer Nature)</i>. [Under Review]", 
