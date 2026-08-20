@@ -971,7 +971,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
   blogs: [
     {
       id: "26005",
-      title: "My First Q1 Journal Peer Review",
+      title: "My First Peer Review - Q1 Journal Article (Springer Nature)",
       tags: ["Achievements"],
       date: "July 15, 2026",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26005.png", 
@@ -1095,6 +1095,13 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
 
   media: [
     {
+      title: "Workshop on '𝐆𝐞𝐭𝐭𝐢𝐧𝐠 𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐰𝐢𝐭𝐡 𝐆𝐈𝐒, 𝐑𝐞𝐦𝐨𝐭𝐞 𝐒𝐞𝐧𝐬𝐢𝐧𝐠 𝐚𝐧𝐝 𝐌𝐨𝐝𝐞𝐫𝐧 𝐆𝐞𝐨𝐬𝐩𝐚𝐭𝐢𝐚𝐥 𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐲'",
+      link: "https://www.facebook.com/share/p/1F3ycwSRqg/",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Featured%20On/26001.jpg", // Direct link to an image
+      date: "August, 2026",
+      tags: ["Event"]
+    },
+    {
       title: "GeoPlan 1.0 (Featured on: Bangladesh Institute of Planners)",
       link: "https://www.facebook.com/share/p/1D6V5GGFzT/",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Featured%20On/25001.jpg", // Direct link to an image
@@ -1109,11 +1116,11 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
       tags: ["News"]
     },
     {
-      title: "Took an insightful workshop on 'An Introduction to GIS & Remote Sensing' (RUET GIS Club)",
+      title: "Workshop on 'An Introduction to GIS & Remote Sensing' (RUET GIS Club)",
       link: "https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0",
       image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Featured%20On/25003.jpg",
       date: "May, 2025",
-      tags: ["News"]
+      tags: ["Event"]
     },
     {
       title: "TEDxRUET - Empowering Imagination 2025",
