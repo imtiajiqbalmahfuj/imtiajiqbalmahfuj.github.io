@@ -749,7 +749,7 @@ I am actively seeking <b>Master of Science (MS) by Research opportunities</b> in
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ali, M. K., & Salan, M. S. A.<br> <i>International Symposium on Energy & Environment (ISEE), Rajshahi University of Engineering & Technology, Rajshahi, Bangladesh.</i>", 
         type:"Conference proceedings",
         cite:"https://www.researchgate.net/publication/412829287_FORECASTING_CONSTRUCTION-INDUCED_THERMAL_ANOMALIES_AND_LAND_CONVERSION_IN_ISHWARDI_USING_AGENT-BASED_MODELLING_AND_MULTITEMPORAL_MACHINE_LEARNING_CLASSIFICATION",  // <--- Add this field to enable Cite button
-        cert: "",
+        cert: "https://drive.google.com/file/d/1_VE25DYTyM3yTZ_SRXpf-9M5NvvcwT83/view?usp=drivesdk",
         details: "" // Add paper link when available
       },
       {
