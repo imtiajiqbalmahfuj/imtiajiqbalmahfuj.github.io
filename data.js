@@ -669,7 +669,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         date: "July 2025 - September 2025",
         location: "Rajshahi, Bangladesh",
         bullets: [
-          "<u>Project:</u> Drought Vulnerability Assessment using GIS and PRA: An Integrated Analysis of Rajshahi <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a multi-disciplinary research team to assess drought risk vulnerability using Fuzzy AHP and remote sensing data, integrating GIS mapping with Participatory Rural Appraisal (PRA) for ground-truth validation."
+          "<u>Project:</u> Comprehensive Assessment of Agricultural Drought Vulnerability in Barind Tract <br> <u>Project No:</u> DRE/8/RUET/700(66)/PRA/2025-26/27 <br> <u>Project Director:</u> Dulal Sarker, Assistant Professor, Department of Urban and Regional Planning, RUET <br> - Led a multi-disciplinary research team to assess drought risk vulnerability using Fuzzy AHP and remote sensing data, integrating GIS mapping with Participatory Rural Appraisal (PRA) for ground-truth validation."
         ],
         github: "",
         cert: "",
