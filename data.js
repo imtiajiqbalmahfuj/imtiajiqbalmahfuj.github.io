@@ -120,9 +120,9 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
   ],
 
   counters: [
-    { value: 8, label: "Publications" },
+    { value: 9, label: "Publications" },
     { value: 3, label: "Years of Experience" },
-    { value: 7, label: "Research Projects" },
+    { value: 7, label: "Major Projects" },
     { value: 15000, label: "Linkedin Followers" }
   ],
 
