@@ -185,7 +185,7 @@ function mountHero(){
   const downBtn = $('#downBtn')
   if(downBtn){
     downBtn.addEventListener('click', ()=> {
-      const el = document.getElementById('featured')
+      const el = document.getElementById('aboutCounters')
       if(el){
         const offset = el.getBoundingClientRect().top + window.scrollY - 80
         window.scrollTo({top: offset, behavior:'smooth'})
