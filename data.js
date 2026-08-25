@@ -6,7 +6,7 @@ window.SITE = {
   brand: {
     homeLabel: "Imtiaj.",
     name: "Imtiaj Iqbal (Mahfuj)",
-    subtitle: "GeoDS (GeoAI/ML) · GIS & RS (GEE/EO) · DRR & Climate",
+    subtitle: "GeoDS (GeoAI/ML) · GIS & RS (EO/GEE) · DRR & Climate",
     // direct download link provided by you
     cvDownload: "https://drive.google.com/uc?export=download&id=1rxUqGpT1MCqD50ogslthxphAMmEigeZO",
     email: "imtiajiqbal.ruet@gmail.com",
