@@ -6,7 +6,7 @@ window.SITE = {
   brand: {
     homeLabel: "Imtiaj.",
     name: "Imtiaj Iqbal (Mahfuj)",
-    subtitle: "GeoDS (GeoAI/ML) · GIS & RS (GEE/Env.) · DRR & Climate",
+    subtitle: "GeoDS (GeoAI/ML) · GIS & RS (GEE/EO) · DRR & Climate",
     // direct download link provided by you
     cvDownload: "https://drive.google.com/uc?export=download&id=1rxUqGpT1MCqD50ogslthxphAMmEigeZO",
     email: "imtiajiqbal.ruet@gmail.com",
@@ -83,7 +83,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     title: "Research Interests", // will be displayed as header
     items: [
       "Geospatial Data Science (GeoAI & ML)",
-      "RS & Environmental Monitoring (GEE)",
+      "RS & Earth Observation (GEE)",
       "Disaster Risk & Geo-Hazard Modeling",
       "Climate Change Adaptation",
       "GIScience & Spatial Modeling",
