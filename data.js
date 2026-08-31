@@ -793,11 +793,11 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Spatiotemporal assessment of the correlation between surface thermal field variance and human thermal discomfort in Dhaka",
         date:"May 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, & Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Basel, Switzerland</i>. <b>MDPI.</b>",
+        venue:"<b>Mahfuj, I. I.*</b>, & Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Basel, Switzerland <br>& The 1st International Online Conference on Earth Science, 2–4 September 2026, Basel, Switzerland</i>. <b>MDPI.</b>",
         type:"Posters",
-        cite:"",  // <--- Add this field to enable Cite button
+        cite:"https://sciforum.net/paper/view/31069",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
-        details:"https://sciforum.net/paper/view/31069"
+        details:"https://sciforum.net/paper/32938"
       },
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
