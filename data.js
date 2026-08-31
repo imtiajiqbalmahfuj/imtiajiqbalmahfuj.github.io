@@ -981,6 +981,14 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
 
   blogs: [
     {
+      id: "26006",
+      title: "Seeing my own ideas come to life in Bangladesh!",
+      tags: ["Achievements"],
+      date: "August 31, 2026",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26006.png", 
+      link: "https://lnkd.in/p/e5EskcEy" 
+    },
+    {
       id: "26005",
       title: "My First Peer Review - Q1 Journal Article (Springer Nature)",
       tags: ["Achievements"],
