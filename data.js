@@ -145,12 +145,12 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       details:""
     },
     {
-      id:"26000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26016",
+      title:"A cloud-native GeoAI pipeline mapping atmospheric pollutants and thermal dynamics across Lubbock, Texas",
+      tags:["Geospatial Python", "GEE", "Portfolio"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26016_Air_Quality_Lubbock_Texas/COVER.jpg",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26016_Air_Quality_Lubbock_Texas/COVER.jpg",
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26016_Air_Quality_Lubbock.html"
     },
     {
       id:"26015",
