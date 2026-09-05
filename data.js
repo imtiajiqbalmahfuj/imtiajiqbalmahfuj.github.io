@@ -746,9 +746,27 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     recentLimit: 10,
     items: [
       {
+        title:"Spatiotemporal Assessment of Multi-Air-Pollutant Interactions and Surface Thermal Dynamics Across Lubbock, Texas Using Geographically Weighted Regression and Explainable Machine Learning",
+        date:"2026",
+        venue:"Rimon, R. A., <b>Mahfuj, I. I.*</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "" // Add paper link when available
+      },
+      {
+        title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
+        date:"2027 (Forthcoming)",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity <b>(Elsevier)</b></i>. [Book Chapter]",
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details:""
+      },
+      {
         title:"Spatiotemporal Detection of Flash Drought Hazards Through a PCA-Driven Explainable Deep Learning Framework Using Multi-Source Earth Observation Data",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., & Adib, J. I.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b> [Under Review]", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., & Adib, J. I.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -758,7 +776,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title:"Forecasting Construction-Induced Thermal Anomalies and Land Conversion in Ishwardi Using Agent-Based Modelling and Multitemporal Machine Learning Classification",
         date:"August 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ali, M. K., & Salan, M. S. A.<br> <i>International Symposium on Energy & Environment (ISEE), Rajshahi University of Engineering & Technology, Rajshahi, Bangladesh.</i>", 
-        type:"Conference proceedings",
+        type:"Conference Presentations & Proceedings",
         cite:"https://www.researchgate.net/publication/412829287_FORECASTING_CONSTRUCTION-INDUCED_THERMAL_ANOMALIES_AND_LAND_CONVERSION_IN_ISHWARDI_USING_AGENT-BASED_MODELLING_AND_MULTITEMPORAL_MACHINE_LEARNING_CLASSIFICATION",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1BbcdmVmEMelA85FXQ7YLPtXEr4jmAMhh/view?usp=drivesdk",
         details: "" // Add paper link when available
@@ -766,16 +784,16 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Assessing agrarian moisture sensitivity in the Barind Tract through a principal component analysis-weighted geospatial framework",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Geoscience (Springer Nature)</i>. [Under Review]", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Geoscience <b>(Springer Nature)</b></i>.", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
-        details: "" // Add paper link when available
+        details: "https://www.researchsquare.com/article/rs-10607643/latest" // Add paper link when available
       },
       {
         title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios in Chattogram using Explainable Graph Neural Networks",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b> [Under Review]", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -785,7 +803,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title: "Urban Fire Disaster Preparedness and Safety Practices in Commercial Buildings of Rajshahi City Corporation",
         date: "June 2026",
         venue: "Islam M.*, <b>Mahfuj, I. I.</b>, & Tamim, N. F.<br> <i>International Conference on Emerging Frontiers in Advanced Sciences and Technologies (EFAST), Pabna University of Science and Technology (PUST), Pabna, Bangladesh & Universiti Malaysia Perlis (UniMAP), Malaysia.</i>",
-        type: "Conference proceedings",
+        type: "Conference Presentations & Proceedings",
         cite: "https://www.researchgate.net/publication/408461295_Urban_Fire_Disaster_Preparedness_and_Safety_Practices_in_Commercial_Buildings_of_Rajshahi_City_Corporation",  // Add ResearchGate/Citation link when available
         cert: "",
         details: "" // Add paper link when available
@@ -793,8 +811,8 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Spatiotemporal assessment of the correlation between surface thermal field variance and human thermal discomfort in Dhaka",
         date:"May 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, & Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Basel, Switzerland <br>& The 1st International Online Conference on Earth Science, 2–4 September 2026, Basel, Switzerland</i>. <b>MDPI.</b>",
-        type:"Posters",
+        venue:"<b>Mahfuj, I. I.*</b>, & Tamim, N. F. <br> <i>The 1st International Online Conference on Urban Sciences (IOCUS), Basel, Switzerland <br>& The 1st International Online Conference on Earth Science, 2–4 September 2026, Basel, Switzerland</i>. <b>MDPI.</b> [Poster]",
+        type:"Conference Presentations & Proceedings",
         cite:"https://sciforum.net/paper/view/31069",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
         details:"https://sciforum.net/paper/32938"
@@ -802,7 +820,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
         date:"2026",
-        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability (Springer Nature)</i>. [Under Review]",
+        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -821,7 +839,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title: "A spatio-temporal assessment of urban ecological quality influenced by land surface temperature dynamics and thermal field variance in Dhaka",
         date: "April 2026",
         venue: "<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rafi, M. R. I., & Ahmed, S. <br> <i>8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh</i>",
-        type: "Conference proceedings",
+        type: "Conference Presentations & Proceedings",
         cite: "https://www.researchgate.net/publication/403723956_A_spatio-temporal_assessment_of_urban_ecological_quality_influenced_by_land_surface_temperature_dynamics_and_thermal_field_variance_in_Dhaka",  // Add ResearchGate/Citation link when available
         cert: "",
         details: "" // Add paper link when available
@@ -830,7 +848,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title: "Spatiotemporal assessment of urban thermal discomfort in major cities of Bangladesh using cloud-based geospatial indices",
         date: "April 2026",
         venue: "Tamim, N. F., Rafi, M. R. I., Ahmed, S., & <b>Mahfuj, I. I.*</b> <br> <i>8th International Conference on Sustainable Development (ICSD), United International University (UIU), Dhaka, Bangladesh</i>",
-        type: "Conference proceedings",
+        type: "Conference Presentations & Proceedings",
         cite: "https://www.researchgate.net/publication/403721473_Spatiotemporal_assessment_of_urban_thermal_discomfort_in_major_cities_of_Bangladesh_using_cloud-based_geospatial_indices",  // Add ResearchGate/Citation link when available
         cert: "",
         details: "" // Add paper link when available
@@ -839,7 +857,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title:"Flash flood hazard assessment using a GIS integrated fuzzy AHP-MCDA to inform nature-based solutions in Feni and Noakhali, Bangladesh",
         date:"February 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., & Adib, J. I. <br> <i>8th International Conference on Civil Engineering for Sustainable Development (ICCESD), Khulna University of Engineering & Technology, Khulna, Bangladesh</i>",
-        type:"Conference proceedings",
+        type:"Conference Presentations & Proceedings",
         cite:"https://www.researchgate.net/publication/400576696_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY_AHP-MCDA_TO_INFORM_NATURE-BASED_SOLUTIONS_IN_FENI_AND_NOAKHALI_BANGLADESH",  // <--- Add this field to enable Cite button
         cert: "",
         details:"https://iccesd.kuet.ac.bd/Papers/277.pdf"
@@ -848,35 +866,17 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title:"Assessing transit-oriented development potential of Karwan Bazar MRT Station: A strategic actions framework for sustainable urban growth",
         date:"May 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., & Nuru, M. N. <br> <i>4th International Conference on Urban and Regional Planning (ICURP),  Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh</i>",
-        type:"Conference proceedings",
+        type:"Conference Presentations & Proceedings",
         cert: "",
         cite:"https://www.researchgate.net/publication/400404964_Assessing_Transit-Oriented_Development_Potential_of_Karwan_Bazar_MRT_Station_A_Strategic_Actions_Framework_for_Sustainable_Urban_Growth",  // <--- Add this field to enable Cite button
-        details:"https://doi.org/10.2139/ssrn.5182917"
-      },
-      {
-        title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
-        date:"May 2025",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid T., Hossain M. S., Amin M. A. A., Hasan M. M.<br><i>4th International Conference of Urban & Regional Planning, 2025</i> <br>Organized by: Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
-        type:"Posters",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details:"https://www.researchgate.net/publication/391700930_A_REMOTE_SENSING-BASED_ANALYSIS_OF_NIGHTTIME_LIGHT_POLLUTION_AND_ITS_REGIONAL_SPILLOVER_EFFECTS_IN_DHAKA?channel=doi&linkId=682352846b5a287c3041129b&showFulltext=true"
-      },
-      {
-        title:"Redesigning Karwan Bazar MRT station as a transit-oriented development (TOD) neighborhood: A mixed land use approach",
-        date:"May 2025",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, J. A. B. A., Nuruzzaman M.<br><i>4th International Conference of Urban & Regional Planning, 2025</i> <br> Organized by: Bangladesh Institute of Planners (BIP), Dhaka, Bangladesh",
-        type:"Posters",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
         details:"https://www.researchgate.net/publication/391700748_Redesigning_Karwan_Bazar_MRT_Station_as_a_Transit-_Oriented_Development_TOD_Neighborhood_A_Mixed_Land_Use_Approach?channel=doi&linkId=68235431df0e3f544f542e9e&showFulltext=true"
       },
       {
         title:"A remote sensing-based analysis of nighttime light pollution and its regional spillover effects in Dhaka",
         date:"April 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Rashid, T., Hossain, M. S., Amin, M. A. A., & Hasan, M. M. <br> <i>8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh</i>",
-        type:"Conference proceedings",
-        details:"",
+        type:"Conference Presentations & Proceedings",
+        details:"https://www.researchgate.net/publication/391700930_A_REMOTE_SENSING-BASED_ANALYSIS_OF_NIGHTTIME_LIGHT_POLLUTION_AND_ITS_REGIONAL_SPILLOVER_EFFECTS_IN_DHAKA?channel=doi&linkId=682352846b5a287c3041129b&showFulltext=true",
         cert: "https://drive.google.com/file/d/1n_sCQjYPB9jxWhoQ3YJMQXozqpXOwfsv/view?usp=drive_link",
         cite:"https://www.researchgate.net/publication/389906076_A_Remote_Sensing-Based_Analysis_of_Nighttime_Light_Pollution_and_Its_Regional_Spillover_Effects_in_Dhaka"  // <--- Add this field to enable Cite button
       },
@@ -884,7 +884,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title:"Revolutionizing waste management in Rajshahi City Corporation: A technological solution for enhanced recycling and community engagement towards zero waste",
         date:"April 2025",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Aziz, Z. A. B. A., Sarker, D., & Islam, M. <br> <i>8th International Conference on Engineering Research, Innovation and Education (ICERIE 2025),  Shahjalal University of Science and Technology, Sylhet, Bangladesh</i>",
-        type:"Conference proceedings",
+        type:"Conference Presentations & Proceedings",
         details:"",
         cert: "https://drive.google.com/file/d/1T2XHFaBCSTqV_YFsh60g0GsG2ulWq_Qq/view?usp=drive_link",
         cite:"https://www.researchgate.net/publication/389905729_Revolutionizing_Waste_Management_in_Rajshahi_City_Corporation_A_Technological_Solution_for_Enhanced_Recycling_and_Community_Engagement_towards_Zero_Waste"  // <--- Add this field to enable Cite button
@@ -899,15 +899,6 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         details: "" // Add paper link when available
       },
       {
-        title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
-        date:"2026 (Forthcoming)",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity (Elsevier)</i>. [Book Chapter]",
-        type:"Manuscripts in Preparation",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details:""
-      },
-      {
         title:"Revitalizing Riverbank Systems through a Sponge City Framework and Nature-Based Solutions towards Sustainable and Resilient Communities in Charghat, Rajshahi",
         date:"2026",
         venue:"Tamim, N. F., <b>Mahfuj, I. I.*</b>, Gourab, M. B., Sultana, N., & Rafi, M. L. S.",
@@ -917,7 +908,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         details:""  // <--- Add this field to enable Cite button
       }
     ],
-    ordering:["Peer-Reviewed Journal Articles", "Manuscripts Under Review", "Book Chapters", "Conference proceedings", "Manuscripts in Preparation", "Posters"]
+    ordering:["Peer-Reviewed Journal Articles", "Manuscripts Under Review", "Book Chapters", "Conference Presentations & Proceedings", "Manuscripts in Preparation"]
   },
 
 
