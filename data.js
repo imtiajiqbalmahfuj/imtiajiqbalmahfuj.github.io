@@ -83,7 +83,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     title: "Research Interests", // will be displayed as header
     items: [
       "Geospatial Data Science (GeoAI & ML)",
-      "RS & Earth Observation (GEE)",
+      "GIS, RS & Earth Observation (GEE)",
       "Disaster Risk & Geo-Hazard Modeling",
       "Climate Change Adaptation",
       "GIScience & Spatial Modeling",
