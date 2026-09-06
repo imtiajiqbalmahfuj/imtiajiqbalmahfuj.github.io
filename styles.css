@@ -227,106 +227,265 @@ html, body {
 
 
 /* =========================================
-   MAGIC MODE: Modern AI Lab (light silver studio)
+   MAGIC MODE: Full-bleed Earth Observation
    ========================================= */
-
-/* Global light studio base — soft off-white with a faint horizontal ridge
-   texture, echoing the backdrop behind the voxel render */
-body.magic-mode {
-  background-color: #eef1f2 !important;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.025) 0px,
-    rgba(0,0,0,0.025) 1px,
-    transparent 1px,
-    transparent 26px
-  );
-  color: #23272b !important;
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-/* WebGL canvas holding the animated voxel "IM" object */
-#magicCanvas {
+#vesper-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  color: #fff;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
-  z-index: -1; /* stays behind page content */
-  pointer-events: none; /* clicks pass through to the page */
+  height: 100dvh;
+  overflow: hidden;
+  padding: clamp(16px, 2.4vh, 28px) clamp(14px, 3vw, 32px);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Let the object show through behind every section */
-body.magic-mode section, body.magic-mode main {
-  background-color: transparent !important;
+#vesper-container .bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Frosted glass navbar */
-body.magic-mode #navbar {
-  background-color: rgba(255, 255, 255, 0.65) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(19, 194, 194, 0.18);
-}
-body.magic-mode #navbar a, body.magic-mode #homeBrand {
-  color: #1c2024 !important;
+#vesper-container .vesper-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-/* Clean dark headings — no neon, just crisp modern type */
-body.magic-mode h1, body.magic-mode h2, body.magic-mode h3 {
-  color: #14181b !important;
-  background: none !important;
-  -webkit-text-fill-color: currentColor !important;
+/* Header */
+#vesper-container .vesper-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 22px 40px 10px;
 }
 
-/* Counter numbers pick up a single teal accent instead of a rainbow gradient */
-body.magic-mode #aboutCounters .count-up {
-  color: #0fb8b8 !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: currentColor !important;
+#vesper-container .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  justify-self: start;
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.35s ease;
+}
+#vesper-container .logo:hover { transform: scale(1.04); }
+#vesper-container .logo-suffix { font-weight: 400; color: #9a9a9a; }
+
+#vesper-container #site-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: center;
 }
 
-/* Frosted glass cards */
-body.magic-mode .card, body.magic-mode .bg-white {
-  background: rgba(255, 255, 255, 0.72) !important;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(20, 24, 27, 0.08) !important;
-  color: #23272b !important;
-  transition: all 0.3s ease;
+#vesper-container .vesper-nav-pill {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 7px;
+  border: 1px solid rgba(198,198,198,0.55);
+  background: linear-gradient(105deg, #050505 0%, #2a2a2a 48%, #4a4a4a 100%);
+  color: #f3f3f3;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+#vesper-container .vesper-nav-pill:hover {
+  border-color: rgba(235,235,235,0.9);
+  background: linear-gradient(105deg, #111, #3a3a3a 45%, #6a6a6a);
+  box-shadow: 0 0 18px rgba(200,210,230,0.18);
 }
 
-/* Soft teal glow on card hover, matching the render's accent glow */
-body.magic-mode .card:hover {
-  border-color: rgba(15, 184, 184, 0.45) !important;
-  box-shadow: 0 12px 26px rgba(15, 184, 184, 0.16);
-  transform: translateY(-4px) scale(1.01);
+/* Buttons */
+#vesper-container .btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
 }
 
-/* Light glass buttons/icons */
-body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .icon-btn {
-  background: rgba(255, 255, 255, 0.75) !important;
-  border: 1px solid rgba(20, 24, 27, 0.12) !important;
-  color: #14181b !important;
-  box-shadow: 0 4px 12px rgba(20, 24, 27, 0.06);
+#vesper-container .btn-solid {
+  background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 48%, #cfcfcf 100%);
+  color: #111;
+  border: 1px solid #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95);
 }
-body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .icon-btn:hover {
-  border-color: rgba(15, 184, 184, 0.5) !important;
-  color: #0fb8b8 !important;
-  box-shadow: 0 0 16px rgba(15, 184, 184, 0.25);
-}
-
-/* Primary CTA buttons — graphite with a teal glow ring instead of neon fill */
-body.magic-mode .bg-black {
-  background: #14181b !important;
-  color: #f4fbfb !important;
-  border: 1px solid rgba(15, 184, 184, 0.35) !important;
-  box-shadow: 0 0 18px rgba(15, 184, 184, 0.25);
-}
-body.magic-mode .bg-black:hover {
-  box-shadow: 0 0 26px rgba(15, 184, 184, 0.45);
+#vesper-container .btn-solid:hover {
+  background: linear-gradient(180deg, #fff 0%, #f3f6ff 42%, #d5def2 100%);
+  border-color: #f2f6ff;
+  box-shadow: inset 0 1px 0 #fff, 0 0 22px rgba(186,208,255,0.35), 0 8px 18px rgba(255,255,255,0.14);
 }
 
-/* Secondary text stays legible slate grey */
-body.magic-mode .text-slate-500, body.magic-mode .text-slate-600 {
-  color: #5b6570 !important;
+#vesper-container .header-cta { justify-self: end; }
+
+#vesper-container .btn-ghost {
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(0,0,0,0.5) 46%, rgba(150,170,200,0.1));
+  border: 1px solid rgba(198,198,198,0.55);
+  color: #fff;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+#vesper-container .btn-ghost:hover {
+  border-color: rgba(220,230,255,0.8);
+  box-shadow: 0 0 24px rgba(170,200,255,0.28);
+}
+
+/* Hero */
+#vesper-container .hero {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 8px 24px 85px;
+  min-height: 0;
+}
+
+#vesper-container .hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 860px;
+  width: 100%;
+}
+
+#vesper-container .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 9px 15px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #7d7d7d 0%, #2a2a2a 52%, #0a0a0a 100%);
+  color: #f2f2f2;
+  font-size: 12.5px;
+}
+
+#vesper-container .vesper-h1 {
+  font-family: "BubbledotICG-FinePos", "Geist Pixel Circle", monospace;
+  font-size: clamp(28px, 6.2vw, 80px);
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#vesper-container .vesper-h1 em {
+  font-family: "Instrument Serif", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 1.08em;
+  color: #9a9a9a;
+  letter-spacing: -0.03em;
+}
+
+#vesper-container .headline-line {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.15em 0.14em;
+}
+
+#vesper-container .lede {
+  max-width: 470px;
+  margin-top: 18px;
+  color: #9a9a9a;
+  font-size: clamp(14px, 1.55vw + 2px, 16.5px);
+  line-height: 1.55;
+}
+
+#vesper-container .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+#vesper-container .hero-actions .btn {
+  height: 42px;
+  padding: 0 18px;
+}
+
+/* Stats */
+#vesper-container .stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 72px 36px;
+  color: #d8d8d8;
+}
+
+#vesper-container .stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#vesper-container .stat-val {
+  font-family: "BubbledotICG-FinePos", monospace;
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: #fff;
+}
+
+#vesper-container .stat-label {
+  font-size: clamp(11px, 1.2vw, 12.5px);
+  color: #8e8e8e;
+}
+
+/* Entrance Animations */
+.appear { opacity: 0; animation: reveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.appear--scale { animation-name: in-scale; }
+.appear--soft { animation-name: in-soft; }
+.appear--mask { animation-name: in-mask; }
+.appear--pop { animation-name: in-pop; }
+.appear--btn { animation-name: in-btn; }
+.appear--side { animation-name: in-side; }
+.appear--stat { animation-name: in-stat; }
+
+@keyframes in-scale { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }
+@keyframes in-soft { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes in-mask { from { opacity: 0; transform: translateY(40%); } to { opacity: 1; transform: translateY(0); } }
+@keyframes in-pop { 0% { opacity: 0; transform: scale(0.9); } 70% { opacity: 1; transform: scale(1.03); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes in-btn { from { opacity: 0; transform: translateY(18px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes in-side { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes in-stat { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes reveal { to { opacity: 1; transform: none; clip-path: none; filter: none; } }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  #vesper-container { overflow-y: auto; height: auto; display: block; }
+  #vesper-container .stats { flex-direction: column; gap: 16px; padding: 20px; white-space: normal; }
+  #vesper-container #site-nav { display: none; }
+  #vesper-container .vesper-header { padding: 16px; grid-template-columns: 1fr auto; }
+  #vesper-container .hero { padding: 20px 20px 64px; align-items: flex-end; }
+  #vesper-container .hero-actions { flex-direction: column; width: 100%; }
+  #vesper-container .hero-actions .btn { width: 100%; }
 }
