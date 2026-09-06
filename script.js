@@ -987,151 +987,141 @@ function initDefaultParticles() {
 
 
 
-// === Digital Minimal Colorful Magic Mode ===
+// === Single-Viewport Earth Observation Magic Mode (Vesper.ai Inspired) ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
 
   let isMagic = false;
-  let canvas, ctx, animationId;
-  let particles = [];
-  
-  // Mouse position tracker
-  let mouse = { x: null, y: null, radius: 120 };
+  let vesperContainer = null;
 
-  window.addEventListener('mousemove', (e) => {
-    mouse.x = e.x;
-    mouse.y = e.y;
-  });
-  window.addEventListener('mouseout', () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
-
-  // Particle Class
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 1.5 + 0.5;
-      this.speedX = (Math.random() - 0.5) * 0.8;
-      this.speedY = (Math.random() - 0.5) * 0.8;
-      // Alternate between Cyan and Magenta
-      this.color = Math.random() > 0.5 ? '#00ffff' : '#ff00ff';
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-
-      // Bounce off edges
-      if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-      if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
-    }
-    draw() {
-      ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  // Generate lines between close particles & mouse
-  function connectParticles() {
-    for (let a = 0; a < particles.length; a++) {
-      for (let b = a; b < particles.length; b++) {
-        let dx = particles[a].x - particles[b].x;
-        let dy = particles[a].y - particles[b].y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-
-        // Connect particles to each other
-        if (distance < 100) {
-          ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 100})`;
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(particles[b].x, particles[b].y);
-          ctx.stroke();
-        }
-      }
-
-      // Connect particles to mouse
-      if (mouse.x && mouse.y) {
-        let mx = particles[a].x - mouse.x;
-        let my = particles[a].y - mouse.y;
-        let mDistance = Math.sqrt(mx * mx + my * my);
-        if (mDistance < mouse.radius) {
-          ctx.strokeStyle = `rgba(255, 0, 255, ${1 - mDistance / mouse.radius})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
-        }
-      }
-    }
-  }
-
-  function animate() {
-    if (!isMagic) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
-    }
-    connectParticles();
-    animationId = requestAnimationFrame(animate);
-  }
-
-  // Handle Button Click
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     isMagic = !isMagic;
-    document.body.classList.toggle('magic-mode', isMagic);
 
     if (isMagic) {
-      // Create canvas dynamically
-      canvas = document.createElement('canvas');
-      canvas.id = 'magicCanvas';
-      document.body.prepend(canvas);
-      ctx = canvas.getContext('2d');
+      // 1. Hide original content and lock scroll
+      document.body.style.overflow = 'hidden';
+      document.querySelectorAll('header, section, footer').forEach(el => {
+        if(el.id !== 'loadingScreen') el.style.display = 'none';
+      });
       
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      // Create efficient number of particles based on screen size
-      let particleCount = Math.min((canvas.width * canvas.height) / 12000, 100);
-      particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
+      // 2. Load Vesper Fonts dynamically (Bubbledot + Instrument Serif)
+      if (!document.getElementById('vesper-fonts')) {
+        document.head.insertAdjacentHTML('beforeend', `
+          <link id="vesper-fonts" rel="stylesheet" href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap">
+        `);
       }
 
-      animate();
+      // 3. Create Vesper Container using your window.SITE data
+      vesperContainer = document.createElement('div');
+      vesperContainer.id = 'vesper-container';
       
-      // Update Button Icon
-      btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5"></i>`;
-      lucide.createIcons();
+      const brand = window.SITE.brand;
+      const stats = window.SITE.counters;
       
-    } else {
-      // Destroy canvas and stop animation to save memory
-      cancelAnimationFrame(animationId);
-      const existingCanvas = document.getElementById('magicCanvas');
-      if (existingCanvas) existingCanvas.remove();
-      
-      // Restore Button Text/Icon
-      btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
-      lucide.createIcons();
-    }
-  });
+      vesperContainer.innerHTML = `
+        <!-- CloudFront Earth Background Video -->
+        <video class="bg-video" autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260818_072341_50851634-bbc3-4c33-9acc-7647d4db44aa.mp4" type="video/mp4" />
+        </video>
+        
+        <div class="vesper-content">
+          <!-- Revert Button Header -->
+          <header class="vesper-header">
+            <a href="#" id="revertMagicBtn" class="logo appear appear--scale" style="animation-delay: 0.08s">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" transform="rotate(-30 12 12)">
+                <circle cx="7.3" cy="3.2" r="1.45"/><rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8"/>
+                <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8"/><circle cx="16.7" cy="20.8" r="1.45"/>
+              </svg>
+              <span>Imtiaj<span class="logo-suffix">.io</span></span>
+            </a>
+            
+            <nav id="site-nav" class="hidden md:flex">
+              <a href="${brand.linkedin}" target="_blank" class="vesper-nav-pill appear appear--scale" style="animation-delay: 0.16s">LinkedIn</a>
+              <a href="${brand.cvDownload}" target="_blank" class="vesper-nav-pill appear appear--soft" style="animation-delay: 0.28s">Resume</a>
+            </nav>
+            
+            <a href="${brand.email}" class="btn btn-ghost header-cta appear appear--scale" style="animation-delay: 0.34s">Get in touch</a>
+          </header>
 
-  // Handle Window Resize while active
-  window.addEventListener('resize', () => {
-    if (isMagic && canvas) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+          <!-- Centered Hero -->
+          <main class="hero">
+            <div class="hero-copy">
+              <div class="badge appear appear--pop" style="animation-delay: 0.22s">
+                <svg width="18" height="20" fill="white" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 3px rgba(255,255,255,0.45))">
+                  <path d="M12 2.6C12.55 2.6 12.88 3.15 13.08 4.7c.62 4.7 1.52 5.6 6.22 6.22 1.55.2 2.1.53 2.1 1.08s-.55.88-2.1 1.08c-4.7.62-5.6 1.52-6.22 6.22-.2 1.55-.53 2.1-1.08 2.1s-.88-.55-1.08-2.1c-.62-4.7-1.52-5.6-6.22-6.22C3.15 12.88 2.6 12.55 2.6 12s.55-.88 2.1-1.08c4.7-.62 5.6-1.52 6.22-6.22C11.12 3.15 11.45 2.6 12 2.6Z"/>
+                </svg>
+                Geospatial Data Science & GeoAI
+              </div>
+              
+              <h1 class="vesper-h1">
+                <span class="headline-line appear appear--mask" style="animation-delay: 0.42s">Model <em>Earth systems</em> with</span>
+                <span class="headline-line appear appear--mask" style="animation-delay: 0.62s">GeoAI in real-time.</span>
+              </h1>
+              
+              <p class="lede appear appear--soft" style="animation-delay: 0.82s">
+                Deploy explainable machine learning models that predict, adapt, and scale disaster risk and environmental dynamics.
+              </p>
+              
+              <div class="hero-actions">
+                <a href="${brand.cvDownload}" class="btn btn-solid appear appear--btn" style="animation-delay: 0.96s">Start Exploring</a>
+                <a href="${brand.linkedin}" class="btn btn-ghost appear appear--side" style="animation-delay: 1.10s">See it in action</a>
+              </div>
+            </div>
+          </main>
+
+          <!-- Stats Footer mapped from window.SITE.counters -->
+          <footer class="stats">
+            ${stats.map((s, i) => `
+              <div class="stat appear appear--stat" style="animation-delay: ${1.12 + (i*0.16)}s">
+                <span class="stat-val" data-target="${s.value}">0</span>
+                <span class="stat-label">${s.label}</span>
+              </div>
+            `).join('')}
+          </footer>
+        </div>
+      `;
+      
+      document.body.appendChild(vesperContainer);
+      document.body.style.background = '#000000';
+      
+      // Animate Counters
+      const counters = vesperContainer.querySelectorAll('.stat-val');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const step = Math.ceil(target / 100);
+        const update = () => {
+          count += step;
+          if (count >= target) {
+            counter.textContent = target + (target > 100 ? "+" : "");
+          } else {
+            counter.textContent = count;
+            requestAnimationFrame(update);
+          }
+        };
+        setTimeout(update, 1500); // Wait for entrance animations
+      });
+
+      // Handle Revert back to original layout
+      document.getElementById('revertMagicBtn').addEventListener('click', (e) => {
+         e.preventDefault();
+         btn.click(); // Trigger the logic below
+      });
+
+    } else {
+      // Restore Original Layout
+      document.body.style.overflow = '';
+      document.body.style.background = '';
+      if (vesperContainer) vesperContainer.remove();
+      document.querySelectorAll('header, section, footer').forEach(el => {
+        if(el.id !== 'loadingScreen') el.style.display = '';
+      });
     }
   });
 }
-
 
 
 
