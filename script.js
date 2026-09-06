@@ -137,6 +137,125 @@ function applyNav(){
   }
 }
 
+
+// === Dynamically Build Navigation & Dropdowns ===
+function mountNavigation() {
+  try {
+    const navCenter = $('#navCenter');
+    const mobileMenu = $('#mobileMenu');
+    if (!navCenter || !window.SITE) return; 
+
+    const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+    const basePath = isHome ? "" : "index.html";
+
+    // 1. Safely extract experiences (UPDATED IDs to prevent collision)
+    const exps = window.SITE.experiences || {};
+    const expLinks = [
+      { id: 'exp-professional', label: 'Professional Experience', data: exps.professional },
+      { id: 'exp-research', label: 'Research Experience', data: exps.research },
+      { id: 'exp-teach', label: 'Teaching Experience', data: exps.teach }
+    ].filter(x => x.data && x.data.length > 0);
+
+    // 2. Safely extract publications
+    const pubsItems = (window.SITE.publications && window.SITE.publications.items) || [];
+    const pubsOrder = (window.SITE.publications && window.SITE.publications.ordering) || [];
+    const pubCounts = {};
+    pubsItems.forEach(p => { if(p.type) pubCounts[p.type] = (pubCounts[p.type] || 0) + 1; });
+    const pubLinks = pubsOrder.filter(type => pubCounts[type] > 0).map(type => ({
+      id: type.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      label: type
+    }));
+
+    // 3. Safely extract achievements
+    const achvs = window.SITE.achievements || {};
+    const achvLinks = [
+      { id: 'fellowships', label: 'Fellowships & Research Grants', data: achvs.fellowships },
+      { id: 'awards', label: 'Awards, Honors & Memberships', data: achvs.awards },
+      { id: 'volunteer', label: 'Leadership & Volunteering', data: achvs.volunteering },
+      { id: 'licenses', label: 'License & Certifications', data: achvs.licenses },
+      { id: 'workshops', label: 'Workshops & Presentations', data: achvs.workshops },
+      { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
+    ].filter(x => x.data && x.data.length > 0);
+
+    // UPDATED Desktop Dropdown Builder (Glassmorphic + hover-underline)
+    const makeDesktopDropdown = (href, label, links, alignRight = false) => {
+      if (links.length === 0) return `<a href="${basePath}${href}" class="hover-underline text-slate-700 py-4">${label}</a>`;
+      const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
+      return `
+        <div class="relative group flex items-center h-full">
+          <a href="${basePath}${href}" class="hover-underline text-slate-700 py-4 inline-block">${label}</a>
+          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
+            ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
+          </div>
+        </div>
+      `;
+    };
+
+    // Mobile Dropdown Builder
+    const makeMobileDropdown = (href, label, links) => {
+      if (links.length === 0) return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
+      return `
+        <div class="group flex flex-col gap-2">
+          <a class="hover-underline font-medium text-slate-700 inline-block w-fit" href="${basePath}${href}">${label}</a>
+          <div class="hidden group-hover:flex flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
+             ${links.map(l => `<a href="${basePath}#${l.id}" class="text-sm text-slate-500 hover:text-black">${l.label}</a>`).join('')}
+          </div>
+        </div>
+      `;
+    };
+
+    const staticLinks = `
+      <a href="${basePath}#about" class="hover-underline text-slate-700 py-4">About</a>
+      <a href="${basePath}#projects" class="hover-underline text-slate-700 py-4">Projects</a>
+    `;
+    
+    navCenter.innerHTML = staticLinks + 
+      makeDesktopDropdown('#experience', 'Experiences', expLinks) +
+      makeDesktopDropdown('#publications', 'Publications', pubLinks) +
+      makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks, true);
+
+    if (mobileMenu) {
+      let mobileMenuGrid = mobileMenu.querySelector('div');
+      if (!mobileMenuGrid) {
+        mobileMenu.innerHTML = '<div class="max-w-6xl mx-auto px-4 py-5 grid gap-5"></div>';
+        mobileMenuGrid = mobileMenu.querySelector('div');
+      }
+      mobileMenuGrid.innerHTML = staticLinks.replace(/text-slate-700 py-4/g, "font-medium text-slate-700") + 
+        makeMobileDropdown('#experience', 'Experiences', expLinks) +
+        makeMobileDropdown('#publications', 'Publications', pubLinks) +
+        makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
+    }
+  } catch(e) {
+    console.error("Navigation build error:", e);
+  }
+}
+
+
+function mountLoading(){
+  const screen = $('#loadingScreen')
+  if(!screen) return
+  let cameFromSameSite = false
+  try {
+    if (document.referrer) {
+      const ref = new URL(document.referrer)
+      cameFromSameSite = ref.origin === location.origin
+    }
+  } catch(e){ cameFromSameSite = false }
+  if(cameFromSameSite){
+    screen.style.display = 'none'
+    return
+  }
+  const hide = () => {
+    screen.style.transition = "opacity 0.5s ease"
+    screen.style.opacity = '0'
+    setTimeout(()=> screen.style.display='none', 500)
+  }
+  window.addEventListener('load', hide) 
+  setTimeout(hide, 1500) 
+}
+
+
+
 function mountHero(){
   if (!window.SITE) return;
   const {name, subtitle, cvDownload} = window.SITE.brand
@@ -750,126 +869,6 @@ function mountBlogsPage() {
 
   lucide.createIcons();
 }
-
-
-// === Dynamically Build Navigation & Dropdowns ===
-function mountNavigation() {
-  try {
-    const navCenter = $('#navCenter');
-    const mobileMenu = $('#mobileMenu');
-    if (!navCenter || !window.SITE) return; 
-
-    const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-    const basePath = isHome ? "" : "index.html";
-
-    // 1. Safely extract experiences (UPDATED IDs to prevent collision)
-    const exps = window.SITE.experiences || {};
-    const expLinks = [
-      { id: 'exp-professional', label: 'Professional Experience', data: exps.professional },
-      { id: 'exp-research', label: 'Research Experience', data: exps.research },
-      { id: 'exp-teach', label: 'Teaching Experience', data: exps.teach }
-    ].filter(x => x.data && x.data.length > 0);
-
-    // 2. Safely extract publications
-    const pubsItems = (window.SITE.publications && window.SITE.publications.items) || [];
-    const pubsOrder = (window.SITE.publications && window.SITE.publications.ordering) || [];
-    const pubCounts = {};
-    pubsItems.forEach(p => { if(p.type) pubCounts[p.type] = (pubCounts[p.type] || 0) + 1; });
-    const pubLinks = pubsOrder.filter(type => pubCounts[type] > 0).map(type => ({
-      id: type.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-      label: type
-    }));
-
-    // 3. Safely extract achievements
-    const achvs = window.SITE.achievements || {};
-    const achvLinks = [
-      { id: 'fellowships', label: 'Fellowships & Research Grants', data: achvs.fellowships },
-      { id: 'awards', label: 'Awards, Honors & Memberships', data: achvs.awards },
-      { id: 'volunteer', label: 'Leadership & Volunteering', data: achvs.volunteering },
-      { id: 'licenses', label: 'License & Certifications', data: achvs.licenses },
-      { id: 'workshops', label: 'Workshops & Presentations', data: achvs.workshops },
-      { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
-    ].filter(x => x.data && x.data.length > 0);
-
-    // UPDATED Desktop Dropdown Builder (Solid color + hover-underline)
-    const makeDesktopDropdown = (href, label, links, alignRight = false) => {
-      if (links.length === 0) return `<a href="${basePath}${href}" class="hover-underline text-slate-700 py-4">${label}</a>`;
-      const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
-      return `
-        <div class="relative group flex items-center h-full">
-          <a href="${basePath}${href}" class="hover-underline text-slate-700 py-4 inline-block">${label}</a>
-          <div class="absolute ${alignClass} top-full mt-0 hidden group-hover:flex flex-col bg-white border border-slate-200 shadow-xl rounded-2xl p-5 min-w-[260px] z-50 gap-4">
-            ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
-          </div>
-        </div>
-      `;
-    };
-
-    // Mobile Dropdown Builder
-    const makeMobileDropdown = (href, label, links) => {
-      if (links.length === 0) return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
-      return `
-        <div class="group flex flex-col gap-2">
-          <a class="hover-underline font-medium text-slate-700 inline-block w-fit" href="${basePath}${href}">${label}</a>
-          <div class="hidden group-hover:flex flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
-             ${links.map(l => `<a href="${basePath}#${l.id}" class="text-sm text-slate-500 hover:text-black">${l.label}</a>`).join('')}
-          </div>
-        </div>
-      `;
-    };
-
-    const staticLinks = `
-      <a href="${basePath}#about" class="hover-underline text-slate-700 py-4">About</a>
-      <a href="${basePath}#projects" class="hover-underline text-slate-700 py-4">Projects</a>
-    `;
-    
-    navCenter.innerHTML = staticLinks + 
-      makeDesktopDropdown('#experience', 'Experiences', expLinks) +
-      makeDesktopDropdown('#publications', 'Publications', pubLinks) +
-      makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks, true);
-
-    if (mobileMenu) {
-      let mobileMenuGrid = mobileMenu.querySelector('div');
-      if (!mobileMenuGrid) {
-        mobileMenu.innerHTML = '<div class="max-w-6xl mx-auto px-4 py-5 grid gap-5"></div>';
-        mobileMenuGrid = mobileMenu.querySelector('div');
-      }
-      mobileMenuGrid.innerHTML = staticLinks.replace(/text-slate-700 py-4/g, "font-medium text-slate-700") + 
-        makeMobileDropdown('#experience', 'Experiences', expLinks) +
-        makeMobileDropdown('#publications', 'Publications', pubLinks) +
-        makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
-    }
-  } catch(e) {
-    console.error("Navigation build error:", e);
-  }
-}
-
-
-function mountLoading(){
-  const screen = $('#loadingScreen')
-  if(!screen) return
-  let cameFromSameSite = false
-  try {
-    if (document.referrer) {
-      const ref = new URL(document.referrer)
-      cameFromSameSite = ref.origin === location.origin
-    }
-  } catch(e){ cameFromSameSite = false }
-  if(cameFromSameSite){
-    screen.style.display = 'none'
-    return
-  }
-  const hide = () => {
-    screen.style.transition = "opacity 0.5s ease"
-    screen.style.opacity = '0'
-    setTimeout(()=> screen.style.display='none', 500)
-  }
-  window.addEventListener('load', hide) 
-  setTimeout(hide, 1500) 
-}
-
-
-
 
 
 
