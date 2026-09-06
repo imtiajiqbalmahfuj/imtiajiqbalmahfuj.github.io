@@ -408,46 +408,75 @@ a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
 
 
 /* =========================================
-   OVERLAPPING LIQUID LENS (Navbar)
+   SLIDING BRACKET NAVIGATION
    ========================================= */
 
-.nav-liquid-lens {
+/* The tracking box holding the corners */
+.nav-bracket-slider {
   position: absolute;
-  /* Crystal clear frosted background */
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  
-  /* Drop shadow + The subtle blue inner rim light seen in the video */
-  box-shadow: 
-    inset 0 0 16px rgba(56, 189, 248, 0.25), 
-    inset 0 4px 6px rgba(255, 255, 255, 0.9), 
-    0 12px 32px rgba(0, 0, 0, 0.12);
-    
-  border-radius: 999px; /* Keeps it pill/circle shaped */
-  
-  /* The bouncy, elastic snap physics */
-  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 0;
   opacity: 0;
   pointer-events: none;
 }
 
-/* Ensure text sits on top of the lens and is clickable */
-.liquid-nav-item {
+/* Top-Left Angle */
+.bracket-tl {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 8px; 
+  height: 8px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+}
+
+/* Bottom-Right Angle */
+.bracket-br {
+  position: absolute;
+  bottom: 0; 
+  right: 0;
+  width: 8px; 
+  height: 8px;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+}
+
+/* Nav Item Defaults */
+.nav-item-link {
   position: relative;
   z-index: 10;
-  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-block;
   transform-origin: center;
+  font-weight: 500;
 }
 
-/* The Zoom-In effect when the lens is over the text */
-.liquid-nav-item.is-magnified {
+/* Nav Item ACTIVE State (Bold & Larger) */
+.nav-item-link.is-active-nav {
+  font-weight: 700 !important; /* Bold */
+  transform: scale(1.1);       /* Slightly Larger */
   color: #000 !important;
-  font-weight: 700;
-  transform: scale(1.15); /* Zooms the text in */
 }
 
+/* =========================================
+   UNIVERSAL GLASSMORPHISM & BLACK HOVER (Reset)
+   ========================================= */
 
+/* Make all buttons share the glass look at rest, and snap to black on hover */
+a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s ease !important;
+}
 
+/* Reverts to your preferred solid black hover */
+a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover {
+  background-color: #0b0b0b !important;
+  color: #ffffff !important;
+  border-color: #0b0b0b !important;
+  transform: scale(1.03) !important; /* Slight pop */
+}
