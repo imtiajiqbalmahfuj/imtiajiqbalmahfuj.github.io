@@ -140,6 +140,8 @@ function applyNav(){
 
 
 
+
+
 // === Dynamically Build Navigation & Sliding Bracket ===
 function mountNavigation() {
   try {
@@ -177,7 +179,7 @@ function mountNavigation() {
       { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
-    // Desktop Dropdown Builder (Uses new glass-dropdown CSS class)
+    // Desktop Dropdown Builder
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
       if (links.length === 0) return `<a href="${basePath}${href}" class="nav-item-link text-slate-700 py-2 px-3">${label}</a>`;
       const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
@@ -191,25 +193,13 @@ function mountNavigation() {
       `;
     };
 
-    // 2. Mobile Dropdown Builder
+    // Mobile Dropdown Builder
     const makeMobileDropdown = (href, label, links) => {
-      if (links.length === 0) {
-        return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
-      }
-      
-      // Dynamic unique ID based on label for targeting the correct dropdown DOM element
-      const menuId = `mob-menu-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-      
+      if (links.length === 0) return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
       return `
-        <div class="flex flex-col gap-2">
-          <button 
-            onclick="document.getElementById('${menuId}').classList.toggle('hidden')" 
-            class="hover-underline font-medium text-slate-700 inline-flex items-center w-fit text-left gap-1"
-          >
-            ${label}
-            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div id="${menuId}" class="hidden flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
+        <div class="group flex flex-col gap-2">
+          <a class="hover-underline font-medium text-slate-700 inline-block w-fit" href="${basePath}${href}">${label}</a>
+          <div class="hidden group-hover:flex flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
              ${links.map(l => `<a href="${basePath}#${l.id}" class="text-sm text-slate-500 hover:text-black">${l.label}</a>`).join('')}
           </div>
         </div>
@@ -236,7 +226,6 @@ function mountNavigation() {
     bracketSlider.innerHTML = '<div class="bracket-tl"></div><div class="bracket-br"></div>';
     navCenter.appendChild(bracketSlider);
     
-    // Convert NodeList to Array so we can use .find()
     const navItems = Array.from(navCenter.querySelectorAll('.nav-item-link'));
     let activeItem = null;
     let isHoveringNav = false;
@@ -247,10 +236,10 @@ function mountNavigation() {
             navItems.forEach(item => item.classList.remove('is-active-nav'));
             return;
         }
+        
         const targetRect = target.getBoundingClientRect();
         const containerRect = navCenter.getBoundingClientRect();
         
-        // Dynamic padding around the text
         const padX = 16; 
         const padY = 8;
         
@@ -260,44 +249,54 @@ function mountNavigation() {
         bracketSlider.style.top = `${targetRect.top - containerRect.top - (padY / 2)}px`;
         bracketSlider.style.opacity = '1';
 
-        // Apply active scaling & bolding
         navItems.forEach(item => item.classList.remove('is-active-nav'));
         target.classList.add('is-active-nav');
     }
 
-    // Strict Hover routing
+    // Hover routing
     navCenter.addEventListener('mouseenter', () => { isHoveringNav = true; });
     navCenter.addEventListener('mouseleave', () => { 
         isHoveringNav = false; 
-        updateBracket(activeItem); // Snap back to current page section
+        updateBracket(activeItem); // Snap back to scroll position or hide
     });
 
     navItems.forEach(item => {
         item.addEventListener('mouseenter', () => updateBracket(item));
     });
 
-    // Scroll Spy (Prioritizes section closest to top of screen)
-    setTimeout(() => {
+    // Exact Scroll Spy Logic
+    function handleScrollSpy() {
+        let currentId = null;
         const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            const visible = entries.filter(e => e.isIntersecting);
-            if (visible.length > 0) {
-                // Sort by which section's top edge is closest to the top of viewport
-                visible.sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
-                const id = visible[0].target.getAttribute('id');
-                const matchingNav = navItems.find(nav => nav.getAttribute('href') && nav.getAttribute('href').includes(`#${id}`));
-                
-                if (matchingNav) {
-                    activeItem = matchingNav;
-                    // Only snap back automatically if user isn't actively moving mouse over navbar
-                    if (!isHoveringNav) updateBracket(activeItem);
-                }
+        const scrollY = window.scrollY;
+        
+        sections.forEach(sec => {
+            const sectionTop = sec.offsetTop - 150; // Offset for navbar
+            const sectionHeight = sec.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                currentId = sec.getAttribute('id');
             }
-        }, { threshold: 0.1, rootMargin: "-20% 0px -50% 0px" });
-        sections.forEach(sec => observer.observe(sec));
-    }, 500);
+        });
 
-    // Build Mobile menu
+        if (currentId) {
+            const matchingNav = navItems.find(nav => nav.getAttribute('href') && nav.getAttribute('href').endsWith(`#${currentId}`));
+            if (matchingNav) {
+                activeItem = matchingNav;
+                if (!isHoveringNav) updateBracket(activeItem);
+            } else {
+                activeItem = null; // If scrolling through a section NOT in navbar, remove bracket
+                if (!isHoveringNav) updateBracket(null);
+            }
+        } else {
+            activeItem = null;
+            if (!isHoveringNav) updateBracket(null);
+        }
+    }
+    
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    setTimeout(handleScrollSpy, 100); // Run once on load to set initial state
+
+    // Build Mobile menu (Fixed to use Mobile builder)
     if (mobileMenu) {
       let mobileMenuGrid = mobileMenu.querySelector('div');
       if (!mobileMenuGrid) {
@@ -305,14 +304,16 @@ function mountNavigation() {
         mobileMenuGrid = mobileMenu.querySelector('div');
       }
       mobileMenuGrid.innerHTML = staticLinks.replace(/nav-item-link text-slate-700 py-2 px-3/g, "hover-underline font-medium text-slate-700") + 
-        makeDesktopDropdown('#experience', 'Experiences', expLinks) +
-        makeDesktopDropdown('#publications', 'Publications', pubLinks) +
-        makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks);
+        makeMobileDropdown('#experience', 'Experiences', expLinks) +
+        makeMobileDropdown('#publications', 'Publications', pubLinks) +
+        makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
     }
   } catch(e) {
     console.error("Navigation build error:", e);
   }
 }
+
+
 
 
 
