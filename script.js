@@ -138,7 +138,7 @@ function applyNav(){
 }
 
 
-// === Dynamically Build Navigation & Dropdowns ===
+// === Dynamically Build Navigation & Liquid Glass Dropdowns ===
 function mountNavigation() {
   try {
     const navCenter = $('#navCenter');
@@ -148,7 +148,7 @@ function mountNavigation() {
     const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
     const basePath = isHome ? "" : "index.html";
 
-    // 1. Safely extract experiences (UPDATED IDs to prevent collision)
+    // 1. Safely extract data
     const exps = window.SITE.experiences || {};
     const expLinks = [
       { id: 'exp-professional', label: 'Professional Experience', data: exps.professional },
@@ -156,7 +156,6 @@ function mountNavigation() {
       { id: 'exp-teach', label: 'Teaching Experience', data: exps.teach }
     ].filter(x => x.data && x.data.length > 0);
 
-    // 2. Safely extract publications
     const pubsItems = (window.SITE.publications && window.SITE.publications.items) || [];
     const pubsOrder = (window.SITE.publications && window.SITE.publications.ordering) || [];
     const pubCounts = {};
@@ -166,7 +165,6 @@ function mountNavigation() {
       label: type
     }));
 
-    // 3. Safely extract achievements
     const achvs = window.SITE.achievements || {};
     const achvLinks = [
       { id: 'fellowships', label: 'Fellowships & Research Grants', data: achvs.fellowships },
@@ -177,14 +175,14 @@ function mountNavigation() {
       { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
-    // UPDATED Desktop Dropdown Builder (Glassmorphic)
+    // Desktop Dropdown Builder (Removed old underline, added liquid classes)
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
-      if (links.length === 0) return `<a href="${basePath}${href}" class="hover-underline text-slate-700 py-4">${label}</a>`;
+      if (links.length === 0) return `<a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors">${label}</a>`;
       const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
       return `
         <div class="relative group flex items-center h-full">
-          <a href="${basePath}${href}" class="hover-underline text-slate-700 py-4 inline-block">${label}</a>
-          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/55 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
+          <a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full inline-block relative z-10 transition-colors">${label}</a>
+          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/60 backdrop-blur-lg border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
             ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
           </div>
         </div>
@@ -205,22 +203,95 @@ function mountNavigation() {
     };
 
     const staticLinks = `
-      <a href="${basePath}#about" class="hover-underline text-slate-700 py-4">About</a>
-      <a href="${basePath}#projects" class="hover-underline text-slate-700 py-4">Projects</a>
+      <a href="${basePath}#about" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors">About</a>
+      <a href="${basePath}#projects" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors">Projects</a>
     `;
     
+    // Inject HTML
     navCenter.innerHTML = staticLinks + 
       makeDesktopDropdown('#experience', 'Experiences', expLinks) +
       makeDesktopDropdown('#publications', 'Publications', pubLinks) +
       makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks, true);
 
+    // ==========================================
+    // LIQUID GLASS BLOB LOGIC
+    // ==========================================
+    navCenter.style.position = 'relative';
+    const blob = document.createElement('div');
+    blob.className = 'nav-liquid-blob';
+    navCenter.appendChild(blob);
+    
+    const navItems = navCenter.querySelectorAll('.liquid-nav-item');
+    let activeItem = null;
+
+    function updateBlob(target) {
+        if (!target) return;
+        // Calculate position relative to navCenter
+        const targetRect = target.getBoundingClientRect();
+        const containerRect = navCenter.getBoundingClientRect();
+        
+        blob.style.width = `${targetRect.width}px`;
+        blob.style.height = `${targetRect.height}px`;
+        blob.style.left = `${targetRect.left - containerRect.left}px`;
+        blob.style.top = `${targetRect.top - containerRect.top}px`;
+        blob.style.opacity = '1';
+    }
+
+    // Hover routing
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            updateBlob(item);
+            item.style.color = '#000';
+        });
+        item.addEventListener('mouseleave', () => {
+            if (item !== activeItem) item.style.color = '';
+        });
+    });
+
+    // Return to active item when mouse leaves nav area
+    navCenter.addEventListener('mouseleave', () => {
+        if (activeItem) {
+            updateBlob(activeItem);
+        } else {
+            blob.style.opacity = '0';
+        }
+    });
+
+    // Page Scroll Spy (Updates Active state based on what section you are viewing)
+    setTimeout(() => {
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            let intersecting = entries.filter(e => e.isIntersecting);
+            if (intersecting.length > 0) {
+                // Find top-most visible section
+                const entry = intersecting.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+                const id = entry.target.getAttribute('id');
+                const matchingNav = Array.from(navItems).find(nav => nav.getAttribute('href') && nav.getAttribute('href').includes(`#${id}`));
+                
+                if (matchingNav) {
+                    activeItem = matchingNav;
+                    // Reset all colors, highlight active
+                    navItems.forEach(nav => nav.style.color = '');
+                    matchingNav.style.color = '#000';
+                    
+                    // Only snap blob back if mouse isn't hovering the nav
+                    if (!navCenter.matches(':hover')) {
+                        updateBlob(activeItem);
+                    }
+                }
+            }
+        }, { threshold: 0.1, rootMargin: "-20% 0px -60% 0px" });
+        sections.forEach(sec => observer.observe(sec));
+    }, 500);
+
+    // Build Mobile menu
     if (mobileMenu) {
       let mobileMenuGrid = mobileMenu.querySelector('div');
       if (!mobileMenuGrid) {
         mobileMenu.innerHTML = '<div class="max-w-6xl mx-auto px-4 py-5 grid gap-5"></div>';
         mobileMenuGrid = mobileMenu.querySelector('div');
       }
-      mobileMenuGrid.innerHTML = staticLinks.replace(/text-slate-700 py-4/g, "font-medium text-slate-700") + 
+      mobileMenuGrid.innerHTML = staticLinks.replace(/liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors/g, "hover-underline font-medium text-slate-700") + 
         makeMobileDropdown('#experience', 'Experiences', expLinks) +
         makeMobileDropdown('#publications', 'Publications', pubLinks) +
         makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
