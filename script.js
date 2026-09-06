@@ -184,7 +184,7 @@ function mountNavigation() {
       return `
         <div class="relative group flex items-center h-full">
           <a href="${basePath}${href}" class="hover-underline text-slate-700 py-4 inline-block">${label}</a>
-          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/60 backdrop-blur-lg border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
+          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/55 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
             ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
           </div>
         </div>
