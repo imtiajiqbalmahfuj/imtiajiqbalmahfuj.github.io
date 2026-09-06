@@ -32,22 +32,24 @@ function mountAllEmails() {
 }
 
 
+
+
 function applyNav(){
-  const navCenter = $('#navCenter')
-  const connectBtn = $('#connectBtn')
-  const homeBrand = $('#homeBrand')
-  const mmBtn = $('#menuBtn')
-  const mobileMenu = $('#mobileMenu')
+  const navCenter = $('#navCenter');
+  const connectBtn = $('#connectBtn');
+  const homeBrand = $('#homeBrand');
+  const mmBtn = $('#menuBtn');
+  const mobileMenu = $('#mobileMenu');
 
   // Brand click
   if(homeBrand){
     homeBrand.addEventListener('click', e=>{
-      const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" 
+      const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/"; 
       if(isHome){
-        e.preventDefault()
-        window.scrollTo({top:0, behavior:'smooth'})
+        e.preventDefault();
+        window.scrollTo({top:0, behavior:'smooth'});
       }
-    })
+    });
   }
 
   // Smart scroll
@@ -70,26 +72,18 @@ function applyNav(){
     });
   }
 
-  // === THE RESPONSIVE FIX ===
-  // Helper function to calculate exact scroll position for both Mobile & Desktop
   const scrollToElement = (el) => {
     let targetEl = el;
-    
-    // If it's a main section, scroll to its heading to ignore huge padding spaces
     if (el.tagName.toLowerCase() === 'section' || el.tagName.toLowerCase() === 'main') {
       const heading = el.querySelector('h1, h2, h3');
       if (heading) targetEl = heading;
     }
-
-    // Dynamic offset: Tighter on mobile, spacious on desktop
     const isMobile = window.innerWidth < 768;
     const offset = isMobile ? 55 : 85; 
-
     const y = targetEl.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
-  // Connect Button
   if(connectBtn){
     connectBtn.addEventListener('click', (e)=> {
       e.preventDefault();
@@ -99,10 +93,9 @@ function applyNav(){
       } else {
         window.location.href = "index.html#contact";
       }
-    })
+    });
   }
 
-  // Smooth scroll for anchors with smart OFFSET
   $all('a[href*="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const url = new URL(a.href, window.location.href);
@@ -111,8 +104,6 @@ function applyNav(){
         if (el) {
           e.preventDefault();
           scrollToElement(el);
-          
-          // Close mobile menu if open
           if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
              mobileMenu.classList.add('hidden');
           }
@@ -121,19 +112,26 @@ function applyNav(){
     });
   });
 
-  // Mobile menu toggle
+  // FIXED MOBILE MENU TOGGLE & OUTSIDE CLICK
   if(mmBtn && mobileMenu){
-    mmBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'))
+    mmBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevents document click from firing immediately
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking anywhere else on the screen
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
   }
 
-  // FIX FOR CROSS-PAGE ANCHOR LINKS (e.g. clicking from subpage back to index)
   if (window.location.hash) {
     setTimeout(() => {
       const el = $(window.location.hash);
-      if (el) {
-        scrollToElement(el);
-      }
-    }, 150); // Small delay ensures the page is fully rendered before scrolling
+      if (el) scrollToElement(el);
+    }, 150);
   }
 }
 
