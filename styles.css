@@ -227,265 +227,118 @@ html, body {
 
 
 /* =========================================
-   MAGIC MODE: Full-bleed Earth Observation
+   MAGIC MODE: Earth Observation & GeoAI Edition
    ========================================= */
-#vesper-container {
+
+body.magic-mode {
+  /* HSL Variables */
+  --bg: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 53%;
+  --stroke: 0 0% 12%;
+  
+  background-color: hsl(var(--bg)) !important;
+  color: hsl(var(--text)) !important;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* 3D Canvas Background */
+#magicCanvas {
   position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #000;
-  color: #fff;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  padding: clamp(16px, 2.4vh, 28px) clamp(14px, 3vw, 32px);
-  -webkit-font-smoothing: antialiased;
-}
-
-#vesper-container .bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  z-index: -1;
   pointer-events: none;
-  z-index: 0;
+  background: radial-gradient(circle at center, rgba(16,185,129,0.05) 0%, hsl(var(--bg)) 70%);
 }
 
-#vesper-container .vesper-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-/* Header */
-#vesper-container .vesper-header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  padding: 22px 40px 10px;
-}
-
-#vesper-container .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  justify-self: start;
-  font-size: 15.5px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  color: #fff;
-  text-decoration: none;
-  transition: transform 0.35s ease;
-}
-#vesper-container .logo:hover { transform: scale(1.04); }
-#vesper-container .logo-suffix { font-weight: 400; color: #9a9a9a; }
-
-#vesper-container #site-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-self: center;
-}
-
-#vesper-container .vesper-nav-pill {
-  height: 40px;
-  padding: 0 18px;
-  border-radius: 7px;
-  border: 1px solid rgba(198,198,198,0.55);
-  background: linear-gradient(105deg, #050505 0%, #2a2a2a 48%, #4a4a4a 100%);
-  color: #f3f3f3;
-  font-size: 14px;
-  letter-spacing: -0.01em;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  transition: all 0.35s ease;
-}
-#vesper-container .vesper-nav-pill:hover {
-  border-color: rgba(235,235,235,0.9);
-  background: linear-gradient(105deg, #111, #3a3a3a 45%, #6a6a6a);
-  box-shadow: 0 0 18px rgba(200,210,230,0.18);
-}
-
-/* Buttons */
-#vesper-container .btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 6px;
-  font-size: 13.5px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.35s ease;
-}
-
-#vesper-container .btn-solid {
-  background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 48%, #cfcfcf 100%);
-  color: #111;
-  border: 1px solid #fff;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95);
-}
-#vesper-container .btn-solid:hover {
-  background: linear-gradient(180deg, #fff 0%, #f3f6ff 42%, #d5def2 100%);
-  border-color: #f2f6ff;
-  box-shadow: inset 0 1px 0 #fff, 0 0 22px rgba(186,208,255,0.35), 0 8px 18px rgba(255,255,255,0.14);
-}
-
-#vesper-container .header-cta { justify-self: end; }
-
-#vesper-container .btn-ghost {
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(0,0,0,0.5) 46%, rgba(150,170,200,0.1));
-  border: 1px solid rgba(198,198,198,0.55);
-  color: #fff;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-#vesper-container .btn-ghost:hover {
-  border-color: rgba(220,230,255,0.8);
-  box-shadow: 0 0 24px rgba(170,200,255,0.28);
-}
-
-/* Hero */
-#vesper-container .hero {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 8px 24px 85px;
-  min-height: 0;
-}
-
-#vesper-container .hero-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 860px;
-  width: 100%;
-}
-
-#vesper-container .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 22px;
-  padding: 9px 15px;
-  border-radius: 5px;
-  background: linear-gradient(90deg, #7d7d7d 0%, #2a2a2a 52%, #0a0a0a 100%);
-  color: #f2f2f2;
-  font-size: 12.5px;
-}
-
-#vesper-container .vesper-h1 {
-  font-family: "BubbledotICG-FinePos", "Geist Pixel Circle", monospace;
-  font-size: clamp(28px, 6.2vw, 80px);
-  letter-spacing: -0.04em;
-  line-height: 1.12;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#vesper-container .vesper-h1 em {
-  font-family: "Instrument Serif", "Times New Roman", Times, serif;
+/* Typography Overrides */
+body.magic-mode h1, body.magic-mode h2, body.magic-mode h3, body.magic-mode #homeBrand {
+  font-family: 'Instrument Serif', serif !important;
+  color: hsl(var(--text)) !important;
   font-style: italic;
-  font-size: 1.08em;
-  color: #9a9a9a;
-  letter-spacing: -0.03em;
+  font-weight: 400;
 }
 
-#vesper-container .headline-line {
-  display: block;
-  overflow: hidden;
-  padding: 0.06em 0.15em 0.14em;
+body.magic-mode #heroName {
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
 }
 
-#vesper-container .lede {
-  max-width: 470px;
-  margin-top: 18px;
-  color: #9a9a9a;
-  font-size: clamp(14px, 1.55vw + 2px, 16.5px);
-  line-height: 1.55;
+/* Accent Utilities */
+.text-accent { color: #38bdf8 !important; }
+.text-muted { color: hsl(var(--muted)) !important; }
+.font-display { font-family: 'Instrument Serif', serif !important; }
+.font-body { font-family: 'Inter', sans-serif !important; }
+
+/* Frosted Dark Navbar */
+body.magic-mode #navbar {
+  background-color: hsla(var(--surface), 0.8) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsl(var(--stroke));
+}
+body.magic-mode #navbar a { color: hsl(var(--text)) !important; }
+
+/* Bento Grid Cards & Base UI */
+body.magic-mode .card, body.magic-mode .bg-white {
+  background-color: hsl(var(--surface)) !important;
+  border: 1px solid hsl(var(--stroke)) !important;
+  color: hsl(var(--text)) !important;
+  border-radius: 1.5rem !important; /* 3xl rounding */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#vesper-container .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 26px;
+/* Accent Gradient on Hover */
+body.magic-mode .card:hover {
+  border-image: linear-gradient(90deg, #38bdf8 0%, #3b82f6 50%, #10b981 100%) 1 !important;
+  border-radius: 0 !important; /* Required for border-image to render properly in CSS */
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+  transform: translateY(-2px);
 }
 
-#vesper-container .hero-actions .btn {
-  height: 42px;
-  padding: 0 18px;
+/* Button & Pill Restyling */
+body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .filter-btn {
+  background-color: transparent !important;
+  border: 1px solid hsl(var(--stroke)) !important;
+  color: hsl(var(--muted)) !important;
 }
 
-/* Stats */
-#vesper-container .stats {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 0 72px 36px;
-  color: #d8d8d8;
+body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, 
+body.magic-mode button.bg-black {
+  background: linear-gradient(90deg, #38bdf8 0%, #3b82f6 50%, #10b981 100%) !important;
+  color: #fff !important;
+  border-color: transparent !important;
 }
 
-#vesper-container .stat {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
+body.magic-mode .bg-black {
+  background-color: hsl(var(--text)) !important;
+  color: hsl(var(--bg)) !important;
 }
 
-#vesper-container .stat-val {
-  font-family: "BubbledotICG-FinePos", monospace;
-  font-size: clamp(18px, 2.2vw, 26px);
-  color: #fff;
+/* Force Section Backgrounds Transparent */
+body.magic-mode section, body.magic-mode main, body.magic-mode footer {
+  background-color: transparent !important;
 }
 
-#vesper-container .stat-label {
-  font-size: clamp(11px, 1.2vw, 12.5px);
-  color: #8e8e8e;
-}
-
-/* Entrance Animations */
-.appear { opacity: 0; animation: reveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.appear--scale { animation-name: in-scale; }
-.appear--soft { animation-name: in-soft; }
-.appear--mask { animation-name: in-mask; }
-.appear--pop { animation-name: in-pop; }
-.appear--btn { animation-name: in-btn; }
-.appear--side { animation-name: in-side; }
-.appear--stat { animation-name: in-stat; }
-
-@keyframes in-scale { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }
-@keyframes in-soft { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes in-mask { from { opacity: 0; transform: translateY(40%); } to { opacity: 1; transform: translateY(0); } }
-@keyframes in-pop { 0% { opacity: 0; transform: scale(0.9); } 70% { opacity: 1; transform: scale(1.03); } 100% { opacity: 1; transform: scale(1); } }
-@keyframes in-btn { from { opacity: 0; transform: translateY(18px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes in-side { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes in-stat { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes reveal { to { opacity: 1; transform: none; clip-path: none; filter: none; } }
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  #vesper-container { overflow-y: auto; height: auto; display: block; }
-  #vesper-container .stats { flex-direction: column; gap: 16px; padding: 20px; white-space: normal; }
-  #vesper-container #site-nav { display: none; }
-  #vesper-container .vesper-header { padding: 16px; grid-template-columns: 1fr auto; }
-  #vesper-container .hero { padding: 20px 20px 64px; align-items: flex-end; }
-  #vesper-container .hero-actions { flex-direction: column; width: 100%; }
-  #vesper-container .hero-actions .btn { width: 100%; }
+/* Bento Grid Specific Layout Hack for Project Track */
+@media (min-width: 768px) {
+  body.magic-mode #projectTrack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  body.magic-mode #projectTrackOuter .flex-shrink-0 {
+    width: auto;
+  }
+  /* Make every 4th item span 2 columns to create the bento look */
+  body.magic-mode #projectTrack > div:nth-child(4n) {
+    grid-column: span 2;
+  }
 }
