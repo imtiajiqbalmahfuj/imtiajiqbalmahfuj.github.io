@@ -408,41 +408,68 @@ a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
 
 
 /* =========================================
-   LIQUID GLASS EFFECT (Navbar & Global Buttons)
+   OVERLAPPING LIQUID LENS (Navbar)
    ========================================= */
 
-/* 1. Sliding Liquid Bubble for the Navbar */
-.nav-liquid-blob {
+.nav-liquid-lens {
   position: absolute;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.9);
-  border-radius: 99px;
-  /* The cubic-bezier creates the bouncy, gooey elastic snap between links */
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); 
+  /* Crystal clear frosted background */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  
+  /* Drop shadow + The subtle blue inner rim light seen in the video */
+  box-shadow: 
+    inset 0 0 16px rgba(56, 189, 248, 0.25), 
+    inset 0 4px 6px rgba(255, 255, 255, 0.9), 
+    0 12px 32px rgba(0, 0, 0, 0.12);
+    
+  border-radius: 999px; /* Keeps it pill/circle shaped */
+  
+  /* The bouncy, elastic snap physics */
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
   z-index: 0;
   opacity: 0;
   pointer-events: none;
 }
 
-/* Make nav text pop above the sliding bubble */
+/* Ensure text sits on top of the lens and is clickable */
 .liquid-nav-item {
+  position: relative;
+  z-index: 10;
   font-weight: 500;
-}
-.liquid-nav-item.nav-active {
-  color: #000 !important;
-  font-weight: 600;
+  transform-origin: center;
 }
 
-/* 2. Expanding Liquid Glass Hover for ALL Buttons */
+/* The Zoom-In effect when the lens is over the text */
+.liquid-nav-item.is-magnified {
+  color: #000 !important;
+  font-weight: 700;
+  transform: scale(1.15); /* Zooms the text in */
+}
+
+/* =========================================
+   LIQUID BUBBLE EFFECT (All Global Buttons)
+   ========================================= */
+
 a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn, #connectBtn, #cvBtn, #emailBtn {
   position: relative;
   overflow: hidden; /* Contains the expanding bubble */
   z-index: 1;
+  /* Make the whole button pop out slightly */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
+/* Make the icon/text inside the button scale up */
+a.bg-white > *, button.bg-white > *, .filter-btn.bg-white > *, .icon-btn > *, #connectBtn > *, #cvBtn > *, #emailBtn > * {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+/* The hidden bubble sitting in the center of the button */
 a.bg-white::before, button.bg-white::before, .filter-btn.bg-white::before, .icon-btn::before, #connectBtn::before, #cvBtn::before, #emailBtn::before {
   content: '';
   position: absolute;
@@ -450,8 +477,7 @@ a.bg-white::before, button.bg-white::before, .filter-btn.bg-white::before, .icon
   left: 50%;
   width: 0;
   height: 0;
-  /* Frosted center bubble */
-  background: rgba(255, 255, 255, 0.6); 
+  background: rgba(255, 255, 255, 0.8); 
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
@@ -462,14 +488,22 @@ a.bg-white::before, button.bg-white::before, .filter-btn.bg-white::before, .icon
   pointer-events: none;
 }
 
-/* Adjust the frosted liquid color for black buttons */
-.bg-black::before {
+/* Dark buttons need a subtle inverted bubble */
+.bg-black::before, #connectBtn::before, #cvBtn::before {
   background: rgba(255, 255, 255, 0.25) !important;
 }
 
-/* Trigger the liquid expansion on hover */
+/* TRIGGER HOVER: Expand bubble, pop button, zoom text */
+a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover, #connectBtn:hover, #cvBtn:hover, #emailBtn:hover {
+  transform: scale(1.05); /* Pop button */
+}
+
+a.bg-white:hover > *, button.bg-white:hover > *, .filter-btn.bg-white:hover > *, .icon-btn:hover > *, #connectBtn:hover > *, #cvBtn:hover > *, #emailBtn:hover > * {
+  transform: scale(1.1); /* Zoom content */
+}
+
 a.bg-white:hover::before, button.bg-white:hover::before, .filter-btn.bg-white:hover::before, .icon-btn:hover::before, #connectBtn:hover::before, #cvBtn:hover::before, #emailBtn:hover::before {
   width: 150%;
-  padding-top: 150%; /* CSS trick to keep the expanding bubble perfectly circular */
+  padding-top: 150%; /* Keeps the expanding bubble perfectly circular */
   opacity: 1;
 }
