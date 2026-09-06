@@ -138,7 +138,7 @@ function applyNav(){
 }
 
 
-// === Dynamically Build Navigation & Liquid Glass Dropdowns ===
+// === Dynamically Build Navigation & Liquid Lens Effect ===
 function mountNavigation() {
   try {
     const navCenter = $('#navCenter');
@@ -148,7 +148,7 @@ function mountNavigation() {
     const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
     const basePath = isHome ? "" : "index.html";
 
-    // 1. Safely extract data
+    // Safely extract data
     const exps = window.SITE.experiences || {};
     const expLinks = [
       { id: 'exp-professional', label: 'Professional Experience', data: exps.professional },
@@ -175,36 +175,23 @@ function mountNavigation() {
       { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
-    // Desktop Dropdown Builder (Removed old underline, added liquid classes)
+    // Desktop Dropdown Builder
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
-      if (links.length === 0) return `<a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors">${label}</a>`;
+      if (links.length === 0) return `<a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block">${label}</a>`;
       const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
       return `
         <div class="relative group flex items-center h-full">
-          <a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full inline-block relative z-10 transition-colors">${label}</a>
-          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/60 backdrop-blur-lg border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
+          <a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full inline-block relative z-10 transition-all duration-300">${label}</a>
+          <div class="absolute ${alignClass} top-full mt-4 hidden group-hover:flex flex-col bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-3xl p-5 min-w-[260px] z-50 gap-4">
             ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
           </div>
         </div>
       `;
     };
 
-    // Mobile Dropdown Builder
-    const makeMobileDropdown = (href, label, links) => {
-      if (links.length === 0) return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
-      return `
-        <div class="group flex flex-col gap-2">
-          <a class="hover-underline font-medium text-slate-700 inline-block w-fit" href="${basePath}${href}">${label}</a>
-          <div class="hidden group-hover:flex flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
-             ${links.map(l => `<a href="${basePath}#${l.id}" class="text-sm text-slate-500 hover:text-black">${l.label}</a>`).join('')}
-          </div>
-        </div>
-      `;
-    };
-
     const staticLinks = `
-      <a href="${basePath}#about" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors">About</a>
-      <a href="${basePath}#projects" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors">Projects</a>
+      <a href="${basePath}#about" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block">About</a>
+      <a href="${basePath}#projects" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block">Projects</a>
     `;
     
     // Inject HTML
@@ -214,69 +201,70 @@ function mountNavigation() {
       makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks, true);
 
     // ==========================================
-    // LIQUID GLASS BLOB LOGIC
+    // OVERLAPPING LIQUID LENS LOGIC
     // ==========================================
     navCenter.style.position = 'relative';
-    const blob = document.createElement('div');
-    blob.className = 'nav-liquid-blob';
-    navCenter.appendChild(blob);
+    const lens = document.createElement('div');
+    lens.className = 'nav-liquid-lens';
+    navCenter.appendChild(lens);
     
     const navItems = navCenter.querySelectorAll('.liquid-nav-item');
     let activeItem = null;
 
-    function updateBlob(target) {
+    function updateLens(target) {
         if (!target) return;
-        // Calculate position relative to navCenter
         const targetRect = target.getBoundingClientRect();
         const containerRect = navCenter.getBoundingClientRect();
         
-        blob.style.width = `${targetRect.width}px`;
-        blob.style.height = `${targetRect.height}px`;
-        blob.style.left = `${targetRect.left - containerRect.left}px`;
-        blob.style.top = `${targetRect.top - containerRect.top}px`;
-        blob.style.opacity = '1';
+        // Make the lens taller than the nav bar to spill over the edges (like the video)
+        const bulgePadding = 16; 
+        const width = targetRect.width + (bulgePadding * 1.5);
+        const height = targetRect.height + (bulgePadding * 2);
+
+        lens.style.width = `${width}px`;
+        lens.style.height = `${height}px`;
+        // Center the larger lens over the text
+        lens.style.left = `${targetRect.left - containerRect.left - (width - targetRect.width) / 2}px`;
+        lens.style.top = `${targetRect.top - containerRect.top - (height - targetRect.height) / 2}px`;
+        lens.style.opacity = '1';
+
+        // Apply zoom effect to text
+        navItems.forEach(item => item.classList.remove('is-magnified'));
+        target.classList.add('is-magnified');
     }
 
     // Hover routing
     navItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            updateBlob(item);
-            item.style.color = '#000';
-        });
-        item.addEventListener('mouseleave', () => {
-            if (item !== activeItem) item.style.color = '';
+            updateLens(item);
         });
     });
 
     // Return to active item when mouse leaves nav area
     navCenter.addEventListener('mouseleave', () => {
         if (activeItem) {
-            updateBlob(activeItem);
+            updateLens(activeItem);
         } else {
-            blob.style.opacity = '0';
+            lens.style.opacity = '0';
+            navItems.forEach(item => item.classList.remove('is-magnified'));
         }
     });
 
-    // Page Scroll Spy (Updates Active state based on what section you are viewing)
+    // Page Scroll Spy (Updates Active state permanently based on view)
     setTimeout(() => {
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             let intersecting = entries.filter(e => e.isIntersecting);
             if (intersecting.length > 0) {
-                // Find top-most visible section
                 const entry = intersecting.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
                 const id = entry.target.getAttribute('id');
                 const matchingNav = Array.from(navItems).find(nav => nav.getAttribute('href') && nav.getAttribute('href').includes(`#${id}`));
                 
                 if (matchingNav) {
                     activeItem = matchingNav;
-                    // Reset all colors, highlight active
-                    navItems.forEach(nav => nav.style.color = '');
-                    matchingNav.style.color = '#000';
-                    
-                    // Only snap blob back if mouse isn't hovering the nav
+                    // Only snap back if user isn't currently hovering around the nav
                     if (!navCenter.matches(':hover')) {
-                        updateBlob(activeItem);
+                        updateLens(activeItem);
                     }
                 }
             }
@@ -286,12 +274,13 @@ function mountNavigation() {
 
     // Build Mobile menu
     if (mobileMenu) {
+      // (Mobile code remains unchanged)
       let mobileMenuGrid = mobileMenu.querySelector('div');
       if (!mobileMenuGrid) {
         mobileMenu.innerHTML = '<div class="max-w-6xl mx-auto px-4 py-5 grid gap-5"></div>';
         mobileMenuGrid = mobileMenu.querySelector('div');
       }
-      mobileMenuGrid.innerHTML = staticLinks.replace(/liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-colors/g, "hover-underline font-medium text-slate-700") + 
+      mobileMenuGrid.innerHTML = staticLinks.replace(/liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block/g, "hover-underline font-medium text-slate-700") + 
         makeMobileDropdown('#experience', 'Experiences', expLinks) +
         makeMobileDropdown('#publications', 'Publications', pubLinks) +
         makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
