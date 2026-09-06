@@ -138,7 +138,7 @@ function applyNav(){
 }
 
 
-// === Dynamically Build Navigation & Liquid Lens Effect ===
+// === Dynamically Build Navigation & Sliding Bracket ===
 function mountNavigation() {
   try {
     const navCenter = $('#navCenter');
@@ -177,21 +177,34 @@ function mountNavigation() {
 
     // Desktop Dropdown Builder
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
-      if (links.length === 0) return `<a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block">${label}</a>`;
+      if (links.length === 0) return `<a href="${basePath}${href}" class="nav-item-link text-slate-700 py-2 px-3">${label}</a>`;
       const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
       return `
         <div class="relative group flex items-center h-full">
-          <a href="${basePath}${href}" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full inline-block relative z-10 transition-all duration-300">${label}</a>
-          <div class="absolute ${alignClass} top-full mt-4 hidden group-hover:flex flex-col bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-3xl p-5 min-w-[260px] z-50 gap-4">
+          <a href="${basePath}${href}" class="nav-item-link text-slate-700 py-2 px-3">${label}</a>
+          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-3xl p-5 min-w-[260px] z-50 gap-4">
             ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
           </div>
         </div>
       `;
     };
 
+    // Mobile Dropdown Builder
+    const makeMobileDropdown = (href, label, links) => {
+      if (links.length === 0) return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
+      return `
+        <div class="group flex flex-col gap-2">
+          <a class="hover-underline font-medium text-slate-700 inline-block w-fit" href="${basePath}${href}">${label}</a>
+          <div class="hidden group-hover:flex flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
+             ${links.map(l => `<a href="${basePath}#${l.id}" class="text-sm text-slate-500 hover:text-black">${l.label}</a>`).join('')}
+          </div>
+        </div>
+      `;
+    };
+
     const staticLinks = `
-      <a href="${basePath}#about" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block">About</a>
-      <a href="${basePath}#projects" class="liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block">Projects</a>
+      <a href="${basePath}#about" class="nav-item-link text-slate-700 py-2 px-3">About</a>
+      <a href="${basePath}#projects" class="nav-item-link text-slate-700 py-2 px-3">Projects</a>
     `;
     
     // Inject HTML
@@ -201,56 +214,53 @@ function mountNavigation() {
       makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks, true);
 
     // ==========================================
-    // OVERLAPPING LIQUID LENS LOGIC
+    // SLIDING BRACKET TRACKER LOGIC
     // ==========================================
     navCenter.style.position = 'relative';
-    const lens = document.createElement('div');
-    lens.className = 'nav-liquid-lens';
-    navCenter.appendChild(lens);
+    const bracketSlider = document.createElement('div');
+    bracketSlider.className = 'nav-bracket-slider';
+    bracketSlider.innerHTML = '<div class="bracket-tl"></div><div class="bracket-br"></div>';
+    navCenter.appendChild(bracketSlider);
     
-    const navItems = navCenter.querySelectorAll('.liquid-nav-item');
+    const navItems = navCenter.querySelectorAll('.nav-item-link');
     let activeItem = null;
 
-    function updateLens(target) {
+    function updateBracket(target) {
         if (!target) return;
         const targetRect = target.getBoundingClientRect();
         const containerRect = navCenter.getBoundingClientRect();
         
-        // Make the lens taller than the nav bar to spill over the edges (like the video)
-        const bulgePadding = 16; 
-        const width = targetRect.width + (bulgePadding * 1.5);
-        const height = targetRect.height + (bulgePadding * 2);
+        // Dynamic padding around the text for the brackets
+        const padX = 14; 
+        const padY = 8;
+        
+        bracketSlider.style.width = `${targetRect.width + padX}px`;
+        bracketSlider.style.height = `${targetRect.height + padY}px`;
+        bracketSlider.style.left = `${targetRect.left - containerRect.left - (padX / 2)}px`;
+        bracketSlider.style.top = `${targetRect.top - containerRect.top - (padY / 2)}px`;
+        bracketSlider.style.opacity = '1';
 
-        lens.style.width = `${width}px`;
-        lens.style.height = `${height}px`;
-        // Center the larger lens over the text
-        lens.style.left = `${targetRect.left - containerRect.left - (width - targetRect.width) / 2}px`;
-        lens.style.top = `${targetRect.top - containerRect.top - (height - targetRect.height) / 2}px`;
-        lens.style.opacity = '1';
-
-        // Apply zoom effect to text
-        navItems.forEach(item => item.classList.remove('is-magnified'));
-        target.classList.add('is-magnified');
+        // Apply active scaling & bolding
+        navItems.forEach(item => item.classList.remove('is-active-nav'));
+        target.classList.add('is-active-nav');
     }
 
     // Hover routing
     navItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            updateLens(item);
-        });
+        item.addEventListener('mouseenter', () => updateBracket(item));
     });
 
-    // Return to active item when mouse leaves nav area
+    // Return to active page item when mouse leaves nav area
     navCenter.addEventListener('mouseleave', () => {
         if (activeItem) {
-            updateLens(activeItem);
+            updateBracket(activeItem);
         } else {
-            lens.style.opacity = '0';
-            navItems.forEach(item => item.classList.remove('is-magnified'));
+            bracketSlider.style.opacity = '0';
+            navItems.forEach(item => item.classList.remove('is-active-nav'));
         }
     });
 
-    // Page Scroll Spy (Updates Active state permanently based on view)
+    // Scroll Spy (Permanently highlights the section you are currently looking at)
     setTimeout(() => {
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
@@ -262,9 +272,9 @@ function mountNavigation() {
                 
                 if (matchingNav) {
                     activeItem = matchingNav;
-                    // Only snap back if user isn't currently hovering around the nav
+                    // Only snap back if user isn't actively hovering the navbar
                     if (!navCenter.matches(':hover')) {
-                        updateLens(activeItem);
+                        updateBracket(activeItem);
                     }
                 }
             }
@@ -274,21 +284,22 @@ function mountNavigation() {
 
     // Build Mobile menu
     if (mobileMenu) {
-      // (Mobile code remains unchanged)
       let mobileMenuGrid = mobileMenu.querySelector('div');
       if (!mobileMenuGrid) {
         mobileMenu.innerHTML = '<div class="max-w-6xl mx-auto px-4 py-5 grid gap-5"></div>';
         mobileMenuGrid = mobileMenu.querySelector('div');
       }
-      mobileMenuGrid.innerHTML = staticLinks.replace(/liquid-nav-item text-slate-700 py-2 px-4 rounded-full relative z-10 transition-all duration-300 inline-block/g, "hover-underline font-medium text-slate-700") + 
-        makeMobileDropdown('#experience', 'Experiences', expLinks) +
-        makeMobileDropdown('#publications', 'Publications', pubLinks) +
-        makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
+      mobileMenuGrid.innerHTML = staticLinks.replace(/nav-item-link text-slate-700 py-2 px-3/g, "hover-underline font-medium text-slate-700") + 
+        makeDesktopDropdown('#experience', 'Experiences', expLinks) +
+        makeDesktopDropdown('#publications', 'Publications', pubLinks) +
+        makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks);
     }
   } catch(e) {
     console.error("Navigation build error:", e);
   }
 }
+
+
 
 
 function mountLoading(){
