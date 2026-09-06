@@ -177,14 +177,14 @@ function mountNavigation() {
       { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
-    // UPDATED Desktop Dropdown Builder (Glassmorphic + hover-underline)
+    // UPDATED Desktop Dropdown Builder (Glassmorphic)
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
       if (links.length === 0) return `<a href="${basePath}${href}" class="hover-underline text-slate-700 py-4">${label}</a>`;
       const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
       return `
         <div class="relative group flex items-center h-full">
           <a href="${basePath}${href}" class="hover-underline text-slate-700 py-4 inline-block">${label}</a>
-          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
+          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/60 backdrop-blur-lg border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] rounded-2xl p-5 min-w-[260px] z-50 gap-4 transition-all">
             ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
           </div>
         </div>
