@@ -189,13 +189,25 @@ function mountNavigation() {
       `;
     };
 
-    // Mobile Dropdown Builder
+    // 2. Mobile Dropdown Builder
     const makeMobileDropdown = (href, label, links) => {
-      if (links.length === 0) return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
+      if (links.length === 0) {
+        return `<a class="hover-underline font-medium text-slate-700" href="${basePath}${href}">${label}</a>`;
+      }
+      
+      // Dynamic unique ID based on label for targeting the correct dropdown DOM element
+      const menuId = `mob-menu-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+      
       return `
-        <div class="group flex flex-col gap-2">
-          <a class="hover-underline font-medium text-slate-700 inline-block w-fit" href="${basePath}${href}">${label}</a>
-          <div class="hidden group-hover:flex flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
+        <div class="flex flex-col gap-2">
+          <button 
+            onclick="document.getElementById('${menuId}').classList.toggle('hidden')" 
+            class="hover-underline font-medium text-slate-700 inline-flex items-center w-fit text-left gap-1"
+          >
+            ${label}
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="${menuId}" class="hidden flex-col pl-4 gap-3 border-l-2 border-slate-100 mt-2">
              ${links.map(l => `<a href="${basePath}#${l.id}" class="text-sm text-slate-500 hover:text-black">${l.label}</a>`).join('')}
           </div>
         </div>
