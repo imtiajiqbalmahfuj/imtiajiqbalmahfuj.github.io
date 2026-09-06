@@ -128,9 +128,21 @@
   transition: transform 0.3s ease;
 }
 
-/* Prevent content overlap - Increased for floating margin */
+/* Prevent content overlap & Fix Grid Gap */
 body {
-  padding-top: 64px; 
+  padding-top: 0 !important; /* Removed the 64px gap */
+  background-color: #fafafa;
+  /* Add the grid directly to the body so it covers the absolute top */
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed; 
+}
+
+/* Hide the old hero grid so it doesn't double-layer */
+.hero-grid {
+  display: none !important;
 }
 
 
@@ -211,17 +223,6 @@ html, body {
 .theme-dark .text-slate-500, 
 .theme-dark .text-slate-600 {
   color: #94a3b8 !important;
-}
-
-
-
-.hero-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
 }
 
 
@@ -404,11 +405,11 @@ section.bg-slate-50, section.bg-white {
 
 /* Dedicated Glass Dropdown for Menus (Desktop & Mobile) */
 .glass-dropdown {
-  background-color: rgba(255, 255, 255, 0.65) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.85) !important; /* Increased Opacity */
+  backdrop-filter: blur(24px) !important; /* Increased Blur */
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
 }
 
 /* Glassmorphic Cards */
