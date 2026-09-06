@@ -117,20 +117,20 @@
   overflow-x: auto;
 }
 
-/* Navbar fixed + smooth hide/show */
+/* Navbar fixed + smooth hide/show wrapper */
 #navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: white;
+  background: transparent; /* Removed solid white background */
   transition: transform 0.3s ease;
 }
 
-/* Prevent content overlap */
+/* Prevent content overlap - Increased for floating margin */
 body {
-  padding-top: 64px; /* adjust to match navbar height */
+  padding-top: 104px; 
 }
 
 
