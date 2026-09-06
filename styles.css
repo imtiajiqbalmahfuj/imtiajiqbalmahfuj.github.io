@@ -392,8 +392,8 @@ a.bg-white, button.bg-white, .filter-btn.bg-white {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
 }
 a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
-  background-color: rgba(255, 255, 255, 0.65) !important;
-  color: rgba(0, 0, 0, 1) !important; 
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  color: rgba(255, 255, 255, 1) !important; 
 }
 
 /* 6. Fix for inner background overriding glass */
