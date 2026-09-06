@@ -346,68 +346,6 @@ body.magic-mode section, body.magic-mode main, body.magic-mode footer {
 
 
 /* =========================================
-   UNIVERSAL GLASSMORPHISM (Cards & Buttons)
-   ========================================= */
-
-/* 1. Make all sections transparent so the background shows through */
-section.bg-slate-50, section.bg-white {
-  background-color: transparent !important;
-}
-
-/* 2. Expand the grid to the whole body so glass has something to blur */
-/* body {
-  background-color: #fafafa;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-attachment: fixed; /* Keeps grid static while scrolling */
-} */
-
-/* 3. Hide the old hero-grid so it doesn't double up */
-/* .hero-grid {  */
-  /* display: none !important;  */
-/* } */
-
-/* 4. Glassmorphic Cards */
-.card {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03) !important;
-}
-.card:hover {
-  background-color: rgba(255, 255, 255, 0.65) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(255, 255, 255, 1) !important;
-}
-
-/* 5. Glassmorphic Buttons (White variants) */
-a.bg-white, button.bg-white, .filter-btn.bg-white {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
-}
-a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
-  background-color: rgba(0, 0, 0, 0.6) !important;
-  color: rgba(255, 255, 255, 1) !important; 
-}
-
-/* 6. Fix for inner background overriding glass */
-.card .bg-white {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-}
-
-
-
-
-
-/* =========================================
    SLIDING BRACKET NAVIGATION
    ========================================= */
 
@@ -423,10 +361,8 @@ a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
 /* Top-Left Angle */
 .bracket-tl {
   position: absolute;
-  top: 0; 
-  left: 0;
-  width: 8px; 
-  height: 8px;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
   border-top: 2px solid #000;
   border-left: 2px solid #000;
 }
@@ -434,10 +370,8 @@ a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
 /* Bottom-Right Angle */
 .bracket-br {
   position: absolute;
-  bottom: 0; 
-  right: 0;
-  width: 8px; 
-  height: 8px;
+  bottom: 0; right: 0;
+  width: 10px; height: 10px;
   border-bottom: 2px solid #000;
   border-right: 2px solid #000;
 }
@@ -446,7 +380,7 @@ a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
 .nav-item-link {
   position: relative;
   z-index: 10;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), font-weight 0.3s ease;
   display: inline-block;
   transform-origin: center;
   font-weight: 500;
@@ -455,15 +389,51 @@ a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover {
 /* Nav Item ACTIVE State (Bold & Larger) */
 .nav-item-link.is-active-nav {
   font-weight: 700 !important; /* Bold */
-  transform: scale(1.1);       /* Slightly Larger */
+  transform: scale(1.08);       /* Slightly Larger */
   color: #000 !important;
 }
 
 /* =========================================
-   UNIVERSAL GLASSMORPHISM & BLACK HOVER (Reset)
+   UNIVERSAL GLASSMORPHISM
    ========================================= */
 
-/* Make all buttons share the glass look at rest, and snap to black on hover */
+/* Make all sections transparent so the background shows through */
+section.bg-slate-50, section.bg-white {
+  background-color: transparent !important;
+}
+
+/* Dedicated Glass Dropdown for Menus (Desktop & Mobile) */
+.glass-dropdown {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Glassmorphic Cards */
+.card {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03) !important;
+}
+
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Fix for inner background overriding glass */
+.card .bg-white {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+}
+
+/* Glassmorphic Buttons (White variants) */
 a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
   background-color: rgba(255, 255, 255, 0.5) !important;
   backdrop-filter: blur(8px) !important;
@@ -471,12 +441,18 @@ a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
   border: 1px solid rgba(255, 255, 255, 0.7) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
   transition: all 0.25s ease !important;
+  color: #000 !important;
 }
 
-/* Reverts to your preferred solid black hover */
+/* Return to default solid black on hover */
 a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover {
   background-color: #0b0b0b !important;
   color: #ffffff !important;
   border-color: #0b0b0b !important;
-  transform: scale(1.03) !important; /* Slight pop */
+  transform: scale(1.05) !important;
+}
+
+/* Target all absolute floating slider buttons specifically */
+.icon-btn.absolute:hover {
+  transform: translateY(-50%) scale(1.1) !important; 
 }
