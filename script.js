@@ -987,142 +987,123 @@ function initDefaultParticles() {
 
 
 
-// === Single-Viewport Earth Observation Magic Mode (Vesper.ai Inspired) ===
+// === Earth Observation & GeoAI Magic Mode ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
 
   let isMagic = false;
-  let vesperContainer = null;
+  let animationId;
+  let scene, camera, renderer, earth, clouds;
+  let textInterval;
+  let originalSubtitle = "";
+
+  const roles = ["Geospatial Data Scientist", "GIS & EO Researcher", "GeoAI Developer", "Climate DRR Specialist"];
+  let roleIndex = 0;
+
+  // Load Three.js dynamically
+  function loadThreeJS(callback) {
+    if (window.THREE) return callback();
+    const script = document.createElement('script');
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+    script.onload = callback;
+    document.head.appendChild(script);
+  }
+
+  function initThreeJS() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'magicCanvas';
+    document.body.prepend(canvas);
+
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 2.5;
+
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Earth Base (Wireframe for EO tech look)
+    const geometry = new THREE.SphereGeometry(1, 64, 64);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x38bdf8,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.15
+    });
+    earth = new THREE.Mesh(geometry, material);
+    scene.add(earth);
+
+    // Data Points (Simulating Satellites/Nodes)
+    const pointsMaterial = new THREE.PointsMaterial({ color: 0x10b981, size: 0.01 });
+    clouds = new THREE.Points(geometry, pointsMaterial);
+    scene.add(clouds);
+
+    function animate() {
+      if (!isMagic) return;
+      earth.rotation.y += 0.001;
+      clouds.rotation.y += 0.0012;
+      clouds.rotation.x += 0.0005;
+      renderer.render(scene, camera);
+      animationId = requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  function startRotatingText() {
+    const subEl = $('#heroSubtitle');
+    if (!subEl) return;
+    originalSubtitle = subEl.innerHTML;
+    
+    const updateText = () => {
+      subEl.innerHTML = `A <span class="text-accent italic font-display text-2xl">${roles[roleIndex]}</span> lives in Rajshahi, Bangladesh.<br><span class="text-sm mt-4 block text-muted font-body">Bridging urban analytics and advanced machine learning to transform raw Earth observation data into explainable, actionable intelligence for disaster risk reduction.</span>`;
+      roleIndex = (roleIndex + 1) % roles.length;
+    };
+    
+    updateText();
+    textInterval = setInterval(updateText, 2000);
+  }
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     isMagic = !isMagic;
+    document.body.classList.toggle('magic-mode', isMagic);
 
     if (isMagic) {
-      // 1. Hide original content and lock scroll
-      document.body.style.overflow = 'hidden';
-      document.querySelectorAll('header, section, footer').forEach(el => {
-        if(el.id !== 'loadingScreen') el.style.display = 'none';
-      });
+      loadThreeJS(initThreeJS);
+      startRotatingText();
       
-      // 2. Load Vesper Fonts dynamically (Bubbledot + Instrument Serif)
-      if (!document.getElementById('vesper-fonts')) {
-        document.head.insertAdjacentHTML('beforeend', `
-          <link id="vesper-fonts" rel="stylesheet" href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos">
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap">
-        `);
-      }
-
-      // 3. Create Vesper Container using your window.SITE data
-      vesperContainer = document.createElement('div');
-      vesperContainer.id = 'vesper-container';
-      
-      const brand = window.SITE.brand;
-      const stats = window.SITE.counters;
-      
-      vesperContainer.innerHTML = `
-        <!-- CloudFront Earth Background Video -->
-        <video class="bg-video" autoplay muted loop playsinline>
-          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260818_072341_50851634-bbc3-4c33-9acc-7647d4db44aa.mp4" type="video/mp4" />
-        </video>
-        
-        <div class="vesper-content">
-          <!-- Revert Button Header -->
-          <header class="vesper-header">
-            <a href="#" id="revertMagicBtn" class="logo appear appear--scale" style="animation-delay: 0.08s">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" transform="rotate(-30 12 12)">
-                <circle cx="7.3" cy="3.2" r="1.45"/><rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8"/>
-                <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8"/><circle cx="16.7" cy="20.8" r="1.45"/>
-              </svg>
-              <span>Imtiaj<span class="logo-suffix">.io</span></span>
-            </a>
-            
-            <nav id="site-nav" class="hidden md:flex">
-              <a href="${brand.linkedin}" target="_blank" class="vesper-nav-pill appear appear--scale" style="animation-delay: 0.16s">LinkedIn</a>
-              <a href="${brand.cvDownload}" target="_blank" class="vesper-nav-pill appear appear--soft" style="animation-delay: 0.28s">Resume</a>
-            </nav>
-            
-            <a href="${brand.email}" class="btn btn-ghost header-cta appear appear--scale" style="animation-delay: 0.34s">Get in touch</a>
-          </header>
-
-          <!-- Centered Hero -->
-          <main class="hero">
-            <div class="hero-copy">
-              <div class="badge appear appear--pop" style="animation-delay: 0.22s">
-                <svg width="18" height="20" fill="white" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 3px rgba(255,255,255,0.45))">
-                  <path d="M12 2.6C12.55 2.6 12.88 3.15 13.08 4.7c.62 4.7 1.52 5.6 6.22 6.22 1.55.2 2.1.53 2.1 1.08s-.55.88-2.1 1.08c-4.7.62-5.6 1.52-6.22 6.22-.2 1.55-.53 2.1-1.08 2.1s-.88-.55-1.08-2.1c-.62-4.7-1.52-5.6-6.22-6.22C3.15 12.88 2.6 12.55 2.6 12s.55-.88 2.1-1.08c4.7-.62 5.6-1.52 6.22-6.22C11.12 3.15 11.45 2.6 12 2.6Z"/>
-                </svg>
-                Geospatial Data Science & GeoAI
-              </div>
-              
-              <h1 class="vesper-h1">
-                <span class="headline-line appear appear--mask" style="animation-delay: 0.42s">Model <em>Earth systems</em> with</span>
-                <span class="headline-line appear appear--mask" style="animation-delay: 0.62s">GeoAI in real-time.</span>
-              </h1>
-              
-              <p class="lede appear appear--soft" style="animation-delay: 0.82s">
-                Deploy explainable machine learning models that predict, adapt, and scale disaster risk and environmental dynamics.
-              </p>
-              
-              <div class="hero-actions">
-                <a href="${brand.cvDownload}" class="btn btn-solid appear appear--btn" style="animation-delay: 0.96s">Start Exploring</a>
-                <a href="${brand.linkedin}" class="btn btn-ghost appear appear--side" style="animation-delay: 1.10s">See it in action</a>
-              </div>
-            </div>
-          </main>
-
-          <!-- Stats Footer mapped from window.SITE.counters -->
-          <footer class="stats">
-            ${stats.map((s, i) => `
-              <div class="stat appear appear--stat" style="animation-delay: ${1.12 + (i*0.16)}s">
-                <span class="stat-val" data-target="${s.value}">0</span>
-                <span class="stat-label">${s.label}</span>
-              </div>
-            `).join('')}
-          </footer>
-        </div>
-      `;
-      
-      document.body.appendChild(vesperContainer);
-      document.body.style.background = '#000000';
-      
-      // Animate Counters
-      const counters = vesperContainer.querySelectorAll('.stat-val');
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        let count = 0;
-        const step = Math.ceil(target / 100);
-        const update = () => {
-          count += step;
-          if (count >= target) {
-            counter.textContent = target + (target > 100 ? "+" : "");
-          } else {
-            counter.textContent = count;
-            requestAnimationFrame(update);
-          }
-        };
-        setTimeout(update, 1500); // Wait for entrance animations
-      });
-
-      // Handle Revert back to original layout
-      document.getElementById('revertMagicBtn').addEventListener('click', (e) => {
-         e.preventDefault();
-         btn.click(); // Trigger the logic below
-      });
-
+      // Update Button Icon
+      btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5 text-accent"></i>`;
+      lucide.createIcons();
     } else {
-      // Restore Original Layout
-      document.body.style.overflow = '';
-      document.body.style.background = '';
-      if (vesperContainer) vesperContainer.remove();
-      document.querySelectorAll('header, section, footer').forEach(el => {
-        if(el.id !== 'loadingScreen') el.style.display = '';
-      });
+      // Teardown
+      cancelAnimationFrame(animationId);
+      clearInterval(textInterval);
+      
+      const existingCanvas = document.getElementById('magicCanvas');
+      if (existingCanvas) {
+        existingCanvas.remove();
+        scene = camera = renderer = earth = clouds = null;
+      }
+      
+      // Restore Subtitle & Icon
+      const subEl = $('#heroSubtitle');
+      if (subEl) subEl.innerHTML = originalSubtitle;
+
+      btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
+      lucide.createIcons();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (isMagic && camera && renderer) {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
     }
   });
 }
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
