@@ -138,6 +138,8 @@ function applyNav(){
 }
 
 
+
+
 // === Dynamically Build Navigation & Sliding Bracket ===
 function mountNavigation() {
   try {
@@ -175,14 +177,14 @@ function mountNavigation() {
       { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
-    // Desktop Dropdown Builder
+    // Desktop Dropdown Builder (Uses new glass-dropdown CSS class)
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
       if (links.length === 0) return `<a href="${basePath}${href}" class="nav-item-link text-slate-700 py-2 px-3">${label}</a>`;
       const alignClass = alignRight ? "right-0 md:left-auto" : "left-0";
       return `
         <div class="relative group flex items-center h-full">
           <a href="${basePath}${href}" class="nav-item-link text-slate-700 py-2 px-3">${label}</a>
-          <div class="absolute ${alignClass} top-full mt-2 hidden group-hover:flex flex-col bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-3xl p-5 min-w-[260px] z-50 gap-4">
+          <div class="absolute ${alignClass} top-full mt-3 hidden group-hover:flex flex-col glass-dropdown rounded-3xl p-5 min-w-[260px] z-[200] gap-4">
             ${links.map(l => `<a href="${basePath}#${l.id}" class="dropdown-item hover-underline w-fit text-sm text-slate-700 font-medium">${l.label}</a>`).join('')}
           </div>
         </div>
@@ -234,16 +236,22 @@ function mountNavigation() {
     bracketSlider.innerHTML = '<div class="bracket-tl"></div><div class="bracket-br"></div>';
     navCenter.appendChild(bracketSlider);
     
-    const navItems = navCenter.querySelectorAll('.nav-item-link');
+    // Convert NodeList to Array so we can use .find()
+    const navItems = Array.from(navCenter.querySelectorAll('.nav-item-link'));
     let activeItem = null;
+    let isHoveringNav = false;
 
     function updateBracket(target) {
-        if (!target) return;
+        if (!target) {
+            bracketSlider.style.opacity = '0';
+            navItems.forEach(item => item.classList.remove('is-active-nav'));
+            return;
+        }
         const targetRect = target.getBoundingClientRect();
         const containerRect = navCenter.getBoundingClientRect();
         
-        // Dynamic padding around the text for the brackets
-        const padX = 14; 
+        // Dynamic padding around the text
+        const padX = 16; 
         const padY = 8;
         
         bracketSlider.style.width = `${targetRect.width + padX}px`;
@@ -257,40 +265,35 @@ function mountNavigation() {
         target.classList.add('is-active-nav');
     }
 
-    // Hover routing
+    // Strict Hover routing
+    navCenter.addEventListener('mouseenter', () => { isHoveringNav = true; });
+    navCenter.addEventListener('mouseleave', () => { 
+        isHoveringNav = false; 
+        updateBracket(activeItem); // Snap back to current page section
+    });
+
     navItems.forEach(item => {
         item.addEventListener('mouseenter', () => updateBracket(item));
     });
 
-    // Return to active page item when mouse leaves nav area
-    navCenter.addEventListener('mouseleave', () => {
-        if (activeItem) {
-            updateBracket(activeItem);
-        } else {
-            bracketSlider.style.opacity = '0';
-            navItems.forEach(item => item.classList.remove('is-active-nav'));
-        }
-    });
-
-    // Scroll Spy (Permanently highlights the section you are currently looking at)
+    // Scroll Spy (Prioritizes section closest to top of screen)
     setTimeout(() => {
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
-            let intersecting = entries.filter(e => e.isIntersecting);
-            if (intersecting.length > 0) {
-                const entry = intersecting.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-                const id = entry.target.getAttribute('id');
-                const matchingNav = Array.from(navItems).find(nav => nav.getAttribute('href') && nav.getAttribute('href').includes(`#${id}`));
+            const visible = entries.filter(e => e.isIntersecting);
+            if (visible.length > 0) {
+                // Sort by which section's top edge is closest to the top of viewport
+                visible.sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+                const id = visible[0].target.getAttribute('id');
+                const matchingNav = navItems.find(nav => nav.getAttribute('href') && nav.getAttribute('href').includes(`#${id}`));
                 
                 if (matchingNav) {
                     activeItem = matchingNav;
-                    // Only snap back if user isn't actively hovering the navbar
-                    if (!navCenter.matches(':hover')) {
-                        updateBracket(activeItem);
-                    }
+                    // Only snap back automatically if user isn't actively moving mouse over navbar
+                    if (!isHoveringNav) updateBracket(activeItem);
                 }
             }
-        }, { threshold: 0.1, rootMargin: "-20% 0px -60% 0px" });
+        }, { threshold: 0.1, rootMargin: "-20% 0px -50% 0px" });
         sections.forEach(sec => observer.observe(sec));
     }, 500);
 
@@ -310,6 +313,7 @@ function mountNavigation() {
     console.error("Navigation build error:", e);
   }
 }
+
 
 
 
