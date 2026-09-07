@@ -186,48 +186,136 @@ html, body {
 .group .absolute { margin-top: 0px; top: 100%; }
 
 
-/* === Digital Minimal Dark Theme Utility === */
-.theme-dark {
+/* =========================================
+   PARTICLE CANVAS FIX (Fixes the Blank Space)
+   ========================================= */
+#magicCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================================
+   MAGIC BUTTON STYLING
+   ========================================= */
+#magicBtn {
+  opacity: 0.4; /* Faded out in white theme */
+  transition: all 0.3s ease;
+}
+#magicBtn:hover {
+  opacity: 1;
+}
+
+/* Glowing Magic Button in Dark Theme */
+body.magic-mode #magicBtn {
+  opacity: 1;
+  background: rgba(147, 51, 234, 0.15) !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+}
+body.magic-mode #magicBtn i {
+  color: #d8b4fe !important;
+  filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.8));
+}
+
+/* =========================================
+   UNIVERSAL GLASSMORPHISM (Light Mode)
+   ========================================= */
+body {
+  padding-top: 0 !important; 
+  background-color: #fafafa;
+}
+
+.hero-grid {
+  display: block !important;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+section.bg-slate-50, section.bg-white {
+  background-color: transparent !important;
+}
+
+.glass-dropdown {
+  background-color: rgba(255, 255, 255, 0.85) !important; 
+  backdrop-filter: blur(24px) !important; 
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Glass Cards */
+.card {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03) !important;
+}
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(255, 255, 255, 1) !important;
+}
+.card .bg-white {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+}
+
+/* Glassmorphic Buttons */
+a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s ease !important;
+  color: #000 !important;
+}
+a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover {
   background-color: #0b0b0b !important;
-  color: #f8fafc !important; /* Slate 50 */
-}
-
-/* Invert headings and base text inside dark sections */
-.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4 {
   color: #ffffff !important;
+  border-color: #0b0b0b !important;
+  transform: scale(1.05) !important;
+}
+.icon-btn.absolute:hover {
+  transform: translateY(-50%) scale(1.1) !important; 
 }
 
-/* Make inner cards dark and adjust borders */
-.theme-dark .card, 
-.theme-dark .bg-white {
-  background-color: #151515 !important;
-  border-color: #262626 !important;
-  color: #e2e8f0 !important;
+/* =========================================
+   SLIDING BRACKET NAVIGATION
+   ========================================= */
+.nav-bracket-slider {
+  position: absolute;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
 }
-
-/* Invert standard buttons inside dark theme */
-.theme-dark .card a.bg-white,
-.theme-dark .card button.bg-white {
-  background-color: #262626 !important;
-  border-color: #404040 !important;
-  color: #f8fafc !important;
+.bracket-tl {
+  position: absolute; top: 0; left: 0; width: 10px; height: 10px;
+  border-top: 2px solid #000; border-left: 2px solid #000;
 }
-
-/* Hover effects for buttons in dark mode */
-.theme-dark .card a.bg-white:hover,
-.theme-dark .card button.bg-white:hover {
-  background-color: #f8fafc !important;
-  color: #0b0b0b !important;
+.bracket-br {
+  position: absolute; bottom: 0; right: 0; width: 10px; height: 10px;
+  border-bottom: 2px solid #000; border-right: 2px solid #000;
 }
-
-/* Adjust secondary text (like dates/locations) */
-.theme-dark .text-slate-500, 
-.theme-dark .text-slate-600 {
-  color: #94a3b8 !important;
+.nav-item-link {
+  position: relative; z-index: 10;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), font-weight 0.3s ease;
+  display: inline-block; transform-origin: center; font-weight: 500;
 }
-
-
-
+.nav-item-link.is-active-nav {
+  font-weight: 700 !important; transform: scale(1.08); color: #000 !important;
+}
 
 
 /* =========================================
@@ -242,7 +330,7 @@ body.magic-mode {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* The massive purple glowing aura in the Hero Section */
+/* 1. The massive purple glowing aura in the Hero Section */
 body.magic-mode #hero::before {
   content: '';
   position: absolute;
@@ -257,11 +345,35 @@ body.magic-mode #hero::before {
   pointer-events: none;
 }
 
+/* 2. The secondary purple glowing aura in the Footer */
+body.magic-mode footer {
+  background-color: transparent !important;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+body.magic-mode footer::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: 5%; /* Positioned towards the right side near Gmail */
+  width: 50vw;
+  height: 50vh;
+  background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, rgba(88, 28, 135, 0.05) 50%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+body.magic-mode footer > * {
+  position: relative;
+  z-index: 1; /* Keeps footer text above the glow */
+}
+
 /* Typography Color Overrides */
 body.magic-mode h1, body.magic-mode h2, body.magic-mode h3, body.magic-mode #homeBrand, body.magic-mode .count-up {
   color: #ffffff !important;
 }
-body.magic-mode .text-slate-500, body.magic-mode .text-slate-600, body.magic-mode .text-slate-700, body.magic-mode .text-black {
+body.magic-mode .text-slate-500, body.magic-mode .text-slate-600, body.magic-mode .text-slate-700, body.magic-mode .text-gray-600, body.magic-mode .text-black {
   color: #94a3b8 !important; /* Muted silver text for readability */
 }
 body.magic-mode #heroSubtitle {
@@ -289,13 +401,14 @@ body.magic-mode .nav-item-link.is-active-nav {
 body.magic-mode .nav-bracket-slider .bracket-tl { border-top-color: #d8b4fe; border-left-color: #d8b4fe; }
 body.magic-mode .nav-bracket-slider .bracket-br { border-bottom-color: #d8b4fe; border-right-color: #d8b4fe; }
 
-/* Dark Glass Cards */
+/* Dark Glass Cards (Now applies to Services too) */
 body.magic-mode .card {
   background-color: rgba(20, 10, 35, 0.45) !important; /* Translucent dark purple */
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  color: #f8fafc !important;
 }
 body.magic-mode .card:hover {
   background-color: rgba(30, 15, 50, 0.7) !important;
@@ -325,127 +438,4 @@ body.magic-mode .bg-black {
 }
 body.magic-mode .bg-black:hover {
   box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6) !important;
-}
-
-/* Fix inner card elements overlapping the glass */
-body.magic-mode .card .bg-white {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-}
-
-
-
-
-
-/* =========================================
-   SLIDING BRACKET NAVIGATION
-   ========================================= */
-
-/* The tracking box holding the corners */
-.nav-bracket-slider {
-  position: absolute;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Top-Left Angle */
-.bracket-tl {
-  position: absolute;
-  top: 0; left: 0;
-  width: 10px; height: 10px;
-  border-top: 2px solid #000;
-  border-left: 2px solid #000;
-}
-
-/* Bottom-Right Angle */
-.bracket-br {
-  position: absolute;
-  bottom: 0; right: 0;
-  width: 10px; height: 10px;
-  border-bottom: 2px solid #000;
-  border-right: 2px solid #000;
-}
-
-/* Nav Item Defaults */
-.nav-item-link {
-  position: relative;
-  z-index: 10;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), font-weight 0.3s ease;
-  display: inline-block;
-  transform-origin: center;
-  font-weight: 500;
-}
-
-/* Nav Item ACTIVE State (Bold & Larger) */
-.nav-item-link.is-active-nav {
-  font-weight: 700 !important; /* Bold */
-  transform: scale(1.08);       /* Slightly Larger */
-  color: #000 !important;
-}
-
-/* =========================================
-   UNIVERSAL GLASSMORPHISM
-   ========================================= */
-
-/* Make all sections transparent so the background shows through */
-section.bg-slate-50, section.bg-white {
-  background-color: transparent !important;
-}
-
-/* Dedicated Glass Dropdown for Menus (Desktop & Mobile) */
-.glass-dropdown {
-  background-color: rgba(255, 255, 255, 0.85) !important; /* Increased Opacity */
-  backdrop-filter: blur(24px) !important; /* Increased Blur */
-  -webkit-backdrop-filter: blur(24px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Glassmorphic Cards */
-.card {
-  background-color: rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03) !important;
-}
-
-.card:hover {
-  background-color: rgba(255, 255, 255, 0.65) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(255, 255, 255, 1) !important;
-}
-
-/* Fix for inner background overriding glass */
-.card .bg-white {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-}
-
-/* Glassmorphic Buttons (White variants) */
-a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
-  background-color: rgba(255, 255, 255, 0.5) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.7) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
-  transition: all 0.25s ease !important;
-  color: #000 !important;
-}
-
-/* Return to default solid black on hover */
-a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover {
-  background-color: #0b0b0b !important;
-  color: #ffffff !important;
-  border-color: #0b0b0b !important;
-  transform: scale(1.05) !important;
-}
-
-/* Target all absolute floating slider buttons specifically */
-.icon-btn.absolute:hover {
-  transform: translateY(-50%) scale(1.1) !important; 
 }
