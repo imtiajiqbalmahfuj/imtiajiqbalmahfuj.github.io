@@ -203,12 +203,23 @@ body {
   background-color: #fafafa;
 }
 
-.hero-grid {
+/* .hero-grid {
   display: block !important;
   background-size: 40px 40px;
   background-image: 
     linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+} */
+
+/* Contour lines replacing the standard grid */
+.hero-grid {
+  display: block !important;
+  background-color: transparent;
+  /* Beautiful SVG topographic contour wave pattern */
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h200v200H0z' fill='none'/%3E%3Cpath stroke='rgba(0,0,0,0.06)' stroke-width='1.5' fill='none' d='M-40 40c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 80c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 120c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 160c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 200c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 0c40 0 60 40 100 40s60-40 100-40 60 40 100 40'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
@@ -302,34 +313,49 @@ body.magic-mode {
 }
 
 /* =========================================
-   DOWN ARROW BUTTON (Hidden everywhere)
+   HERO VIDEOS & FOOTER GLOW
    ========================================= */
-#downBtn {
-  display: none !important;
+#hero {
+  overflow: visible !important;
 }
 
-/* =========================================
-   VIDEO BLACK HOLE & FOOTER GLOW
-   ========================================= */
+/* --- LIGHT THEME: Rotating Earth --- */
+.earth-video {
+  position: absolute;
+  bottom: 120px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px; /* Locks aspect ratio */
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 1; /* Shows in light theme */
+  transition: opacity 1.5s ease-in-out;
+  
+  /* Magic trick: A perfectly circular mask physically cuts out the video's background */
+  -webkit-mask-image: radial-gradient(circle, black 49%, transparent 51%);
+  mask-image: radial-gradient(circle, black 49%, transparent 51%);
+}
+
+/* Hide Earth in Dark Mode */
+body.magic-mode .earth-video {
+  opacity: 0;
+}
+
+/* --- DARK THEME: Black Hole --- */
 .blackhole-video {
   position: absolute;
   pointer-events: none;
-  opacity: 1 !important;
+  opacity: 0 !important; /* Hides in light theme */
   transition: opacity 1.5s ease-in-out;
-  
-  /* Keeps the EXACT original video colors and black center in white theme */
-  mix-blend-mode: normal; 
-  filter: none;
-}
-
-/* Dark mode uses 'screen' to completely dissolve the black background */
-body.magic-mode .blackhole-video {
   mix-blend-mode: screen; 
 }
 
-/* 1. Hero Black Hole Placement */
-#hero {
-  overflow: visible !important;
+/* Show Black Hole in Dark Mode */
+body.magic-mode .blackhole-video {
+  opacity: 1 !important; 
 }
 
 .hero-blackhole {
@@ -342,13 +368,8 @@ body.magic-mode .blackhole-video {
   object-fit: cover;
   object-position: center; 
   z-index: -1;
-  
-  /* Tighter circular mask for the white theme so the black box fades out smoothly */
-  -webkit-mask-image: radial-gradient(ellipse 40% 40% at 50% 50%, black 10%, transparent 65%);
-  mask-image: radial-gradient(ellipse 40% 40% at 50% 50%, black 10%, transparent 65%);
 }
 
-/* Wider mask for Dark mode since 'screen' perfectly hides the black anyway */
 body.magic-mode .hero-blackhole {
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
@@ -359,7 +380,7 @@ body.magic-mode .hero-blackhole {
   z-index: 10;
 }
 
-/* 2. Footer Section (Always Black with Glow) */
+/* --- FOOTER (Always Black with Violet Glow) --- */
 footer#links {
   position: relative;
   overflow: hidden !important; 
@@ -370,7 +391,6 @@ body.magic-mode footer#links {
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* Creates the violet glow from the very bottom to slightly top */
 footer#links::after {
   content: "";
   position: absolute;
