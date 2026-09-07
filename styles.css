@@ -130,19 +130,20 @@
 
 /* Prevent content overlap & Fix Grid Gap */
 body {
-  padding-top: 0 !important; /* Removed the 64px gap */
+  padding-top: 0 !important; /* Keeps the hero section touching the very top edge */
   background-color: #fafafa;
-  /* Add the grid directly to the body so it covers the absolute top */
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-attachment: fixed; 
 }
 
-/* Hide the old hero grid so it doesn't double-layer */
+/* Restore the grid ONLY to the hero section */
 .hero-grid {
-  display: none !important;
+  display: block !important;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  /* Fades the grid out smoothly at the bottom of the hero section */
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
 
