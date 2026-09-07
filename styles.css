@@ -329,7 +329,7 @@ body.magic-mode #hero {
 }
 
 .hero-blackhole {
-  bottom: 60px; /* Moved upper by ~1 inch */
+  bottom: -220px; /* Moved upper by ~1 inch */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -357,7 +357,7 @@ body.magic-mode footer#links {
 }
 
 .footer-blackhole {
-  top: 60px; /* Moved upper by ~1 inch */
+  top: 0px; /* Moved upper by ~1 inch */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
