@@ -297,15 +297,18 @@ body.magic-mode {
 }
 
 /* =========================================
-   VIDEO BLACK HOLE EFFECTS
+   VIDEO BLACK HOLE EFFECTS & FIXES
    ========================================= */
 .blackhole-video {
   position: absolute;
   pointer-events: none;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
-  /* Screen blending automatically drops the black background of the video! */
+  /* Drops the black background */
   mix-blend-mode: screen; 
+  /* Fades out the hard rectangular edges of the video so the box disappears completely */
+  -webkit-mask-image: radial-gradient(ellipse 65% 50% at 50% 50%, black 50%, transparent 100%);
+  mask-image: radial-gradient(ellipse 65% 50% at 50% 50%, black 50%, transparent 100%);
 }
 
 /* Fade videos in when Magic Mode is active */
@@ -314,8 +317,12 @@ body.magic-mode .blackhole-video {
 }
 
 /* 1. Hero Black Hole Placement */
+body.magic-mode #hero {
+  overflow: visible !important; /* FIX: Prevents the bottom half from being chopped off */
+}
+
 .hero-blackhole {
-  bottom: -160px; /* Positions perfectly right behind the counters */
+  bottom: -220px; /* Centered nicely behind the counters */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -329,16 +336,16 @@ body.magic-mode .blackhole-video {
   z-index: 10;
 }
 
-/* 2. Footer Black Hole (Positioned bursting up towards the Gmail address) */
+/* 2. Footer Black Hole Placement */
 body.magic-mode footer#links {
   background-color: #000000 !important; /* Pitch black footer */
   position: relative;
-  overflow: hidden;
+  overflow: visible !important; /* FIX: Prevents the top half from being chopped off */
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer-blackhole {
-  top: -300px; /* Pulls the top half of the black hole up out of the footer */
+  top: -240px; /* Pulls the black hole up into the space above the footer */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
