@@ -314,7 +314,9 @@ body.magic-mode {
 /* --- 1. LIGHT THEME: 3D Earth --- */
 .earth-3d {
   position: absolute;
-  bottom: -750px; 
+  
+  /* Raises the globe up. 650px is exactly half of 1300px. */
+  bottom: -650px; 
   left: 50%;
   transform: translateX(-50%);
   
@@ -332,8 +334,12 @@ body.magic-mode {
   cursor: grab;
   pointer-events: auto !important; 
   
-  -webkit-mask-image: linear-gradient(to bottom, black 42%, transparent 42.5%);
-  mask-image: linear-gradient(to bottom, black 42%, transparent 42.5%);
+  /* CRITICAL FIX: Restricts the drag/click hitbox exactly to the sphere, preventing clicks in the empty corners */
+  clip-path: circle(49% at 50% 50%);
+
+  /* PERFECT CROP: Mathematically slices exactly half the globe */
+  -webkit-mask-image: linear-gradient(to bottom, black 49.5%, transparent 50%);
+  mask-image: linear-gradient(to bottom, black 49.5%, transparent 50%);
 }
 
 .earth-3d:active {
