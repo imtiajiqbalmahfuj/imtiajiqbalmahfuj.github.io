@@ -296,56 +296,59 @@ body.magic-mode {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* 1. The Reflect-Style Black Hole (Hero Section Bottom) */
-body.magic-mode #hero::before {
-  content: '';
+/* =========================================
+   VIDEO BLACK HOLE EFFECTS
+   ========================================= */
+.blackhole-video {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 250px; /* Height of the effect */
-  background:
-    /* Layer 1: The Pitch Black Core */
-    radial-gradient(ellipse 200px 50px at bottom center, #05020a 55%, transparent 70%),
-    /* Layer 2: The Intense White/Pink Event Horizon */
-    radial-gradient(ellipse 240px 70px at bottom center, #ffffff 10%, #f0abfc 50%, transparent 80%),
-    /* Layer 3: The Wide Horizontal Purple Accretion Disk */
-    radial-gradient(ellipse 70vw 130px at bottom center, rgba(168, 85, 247, 0.8) 0%, rgba(147, 51, 234, 0.2) 60%, transparent 100%),
-    /* Layer 4: The Tall Ambient Glow */
-    radial-gradient(circle 400px at bottom center, rgba(88, 28, 135, 0.25) 0%, transparent 80%);
-  z-index: -1;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  /* Screen blending automatically drops the black background of the video! */
+  mix-blend-mode: screen; 
 }
 
-/* 2. Ultra-Dark Footer & Upward Black Hole (Pointing towards Gmail) */
-body.magic-mode footer#links {
-  background-color: #000000 !important; /* Pure black */
-  position: relative;
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.03);
+/* Fade videos in when Magic Mode is active */
+body.magic-mode .blackhole-video {
+  opacity: 1;
 }
-body.magic-mode footer#links::before {
-  content: '';
-  position: absolute;
-  top: 0;
+
+/* 1. Hero Black Hole Placement */
+.hero-blackhole {
+  bottom: -160px; /* Positions perfectly right behind the counters */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: 180px;
-  background:
-    /* Layer 1: Black Core */
-    radial-gradient(ellipse 150px 30px at top center, #000000 60%, transparent 75%),
-    /* Layer 2: Bright Event Horizon */
-    radial-gradient(ellipse 180px 45px at top center, #ffffff 10%, #f0abfc 50%, transparent 80%),
-    /* Layer 3: Wide Flare */
-    radial-gradient(ellipse 60vw 100px at top center, rgba(168, 85, 247, 0.5) 0%, rgba(147, 51, 234, 0.1) 60%, transparent 100%);
-  z-index: 0;
-  pointer-events: none;
+  max-width: 1200px;
+  z-index: -1;
 }
+
+/* Ensure the counters sit strictly above the video */
+#aboutCounters {
+  position: relative;
+  z-index: 10;
+}
+
+/* 2. Footer Black Hole (Positioned bursting up towards the Gmail address) */
+body.magic-mode footer#links {
+  background-color: #000000 !important; /* Pitch black footer */
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-blackhole {
+  top: -300px; /* Pulls the top half of the black hole up out of the footer */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1000px;
+  z-index: 0;
+}
+
 body.magic-mode footer#links > * {
   position: relative;
-  z-index: 1; /* Keeps text above the glow */
+  z-index: 1; /* Keeps footer text above the glow */
 }
 
 /* Typography Color Overrides */
