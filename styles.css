@@ -302,9 +302,9 @@ body.magic-mode {
 }
 
 /* =========================================
-   DOWN ARROW BUTTON (Hide in Dark Mode Only)
+   DOWN ARROW BUTTON (Hidden everywhere)
    ========================================= */
-body.magic-mode #downBtn {
+#downBtn {
   display: none !important;
 }
 
@@ -316,15 +316,15 @@ body.magic-mode #downBtn {
   pointer-events: none;
   opacity: 1 !important;
   transition: opacity 1.5s ease-in-out;
-  /* Magic trick for white theme: inverts black bg to white (invisible via multiply) and corrects the purple */
-  mix-blend-mode: multiply; 
-  filter: invert(1) hue-rotate(180deg);
+  
+  /* Keeps the EXACT original video colors and black center in white theme */
+  mix-blend-mode: normal; 
+  filter: none;
 }
 
-/* Switch back to normal screen blending for dark mode */
+/* Dark mode uses 'screen' to completely dissolve the black background */
 body.magic-mode .blackhole-video {
   mix-blend-mode: screen; 
-  filter: none;
 }
 
 /* 1. Hero Black Hole Placement */
@@ -342,6 +342,14 @@ body.magic-mode .blackhole-video {
   object-fit: cover;
   object-position: center; 
   z-index: -1;
+  
+  /* Tighter circular mask for the white theme so the black box fades out smoothly */
+  -webkit-mask-image: radial-gradient(ellipse 40% 40% at 50% 50%, black 10%, transparent 65%);
+  mask-image: radial-gradient(ellipse 40% 40% at 50% 50%, black 10%, transparent 65%);
+}
+
+/* Wider mask for Dark mode since 'screen' perfectly hides the black anyway */
+body.magic-mode .hero-blackhole {
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
 }
@@ -349,6 +357,35 @@ body.magic-mode .blackhole-video {
 #aboutCounters {
   position: relative;
   z-index: 10;
+}
+
+/* 2. Footer Section (Always Black with Glow) */
+footer#links {
+  position: relative;
+  overflow: hidden !important; 
+  background-color: #000000 !important; 
+}
+
+body.magic-mode footer#links {
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Creates the violet glow from the very bottom to slightly top */
+footer#links::after {
+  content: "";
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  height: 120px; 
+  background: linear-gradient(to top, rgba(168, 85, 247, 0.25), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+footer#links > * {
+  position: relative;
+  z-index: 1; 
 }
 
 /* 2. Footer Section (Always Black with Glow) */
