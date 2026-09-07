@@ -301,6 +301,13 @@ body.magic-mode {
 }
 
 /* =========================================
+   DOWN ARROW BUTTON (Hide in Dark Mode Only)
+   ========================================= */
+body.magic-mode #downBtn {
+  display: none !important;
+}
+
+/* =========================================
    VIDEO BLACK HOLE EFFECTS & FIXES
    ========================================= */
 .blackhole-video {
@@ -308,11 +315,7 @@ body.magic-mode {
   pointer-events: none;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
-  /* Drops the black background */
   mix-blend-mode: screen; 
-  /* Fades out the hard rectangular edges of the video so the box disappears completely */
-  -webkit-mask-image: radial-gradient(ellipse 65% 50% at 50% 50%, black 50%, transparent 100%);
-  mask-image: radial-gradient(ellipse 65% 50% at 50% 50%, black 50%, transparent 100%);
 }
 
 /* Fade videos in when Magic Mode is active */
@@ -320,46 +323,65 @@ body.magic-mode .blackhole-video {
   opacity: 1;
 }
 
-/* 1. Hero Black Hole Placement */
+/* 1. Hero Section: Shifted ~1 inch (96px) higher */
 body.magic-mode #hero {
-  overflow: visible !important; /* FIX: Prevents the bottom half from being chopped off */
+  overflow: visible !important; 
+  background-color: #05020a !important; /* Matches site dark space background */
 }
 
 .hero-blackhole {
-  bottom: -220px; /* Centered nicely behind the counters */
+  bottom: -54px; /* Shifted 96px (~1 inch) higher up */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  max-width: 1200px;
+  max-width: 1300px;
+  height: 220px;
+  object-fit: cover;
+  object-position: top center;
   z-index: -1;
+  /* Smoothly masks rectangular video edges into the dark bg */
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 30%, black 35%, transparent 95%);
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 30%, black 35%, transparent 95%);
 }
 
-/* Ensure the counters sit strictly above the video */
 #aboutCounters {
   position: relative;
   z-index: 10;
 }
 
-/* 2. Footer Black Hole Placement */
+/* 2. Footer Section: Lifted 1 inch & lower half cropped exactly like screenshot */
 body.magic-mode footer#links {
-  background-color: #000000 !important; /* Pitch black footer */
+  background-color: #000000 !important; /* Pitch black matches video sides */
   position: relative;
-  overflow: visible !important; /* FIX: Prevents the top half from being chopped off */
+  overflow: hidden !important;          /* Hard-crops the bottom frame */
   border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: -96px !important;         /* Pulls footer ~1 inch higher */
+  padding-bottom: 2rem;
 }
 
 .footer-blackhole {
-  top: -240px; /* Pulls the black hole up into the space above the footer */
+  bottom: -40px;                        /* Anchored to bottom & cropped */
+  top: auto !important;
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
   max-width: 1000px;
+  height: 130px;                        /* Constrains height to match screenshot */
+  object-fit: cover;
+  object-position: top center;          /* Keeps top curve, cuts lower portion */
   z-index: 0;
+  /* Soft horizontal fade removes the rectangle border entirely */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%),
+                      linear-gradient(to bottom, black 65%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%),
+              linear-gradient(to bottom, black 65%, transparent 100%);
+  mask-composite: intersect;
 }
 
 body.magic-mode footer#links > * {
   position: relative;
-  z-index: 1; /* Keeps footer text above the glow */
+  z-index: 1; 
 }
 
 /* Typography Color Overrides */
