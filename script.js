@@ -1117,6 +1117,7 @@ function mountMagicMode() {
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
             if (isTouchDevice) {
               world.controls().enableRotate = false;
+              globeDiv.style.pointerEvents = 'none'; // <-- THIS completely frees up mobile scrolling!
             }
 
             if (!isTouchDevice) {
