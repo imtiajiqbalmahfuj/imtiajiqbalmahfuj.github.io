@@ -205,7 +205,7 @@ function mountNavigation() {
     navCenter.innerHTML = staticLinks + 
       makeDesktopDropdown('#experience', 'Experiences', expLinks) +
       makeDesktopDropdown('#publications', 'Publications', pubLinks) +
-      makeDesktopDropdown('#achievements', 'Professional Highlights', achvLinks, true);
+      makeDesktopDropdown('#achievements', 'Prof. Highlights', achvLinks, true);
 
     // ==========================================
     // SLIDING BRACKET TRACKER LOGIC
