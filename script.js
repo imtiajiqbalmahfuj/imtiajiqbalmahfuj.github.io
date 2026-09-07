@@ -798,18 +798,20 @@ function mountAchvPreview(){
 }
 
 
+// === Services Section (Fixes white background bug) ===
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
   if (!wrap) return;
   wrap.innerHTML = window.SITE.services.map(s => `
-    <div class="p-6 bg-white border border-slate-200 rounded-xl text-center hover:[transform:scale(1.03)] transition-transform duration-200 hover:shadow-lg hover-smart">
+    <div class="card p-6 bg-white border border-slate-200 rounded-xl text-center hover:[transform:scale(1.03)] transition-transform duration-200 hover:shadow-lg hover-smart">
       <i data-lucide="${s.icon}" class="mx-auto mb-3"></i>
       <h4 class="font-semibold text-lg">${s.title}</h4>
       <p class="text-sm text-gray-600 mt-2">${s.description}</p>
     </div>
   `).join("");
-  lucide.createIcons();
+  if(window.lucide) lucide.createIcons();
 }
+
 
 function mountFooter(){
   const zone = $('#footerLinks')
@@ -1085,8 +1087,8 @@ function mountMagicMode() {
     document.body.classList.toggle('magic-mode', isMagic);
 
     if (isMagic) {
-      // Switch icon to a purple moon/sparkle when active
-      btn.innerHTML = `<i data-lucide="moon" class="w-5 h-5 text-purple-400"></i>`;
+      // Switch icon to a purple moon when active
+      btn.innerHTML = `<i data-lucide="moon" class="w-5 h-5"></i>`;
     } else {
       // Revert to default wand
       btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
