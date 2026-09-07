@@ -1095,7 +1095,6 @@ function mountMagicMode() {
   
   let isMagic = false;
 
-  // Dynamically inject the videos so you don't have to edit HTML
   function injectVideos() {
     if (!document.getElementById('heroBlackhole')) {
       const heroVid = document.createElement('video');
@@ -1105,6 +1104,14 @@ function mountMagicMode() {
       heroVid.autoplay = true; heroVid.loop = true; heroVid.muted = true; heroVid.playsInline = true;
       document.getElementById('hero').appendChild(heroVid);
     }
+  }
+
+  // ==> ADD THIS LINE HERE so the video element is always injected on load <==
+  injectVideos();
+
+  // Load the requested theme on initial visit
+  if (initialThemeIsDark) {
+    toggleTheme(true);
   }
 
   function toggleTheme(forceDark) {
