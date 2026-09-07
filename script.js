@@ -1112,26 +1112,26 @@ function mountMagicMode() {
     if (!document.getElementById('heroGlobe')) {
       const globeDiv = document.createElement('div');
       globeDiv.id = 'heroGlobe';
-      globeDiv.className = 'earth-3d';
+      globeDiv.className = 'earth-3d'; // Ensure this matches the CSS below
       hero.appendChild(globeDiv);
 
       // Load Globe.GL dynamically
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/globe.gl';
       script.onload = async () => {
-        // Import THREE dynamically
-        const THREE = await import('https://esm.sh/three');
+        // Import THREE dynamically (using unpkg for better reliability)
+        const THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js').catch(e => import('https://esm.sh/three'));
 
         const world = Globe()(globeDiv)
           .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
           .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
           .backgroundColor('rgba(0,0,0,0)') // Forces transparent background
-          .width(800)
-          .height(800);
+          .width(1000) 
+          .height(1000);
 
         // 1. Auto-rotate (Constant speed) and lock scroll zoom
         world.controls().autoRotate = true;
-        world.controls().autoRotateSpeed = 0.35;
+        world.controls().autoRotateSpeed = 0.5; // Spin speed
         world.controls().enableZoom = false; 
 
         // Add clouds sphere
@@ -1162,8 +1162,9 @@ function mountMagicMode() {
             clouds.rotation.y += CLOUDS_ROTATION_SPEED * Math.PI / 180;
 
             // 3. Apply Mouse Sensitivity (Parallax tilt)
-            const targetRotationY = mouseX * 0.6; // Max horizontal tilt limit
-            const targetRotationX = mouseY * 0.6; // Max vertical tilt limit
+            // Increased to 1.5 for a highly responsive tilt effect
+            const targetRotationY = mouseX * 1.5; 
+            const targetRotationX = mouseY * 1.5; 
             
             // Smoothly interpolate the scene tilt toward the mouse position
             world.scene().rotation.y += (targetRotationY - world.scene().rotation.y) * 0.05;
@@ -1176,6 +1177,7 @@ function mountMagicMode() {
       document.head.appendChild(script);
     }
   }
+  
 
   // ==> ADD THIS LINE HERE so the video element is always injected on load <==
   injectVideos();
