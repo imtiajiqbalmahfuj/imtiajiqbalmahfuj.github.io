@@ -315,8 +315,8 @@ body.magic-mode {
 .earth-3d {
   position: absolute;
   
-  /* CRITICAL FIX: Pushes the globe deep down so only the top dome is visible */
-  bottom: -320px; 
+  /* Math: 1200px height - 740px bottom offset = Top dome rises exactly 460px behind cards */
+  bottom: -740px; 
   left: 50%;
   transform: translateX(-50%);
   
@@ -329,10 +329,20 @@ body.magic-mode {
   transition: opacity 1.5s ease-in-out;
   cursor: grab;
   pointer-events: auto !important; /* Ensures drag and mouse movement work */
+  
+  /* PERFECT CROP: Acts like a blade, slicing off everything below 38.5% of the globe (the exact bottom of the section) */
+  -webkit-mask-image: linear-gradient(to bottom, black 38%, transparent 38.5%);
+  mask-image: linear-gradient(to bottom, black 38%, transparent 38.5%);
 }
 
 .earth-3d:active {
   cursor: grabbing;
+}
+
+/* CRITICAL FIX: Forces your text to sit above the 3D globe */
+#hero > .z-10 {
+  position: relative;
+  z-index: 10;
 }
 
 /* Hide 3D Earth completely in dark mode */
