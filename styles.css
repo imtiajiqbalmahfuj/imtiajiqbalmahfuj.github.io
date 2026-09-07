@@ -323,24 +323,24 @@ body.magic-mode .blackhole-video {
   opacity: 1;
 }
 
-/* 1. Hero Section: Moved ~1 inch higher, masked edges perfectly */
+/* 1. Hero Section: Placed right behind the down arrow / ticker */
 body.magic-mode #hero {
   overflow: visible !important; 
 }
 
 .hero-blackhole {
-  bottom: -220px; /* Moved upper by ~1 inch */
+  bottom: 140px; /* Pushes the video up into the yellow marked area */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
   max-width: 1300px;
-  height: 250px; 
+  height: 350px; /* Increased height so it doesn't get cut off */
   object-fit: cover;
-  object-position: top center; 
+  object-position: center; /* Centers the brightest part of the black hole */
   z-index: -1;
-  /* Mask fades to transparent early to fix the visible rectangular borders */
-  -webkit-mask-image: radial-gradient(ellipse 55% 60% at 50% 30%, black 20%, transparent 75%);
-  mask-image: radial-gradient(ellipse 55% 60% at 50% 30%, black 20%, transparent 75%);
+  /* Relaxed mask so the glow doesn't vanish completely */
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
 }
 
 #aboutCounters {
@@ -352,12 +352,12 @@ body.magic-mode #hero {
 body.magic-mode footer#links {
   background-color: #000000 !important; 
   position: relative;
-  overflow: hidden !important; /* Crops the lower part exactly like the screenshot */
+  overflow: hidden !important; 
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer-blackhole {
-  top: 0px; /* Moved upper by ~1 inch */
+  top: -60px; /* Moves the video up by about 1 inch */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -366,7 +366,6 @@ body.magic-mode footer#links {
   object-fit: cover;
   object-position: bottom center;
   z-index: 0;
-  /* Smoother fade to background, completely hiding the box corners */
   -webkit-mask-image: radial-gradient(ellipse 65% 80% at 50% 80%, black 30%, transparent 85%);
   mask-image: radial-gradient(ellipse 65% 80% at 50% 80%, black 30%, transparent 85%);
 }
