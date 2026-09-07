@@ -1072,82 +1072,12 @@ function initDefaultParticles() {
 
 
 
-// === Earth Observation & GeoAI Magic Mode ===
+// === Dark Purple Glassmorphism Toggle ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
 
   let isMagic = false;
-  let animationId;
-  let scene, camera, renderer, earth, clouds;
-  let textInterval;
-  let originalSubtitle = "";
-
-  const roles = ["Geospatial Data Scientist", "GIS & EO Researcher", "GeoAI Developer", "Climate DRR Specialist"];
-  let roleIndex = 0;
-
-  // Load Three.js dynamically
-  function loadThreeJS(callback) {
-    if (window.THREE) return callback();
-    const script = document.createElement('script');
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
-    script.onload = callback;
-    document.head.appendChild(script);
-  }
-
-  function initThreeJS() {
-    const canvas = document.createElement('canvas');
-    canvas.id = 'magicCanvas';
-    document.body.prepend(canvas);
-
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 2.5;
-
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    // Earth Base (Wireframe for EO tech look)
-    const geometry = new THREE.SphereGeometry(1, 64, 64);
-    const material = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.15
-    });
-    earth = new THREE.Mesh(geometry, material);
-    scene.add(earth);
-
-    // Data Points (Simulating Satellites/Nodes)
-    const pointsMaterial = new THREE.PointsMaterial({ color: 0x10b981, size: 0.01 });
-    clouds = new THREE.Points(geometry, pointsMaterial);
-    scene.add(clouds);
-
-    function animate() {
-      if (!isMagic) return;
-      earth.rotation.y += 0.001;
-      clouds.rotation.y += 0.0012;
-      clouds.rotation.x += 0.0005;
-      renderer.render(scene, camera);
-      animationId = requestAnimationFrame(animate);
-    }
-    animate();
-  }
-
-  function startRotatingText() {
-    const subEl = $('#heroSubtitle');
-    if (!subEl) return;
-    originalSubtitle = subEl.innerHTML;
-    
-    const updateText = () => {
-      subEl.innerHTML = `A <span class="text-accent italic font-display text-2xl">${roles[roleIndex]}</span> lives in Rajshahi, Bangladesh.<br><span class="text-sm mt-4 block text-muted font-body">Bridging urban analytics and advanced machine learning to transform raw Earth observation data into explainable, actionable intelligence for disaster risk reduction.</span>`;
-      roleIndex = (roleIndex + 1) % roles.length;
-    };
-    
-    updateText();
-    textInterval = setInterval(updateText, 2000);
-  }
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -1155,40 +1085,22 @@ function mountMagicMode() {
     document.body.classList.toggle('magic-mode', isMagic);
 
     if (isMagic) {
-      loadThreeJS(initThreeJS);
-      startRotatingText();
-      
-      // Update Button Icon
-      btn.innerHTML = `<i data-lucide="power-off" class="w-5 h-5 text-accent"></i>`;
-      lucide.createIcons();
+      // Switch icon to a purple moon/sparkle when active
+      btn.innerHTML = `<i data-lucide="moon" class="w-5 h-5 text-purple-400"></i>`;
     } else {
-      // Teardown
-      cancelAnimationFrame(animationId);
-      clearInterval(textInterval);
-      
-      const existingCanvas = document.getElementById('magicCanvas');
-      if (existingCanvas) {
-        existingCanvas.remove();
-        scene = camera = renderer = earth = clouds = null;
-      }
-      
-      // Restore Subtitle & Icon
-      const subEl = $('#heroSubtitle');
-      if (subEl) subEl.innerHTML = originalSubtitle;
-
+      // Revert to default wand
       btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
-      lucide.createIcons();
     }
-  });
-
-  window.addEventListener('resize', () => {
-    if (isMagic && camera && renderer) {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
+    
+    if (window.lucide) lucide.createIcons();
   });
 }
+
+
+
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
