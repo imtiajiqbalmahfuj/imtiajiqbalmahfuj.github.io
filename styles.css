@@ -213,16 +213,7 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 } */
 
-/* Contour lines replacing the standard grid */
-.hero-grid {
-  display: block !important;
-  background-color: transparent;
-  /* Beautiful SVG topographic contour wave pattern */
-  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h200v200H0z' fill='none'/%3E%3Cpath stroke='rgba(0,0,0,0.06)' stroke-width='1.5' fill='none' d='M-40 40c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 80c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 120c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 160c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 200c40 0 60 40 100 40s60-40 100-40 60 40 100 40M-40 0c40 0 60 40 100 40s60-40 100-40 60 40 100 40'/%3E%3C/svg%3E");
-  background-size: 150px 150px;
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-}
+
 
 section.bg-slate-50, section.bg-white {
   background-color: transparent !important;
