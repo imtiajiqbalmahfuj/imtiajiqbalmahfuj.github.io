@@ -1108,14 +1108,72 @@ function mountMagicMode() {
       hero.appendChild(heroVid);
     }
 
-    // 2. Rotating Earth Video (For White Theme)
-    if (!document.getElementById('heroEarth')) {
-      const earthVid = document.createElement('video');
-      earthVid.id = 'heroEarth';
-      earthVid.className = 'earth-video';
-      earthVid.src = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202422_3ffb4889-c520-432d-8458-038009eb40df.mp4';
-      earthVid.autoplay = true; earthVid.loop = true; earthVid.muted = true; earthVid.playsInline = true;
-      hero.appendChild(earthVid);
+    // 2. Interactive Globe.GL with Clouds & Mouse Sensitivity (For White Theme)
+    if (!document.getElementById('heroGlobe')) {
+      const globeDiv = document.createElement('div');
+      globeDiv.id = 'heroGlobe';
+      globeDiv.className = 'earth-3d';
+      hero.appendChild(globeDiv);
+
+      // Load Globe.GL dynamically
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/globe.gl';
+      script.onload = async () => {
+        // Import THREE dynamically
+        const THREE = await import('https://esm.sh/three');
+
+        const world = Globe()(globeDiv)
+          .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+          .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+          .backgroundColor('rgba(0,0,0,0)') // Forces transparent background
+          .width(800)
+          .height(800);
+
+        // 1. Auto-rotate (Constant speed) and lock scroll zoom
+        world.controls().autoRotate = true;
+        world.controls().autoRotateSpeed = 0.35;
+        world.controls().enableZoom = false; 
+
+        // Add clouds sphere
+        const CLOUDS_IMG_URL = 'https://raw.githubusercontent.com/turban/webgl-earth/master/images/clouds.png'; 
+        const CLOUDS_ALT = 0.004;
+        const CLOUDS_ROTATION_SPEED = -0.006; // deg/frame
+
+        // 2. Mouse tracking variables for pointer sensitivity
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        document.addEventListener('mousemove', (event) => {
+          // Normalizes mouse coordinates to a scale of -0.5 to 0.5
+          mouseX = (event.clientX / window.innerWidth) - 0.5;
+          mouseY = (event.clientY / window.innerHeight) - 0.5;
+        });
+
+        new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTexture => {
+          const clouds = new THREE.Mesh(
+            new THREE.SphereGeometry(world.getGlobeRadius() * (1 + CLOUDS_ALT), 75, 75),
+            new THREE.MeshPhongMaterial({ map: cloudsTexture, transparent: true })
+          );
+          world.scene().add(clouds);
+
+          // Master Animation Loop
+          (function animate() {
+            // Rotate clouds independently
+            clouds.rotation.y += CLOUDS_ROTATION_SPEED * Math.PI / 180;
+
+            // 3. Apply Mouse Sensitivity (Parallax tilt)
+            const targetRotationY = mouseX * 0.6; // Max horizontal tilt limit
+            const targetRotationX = mouseY * 0.6; // Max vertical tilt limit
+            
+            // Smoothly interpolate the scene tilt toward the mouse position
+            world.scene().rotation.y += (targetRotationY - world.scene().rotation.y) * 0.05;
+            world.scene().rotation.x += (targetRotationX - world.scene().rotation.x) * 0.05;
+
+            requestAnimationFrame(animate);
+          })();
+        });
+      };
+      document.head.appendChild(script);
     }
   }
 
