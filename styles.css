@@ -316,7 +316,7 @@ body.magic-mode {
   position: absolute;
   
   /* CRITICAL FIX: Pushes the globe deep down so only the top dome is visible */
-  bottom: -550px; 
+  bottom: -320px; 
   left: 50%;
   transform: translateX(-50%);
   
