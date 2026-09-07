@@ -1105,14 +1105,6 @@ function mountMagicMode() {
       heroVid.autoplay = true; heroVid.loop = true; heroVid.muted = true; heroVid.playsInline = true;
       document.getElementById('hero').appendChild(heroVid);
     }
-    if (!document.getElementById('footerBlackhole')) {
-      const footerVid = document.createElement('video');
-      footerVid.id = 'footerBlackhole';
-      footerVid.className = 'blackhole-video footer-blackhole';
-      footerVid.src = 'https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm';
-      footerVid.autoplay = true; footerVid.loop = true; footerVid.muted = true; footerVid.playsInline = true;
-      document.getElementById('links').appendChild(footerVid);
-    }
   }
 
   function toggleTheme(forceDark) {
