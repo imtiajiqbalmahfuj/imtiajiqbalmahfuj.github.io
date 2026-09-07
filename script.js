@@ -1108,71 +1108,47 @@ function mountMagicMode() {
       hero.appendChild(heroVid);
     }
 
-    // 2. Interactive Globe.GL with Clouds & Mouse Sensitivity (For White Theme)
+    // 2. Interactive Globe.GL (For White Theme)
     if (!document.getElementById('heroGlobe')) {
       const globeDiv = document.createElement('div');
       globeDiv.id = 'heroGlobe';
-      globeDiv.className = 'earth-3d'; // Ensure this matches the CSS below
+      globeDiv.className = 'earth-3d'; 
       hero.appendChild(globeDiv);
 
       // Load Globe.GL dynamically
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/globe.gl';
-      script.onload = async () => {
-        // Import THREE dynamically (using unpkg for better reliability)
-        const THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js').catch(e => import('https://esm.sh/three'));
-
+      script.onload = () => {
         const world = Globe()(globeDiv)
           .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
           .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
           .backgroundColor('rgba(0,0,0,0)') // Forces transparent background
-          .width(1000) 
-          .height(1000);
+          .width(900)  // Perfect width to match the cards
+          .height(900);
 
-        // 1. Auto-rotate (Constant speed) and lock scroll zoom
+        // Auto-rotate and lock scroll zoom
         world.controls().autoRotate = true;
-        world.controls().autoRotateSpeed = 0.5; // Spin speed
+        world.controls().autoRotateSpeed = 0.5; // Constant spin speed
         world.controls().enableZoom = false; 
 
-        // Add clouds sphere
-        const CLOUDS_IMG_URL = 'https://raw.githubusercontent.com/turban/webgl-earth/master/images/clouds.png'; 
-        const CLOUDS_ALT = 0.004;
-        const CLOUDS_ROTATION_SPEED = -0.006; // deg/frame
-
-        // 2. Mouse tracking variables for pointer sensitivity
+        // Mouse tracking variables
         let mouseX = 0;
         let mouseY = 0;
         
         document.addEventListener('mousemove', (event) => {
-          // Normalizes mouse coordinates to a scale of -0.5 to 0.5
-          mouseX = (event.clientX / window.innerWidth) - 0.5;
-          mouseY = (event.clientY / window.innerHeight) - 0.5;
+          // Normalizes mouse coordinates from -1 to 1
+          mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+          mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
         });
 
-        new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTexture => {
-          const clouds = new THREE.Mesh(
-            new THREE.SphereGeometry(world.getGlobeRadius() * (1 + CLOUDS_ALT), 75, 75),
-            new THREE.MeshPhongMaterial({ map: cloudsTexture, transparent: true })
-          );
-          world.scene().add(clouds);
-
-          // Master Animation Loop
-          (function animate() {
-            // Rotate clouds independently
-            clouds.rotation.y += CLOUDS_ROTATION_SPEED * Math.PI / 180;
-
-            // 3. Apply Mouse Sensitivity (Parallax tilt)
-            // Increased to 1.5 for a highly responsive tilt effect
-            const targetRotationY = mouseX * 1.5; 
-            const targetRotationX = mouseY * 1.5; 
-            
-            // Smoothly interpolate the scene tilt toward the mouse position
-            world.scene().rotation.y += (targetRotationY - world.scene().rotation.y) * 0.05;
-            world.scene().rotation.x += (targetRotationX - world.scene().rotation.x) * 0.05;
-
-            requestAnimationFrame(animate);
-          })();
-        });
+        // Master Animation Loop for Mouse Parallax
+        function animateParallax() {
+          // Gently tilts the scene up/down and left/right based on mouse placement
+          world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
+          world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
+          requestAnimationFrame(animateParallax);
+        }
+        animateParallax();
       };
       document.head.appendChild(script);
     }
