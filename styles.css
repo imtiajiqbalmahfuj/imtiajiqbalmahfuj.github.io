@@ -357,7 +357,7 @@ body.magic-mode footer#links {
 }
 
 .footer-blackhole {
-  top: -30px; /* Moves the video up by about 1 inch */
+  top: 0px; /* Moves the video up by about 1 inch */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
