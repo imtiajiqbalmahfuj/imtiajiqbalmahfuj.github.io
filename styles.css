@@ -345,6 +345,18 @@ body.magic-mode {
   cursor: grabbing;
 }
 
+/* Creates an invisible dead-zone over the top 150px of the globe where the hand tool won't work */
+.earth-3d::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* Increase this to push the drag area further down */
+  z-index: 20;
+  cursor: default;
+}
+
 /* CRITICAL FIX: Forces your text to sit above the 3D globe */
 #hero > .z-10 {
   position: relative;
@@ -499,4 +511,13 @@ body.magic-mode .card .bg-white {
   background-color: transparent !important;
   backdrop-filter: none !important;
   border: none !important;
+}
+
+
+/* Force disable all touch/grab interactions on mobile so the page scrolls normally */
+@media (max-width: 768px) {
+  .earth-3d, 
+  .earth-3d canvas {
+    pointer-events: none !important;
+  }
 }
