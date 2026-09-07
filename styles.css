@@ -316,13 +316,15 @@ body.magic-mode #downBtn {
   pointer-events: none;
   opacity: 1 !important;
   transition: opacity 1.5s ease-in-out;
-  /* Uses 'difference' to show on white backgrounds without needing a dark box */
-  mix-blend-mode: difference; 
+  /* Magic trick for white theme: inverts black bg to white (invisible via multiply) and corrects the purple */
+  mix-blend-mode: multiply; 
+  filter: invert(1) hue-rotate(180deg);
 }
 
-/* Switch back to 'screen' for dark mode */
+/* Switch back to normal screen blending for dark mode */
 body.magic-mode .blackhole-video {
   mix-blend-mode: screen; 
+  filter: none;
 }
 
 /* 1. Hero Black Hole Placement */
@@ -349,15 +351,14 @@ body.magic-mode .blackhole-video {
   z-index: 10;
 }
 
-/* 2. Footer Violet Glow */
+/* 2. Footer Section (Always Black with Glow) */
 footer#links {
   position: relative;
   overflow: hidden !important; 
-  background-color: transparent !important; 
+  background-color: #000000 !important; /* Restored black background */
 }
 
 body.magic-mode footer#links {
-  background-color: #000000 !important; 
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -368,7 +369,7 @@ footer#links::after {
   bottom: 0; 
   left: 0; 
   right: 0;
-  height: 120px; /* Adjust height of the glow here */
+  height: 120px; 
   background: linear-gradient(to top, rgba(168, 85, 247, 0.25), transparent);
   pointer-events: none;
   z-index: 0;
