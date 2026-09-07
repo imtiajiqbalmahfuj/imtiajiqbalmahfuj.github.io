@@ -168,28 +168,32 @@ html, body {
 }
 
 /* =========================================
-   MAGIC BUTTON STYLING (Fade vs Glow)
+   MAGIC BUTTON STYLING
    ========================================= */
 #magicBtn {
-  opacity: 0.35 !important;
+  opacity: 0.4; /* Faded out in white theme */
   transition: all 0.3s ease;
-}
-#magicBtn:hover {
-  opacity: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Glowing Magic Button in Dark Theme */
+#magicBtn:hover {
+  opacity: 1;
+}
+
+/* Dark Theme: Solid opacity, purple icon, NO circular background/glow */
 body.magic-mode #magicBtn {
   opacity: 1 !important;
-  background: rgba(147, 51, 234, 0.2) !important;
-  border: 1px solid rgba(168, 85, 247, 0.5) !important;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5), inset 0 0 8px rgba(168, 85, 247, 0.3) !important;
-}
-body.magic-mode #magicBtn i {
-  color: #e9d5ff !important;
-  filter: drop-shadow(0 0 5px rgba(216, 180, 254, 0.8));
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
+body.magic-mode #magicBtn i {
+  color: #e9d5ff !important; /* Light purple to match the Connect button */
+  filter: none !important; /* Removes the glowing drop-shadow */
+}
 /* =========================================
    UNIVERSAL GLASSMORPHISM (Light Mode)
    ========================================= */
