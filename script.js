@@ -1100,7 +1100,8 @@ function mountMagicMode() {
       const heroVid = document.createElement('video');
       heroVid.id = 'heroBlackhole';
       heroVid.className = 'blackhole-video hero-blackhole';
-      heroVid.src = 'https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm';
+      // Added your new rotating earth video here
+      heroVid.src = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202422_3ffb4889-c520-432d-8458-038009eb40df.mp4';
       heroVid.autoplay = true; heroVid.loop = true; heroVid.muted = true; heroVid.playsInline = true;
       document.getElementById('hero').appendChild(heroVid);
     }
