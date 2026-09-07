@@ -190,9 +190,10 @@ body.magic-mode #magicBtn {
   box-shadow: none !important;
 }
 
-body.magic-mode #magicBtn i {
-  color: #e9d5ff !important; /* Light purple to match the Connect button */
-  filter: none !important; /* Removes the glowing drop-shadow */
+body.magic-mode #magicBtn i, 
+body.magic-mode #magicBtn svg {
+  color: #c084fc !important; 
+  filter: none !important; 
 }
 /* =========================================
    UNIVERSAL GLASSMORPHISM (Light Mode)
