@@ -1074,7 +1074,7 @@ function initDefaultParticles() {
 
 
 
-// === Dark Purple Glassmorphism & Theme Configuration ===
+// === Dark Purple Glassmorphism, Video Injection & Theme Configuration ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
@@ -1085,36 +1085,68 @@ function mountMagicMode() {
   // false = Site loads in Light Mode initially
   // ==========================================
   const DEFAULT_DARK_MODE = false; 
+
+  // Check URL for "?theme=dark" or "?theme=light" (URL overrides the default)
+  const params = new URLSearchParams(window.location.search);
+  let initialThemeIsDark = DEFAULT_DARK_MODE;
+  if (params.has('theme')) {
+    initialThemeIsDark = params.get('theme') === 'dark';
+  }
   
   let isMagic = false;
+
+  // Dynamically inject the videos so you don't have to edit HTML
+  function injectVideos() {
+    if (!document.getElementById('heroBlackhole')) {
+      const heroVid = document.createElement('video');
+      heroVid.id = 'heroBlackhole';
+      heroVid.className = 'blackhole-video hero-blackhole';
+      heroVid.src = 'https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm';
+      heroVid.autoplay = true; heroVid.loop = true; heroVid.muted = true; heroVid.playsInline = true;
+      document.getElementById('hero').appendChild(heroVid);
+    }
+    if (!document.getElementById('footerBlackhole')) {
+      const footerVid = document.createElement('video');
+      footerVid.id = 'footerBlackhole';
+      footerVid.className = 'blackhole-video footer-blackhole';
+      footerVid.src = 'https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm';
+      footerVid.autoplay = true; footerVid.loop = true; footerVid.muted = true; footerVid.playsInline = true;
+      document.getElementById('links').appendChild(footerVid);
+    }
+  }
 
   function toggleTheme(forceDark) {
     isMagic = forceDark;
     document.body.classList.toggle('magic-mode', isMagic);
 
-    if (isMagic) {
-      // Switch icon to a purple moon when active
-      btn.innerHTML = `<i data-lucide="moon" class="w-5 h-5"></i>`;
-    } else {
-      // Revert to default wand
-      btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
-    }
-    
+    // Inject videos if turning on dark mode
+    if (isMagic) injectVideos();
+
+    // Ensure the icon ALWAYS stays the magic wand in both modes
+    btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
     if (window.lucide) lucide.createIcons();
+
+    // Quietly update the URL so sharing the link preserves the active theme
+    const newUrl = new URL(window.location);
+    if (isMagic) {
+      newUrl.searchParams.set('theme', 'dark');
+    } else {
+      newUrl.searchParams.delete('theme');
+    }
+    window.history.replaceState({}, '', newUrl);
   }
 
-  // Apply default theme on page load
-  if (DEFAULT_DARK_MODE) {
+  // Load the requested theme on initial visit
+  if (initialThemeIsDark) {
     toggleTheme(true);
   }
 
-  // Handle button clicks
+  // Handle manual clicks
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     toggleTheme(!isMagic);
   });
 }
-
 
 
 
