@@ -1096,14 +1096,26 @@ function mountMagicMode() {
   let isMagic = false;
 
   function injectVideos() {
+    const hero = document.getElementById('hero');
+
+    // 1. Black Hole Video (For Dark Theme)
     if (!document.getElementById('heroBlackhole')) {
       const heroVid = document.createElement('video');
       heroVid.id = 'heroBlackhole';
       heroVid.className = 'blackhole-video hero-blackhole';
-      // Added your new rotating earth video here
-      heroVid.src = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202422_3ffb4889-c520-432d-8458-038009eb40df.mp4';
+      heroVid.src = 'https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm';
       heroVid.autoplay = true; heroVid.loop = true; heroVid.muted = true; heroVid.playsInline = true;
-      document.getElementById('hero').appendChild(heroVid);
+      hero.appendChild(heroVid);
+    }
+
+    // 2. Rotating Earth Video (For White Theme)
+    if (!document.getElementById('heroEarth')) {
+      const earthVid = document.createElement('video');
+      earthVid.id = 'heroEarth';
+      earthVid.className = 'earth-video';
+      earthVid.src = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202422_3ffb4889-c520-432d-8458-038009eb40df.mp4';
+      earthVid.autoplay = true; earthVid.loop = true; earthVid.muted = true; earthVid.playsInline = true;
+      hero.appendChild(earthVid);
     }
   }
 
