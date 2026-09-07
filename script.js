@@ -1040,20 +1040,29 @@ function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
 
+  // ==========================================
+  // CONFIGURATION: SET DEFAULT THEME FOR NEW VISITORS
+  // true = Site loads in Dark Mode initially
+  // false = Site loads in Light Mode initially
+  // ==========================================
   const DEFAULT_DARK_MODE = false; 
+
+  // 1. Determine theme: Check URL first, then LocalStorage, then Default Config
   const params = new URLSearchParams(window.location.search);
-  let initialThemeIsDark = DEFAULT_DARK_MODE;
-  if (params.has('theme')) {
-    initialThemeIsDark = params.get('theme') === 'dark';
-  }
+  let savedTheme = localStorage.getItem('theme');
   
-  let isMagic = false;
+  if (params.has('theme')) {
+    savedTheme = params.get('theme');
+  }
+
+  // If savedTheme exists, use it. Otherwise, use your DEFAULT_DARK_MODE preference.
+  let isMagic = savedTheme !== null ? (savedTheme === 'dark') : DEFAULT_DARK_MODE;
 
   function injectVideos() {
     const hero = document.getElementById('hero');
-    if (!hero) return;
+    if (!hero) return; // Safely exit if on a subpage
 
-    // 1. Black Hole Video (For Dark Theme)
+    // 1. Black Hole Video
     if (!document.getElementById('heroBlackhole')) {
       const heroVid = document.createElement('video');
       heroVid.id = 'heroBlackhole';
@@ -1063,7 +1072,7 @@ function mountMagicMode() {
       hero.appendChild(heroVid);
     }
 
-    // 2. Interactive GDP Choropleth Globe (For White Theme)
+    // 2. Interactive Globe
     if (!document.getElementById('heroGlobe')) {
       const globeDiv = document.createElement('div');
       globeDiv.id = 'heroGlobe';
@@ -1072,8 +1081,7 @@ function mountMagicMode() {
 
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/globe.gl';
-      script.async = true; // explicitly make non-blocking
-      script.defer = true;
+      script.async = true; script.defer = true;
       script.onload = async () => {
         const { scaleSequentialSqrt } = await import('https://esm.sh/d3-scale');
         const { interpolateYlOrRd } = await import('https://esm.sh/d3-scale-chromatic');
@@ -1089,26 +1097,17 @@ function mountMagicMode() {
             const world = Globe()(globeDiv)
               .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
               .backgroundColor('rgba(0,0,0,0)')
-              .width(1300)
-              .height(1300)
+              .width(1300).height(1300)
               .lineHoverPrecision(0)
               .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
               .polygonAltitude(0.06)
               .polygonCapColor(feat => colorScale(getVal(feat)))
               .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
               .polygonStrokeColor(() => '#111')
-              .polygonLabel(({ properties: d }) => `
-                <div style="background: rgba(0,0,0,0.8); padding: 6px 10px; border-radius: 8px; color: white; font-family: sans-serif; font-size: 13px;">
-                  <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
-                  GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
-                  Population: <i>${d.POP_EST}</i>
-                </div>
-              `)
               .onPolygonHover(hoverD => world
                 .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
                 .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
-              )
-              .polygonsTransitionDuration(300);
+              ).polygonsTransitionDuration(300);
 
             world.controls().autoRotate = true;
             world.controls().autoRotateSpeed = 0.5;
@@ -1117,10 +1116,8 @@ function mountMagicMode() {
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
             if (isTouchDevice) {
               world.controls().enableRotate = false;
-              globeDiv.style.pointerEvents = 'none'; // <-- THIS completely frees up mobile scrolling!
-            }
-
-            if (!isTouchDevice) {
+              globeDiv.style.pointerEvents = 'none'; // <-- Restored JS mobile scroll lock override
+            } else {
               let mouseX = 0, mouseY = 0;
               document.addEventListener('mousemove', (event) => {
                 mouseX = (event.clientX / window.innerWidth) * 2 - 1;
@@ -1139,37 +1136,35 @@ function mountMagicMode() {
     }
   }
 
-  // ==> DEFERRED INJECTION: Wait for 800ms so initial DOM loads instantly <==
-  setTimeout(injectVideos, 800);
-
-  if (initialThemeIsDark) {
-    toggleTheme(true);
+  // Only inject if on the homepage
+  if (document.getElementById('hero')) {
+    setTimeout(injectVideos, 800);
   }
 
   function toggleTheme(forceDark) {
     isMagic = forceDark;
     document.body.classList.toggle('magic-mode', isMagic);
 
-    // If toggled before the 800ms timer runs, inject immediately
-    if (isMagic) injectVideos();
+    if (isMagic && document.getElementById('hero')) injectVideos();
 
     btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
     if (window.lucide) lucide.createIcons();
 
-    const newUrl = new URL(window.location);
-    if (isMagic) {
-      newUrl.searchParams.set('theme', 'dark');
-    } else {
-      newUrl.searchParams.delete('theme');
-    }
-    window.history.replaceState({}, '', newUrl);
+    // Saves theme locally so it applies on all pages instantly
+    localStorage.setItem('theme', isMagic ? 'dark' : 'light');
   }
+
+  // Apply immediately on load
+  toggleTheme(isMagic);
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     toggleTheme(!isMagic);
   });
 }
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   mountAllEmails(); 
