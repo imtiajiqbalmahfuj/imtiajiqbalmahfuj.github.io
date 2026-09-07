@@ -314,25 +314,26 @@ body.magic-mode {
 /* --- 1. LIGHT THEME: 3D Earth --- */
 .earth-3d {
   position: absolute;
-  
-  /* Math: 1200px height - 740px bottom offset = Top dome rises exactly 460px behind cards */
-  bottom: -740px; 
+  bottom: -750px; 
   left: 50%;
   transform: translateX(-50%);
   
-  width: 1200px;
-  height: 1200px;
+  width: 1300px;
+  height: 1300px;
   max-width: 150vw; 
   
-  z-index: 1; /* Sits behind the cards but above the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  z-index: 1; 
   opacity: 1;
   transition: opacity 1.5s ease-in-out;
   cursor: grab;
-  pointer-events: auto !important; /* Ensures drag and mouse movement work */
+  pointer-events: auto !important; 
   
-  /* PERFECT CROP: Acts like a blade, slicing off everything below 38.5% of the globe (the exact bottom of the section) */
-  -webkit-mask-image: linear-gradient(to bottom, black 38%, transparent 38.5%);
-  mask-image: linear-gradient(to bottom, black 38%, transparent 38.5%);
+  -webkit-mask-image: linear-gradient(to bottom, black 42%, transparent 42.5%);
+  mask-image: linear-gradient(to bottom, black 42%, transparent 42.5%);
 }
 
 .earth-3d:active {
