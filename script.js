@@ -1074,16 +1074,22 @@ function initDefaultParticles() {
 
 
 
-// === Dark Purple Glassmorphism Toggle ===
+// === Dark Purple Glassmorphism & Theme Configuration ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
 
+  // ==========================================
+  // CONFIGURATION: SET DEFAULT THEME HERE
+  // true = Site loads in Dark Mode initially
+  // false = Site loads in Light Mode initially
+  // ==========================================
+  const DEFAULT_DARK_MODE = true; 
+  
   let isMagic = false;
 
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    isMagic = !isMagic;
+  function toggleTheme(forceDark) {
+    isMagic = forceDark;
     document.body.classList.toggle('magic-mode', isMagic);
 
     if (isMagic) {
@@ -1095,9 +1101,19 @@ function mountMagicMode() {
     }
     
     if (window.lucide) lucide.createIcons();
+  }
+
+  // Apply default theme on page load
+  if (DEFAULT_DARK_MODE) {
+    toggleTheme(true);
+  }
+
+  // Handle button clicks
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleTheme(!isMagic);
   });
 }
-
 
 
 
