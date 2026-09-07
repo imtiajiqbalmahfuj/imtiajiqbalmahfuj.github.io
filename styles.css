@@ -315,7 +315,7 @@ body.magic-mode {
 .earth-video {
   position: absolute;
   /* Pushes the bottom half of the video down so it forms a perfect dome */
-  bottom: 220px; 
+  bottom: -150px; 
   left: 50%;
   transform: translateX(-50%);
   
