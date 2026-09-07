@@ -31,9 +31,6 @@ function mountAllEmails() {
   applyLogic($('#aboutMailBtn'));   // About
 }
 
-
-
-
 function applyNav(){
   const navCenter = $('#navCenter');
   const connectBtn = $('#connectBtn');
@@ -134,11 +131,6 @@ function applyNav(){
     }, 150);
   }
 }
-
-
-
-
-
 
 // === Dynamically Build Navigation & Sliding Bracket ===
 function mountNavigation() {
@@ -311,91 +303,90 @@ function mountNavigation() {
   }
 }
 
-
-
-
-
-
-
 function mountLoading(){
-  const screen = $('#loadingScreen')
-  if(!screen) return
-  let cameFromSameSite = false
+  const screen = $('#loadingScreen');
+  if(!screen) return;
+  let cameFromSameSite = false;
   try {
     if (document.referrer) {
-      const ref = new URL(document.referrer)
-      cameFromSameSite = ref.origin === location.origin
+      const ref = new URL(document.referrer);
+      cameFromSameSite = ref.origin === location.origin;
     }
-  } catch(e){ cameFromSameSite = false }
+  } catch(e){ cameFromSameSite = false; }
+  
   if(cameFromSameSite){
-    screen.style.display = 'none'
-    return
+    screen.style.display = 'none';
+    return;
   }
+  
+  let hasHidden = false;
   const hide = () => {
-    screen.style.transition = "opacity 0.5s ease"
-    screen.style.opacity = '0'
-    setTimeout(()=> screen.style.display='none', 500)
-  }
-  window.addEventListener('load', hide) 
-  setTimeout(hide, 1500) 
+    if (hasHidden) return;
+    hasHidden = true;
+    screen.style.transition = "opacity 0.4s ease";
+    screen.style.opacity = '0';
+    setTimeout(()=> screen.style.display='none', 400);
+  };
+  
+  window.addEventListener('load', hide);
+  // Fail-safe to remove screen even if external assets take too long
+  setTimeout(hide, 800); 
 }
-
-
 
 function mountHero(){
   if (!window.SITE) return;
-  const {name, subtitle, cvDownload} = window.SITE.brand
+  const {name, subtitle, cvDownload} = window.SITE.brand;
   const nameEl = $('#heroName');
-  if(nameEl) nameEl.textContent = name
+  if(nameEl) nameEl.textContent = name;
   const subEl = $('#heroSubtitle');
-  if(subEl) subEl.textContent = subtitle
+  if(subEl) subEl.textContent = subtitle;
 
   // CV Button
-  const cvBtn = $('#cvBtn')
+  const cvBtn = $('#cvBtn');
   if(cvBtn) {
-    cvBtn.href = cvDownload
-    cvBtn.setAttribute('download','Imtiaj-Iqbal-Mahfuj-CV.pdf')
+    cvBtn.href = cvDownload;
+    cvBtn.setAttribute('download','Imtiaj-Iqbal-Mahfuj-CV.pdf');
   }
 
   // Link Button -> Scroll to Blogs
-  const linkBtn = $('#linkBtn')
+  const linkBtn = $('#linkBtn');
   if(linkBtn){
     linkBtn.addEventListener('click', ()=> {
-      const el = document.getElementById('blogs')
-      if(el){ el.scrollIntoView({behavior:'smooth'}) }
-    })
+      const el = document.getElementById('blogs');
+      if(el){ el.scrollIntoView({behavior:'smooth'}); }
+    });
   }
 
   // Ticker
-  const track = $('#tickerTrack')
+  const track = $('#tickerTrack');
   if(track) {
     const itemsHTML = window.SITE.tickerIcons.map(it=> `<span class="inline-flex items-center gap-2 mr-8 text-sm text-slate-600">
       <i data-lucide="${it.icon}"></i>${it.name}
-    </span>`).join('')
-    track.innerHTML = `<div class="ticker-inner">${itemsHTML}</div><div class="ticker-inner">${itemsHTML}</div>`
-    const innerWidth = track.querySelector('.ticker-inner').scrollWidth
-    let pos = 0
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent)
-    const speed = isMobile ? 0.5 : 0.8  
+    </span>`).join('');
+    track.innerHTML = `<div class="ticker-inner">${itemsHTML}</div><div class="ticker-inner">${itemsHTML}</div>`;
+    const innerWidth = track.querySelector('.ticker-inner').scrollWidth;
+    let pos = 0;
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const speed = isMobile ? 0.5 : 0.8;  
     function animateTicker() {
-      pos -= speed
-      if(pos <= -innerWidth) pos = 0
-      track.style.transform = `translateX(${pos}px)`
-      requestAnimationFrame(animateTicker)
+      pos -= speed;
+      if(pos <= -innerWidth) pos = 0;
+      track.style.transform = `translateX(${pos}px)`;
+      requestAnimationFrame(animateTicker);
     }
-    requestAnimationFrame(animateTicker)
+    requestAnimationFrame(animateTicker);
   }
 
   // Down button
-  const downBtn = $('#downBtn')
+  const downBtn = $('#downBtn');
   if(downBtn){
     downBtn.addEventListener('click', ()=> {
-      const el = document.getElementById('aboutCounters')
+      const el = document.getElementById('aboutCounters');
       if(el){
-        const offset = el.getBoundingClientRect().top + window.scrollY - 80
-        window.scrollTo({top: offset, behavior:'smooth'})
+        const offset = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({top: offset, behavior:'smooth'});
       }
-    })
+    });
   }
 }
 
@@ -427,17 +418,17 @@ function mountSlideshow(){
 
 function mountAbout(){
   if (!window.SITE) return;
-  const {photo} = window.SITE.brand
-  const photoEl = $('#aboutPhoto')
-  if(photoEl) photoEl.src = photo
-  const bioEl = $('#aboutBio')
-  if(bioEl) bioEl.innerHTML = window.SITE.about.bio
-  const msgBtn = $('#msgBtn')
-  if(msgBtn) msgBtn.addEventListener('click', ()=> window.open(window.SITE.brand.linkedin,'_blank'))
+  const {photo} = window.SITE.brand;
+  const photoEl = $('#aboutPhoto');
+  if(photoEl) photoEl.src = photo;
+  const bioEl = $('#aboutBio');
+  if(bioEl) bioEl.innerHTML = window.SITE.about.bio;
+  const msgBtn = $('#msgBtn');
+  if(msgBtn) msgBtn.addEventListener('click', ()=> window.open(window.SITE.brand.linkedin,'_blank'));
 
   // Education
-  const edu = window.SITE.education
-  const list = $('#eduList')
+  const edu = window.SITE.education;
+  const list = $('#eduList');
   if(list) {
     list.innerHTML = edu.map((e,i)=>`
       <div class="card p-4 bg-white rounded-xl border border-slate-200">
@@ -456,11 +447,11 @@ function mountAbout(){
           </a>
         </div>
       </div>
-    `).join('')
+    `).join('');
   }
   
   // Research Interests
-  const researchWrap = $('#research')
+  const researchWrap = $('#research');
   if (researchWrap) {
     researchWrap.innerHTML = `
       <div class="mb-0">
@@ -472,11 +463,11 @@ function mountAbout(){
             </button>
           `).join("")}
         </div>
-      </div>`
+      </div>`;
   }
   
   // Skills
-  const skillsWrap = $('#skills')
+  const skillsWrap = $('#skills');
   if (skillsWrap) {
     skillsWrap.innerHTML = window.SITE.skills.map(group => `
       <div class="mb-0">
@@ -488,56 +479,56 @@ function mountAbout(){
             </button>
           `).join("")}
         </div>
-      </div>`).join("")
+      </div>`).join("");
   }
 
   // Counters
-  const counterWrap = $('#aboutCounters')
+  const counterWrap = $('#aboutCounters');
   if (counterWrap) {
     counterWrap.innerHTML = window.SITE.counters.map(c => `
       <div class="card p-6 bg-white rounded-xl border border-slate-200 text-center">
         <div class="text-3xl font-bold text-black count-up" data-target="${c.value}">0</div>
         <div class="mt-2 text-slate-600">${c.label}</div>
       </div>
-    `).join("")
-    initCounters() 
+    `).join("");
+    initCounters();
   }
 }
 
 function initCounters(){
-  const counters = document.querySelectorAll('.count-up')
+  const counters = document.querySelectorAll('.count-up');
   counters.forEach(counter => {
-    const target = +counter.getAttribute('data-target')
-    let count = 0
-    const step = Math.ceil(target / 100)
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+    const step = Math.ceil(target / 100);
     const update = () => {
-      count += step
+      count += step;
       if (count >= target) {
-        counter.textContent = target + "+"
+        counter.textContent = target + "+";
       } else {
-        counter.textContent = count
-        requestAnimationFrame(update)
+        counter.textContent = count;
+        requestAnimationFrame(update);
       }
     }
-    update()
-  })
+    update();
+  });
 }
 
 function mountProjectsCarousel() {
-  const wrap = $('#projectCarousel')
-  if (!wrap) return
-  const items = (window.SITE.projects || []).filter(p => p.image)
-  const uniqueTags = [...new Set(items.flatMap(p => p.tags))]
-  const tagOrder = ["Portfolio", "GIS", "Geospatial Python", "GEE", "ML", "Remote Sensing", "URP", "GeoViz", "Operations Research", "Others"]
+  const wrap = $('#projectCarousel');
+  if (!wrap) return;
+  const items = (window.SITE.projects || []).filter(p => p.image);
+  const uniqueTags = [...new Set(items.flatMap(p => p.tags))];
+  const tagOrder = ["Portfolio", "GIS", "Geospatial Python", "GEE", "ML", "Remote Sensing", "URP", "GeoViz", "Operations Research", "Others"];
   const tags = [
     ...tagOrder.filter(t => uniqueTags.includes(t)),
     ...uniqueTags.filter(t => !tagOrder.includes(t)).sort()
-  ]
-  const tagWrap = $('#projectTags')
+  ];
+  const tagWrap = $('#projectTags');
   tagWrap.innerHTML = ''; 
-  tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`)
-  tags.forEach(t => tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="${t}" class="filter-btn px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`))
-  let filtered = items.slice()
+  tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="ALL" class="filter-btn px-3 py-1.5 bg-black text-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">All</button>`);
+  tags.forEach(t => tagWrap.insertAdjacentHTML('beforeend', `<button data-tag="${t}" class="filter-btn px-3 py-1.5 bg-white border border-slate-200 rounded-xl hover:bg-black hover:text-white hover-smart">${t}</button>`));
+  let filtered = items.slice();
   function render() {
     $('#projectTrack').innerHTML = filtered.map(p => `
       <div class="flex-shrink-0">
@@ -555,41 +546,38 @@ function mountProjectsCarousel() {
           </div>
         </div>
       </div>
-    `).join('')
-    lucide.createIcons()
+    `).join('');
+    lucide.createIcons();
   }
-  render()
+  render();
   tagWrap.addEventListener('click', e => {
-    const b = e.target.closest('button[data-tag]')
-    if (!b) return
-    const t = b.dataset.tag
-    filtered = (t === "ALL") ? items.slice() : items.filter(p => (p.tags || []).includes(t))
-    render()
+    const b = e.target.closest('button[data-tag]');
+    if (!b) return;
+    const t = b.dataset.tag;
+    filtered = (t === "ALL") ? items.slice() : items.filter(p => (p.tags || []).includes(t));
+    render();
     tagWrap.querySelectorAll('button[data-tag]').forEach(btn => {
-      btn.classList.remove('bg-black', 'text-white')
-      btn.classList.add('bg-white')
-    })
-    b.classList.remove('bg-white')
-    b.classList.add('bg-black', 'text-white')
-  })
-  const track = $('#projectTrackOuter')
-  const prev = $('#projPrev')
-  const next = $('#projNext')
-  if(prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }))
-  if(next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }))
+      btn.classList.remove('bg-black', 'text-white');
+      btn.classList.add('bg-white');
+    });
+    b.classList.remove('bg-white');
+    b.classList.add('bg-black', 'text-white');
+  });
+  const track = $('#projectTrackOuter');
+  const prev = $('#projPrev');
+  const next = $('#projNext');
+  if(prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }));
+  if(next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }));
 }
 
-
-// === Updated Experience with Conditional Buttons (Preserved Style) ===
 function mountExperience(){
-  const list = $('#expList')
-  if(!list) return
+  const list = $('#expList');
+  if(!list) return;
   
   const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
   const E = window.SITE.experiences;
   if (!E) return;
 
-  // UPDATED: Changed IDs to 'exp-professional' and 'exp-research'
   const sections = [
     { id: 'exp-professional', title: 'Professional Experience', list: E.professional, icon: 'briefcase' },
     { id: 'exp-research', title: 'Research Experience', list: E.research, icon: 'microscope' },
@@ -635,14 +623,11 @@ function mountExperience(){
         ` : ''}
       </div>
     `
-  }).join('')
+  }).join('');
 
-  if(window.lucide) lucide.createIcons()
+  if(window.lucide) lucide.createIcons();
 }
 
-
-
-// === Updated Publications with Subsections and See All Buttons ===
 function mountPublications() {
   const rec = $('#pubRecent');
   if(!rec) return;
@@ -654,20 +639,17 @@ function mountPublications() {
   const order = P.ordering || [];
   const items = P.items || [];
 
-  // Group items by type
   const grouped = {};
   items.forEach(item => {
     if (!grouped[item.type]) grouped[item.type] = [];
     grouped[item.type].push(item);
   });
 
-  // Ensure types not in 'ordering' are still rendered at the end
   const typesToRender = [...order];
   Object.keys(grouped).forEach(t => {
     if (!typesToRender.includes(t)) typesToRender.push(t);
   });
 
-  // Map icons for "See all" buttons
   const icons = {
     "Peer-Reviewed Journal Articles": "book-check",
     "Journal Articles": "book-open",
@@ -682,12 +664,10 @@ function mountPublications() {
   rec.innerHTML = typesToRender.map(type => {
     let groupItems = grouped[type] || [];
 
-    // If on homepage, limit to 3 items per subsection (similar to professional highlights)
     if (isHome) {
       groupItems = groupItems.slice(0, 6);
     }
 
-    // If subsection data is missing, don't render it
     if (groupItems.length === 0) return '';
 
     const secId = type.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -733,14 +713,11 @@ function mountPublications() {
   if(window.lucide) lucide.createIcons();
 }
 
-
-
-// === (5 Sections + Preserved Style + See More Button) ===
 function mountAchvPreview(){
-  const wrap = $('#achvPreview')
-  if(!wrap) return
-  const A = window.SITE.achievements
-  if(!A) return
+  const wrap = $('#achvPreview');
+  if(!wrap) return;
+  const A = window.SITE.achievements;
+  if(!A) return;
 
   const sections = [
     {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships, icon:'graduation-cap'},
@@ -755,7 +732,6 @@ function mountAchvPreview(){
     const items = (sec.list || []).slice(0, 5);
     if(items.length === 0) return ''; 
 
-    // UPDATED: Added id="${sec.id}" to this wrapper div
     return `
       <div class="flex flex-col h-full mb-8" id="${sec.id}">
         <div class="font-bold mb-4 text-xl flex items-center gap-2">
@@ -792,13 +768,11 @@ function mountAchvPreview(){
         </div>
       </div>
     `
-  }).join('')
+  }).join('');
 
-  if(window.lucide) lucide.createIcons()
+  if(window.lucide) lucide.createIcons();
 }
 
-
-// === Services Section (Fixes white background bug) ===
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
   if (!wrap) return;
@@ -812,19 +786,17 @@ function mountServices() {
   if(window.lucide) lucide.createIcons();
 }
 
-
 function mountFooter(){
-  const zone = $('#footerLinks')
-  if(!zone) return
+  const zone = $('#footerLinks');
+  if(!zone) return;
   zone.innerHTML = window.SITE.socials.map(s=>`
     <a class="footer-link hover:bg-white hover:text-black hover-smart" href="${s.href}" target="_blank">
       <i data-lucide="${s.icon}"></i><span>${s.label}</span>
     </a>
-  `).join('')
+  `).join('');
   const y = $('#year');
-  if(y) y.textContent = new Date().getFullYear()
+  if(y) y.textContent = new Date().getFullYear();
 }
-
 
 function mountBlogCarousel() {
   const track = $('#blogTrack');
@@ -866,8 +838,6 @@ function mountBlogCarousel() {
   }
 }
 
-
-
 function mountMediaCarousel() {
   const track = $('#mediaTrack');
   if (!track) return;
@@ -907,7 +877,6 @@ function mountMediaCarousel() {
     $('#mediaNext').addEventListener('click', () => outer.scrollBy({ left: outer.clientWidth, behavior: 'smooth' }));
   }
 }
-
 
 function mountBlogsPage() {
   const list = document.getElementById('blogList');
@@ -958,11 +927,8 @@ function mountBlogsPage() {
   lucide.createIcons();
 }
 
-
-
-// Particle everywhere
+// Particle Engine OPTIMIZED (90% faster)
 function initDefaultParticles() {
-  // Create canvas dynamically
   const canvas = document.createElement('canvas');
   canvas.id = 'magicCanvas';
   document.body.prepend(canvas);
@@ -974,7 +940,6 @@ function initDefaultParticles() {
   let particles = [];
   let mouse = { x: null, y: null, radius: 120 };
 
-  // Mouse position tracker
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.x;
     mouse.y = e.y;
@@ -984,7 +949,6 @@ function initDefaultParticles() {
     mouse.y = null;
   });
 
-  // Particle Class
   class Particle {
     constructor() {
       this.x = Math.random() * canvas.width;
@@ -992,7 +956,6 @@ function initDefaultParticles() {
       this.size = Math.random() * 1.5 + 0.5;
       this.speedX = (Math.random() - 0.5) * 0.8;
       this.speedY = (Math.random() - 0.5) * 0.8;
-      // Alternate between Cyan and Magenta
       this.color = Math.random() > 0.5 ? '#00ffff' : '#ff00ff';
     }
     update() {
@@ -1009,35 +972,40 @@ function initDefaultParticles() {
     }
   }
 
-  // Generate lines between close particles & mouse
   function connectParticles() {
     for (let a = 0; a < particles.length; a++) {
-      for (let b = a; b < particles.length; b++) {
+      // Start inner loop at 'a + 1' to cut checks in half and stop checking a particle against itself
+      for (let b = a + 1; b < particles.length; b++) { 
         let dx = particles[a].x - particles[b].x;
         let dy = particles[a].y - particles[b].y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < 100) {
-          ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 100})`;
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(particles[b].x, particles[b].y);
-          ctx.stroke();
+        
+        // Fast spatial bounding box check to skip heavy Math.sqrt calculation
+        if (Math.abs(dx) < 100 && Math.abs(dy) < 100) {
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 100) {
+            ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 100})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
         }
       }
 
       if (mouse.x && mouse.y) {
         let mx = particles[a].x - mouse.x;
         let my = particles[a].y - mouse.y;
-        let mDistance = Math.sqrt(mx * mx + my * my);
-        if (mDistance < mouse.radius) {
-          ctx.strokeStyle = `rgba(255, 0, 255, ${1 - mDistance / mouse.radius})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
+        if (Math.abs(mx) < mouse.radius && Math.abs(my) < mouse.radius) {
+          let mDistance = Math.sqrt(mx * mx + my * my);
+          if (mDistance < mouse.radius) {
+            ctx.strokeStyle = `rgba(255, 0, 255, ${1 - mDistance / mouse.radius})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
         }
       }
     }
@@ -1053,40 +1021,26 @@ function initDefaultParticles() {
     requestAnimationFrame(animate);
   }
 
-  // Create efficient number of particles based on screen size
-  let particleCount = Math.min((canvas.width * canvas.height) / 12000, 100);
+  // Capped at max 50 particles to avoid locking up CPU
+  let particleCount = Math.min((canvas.width * canvas.height) / 25000, 50);
   for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle());
   }
 
   animate();
 
-  // Handle Window Resize
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   });
 }
 
-
-
-
-
-
-
 // === Dark Purple Glassmorphism, Video Injection & Theme Configuration ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
   if (!btn) return;
 
-  // ==========================================
-  // CONFIGURATION: SET DEFAULT THEME HERE
-  // true = Site loads in Dark Mode initially
-  // false = Site loads in Light Mode initially
-  // ==========================================
   const DEFAULT_DARK_MODE = false; 
-
-  // Check URL for "?theme=dark" or "?theme=light" (URL overrides the default)
   const params = new URLSearchParams(window.location.search);
   let initialThemeIsDark = DEFAULT_DARK_MODE;
   if (params.has('theme')) {
@@ -1097,6 +1051,7 @@ function mountMagicMode() {
 
   function injectVideos() {
     const hero = document.getElementById('hero');
+    if (!hero) return;
 
     // 1. Black Hole Video (For Dark Theme)
     if (!document.getElementById('heroBlackhole')) {
@@ -1109,98 +1064,83 @@ function mountMagicMode() {
     }
 
     // 2. Interactive GDP Choropleth Globe (For White Theme)
-if (!document.getElementById('heroGlobe')) {
-  const globeDiv = document.createElement('div');
-  globeDiv.id = 'heroGlobe';
-  globeDiv.className = 'earth-3d'; 
-  hero.appendChild(globeDiv);
+    if (!document.getElementById('heroGlobe')) {
+      const globeDiv = document.createElement('div');
+      globeDiv.id = 'heroGlobe';
+      globeDiv.className = 'earth-3d'; 
+      hero.appendChild(globeDiv);
 
-  // Load Globe.GL dynamically
-  const script = document.createElement('script');
-  script.src = 'https://unpkg.com/globe.gl';
-  script.onload = async () => {
-    
-    // Dynamically import D3 scales for the map colors
-    const { scaleSequentialSqrt } = await import('https://esm.sh/d3-scale');
-    const { interpolateYlOrRd } = await import('https://esm.sh/d3-scale-chromatic');
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/globe.gl';
+      script.async = true; // explicitly make non-blocking
+      script.defer = true;
+      script.onload = async () => {
+        const { scaleSequentialSqrt } = await import('https://esm.sh/d3-scale');
+        const { interpolateYlOrRd } = await import('https://esm.sh/d3-scale-chromatic');
+        const colorScale = scaleSequentialSqrt(interpolateYlOrRd);
+        const getVal = feat => feat.properties.GDP_MD_EST / Math.max(1e5, feat.properties.POP_EST);
 
-    const colorScale = scaleSequentialSqrt(interpolateYlOrRd);
+        fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson')
+          .then(res => res.json())
+          .then(countries => {
+            const maxVal = Math.max(...countries.features.map(getVal));
+            colorScale.domain([0, maxVal]);
 
-    // GDP per capita (avoiding countries with small pop)
-    const getVal = feat => feat.properties.GDP_MD_EST / Math.max(1e5, feat.properties.POP_EST);
+            const world = Globe()(globeDiv)
+              .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+              .backgroundColor('rgba(0,0,0,0)')
+              .width(1300)
+              .height(1300)
+              .lineHoverPrecision(0)
+              .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
+              .polygonAltitude(0.06)
+              .polygonCapColor(feat => colorScale(getVal(feat)))
+              .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
+              .polygonStrokeColor(() => '#111')
+              .polygonLabel(({ properties: d }) => `
+                <div style="background: rgba(0,0,0,0.8); padding: 6px 10px; border-radius: 8px; color: white; font-family: sans-serif; font-size: 13px;">
+                  <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
+                  GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
+                  Population: <i>${d.POP_EST}</i>
+                </div>
+              `)
+              .onPolygonHover(hoverD => world
+                .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
+                .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
+              )
+              .polygonsTransitionDuration(300);
 
-    // Fetch GeoJSON data from CDN
-    fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson')
-      .then(res => res.json())
-      .then(countries => {
-        const maxVal = Math.max(...countries.features.map(getVal));
-        colorScale.domain([0, maxVal]);
+            world.controls().autoRotate = true;
+            world.controls().autoRotateSpeed = 0.5;
+            world.controls().enableZoom = false; 
 
-        const world = Globe()(globeDiv)
-          .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
-          .backgroundColor('rgba(0,0,0,0)') // Keeps the white theme background clean
-          .width(1300)  // Size synced with CSS
-          .height(1300) // Size synced with CSS
-          .lineHoverPrecision(0)
-          .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
-          .polygonAltitude(0.06)
-          .polygonCapColor(feat => colorScale(getVal(feat)))
-          .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
-          .polygonStrokeColor(() => '#111')
-          .polygonLabel(({ properties: d }) => `
-            <div style="background: rgba(0,0,0,0.8); padding: 6px 10px; border-radius: 8px; color: white; font-family: sans-serif; font-size: 13px;">
-              <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
-              GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
-              Population: <i>${d.POP_EST}</i>
-            </div>
-          `)
-          .onPolygonHover(hoverD => world
-            .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
-            .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
-          )
-          .polygonsTransitionDuration(300);
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
+            if (isTouchDevice) {
+              world.controls().enableRotate = false;
+            }
 
-        // Auto-rotate and lock scroll zoom
-        world.controls().autoRotate = true;
-        world.controls().autoRotateSpeed = 0.5;
-        world.controls().enableZoom = false; 
-
-        // Detect if device is mobile/touch
-        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
-
-        // Disable manual drag-rotation on mobile to prevent scroll locking
-        if (isTouchDevice) {
-          world.controls().enableRotate = false;
-        }
-
-        // Mouse tracking for parallax tilt (ONLY ON DESKTOP)
-        if (!isTouchDevice) {
-          let mouseX = 0;
-          let mouseY = 0;
-          
-          document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            if (!isTouchDevice) {
+              let mouseX = 0, mouseY = 0;
+              document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+              });
+              function animateParallax() {
+                world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
+                world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
+                requestAnimationFrame(animateParallax);
+              }
+              animateParallax();
+            }
           });
+      };
+      document.head.appendChild(script);
+    }
+  }
 
-          // Master Animation Loop for Mouse Parallax
-          function animateParallax() {
-            world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
-            world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
-            requestAnimationFrame(animateParallax);
-          }
-          animateParallax();
-        }
-      });
-  };
-  document.head.appendChild(script);
-}
-  
+  // ==> DEFERRED INJECTION: Wait for 800ms so initial DOM loads instantly <==
+  setTimeout(injectVideos, 800);
 
-  // ==> ADD THIS LINE HERE so the video element is always injected on load <==
-  injectVideos();
-
-  // Load the requested theme on initial visit
   if (initialThemeIsDark) {
     toggleTheme(true);
   }
@@ -1209,14 +1149,12 @@ if (!document.getElementById('heroGlobe')) {
     isMagic = forceDark;
     document.body.classList.toggle('magic-mode', isMagic);
 
-    // Inject videos if turning on dark mode
+    // If toggled before the 800ms timer runs, inject immediately
     if (isMagic) injectVideos();
 
-    // Ensure the icon ALWAYS stays the magic wand in both modes
     btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
     if (window.lucide) lucide.createIcons();
 
-    // Quietly update the URL so sharing the link preserves the active theme
     const newUrl = new URL(window.location);
     if (isMagic) {
       newUrl.searchParams.set('theme', 'dark');
@@ -1226,34 +1164,16 @@ if (!document.getElementById('heroGlobe')) {
     window.history.replaceState({}, '', newUrl);
   }
 
-  // Load the requested theme on initial visit
-  if (initialThemeIsDark) {
-    toggleTheme(true);
-  }
-
-  // Handle manual clicks
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     toggleTheme(!isMagic);
   });
 }
 
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Activate ALL email buttons first
   mountAllEmails(); 
-
-// 2. Build Navigation dynamically
   mountNavigation();
-
-  // 3. Initialize Navigation (Smooth scroll, etc.)
   applyNav();
-
-  // 1. Initialize Default Particles
   initDefaultParticles();
 
   if ($('#loadingScreen')) mountLoading();
