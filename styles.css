@@ -314,34 +314,35 @@ body.magic-mode {
 /* --- LIGHT THEME: Rotating Earth --- */
 .earth-video {
   position: absolute;
-  bottom: 150px; /* Anchors it exactly where the black hole is */
+  /* Pushes the bottom half of the video down so it forms a perfect dome */
+  bottom: 220px; 
   left: 50%;
   transform: translateX(-50%);
   
-  width: 100vw;
-  max-width: 900px; /* Keeps the Earth curve prominent */
-  height: 350px;
+  /* Made bigger & forced into a perfect square for a flawless circular cut */
+  width: 950px; 
+  height: 950px; 
   
   object-fit: cover;
-  object-position: bottom center; /* Keeps the Earth anchored at the bottom */
+  object-position: center;
+  
   z-index: -1;
   pointer-events: none;
   opacity: 1; 
   transition: opacity 1.5s ease-in-out;
   
-  /* Dome-shaped mask to perfectly cut the stars and leave a soft, feathered edge */
-  -webkit-mask-image: radial-gradient(ellipse 65% 100% at 50% 100%, black 45%, rgba(0,0,0,0.4) 55%, transparent 70%);
-  mask-image: radial-gradient(ellipse 65% 100% at 50% 100%, black 45%, rgba(0,0,0,0.4) 55%, transparent 70%);
-
-  /* Adds the smooth blue glow tracing the transparent edge */
-  filter: drop-shadow(0 -15px 35px rgba(10, 130, 255, 0.45));
+  /* PERFECT, SHARP EDGE CUT 
+     * If you still see a tiny bit of black space, change 42% to 40%.
+     * If it cuts too much into the blue glow, change 42% to 44%. 
+     The 0.5% difference makes the edge crisp but not jagged. */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 42%, transparent 42.5%);
+  mask-image: radial-gradient(circle at 50% 50%, black 42%, transparent 42.5%);
 }
 
 /* Hide Earth in Dark Mode */
 body.magic-mode .earth-video {
   opacity: 0 !important;
 }
-
 
 /* --- DARK THEME: Black Hole (Kept Exactly As Is) --- */
 .blackhole-video {
