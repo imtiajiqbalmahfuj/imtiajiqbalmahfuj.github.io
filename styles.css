@@ -308,37 +308,37 @@ body.magic-mode #downBtn {
 }
 
 /* =========================================
-   VIDEO BLACK HOLE EFFECTS & FIXES
+   VIDEO BLACK HOLE & FOOTER GLOW
    ========================================= */
 .blackhole-video {
   position: absolute;
   pointer-events: none;
-  opacity: 0;
+  opacity: 1 !important;
   transition: opacity 1.5s ease-in-out;
+  /* Uses 'difference' to show on white backgrounds without needing a dark box */
+  mix-blend-mode: difference; 
+}
+
+/* Switch back to 'screen' for dark mode */
+body.magic-mode .blackhole-video {
   mix-blend-mode: screen; 
 }
 
-/* Fade videos in when Magic Mode is active */
-body.magic-mode .blackhole-video {
-  opacity: 1;
-}
-
-/* 1. Hero Section: Placed right behind the down arrow / ticker */
-body.magic-mode #hero {
-  overflow: visible !important; 
+/* 1. Hero Black Hole Placement */
+#hero {
+  overflow: visible !important;
 }
 
 .hero-blackhole {
-  bottom: 140px; /* Pushes the video up into the yellow marked area */
+  bottom: 140px; 
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
   max-width: 1300px;
-  height: 350px; /* Increased height so it doesn't get cut off */
+  height: 350px; 
   object-fit: cover;
-  object-position: center; /* Centers the brightest part of the black hole */
+  object-position: center; 
   z-index: -1;
-  /* Relaxed mask so the glow doesn't vanish completely */
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
 }
@@ -348,29 +348,32 @@ body.magic-mode #hero {
   z-index: 10;
 }
 
-/* 2. Footer Section: Moved ~1 inch higher, strictly cropped at bottom */
-body.magic-mode footer#links {
-  background-color: #000000 !important; 
+/* 2. Footer Violet Glow */
+footer#links {
   position: relative;
   overflow: hidden !important; 
+  background-color: transparent !important; 
+}
+
+body.magic-mode footer#links {
+  background-color: #000000 !important; 
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.footer-blackhole {
-  top: 0px; /* Moves the video up by about 1 inch */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  max-width: 1100px;
-  height: 200px; 
-  object-fit: cover;
-  object-position: bottom center;
+/* Creates the violet glow from the very bottom to slightly top */
+footer#links::after {
+  content: "";
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  height: 120px; /* Adjust height of the glow here */
+  background: linear-gradient(to top, rgba(168, 85, 247, 0.25), transparent);
+  pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: radial-gradient(ellipse 65% 80% at 50% 80%, black 30%, transparent 85%);
-  mask-image: radial-gradient(ellipse 65% 80% at 50% 80%, black 30%, transparent 85%);
 }
 
-body.magic-mode footer#links > * {
+footer#links > * {
   position: relative;
   z-index: 1; 
 }
