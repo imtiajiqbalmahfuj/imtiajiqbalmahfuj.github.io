@@ -1108,7 +1108,7 @@ function mountMagicMode() {
       hero.appendChild(heroVid);
     }
 
-    // 2. Interactive Globe.GL (For White Theme)
+    // 2. Interactive GDP Choropleth Globe (For White Theme)
     if (!document.getElementById('heroGlobe')) {
       const globeDiv = document.createElement('div');
       globeDiv.id = 'heroGlobe';
@@ -1118,41 +1118,74 @@ function mountMagicMode() {
       // Load Globe.GL dynamically
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/globe.gl';
-      script.onload = () => {
-        const world = Globe()(globeDiv)
-          .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-          .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-          .backgroundColor('rgba(0,0,0,0)') // Forces transparent background
-          .width(900)  // Perfect width to match the cards
-          .height(900);
-
-        // Auto-rotate and lock scroll zoom
-        world.controls().autoRotate = true;
-        world.controls().autoRotateSpeed = 0.5; // Constant spin speed
-        world.controls().enableZoom = false; 
-
-        // Mouse tracking variables
-        let mouseX = 0;
-        let mouseY = 0;
+      script.onload = async () => {
         
-        document.addEventListener('mousemove', (event) => {
-          // Normalizes mouse coordinates from -1 to 1
-          mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-          mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-        });
+        // Dynamically import D3 scales for the map colors
+        const { scaleSequentialSqrt } = await import('https://esm.sh/d3-scale');
+        const { interpolateYlOrRd } = await import('https://esm.sh/d3-scale-chromatic');
 
-        // Master Animation Loop for Mouse Parallax
-        function animateParallax() {
-          // Gently tilts the scene up/down and left/right based on mouse placement
-          world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
-          world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
-          requestAnimationFrame(animateParallax);
-        }
-        animateParallax();
+        const colorScale = scaleSequentialSqrt(interpolateYlOrRd);
+
+        // GDP per capita (avoiding countries with small pop)
+        const getVal = feat => feat.properties.GDP_MD_EST / Math.max(1e5, feat.properties.POP_EST);
+
+        // Fetch GeoJSON data from CDN
+        fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson')
+          .then(res => res.json())
+          .then(countries => {
+            const maxVal = Math.max(...countries.features.map(getVal));
+            colorScale.domain([0, maxVal]);
+
+            const world = Globe()(globeDiv)
+              .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+              .backgroundColor('rgba(0,0,0,0)') // Keeps the white theme background clean
+              .width(1300)  // Size synced with CSS
+              .height(1300) // Size synced with CSS
+              .lineHoverPrecision(0)
+              .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
+              .polygonAltitude(0.06)
+              .polygonCapColor(feat => colorScale(getVal(feat)))
+              .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
+              .polygonStrokeColor(() => '#111')
+              .polygonLabel(({ properties: d }) => `
+                <div style="background: rgba(0,0,0,0.8); padding: 6px 10px; border-radius: 8px; color: white; font-family: sans-serif; font-size: 13px;">
+                  <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
+                  GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
+                  Population: <i>${d.POP_EST}</i>
+                </div>
+              `)
+              .onPolygonHover(hoverD => world
+                .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
+                .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
+              )
+              .polygonsTransitionDuration(300);
+
+            // Auto-rotate and lock scroll zoom
+            world.controls().autoRotate = true;
+            world.controls().autoRotateSpeed = 0.5;
+            world.controls().enableZoom = false; 
+
+            // Mouse tracking for parallax tilt
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (event) => {
+              mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+              mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            // Master Animation Loop for Mouse Parallax
+            function animateParallax() {
+              world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
+              world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
+              requestAnimationFrame(animateParallax);
+            }
+            animateParallax();
+          });
       };
       document.head.appendChild(script);
     }
-  } 
+  }
   
 
   // ==> ADD THIS LINE HERE so the video element is always injected on load <==
