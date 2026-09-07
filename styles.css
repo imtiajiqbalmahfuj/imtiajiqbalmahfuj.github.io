@@ -228,122 +228,113 @@ html, body {
 
 
 
+
+
 /* =========================================
-   MAGIC MODE: Earth Observation & GeoAI Edition
+   MAGIC MODE: Dark Purple Glassmorphism
    ========================================= */
 
+/* Deep Dark Background & Text Reset */
 body.magic-mode {
-  /* HSL Variables */
-  --bg: 0 0% 4%;
-  --surface: 0 0% 8%;
-  --text: 0 0% 96%;
-  --muted: 0 0% 53%;
-  --stroke: 0 0% 12%;
-  
-  background-color: hsl(var(--bg)) !important;
-  color: hsl(var(--text)) !important;
-  font-family: 'Inter', sans-serif;
+  background-color: #05020a !important; /* Pitch dark purple/black */
+  color: #f8fafc !important;
+  background-image: none !important; /* Removes the light grid */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* 3D Canvas Background */
-#magicCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+/* The massive purple glowing aura in the Hero Section */
+body.magic-mode #hero::before {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120vw;
+  height: 60vh;
+  background: radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.25) 0%, rgba(88, 28, 135, 0.08) 40%, transparent 70%);
+  filter: blur(50px);
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle at center, rgba(16,185,129,0.05) 0%, hsl(var(--bg)) 70%);
 }
 
-/* Typography Overrides */
-body.magic-mode h1, body.magic-mode h2, body.magic-mode h3, body.magic-mode #homeBrand {
-  font-family: 'Instrument Serif', serif !important;
-  color: hsl(var(--text)) !important;
-  font-style: italic;
-  font-weight: 400;
+/* Typography Color Overrides */
+body.magic-mode h1, body.magic-mode h2, body.magic-mode h3, body.magic-mode #homeBrand, body.magic-mode .count-up {
+  color: #ffffff !important;
+}
+body.magic-mode .text-slate-500, body.magic-mode .text-slate-600, body.magic-mode .text-slate-700, body.magic-mode .text-black {
+  color: #94a3b8 !important; /* Muted silver text for readability */
+}
+body.magic-mode #heroSubtitle {
+  color: #cbd5e1 !important;
 }
 
-body.magic-mode #heroName {
-  font-size: clamp(3rem, 8vw, 8rem);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+/* Navbar & Dropdown Dark Glass */
+body.magic-mode .glass-dropdown,
+body.magic-mode #navbar > div:first-child,
+body.magic-mode #mobileMenu > div {
+  background-color: rgba(15, 10, 25, 0.6) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
 }
 
-/* Accent Utilities */
-.text-accent { color: #38bdf8 !important; }
-.text-muted { color: hsl(var(--muted)) !important; }
-.font-display { font-family: 'Instrument Serif', serif !important; }
-.font-body { font-family: 'Inter', sans-serif !important; }
-
-/* Frosted Dark Navbar */
-body.magic-mode #navbar {
-  background-color: hsla(var(--surface), 0.8) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid hsl(var(--stroke));
+/* Navbar Bracket & Text States */
+body.magic-mode .nav-item-link, body.magic-mode .dropdown-item {
+  color: #cbd5e1 !important;
 }
-body.magic-mode #navbar a { color: hsl(var(--text)) !important; }
-
-/* Bento Grid Cards & Base UI */
-body.magic-mode .card, body.magic-mode .bg-white {
-  background-color: hsl(var(--surface)) !important;
-  border: 1px solid hsl(var(--stroke)) !important;
-  color: hsl(var(--text)) !important;
-  border-radius: 1.5rem !important; /* 3xl rounding */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+body.magic-mode .nav-item-link.is-active-nav {
+  color: #d8b4fe !important; /* Glowing light purple active text */
 }
+body.magic-mode .nav-bracket-slider .bracket-tl { border-top-color: #d8b4fe; border-left-color: #d8b4fe; }
+body.magic-mode .nav-bracket-slider .bracket-br { border-bottom-color: #d8b4fe; border-right-color: #d8b4fe; }
 
-/* Accent Gradient on Hover */
+/* Dark Glass Cards */
+body.magic-mode .card {
+  background-color: rgba(20, 10, 35, 0.45) !important; /* Translucent dark purple */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
 body.magic-mode .card:hover {
-  border-image: linear-gradient(90deg, #38bdf8 0%, #3b82f6 50%, #10b981 100%) 1 !important;
-  border-radius: 0 !important; /* Required for border-image to render properly in CSS */
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
-  transform: translateY(-2px);
+  background-color: rgba(30, 15, 50, 0.7) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important; /* Neon purple border on hover */
+  box-shadow: 0 12px 40px rgba(147, 51, 234, 0.2) !important; /* Purple glow */
 }
 
-/* Button & Pill Restyling */
-body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .filter-btn {
-  background-color: transparent !important;
-  border: 1px solid hsl(var(--stroke)) !important;
-  color: hsl(var(--muted)) !important;
+/* Secondary Dark Glass Buttons (Tags, Slider Arrows, Emails) */
+body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .filter-btn.bg-white, body.magic-mode .icon-btn {
+  background-color: rgba(147, 51, 234, 0.1) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  color: #e2e8f0 !important;
+}
+body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .filter-btn.bg-white:hover, body.magic-mode .icon-btn:hover {
+  background-color: rgba(147, 51, 234, 0.3) !important;
+  border-color: rgba(168, 85, 247, 0.8) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3) !important;
 }
 
-body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, 
-body.magic-mode button.bg-black {
-  background: linear-gradient(90deg, #38bdf8 0%, #3b82f6 50%, #10b981 100%) !important;
-  color: #fff !important;
-  border-color: transparent !important;
-}
-
+/* Primary Accent Buttons (Connect, Download CV) */
 body.magic-mode .bg-black {
-  background-color: hsl(var(--text)) !important;
-  color: hsl(var(--bg)) !important;
+  background: linear-gradient(135deg, #9333ea 0%, #6b21a8 100%) !important; /* Vibrant gradient */
+  color: #ffffff !important;
+  border: 1px solid #c084fc !important;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4) !important;
+}
+body.magic-mode .bg-black:hover {
+  box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6) !important;
 }
 
-/* Force Section Backgrounds Transparent */
-body.magic-mode section, body.magic-mode main, body.magic-mode footer {
+/* Fix inner card elements overlapping the glass */
+body.magic-mode .card .bg-white {
   background-color: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
 }
 
-/* Bento Grid Specific Layout Hack for Project Track */
-@media (min-width: 768px) {
-  body.magic-mode #projectTrack {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(300px, auto);
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-  body.magic-mode #projectTrackOuter .flex-shrink-0 {
-    width: auto;
-  }
-  /* Make every 4th item span 2 columns to create the bento look */
-  body.magic-mode #projectTrack > div:nth-child(4n) {
-    grid-column: span 2;
-  }
-}
+
 
 
 
