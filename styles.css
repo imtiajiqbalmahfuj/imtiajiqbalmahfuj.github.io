@@ -314,19 +314,18 @@ body.magic-mode {
 /* --- 1. LIGHT THEME: 3D Earth --- */
 .earth-3d {
   position: absolute;
-  
-  /* Raises the globe up. 650px is exactly half of 1300px. */
-  bottom: -650px; 
+  bottom: 0; 
   left: 50%;
   transform: translateX(-50%);
   
   width: 1300px;
-  height: 1300px;
+  height: 650px; /* Physically limits the hitbox to the hero */
   max-width: 150vw; 
   
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  overflow: hidden; /* Stops any bleed below */
   
   z-index: 1; 
   opacity: 1;
@@ -334,12 +333,12 @@ body.magic-mode {
   cursor: grab;
   pointer-events: auto !important; 
   
-  /* CRITICAL FIX: Restricts the drag/click hitbox exactly to the sphere, preventing clicks in the empty corners */
-  clip-path: circle(49% at 50% 50%);
+  /* Restricts corners so empty top-left/top-right aren't draggable */
+  clip-path: circle(650px at 50% 100%);
 
-  /* PERFECT CROP: Mathematically slices exactly half the globe */
-  -webkit-mask-image: linear-gradient(to bottom, black 49.5%, transparent 50%);
-  mask-image: linear-gradient(to bottom, black 49.5%, transparent 50%);
+  /* Keeps your soft feathered equator fade */
+  -webkit-mask-image: linear-gradient(to bottom, black 98%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 98%, transparent 100%);
 }
 
 .earth-3d:active {
@@ -397,14 +396,15 @@ body.magic-mode .hero-blackhole {
 }
 
 
-/* --- 3. FOOTER (Always Black with Violet Glow) --- */
+/* --- FOOTER (Always Black, Theme-Aware Glow) --- */
 footer#links {
   position: relative;
   overflow: hidden !important; 
   background-color: #000000 !important; 
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Default Blue Glow (For White Theme) */
 footer#links::after {
   content: "";
   position: absolute;
@@ -412,38 +412,14 @@ footer#links::after {
   left: 0; 
   right: 0;
   height: 120px; 
-  background: linear-gradient(to top, rgba(168, 85, 247, 0.25), transparent);
+  background: linear-gradient(to top, rgba(59, 130, 246, 0.28), transparent);
   pointer-events: none;
   z-index: 0;
 }
 
-footer#links > * {
-  position: relative;
-  z-index: 1; 
-}
-
-/* 2. Footer Section (Always Black with Glow) */
-footer#links {
-  position: relative;
-  overflow: hidden !important; 
-  background-color: #000000 !important; /* Restored black background */
-}
-
-body.magic-mode footer#links {
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Creates the violet glow from the very bottom to slightly top */
-footer#links::after {
-  content: "";
-  position: absolute;
-  bottom: 0; 
-  left: 0; 
-  right: 0;
-  height: 120px; 
-  background: linear-gradient(to top, rgba(168, 85, 247, 0.25), transparent);
-  pointer-events: none;
-  z-index: 0;
+/* Violet Glow Override (For Dark Magic Mode) */
+body.magic-mode footer#links::after {
+  background: linear-gradient(to top, rgba(168, 85, 247, 0.28), transparent);
 }
 
 footer#links > * {
