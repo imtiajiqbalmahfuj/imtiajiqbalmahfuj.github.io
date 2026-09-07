@@ -1084,7 +1084,7 @@ function mountMagicMode() {
   // true = Site loads in Dark Mode initially
   // false = Site loads in Light Mode initially
   // ==========================================
-  const DEFAULT_DARK_MODE = true; 
+  const DEFAULT_DARK_MODE = false; 
   
   let isMagic = false;
 
