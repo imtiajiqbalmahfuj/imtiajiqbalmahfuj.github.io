@@ -323,25 +323,24 @@ body.magic-mode .blackhole-video {
   opacity: 1;
 }
 
-/* 1. Hero Section: Shifted ~1 inch (96px) higher */
+/* 1. Hero Section: Moved ~1 inch higher, masked edges perfectly */
 body.magic-mode #hero {
   overflow: visible !important; 
-  background-color: #05020a !important; /* Matches site dark space background */
 }
 
 .hero-blackhole {
-  bottom: -54px; /* Shifted 96px (~1 inch) higher up */
+  bottom: -60px; /* Moved upper by ~1 inch */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
   max-width: 1300px;
-  height: 220px;
+  height: 250px; 
   object-fit: cover;
-  object-position: top center;
+  object-position: top center; 
   z-index: -1;
-  /* Smoothly masks rectangular video edges into the dark bg */
-  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 30%, black 35%, transparent 95%);
-  mask-image: radial-gradient(ellipse 60% 70% at 50% 30%, black 35%, transparent 95%);
+  /* Mask fades to transparent early to fix the visible rectangular borders */
+  -webkit-mask-image: radial-gradient(ellipse 55% 60% at 50% 30%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 55% 60% at 50% 30%, black 20%, transparent 75%);
 }
 
 #aboutCounters {
@@ -349,34 +348,27 @@ body.magic-mode #hero {
   z-index: 10;
 }
 
-/* 2. Footer Section: Lifted 1 inch & lower half cropped exactly like screenshot */
+/* 2. Footer Section: Moved ~1 inch higher, strictly cropped at bottom */
 body.magic-mode footer#links {
-  background-color: #000000 !important; /* Pitch black matches video sides */
+  background-color: #000000 !important; 
   position: relative;
-  overflow: hidden !important;          /* Hard-crops the bottom frame */
+  overflow: hidden !important; /* Crops the lower part exactly like the screenshot */
   border-top: 1px solid rgba(255,255,255,0.05);
-  margin-top: -96px !important;         /* Pulls footer ~1 inch higher */
-  padding-bottom: 2rem;
 }
 
 .footer-blackhole {
-  bottom: -40px;                        /* Anchored to bottom & cropped */
-  top: auto !important;
+  top: -60px; /* Moved upper by ~1 inch */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  max-width: 1000px;
-  height: 130px;                        /* Constrains height to match screenshot */
+  max-width: 1100px;
+  height: 200px; 
   object-fit: cover;
-  object-position: top center;          /* Keeps top curve, cuts lower portion */
+  object-position: bottom center;
   z-index: 0;
-  /* Soft horizontal fade removes the rectangle border entirely */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%),
-                      linear-gradient(to bottom, black 65%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%),
-              linear-gradient(to bottom, black 65%, transparent 100%);
-  mask-composite: intersect;
+  /* Smoother fade to background, completely hiding the box corners */
+  -webkit-mask-image: radial-gradient(ellipse 65% 80% at 50% 80%, black 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 65% 80% at 50% 80%, black 30%, transparent 85%);
 }
 
 body.magic-mode footer#links > * {
