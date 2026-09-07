@@ -1152,7 +1152,7 @@ function mountMagicMode() {
       };
       document.head.appendChild(script);
     }
-  }
+  } 
   
 
   // ==> ADD THIS LINE HERE so the video element is always injected on load <==
