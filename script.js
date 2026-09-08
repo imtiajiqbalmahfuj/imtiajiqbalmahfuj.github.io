@@ -1022,7 +1022,9 @@ function initDefaultParticles() {
   }
 
   // Capped at max 50 particles to avoid locking up CPU
-  let particleCount = Math.min((canvas.width * canvas.height) / 25000, 50);
+  // Limits particles to just 12 on mobile to save CPU, while keeping 50 on PC
+  const isMobileDevice = window.innerWidth <= 768;
+  let particleCount = isMobileDevice ? 12 : Math.min((canvas.width * canvas.height) / 25000, 50);
   for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle());
   }
