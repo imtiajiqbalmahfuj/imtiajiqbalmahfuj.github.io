@@ -1035,6 +1035,8 @@ function initDefaultParticles() {
   });
 }
 
+
+
 // === Dark Purple Glassmorphism, Video Injection & Theme Configuration ===
 function mountMagicMode() {
   const btn = $('#magicBtn');
@@ -1047,7 +1049,6 @@ function mountMagicMode() {
   // ==========================================
   const DEFAULT_DARK_MODE = false; 
 
-  // 1. Determine theme: Check URL first, then LocalStorage, then Default Config
   const params = new URLSearchParams(window.location.search);
   let savedTheme = localStorage.getItem('theme');
   
@@ -1055,7 +1056,6 @@ function mountMagicMode() {
     savedTheme = params.get('theme');
   }
 
-  // If savedTheme exists, use it. Otherwise, use your DEFAULT_DARK_MODE preference.
   let isMagic = savedTheme !== null ? (savedTheme === 'dark') : DEFAULT_DARK_MODE;
 
   function injectVideos() {
@@ -1079,13 +1079,21 @@ function mountMagicMode() {
       globeDiv.className = 'earth-3d'; 
       hero.appendChild(globeDiv);
 
+      // >>> MOBILE PERFORMANCE FIX: Reduce rendered canvas size by 60% on phones
+      const isMobile = window.innerWidth <= 768;
+      const globeSize = isMobile ? 800 : 1300; 
+
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/globe.gl';
       script.async = true; script.defer = true;
       script.onload = async () => {
         const { scaleSequentialSqrt } = await import('https://esm.sh/d3-scale');
-        const { interpolateYlOrRd } = await import('https://esm.sh/d3-scale-chromatic');
-        const colorScale = scaleSequentialSqrt(interpolateYlOrRd);
+        
+        // >>> COLOR OPTIONS: Change 'interpolateViridis' below to any of these:
+        // interpolateCool, interpolateMagma, interpolatePlasma, interpolateInferno, interpolateYlGnBu
+        const { interpolateViridis } = await import('https://esm.sh/d3-scale-chromatic'); 
+        
+        const colorScale = scaleSequentialSqrt(interpolateViridis);
         const getVal = feat => feat.properties.GDP_MD_EST / Math.max(1e5, feat.properties.POP_EST);
 
         fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson')
@@ -1097,13 +1105,20 @@ function mountMagicMode() {
             const world = Globe()(globeDiv)
               .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
               .backgroundColor('rgba(0,0,0,0)')
-              .width(1300).height(1300)
+              .width(globeSize).height(globeSize) // Applied performance size
               .lineHoverPrecision(0)
               .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
-              .polygonAltitude(0.06)
+              .polygonAltitude(isMobile ? 0.03 : 0.06) // Lowers 3D pop on mobile for better FPS
               .polygonCapColor(feat => colorScale(getVal(feat)))
               .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
               .polygonStrokeColor(() => '#111')
+              .polygonLabel(({ properties: d }) => `
+                <div style="background: rgba(0,0,0,0.8); padding: 6px 10px; border-radius: 8px; color: white; font-family: sans-serif; font-size: 13px;">
+                  <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
+                  GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
+                  Population: <i>${d.POP_EST}</i>
+                </div>
+              `)
               .onPolygonHover(hoverD => world
                 .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
                 .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
@@ -1116,7 +1131,7 @@ function mountMagicMode() {
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
             if (isTouchDevice) {
               world.controls().enableRotate = false;
-              globeDiv.style.pointerEvents = 'none'; // <-- Restored JS mobile scroll lock override
+              globeDiv.style.pointerEvents = 'none'; 
             } else {
               let mouseX = 0, mouseY = 0;
               document.addEventListener('mousemove', (event) => {
@@ -1136,7 +1151,6 @@ function mountMagicMode() {
     }
   }
 
-  // Only inject if on the homepage
   if (document.getElementById('hero')) {
     setTimeout(injectVideos, 800);
   }
@@ -1150,11 +1164,9 @@ function mountMagicMode() {
     btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
     if (window.lucide) lucide.createIcons();
 
-    // Saves theme locally so it applies on all pages instantly
     localStorage.setItem('theme', isMagic ? 'dark' : 'light');
   }
 
-  // Apply immediately on load
   toggleTheme(isMagic);
 
   btn.addEventListener('click', (e) => {
