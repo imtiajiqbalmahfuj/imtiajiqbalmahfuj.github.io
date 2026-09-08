@@ -218,7 +218,7 @@ body.magic-mode #magicBtn svg {
   
   width: 1400px;
   height: 1400px; 
-  top: 330px; /* PC HEIGHT: Adjust this to move the globe up/down on large screens */
+  top: 320px; /* PC HEIGHT: Adjust this to move the globe up/down on large screens */
   
   display: flex;
   justify-content: center;
@@ -294,7 +294,7 @@ body.magic-mode .blackhole-video {
 
 /* --- LAPTOPS / SMALL MONITORS --- */
 @media (max-width: 1024px) {
-  .earth-3d { top: 430px; }
+  .earth-3d { top: 420px; }
   .hero-blackhole { top: 480px; }
 }
 
