@@ -1,4 +1,6 @@
-/* Extra polish on top of Tailwind (loaded via CDN in HTML) */
+/* =========================================
+   1. BASE STYLES & TAILWIND POLISH
+   ========================================= */
 :root{ --ease-smart: cubic-bezier(0.22,1,0.36,1) }
 
 .hover-smart{ transition: all 180ms var(--ease-smart) }
@@ -9,138 +11,84 @@
 }
 .hover-underline:hover::after{ width:100% }
 
-/* Ticker */
+/* Ticker Animation */
 .ticker {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
   position: relative;
 }
-
 .ticker-track {
   display: flex;
   white-space: nowrap;
   will-change: transform;
 }
-
 .ticker-inner {
   display: flex;
   white-space: nowrap;
 }
 
-/* Floating down arrow inside the button (Lucide SVG) */
-#downBtn svg {
-  display: inline-block;          /* ensures transform works */
-  animation: floaty 2s ease-in-out infinite;
-}
-
-@keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); } /* moves down 8px in the middle */
-}
-
-/* Card hover */
+/* Card hover physics */
 .card{ transition: transform .18s var(--ease-smart), box-shadow .18s var(--ease-smart) }
 .card:hover{ transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.07) }
 
-/* Mobile menu overlay for clarity */
+/* Mobile menu overlay */
 #mobileMenu{ box-shadow: 0 10px 24px rgba(0,0,0,.06) }
 
-/* Arrow button size consistency */
+/* Utility Classes */
 .icon-btn{ width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; border-radius:9999px }
 
-/* Footer */
-.footer-link{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border-radius:.75rem; background:#0b0b0b; color:#fff }
-.footer-link:hover{ transform: translateY(-2px); box-shadow:0 10px 18px rgba(255,255,255,.06) }
-.footer-nav a{ color:#cbd5e1 }
-.footer-nav a:hover{ color:#fff }
-
-/* Loading Screen */
+/* Loading Screen Animation */
 #loadingScreen{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:#0b0b0b; color:#fff; z-index:9999 }
 .loading-dot{ width:.5rem; height:.5rem; border-radius:9999px; background:#fff; animation: blink 1.2s infinite }
 .loading-dot:nth-child(2){ animation-delay:.2s }
 .loading-dot:nth-child(3){ animation-delay:.4s }
 @keyframes blink{ 0%,80%,100%{ opacity:.2 } 40%{ opacity:1 } }
 
-/* Hero bottom positioning */
+/* Hero Spacing */
 .hero-bottom {
-  margin-top: 5rem;   /* more gap between title group and ticker */
+  margin-top: 5rem;
   margin-bottom: 4rem;
 }
 
-/* Mobile adjustments */
-@media (max-width: 767px) {
-  #hero {
-    padding-top: 6rem;   /* push whole hero content down */
-  }
-  .hero-bottom {
-    margin-top: 3rem;   /* maintain space between groups */
-    margin-bottom: 3rem; /* lift arrow higher so it's not cut off */
-  }
-}
-
-/* Project carousel cards */
+/* Project Carousel Container Sizes */
 #projectTrackOuter .flex-shrink-0 {
   scroll-snap-align: start; 
   flex-shrink: 0;           
   width: 100%;              
 }
 @media (min-width: 640px) {  
-  #projectTrackOuter .flex-shrink-0 {
-    width: 50%;  
-  }
+  #projectTrackOuter .flex-shrink-0 { width: 50%; }
 }
 @media (min-width: 768px) {  
-  #projectTrackOuter .flex-shrink-0 {
-    width: 33.333%; 
-  }
+  #projectTrackOuter .flex-shrink-0 { width: 33.333%; }
 }
 
-/* Flex container spacing */
-#projectTrack {
-  display: flex;
-  gap: 1rem; 
-}
+#projectTrack { display: flex; gap: 1rem; }
+#projectTrackOuter { scroll-behavior: smooth; overflow-x: auto; }
 
-/* Outer track: smooth scroll */
-#projectTrackOuter {
-  scroll-behavior: smooth;
-  overflow-x: auto;
-}
-
-/* Navbar fixed + smooth hide/show wrapper */
+/* Navbar Fixed Position */
 #navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: transparent; 
-  transition: transform 0.3s ease;
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  background: transparent; transition: transform 0.3s ease;
 }
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
+html, body { max-width: 100%; overflow-x: hidden; }
 
-/* Counter */
+/* Statistic Counters Layout */
 #aboutCounters .card {
-  min-height: 90px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
+  min-height: 90px; display:flex; align-items:center; justify-content:center; flex-direction:column;
 }
-#aboutCounters .stat-number {
-  letter-spacing: -0.02em;
-}
+#aboutCounters .stat-number { letter-spacing: -0.02em; }
 
-/* --- Glassmorphism Dropdown Animation --- */
+
+/* =========================================
+   2. GLASSMORPHISM & DROPDOWN ANIMATIONS
+   ========================================= */
+/* Dropdown Hover Animation */
 .group:hover .dropdown-item {
   animation: fadeUp 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  opacity: 0;
-  transform: translateY(10px);
+  opacity: 0; transform: translateY(10px);
 }
 .group:hover .dropdown-item:nth-child(1) { animation-delay: 0.05s; }
 .group:hover .dropdown-item:nth-child(2) { animation-delay: 0.10s; }
@@ -148,76 +96,12 @@ html, body {
 .group:hover .dropdown-item:nth-child(4) { animation-delay: 0.20s; }
 .group:hover .dropdown-item:nth-child(5) { animation-delay: 0.25s; }
 
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 .group .absolute { margin-top: 0px; top: 100%; }
 
-
-/* =========================================
-   PARTICLE CANVAS FIX (Fixes the Blank Space)
-   ========================================= */
-#magicCanvas {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: -1 !important;
-  pointer-events: none !important;
-}
-
-/* =========================================
-   MAGIC BUTTON STYLING
-   ========================================= */
-#magicBtn {
-  opacity: 0.4; /* Faded out in white theme */
-  transition: all 0.3s ease;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-#magicBtn:hover {
-  opacity: 1;
-}
-
-/* Dark Theme: Solid opacity, purple icon, NO circular background/glow */
-body.magic-mode #magicBtn {
-  opacity: 1 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-body.magic-mode #magicBtn i, 
-body.magic-mode #magicBtn svg {
-  color: #c084fc !important; 
-  filter: none !important; 
-}
-/* =========================================
-   UNIVERSAL GLASSMORPHISM (Light Mode)
-   ========================================= */
-body {
-  padding-top: 0 !important; 
-  background-color: #fafafa;
-}
-
-/* .hero-grid {
-  display: block !important;
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-} */
-
-
-
-section.bg-slate-50, section.bg-white {
-  background-color: transparent !important;
-}
+/* Default Light Mode Glassmorphism */
+body { padding-top: 0 !important; background-color: #fafafa; }
+section.bg-slate-50, section.bg-white { background-color: transparent !important; }
 
 .glass-dropdown {
   background-color: rgba(255, 255, 255, 0.85) !important; 
@@ -240,40 +124,27 @@ section.bg-slate-50, section.bg-white {
   border-color: rgba(255, 255, 255, 1) !important;
 }
 .card .bg-white {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
+  background-color: transparent !important; backdrop-filter: none !important; border: none !important;
 }
 
+/* Light Mode Buttons */
 a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
   background-color: rgba(255, 255, 255, 0.5) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(255, 255, 255, 0.7) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
-  transition: all 0.25s ease !important;
-  color: #000 !important;
+  transition: all 0.25s ease !important; color: #000 !important;
 }
 a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover {
-  background-color: #0b0b0b !important;
-  color: #ffffff !important;
-  border-color: #0b0b0b !important;
-  transform: scale(1.05) !important;
+  background-color: #0b0b0b !important; color: #ffffff !important;
+  border-color: #0b0b0b !important; transform: scale(1.05) !important;
 }
-.icon-btn.absolute:hover {
-  transform: translateY(-50%) scale(1.1) !important; 
-}
+.icon-btn.absolute:hover { transform: translateY(-50%) scale(1.1) !important; }
 
-
-/* =========================================
-   SLIDING BRACKET NAVIGATION
-   ========================================= */
+/* Sliding Bracket Navigation */
 .nav-bracket-slider {
-  position: absolute;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: 0;
-  opacity: 0;
-  pointer-events: none;
+  position: absolute; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0; opacity: 0; pointer-events: none;
 }
 .bracket-tl {
   position: absolute; top: 0; left: 0; width: 10px; height: 10px;
@@ -294,22 +165,36 @@ a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:h
 
 
 /* =========================================
-   MAGIC MODE: Dark Purple Glassmorphism
+   3. BACKGROUND PARTICLES & MAGIC BUTTON
    ========================================= */
-body.magic-mode {
-  background-color: #05020a !important; /* Pitch dark space */
-  color: #f8fafc !important;
-  background-image: none !important; 
-  transition: background-color 0.5s ease, color 0.5s ease;
+#magicCanvas {
+  position: fixed !important; top: 0 !important; left: 0 !important;
+  width: 100vw !important; height: 100vh !important;
+  z-index: -1 !important; pointer-events: none !important;
 }
 
+#magicBtn {
+  opacity: 0.4; transition: all 0.3s ease;
+  background: transparent !important; border: none !important; box-shadow: none !important;
+}
+#magicBtn:hover { opacity: 1; }
+
+body.magic-mode #magicBtn {
+  opacity: 1 !important; background: transparent !important;
+  border: none !important; box-shadow: none !important;
+}
+body.magic-mode #magicBtn i, 
+body.magic-mode #magicBtn svg {
+  color: #c084fc !important; filter: none !important; 
+}
+
+
 /* =========================================
-   HERO VIDEOS & 3D GLOBE
+   4. HERO VIDEOS & 3D GLOBE (FULLY RESPONSIVE)
    ========================================= */
 #hero {
   position: relative;
-  /* CRITICAL FIX: Automatically chops off the globe and video exactly where the Hero section ends */
-  overflow: hidden !important; 
+  overflow: hidden !important; /* Chops off the bottom perfectly so it never overlaps the next section */
 }
 
 /* Elevates Hero text, Ticker, and Cards to float safely ABOVE the globe */
@@ -317,34 +202,30 @@ body.magic-mode {
 #aboutCounters,
 .hero-bottom {
   position: relative;
-  z-index: 20;
+  z-index: 20; 
 }
 
-/* Permanently disable Down Button on all themes and screen sizes */
+/* Permanently Hides Down Arrow */
 #downBtn {
-  display: none !important;
+  display: none !important; 
 }
 
-/* --- 1. LIGHT THEME: 3D Earth --- */
+/* --- LIGHT THEME: 3D Earth (PC DEFAULT) --- */
 .earth-3d {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   
   width: 1300px;
-  height: 1300px; /* Full height keeps tooltips fully intact and visible */
-  
-  /* FIXED TOP ANCHOR: Measures from the top of the page down.
-     This locks the globe directly behind the cards. It will never float up into text on laptops or sink on PCs! */
-  top: 460px; 
+  height: 1300px; 
+  top: 360px; /* PC HEIGHT: Adjust this to move the globe up/down on large screens */
   
   display: flex;
   justify-content: center;
   z-index: 1; 
-  
   opacity: 1;
   transition: opacity 0.3s ease-out;
-  pointer-events: none; /* Passes clicks through empty space to your buttons */
+  pointer-events: none; /* Passes clicks through empty space to buttons behind it */
 }
 
 /* Re-enables interaction strictly on the circular globe surface */
@@ -369,14 +250,14 @@ body.magic-mode {
   cursor: default;
 }
 
-/* Instant vanish in Dark Mode */
+/* Dark Mode Vanish (Instant hide to prevent lag) */
 body.magic-mode .earth-3d {
   opacity: 0 !important;
   pointer-events: none !important;
   transition: opacity 0.15s ease-out !important;
 }
 
-/* --- 2. DARK THEME: Black Hole --- */
+/* --- DARK THEME: Black Hole (PC DEFAULT) --- */
 .blackhole-video {
   position: absolute;
   pointer-events: none;
@@ -396,82 +277,90 @@ body.magic-mode .blackhole-video {
   width: 100vw;
   max-width: 1100px;
   height: 480px; 
-  object-fit: cover;
-  object-position: center; 
   
-  top: 400px; /* Fixed anchor exactly behind the cards */
+  top: 300px; /* PC HEIGHT: Adjust this to move the blackhole up/down on large screens */
   z-index: 0;
   
+  object-fit: cover;
+  object-position: center; 
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
 }
 
-/* --- RESPONSIVENESS: PC, Laptop, Mobile --- */
 
-/* Laptops / Tablets */
+/* =========================================
+   5. DEVICE SPECIFIC FIXES (LAPTOP & MOBILE)
+   ========================================= */
+
+/* --- LAPTOPS / SMALL MONITORS --- */
 @media (max-width: 1024px) {
   .earth-3d { top: 480px; }
   .hero-blackhole { top: 420px; }
 }
 
-/* Mobile Phones */
+/* --- MOBILE PHONES --- */
 @media (max-width: 768px) {
+  /* Fix spacing for hero content */
+  #hero { padding-top: 6rem; }
+  .hero-bottom { margin-top: 3rem; margin-bottom: 3rem; }
+
+  /* Mobile Globe Resize & Placement */
   .earth-3d {
     width: 800px;
     height: 800px;
-    top: 550px; /* Exact mathematical push down to account for stacked/wrapping text */
+    top: 450px; /* MOBILE HEIGHT: Move globe up or down on phones */
+    transform: translateX(-50%) translateZ(0); /* Hardware acceleration */
+    will-change: transform, opacity;
   }
   
-  /* Completely unlocks mobile touch gestures so scrolling never hitches or traps */
+  /* Unlocks mobile scrolling by disabling touch-traps */
   .earth-3d, 
   .earth-3d canvas {
     pointer-events: none !important;
-    touch-action: auto !important;
+    touch-action: auto !important; 
   }
   
+  /* Mobile Black Hole Resize (Wider & Taller) */
   .hero-blackhole {
-    height: 300px;
-    top: 500px;
+    top: 400px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
+    height: 450px; 
+    width: 180vw; 
+    max-width: none;
+    transform: translateX(-50%) translateZ(0); /* Hardware acceleration */
+    will-change: transform, opacity;
+  }
+
+  /* ULTIMATE MOBILE LAG FIX: Disables heavy glass blur on mobile and replaces with solid color */
+  .card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(255, 255, 255, 0.96) !important; 
+  }
+  body.magic-mode .card {
+    background-color: rgba(20, 10, 35, 0.96) !important;
   }
 }
 
 
-/* --- FOOTER (Always Black, Theme-Aware Glow) --- */
-footer#links {
-  position: relative;
-  overflow: hidden !important; 
-  background-color: #000000 !important; 
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Default Blue Glow (For White Theme) */
-footer#links::after {
-  content: "";
-  position: absolute;
-  bottom: 0; 
-  left: 0; 
-  right: 0;
-  height: 120px; 
-  background: linear-gradient(to top, rgba(59, 130, 246, 0.28), transparent);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Violet Glow Override (For Dark Magic Mode) */
-body.magic-mode footer#links::after {
-  background: linear-gradient(to top, rgba(168, 85, 247, 0.28), transparent);
-}
-
-footer#links > * {
-  position: relative;
-  z-index: 1; 
+/* =========================================
+   6. DARK "MAGIC" MODE OVERRIDES
+   ========================================= */
+body.magic-mode {
+  background-color: #05020a !important; /* Pitch dark space */
+  color: #f8fafc !important;
+  background-image: none !important; 
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Typography Color Overrides */
-body.magic-mode h1, body.magic-mode h2, body.magic-mode h3, body.magic-mode #homeBrand, body.magic-mode .count-up, body.magic-mode #servicesList h4 {
+body.magic-mode h1, body.magic-mode h2, body.magic-mode h3, 
+body.magic-mode #homeBrand, body.magic-mode .count-up, 
+body.magic-mode #servicesList h4 {
   color: #ffffff !important;
 }
-body.magic-mode .text-slate-500, body.magic-mode .text-slate-600, body.magic-mode .text-slate-700, body.magic-mode .text-gray-600, body.magic-mode .text-black {
+body.magic-mode .text-slate-500, body.magic-mode .text-slate-600, 
+body.magic-mode .text-slate-700, body.magic-mode .text-gray-600, 
+body.magic-mode .text-black {
   color: #94a3b8 !important; 
 }
 body.magic-mode #heroSubtitle {
@@ -483,8 +372,7 @@ body.magic-mode .glass-dropdown,
 body.magic-mode #navbar > div:first-child,
 body.magic-mode #mobileMenu > div {
   background-color: rgba(15, 10, 25, 0.6) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(24px) !important; -webkit-backdrop-filter: blur(24px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
 }
@@ -495,11 +383,10 @@ body.magic-mode .nav-item-link.is-active-nav { color: #d8b4fe !important; }
 body.magic-mode .nav-bracket-slider .bracket-tl { border-top-color: #d8b4fe; border-left-color: #d8b4fe; }
 body.magic-mode .nav-bracket-slider .bracket-br { border-bottom-color: #d8b4fe; border-right-color: #d8b4fe; }
 
-/* Dark Glass Cards (Includes Services) */
+/* Dark Glass Cards */
 body.magic-mode .card {
   background-color: rgba(20, 10, 35, 0.45) !important; 
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
   color: #f8fafc !important;
@@ -509,14 +396,19 @@ body.magic-mode .card:hover {
   border-color: rgba(168, 85, 247, 0.5) !important; 
   box-shadow: 0 12px 40px rgba(147, 51, 234, 0.2) !important; 
 }
+body.magic-mode .card .bg-white {
+  background-color: transparent !important; backdrop-filter: none !important; border: none !important;
+}
 
 /* Secondary Dark Glass Buttons */
-body.magic-mode a.bg-white, body.magic-mode button.bg-white, body.magic-mode .filter-btn.bg-white, body.magic-mode .icon-btn {
+body.magic-mode a.bg-white, body.magic-mode button.bg-white, 
+body.magic-mode .filter-btn.bg-white, body.magic-mode .icon-btn {
   background-color: rgba(147, 51, 234, 0.1) !important;
   border: 1px solid rgba(168, 85, 247, 0.3) !important;
   color: #e2e8f0 !important;
 }
-body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, body.magic-mode .filter-btn.bg-white:hover, body.magic-mode .icon-btn:hover {
+body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, 
+body.magic-mode .filter-btn.bg-white:hover, body.magic-mode .icon-btn:hover {
   background-color: rgba(147, 51, 234, 0.3) !important;
   border-color: rgba(168, 85, 247, 0.8) !important;
   color: #ffffff !important;
@@ -534,24 +426,39 @@ body.magic-mode button.bg-black:hover, body.magic-mode a.bg-black:hover {
   box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6) !important;
 }
 
-/* Clean up inner card backgrounds */
-body.magic-mode .card .bg-white {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
+
+/* =========================================
+   7. FOOTER & GLOW EFFECTS
+   ========================================= */
+.footer-link{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border-radius:.75rem; background:#0b0b0b; color:#fff }
+.footer-link:hover{ transform: translateY(-2px); box-shadow:0 10px 18px rgba(255,255,255,.06) }
+.footer-nav a{ color:#cbd5e1 }
+.footer-nav a:hover{ color:#fff }
+
+footer#links {
+  position: relative;
+  overflow: hidden !important; 
+  background-color: #000000 !important; 
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-
-/* Force disable all touch/grab interactions on mobile so the page scrolls normally */
-@media (max-width: 768px) {
-  .earth-3d, 
-  .earth-3d canvas {
-    pointer-events: none !important;
-  }
+/* Default Blue Glow (For White Theme) */
+footer#links::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px; 
+  background: linear-gradient(to top, rgba(59, 130, 246, 0.28), transparent);
+  pointer-events: none;
+  z-index: 0;
 }
 
+/* Violet Glow Override (For Dark Magic Mode) */
+body.magic-mode footer#links::after {
+  background: linear-gradient(to top, rgba(168, 85, 247, 0.28), transparent);
+}
 
-/* Hides the down scroll arrow completely */
-#downBtn {
-  display: none !important;
+footer#links > * {
+  position: relative;
+  z-index: 1; 
 }
