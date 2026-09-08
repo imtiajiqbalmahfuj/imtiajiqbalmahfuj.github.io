@@ -1091,9 +1091,9 @@ function mountMagicMode() {
         
         // >>> COLOR OPTIONS: Change 'interpolateViridis' below to any of these:
         // interpolateCool, interpolateMagma, interpolatePlasma, interpolateInferno, interpolateYlGnBu
-        const { interpolateViridis } = await import('https://esm.sh/d3-scale-chromatic'); 
+        const { interpolateCool } = await import('https://esm.sh/d3-scale-chromatic'); 
         
-        const colorScale = scaleSequentialSqrt(interpolateViridis);
+        const colorScale = scaleSequentialSqrt(interpolateCool);
         const getVal = feat => feat.properties.GDP_MD_EST / Math.max(1e5, feat.properties.POP_EST);
 
         fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson')
@@ -1121,7 +1121,7 @@ function mountMagicMode() {
               `)
               .onPolygonHover(hoverD => world
                 .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
-                .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
+                .polygonCapColor(d => d === hoverD ? '#00f2fe' : colorScale(getVal(d)))
               ).polygonsTransitionDuration(300);
 
             world.controls().autoRotate = true;
