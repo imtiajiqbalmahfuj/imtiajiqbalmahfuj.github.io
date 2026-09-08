@@ -1083,7 +1083,7 @@ function mountMagicMode() {
 
       // >>> MOBILE PERFORMANCE FIX: Reduce rendered canvas size by 60% on phones
       const isMobile = window.innerWidth <= 768;
-      const globeSize = isMobile ? 800 : 1300; 
+      const globeSize = isMobile ? 600 : 1300; 
 
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/globe.gl';
@@ -1110,7 +1110,7 @@ function mountMagicMode() {
               .width(globeSize).height(globeSize) // Applied performance size
               .lineHoverPrecision(0)
               .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
-              .polygonAltitude(isMobile ? 0.03 : 0.06) // Lowers 3D pop on mobile for better FPS
+              .polygonAltitude(isMobile ? 0.005 : 0.06) // Lowers 3D pop on mobile for better FPS
               .polygonCapColor(feat => colorScale(getVal(feat)))
               .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
               .polygonStrokeColor(() => '#111')
