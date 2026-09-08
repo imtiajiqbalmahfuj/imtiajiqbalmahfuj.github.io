@@ -308,7 +308,7 @@ body.magic-mode .blackhole-video {
   .earth-3d {
     width: 800px;
     height: 800px;
-    top: 350px; /* MOBILE HEIGHT: Move globe up or down on phones */
+    top: 180px; /* MOBILE HEIGHT: Move globe up or down on phones */
     transform: translateX(-50%) translateZ(0); /* Hardware acceleration */
     will-change: transform, opacity;
   }
@@ -322,12 +322,14 @@ body.magic-mode .blackhole-video {
   
   /* Mobile Black Hole Resize (Wider & Taller) */
   .hero-blackhole {
-    top: 320px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
+    top: 200px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
     height: 450px; 
     width: 180vw; 
     max-width: none;
     transform: translateX(-50%) translateZ(0); /* Hardware acceleration */
     will-change: transform, opacity;
+    mix-blend-mode: normal !important; /* Kills the lag */
+    opacity: 0.8 !important; /* Fakes the blend effect cleanly */
   }
 
   /* ULTIMATE MOBILE LAG FIX: Disables heavy glass blur on mobile and replaces with solid color */
