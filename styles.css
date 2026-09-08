@@ -308,7 +308,7 @@ body.magic-mode .blackhole-video {
   .earth-3d {
     width: 800px;
     height: 800px;
-    top: 230px; /* MOBILE HEIGHT: Move globe up or down on phones */
+    top: 480px; /* MOBILE HEIGHT: Move globe up or down on phones */
     transform: translateX(-50%) translateZ(0); /* Hardware acceleration */
     will-change: transform, opacity;
   }
@@ -322,7 +322,7 @@ body.magic-mode .blackhole-video {
   
   /* Mobile Black Hole Resize (Wider & Taller) */
   .hero-blackhole {
-    top: 250px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
+    top: 420px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
     height: 450px; 
     width: 180vw; 
     max-width: none;
@@ -334,12 +334,14 @@ body.magic-mode .blackhole-video {
 
   /* ULTIMATE MOBILE LAG FIX: Disables heavy glass blur on mobile and replaces with solid color */
   .card {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background-color: rgba(255, 255, 255, 0.96) !important; 
+    background-color: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(12px) !important; 
+    -webkit-backdrop-filter: blur(12px) !important;
   }
   body.magic-mode .card {
-    background-color: rgba(20, 10, 35, 0.96) !important;
+    background-color: rgba(20, 10, 35, 0.45) !important;
+    backdrop-filter: blur(16px) !important; 
+    -webkit-backdrop-filter: blur(16px) !important;
   }
 }
 
