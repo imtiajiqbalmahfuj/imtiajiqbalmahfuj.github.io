@@ -308,11 +308,18 @@ body.magic-mode {
    ========================================= */
 #hero {
   position: relative;
-  overflow: visible !important;
+  /* CRITICAL FIX: Automatically chops off the globe and video at the section boundary */
+  overflow: hidden !important; 
 }
 
 /* Forces Hero text, buttons, and badges to float safely above 3D elements */
 #hero > .z-10 {
+  position: relative;
+  z-index: 20;
+}
+
+/* Keeps statistics cards elevated above backgrounds */
+#aboutCounters {
   position: relative;
   z-index: 20;
 }
@@ -322,15 +329,19 @@ body.magic-mode {
   display: none !important;
 }
 
+
 /* --- 1. LIGHT THEME: 3D Earth --- */
 .earth-3d {
   position: absolute;
-  top: 55vh; /* Pushes globe below buttons on laptops instead of covering text */
   left: 50%;
   transform: translateX(-50%);
   
   width: 1300px;
-  height: 1300px; /* Full height restored so country tooltips don't get cut off */
+  height: 1300px; /* Restored full height so tooltips render perfectly */
+  
+  /* Pushes the globe down so ONLY the top ~35% is visible. 
+     (1300px height - 850px negative bottom = 450px visible arc) */
+  bottom: -850px; 
   
   display: flex;
   justify-content: center;
@@ -338,7 +349,7 @@ body.magic-mode {
   
   opacity: 1;
   transition: opacity 0.3s ease-out;
-  pointer-events: none; /* Passes clicks through so layout & buttons aren't blocked */
+  pointer-events: none; /* Passes clicks through empty space to buttons */
 }
 
 /* Re-enables interaction strictly on the circular globe surface */
@@ -352,12 +363,24 @@ body.magic-mode {
   cursor: grabbing;
 }
 
-/* Instant vanish in Dark Mode: eliminates the 1-2 second lag/hang */
+/* Invisible shield: Prevents grabbing the very top 80px of the globe so you don't accidentally drag the earth when trying to click text/buttons */
+.earth-3d::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px; 
+  z-index: 10;
+  pointer-events: auto;
+  cursor: default;
+}
+
+/* Instant vanish in Dark Mode */
 body.magic-mode .earth-3d {
   opacity: 0 !important;
   pointer-events: none !important;
   transition: opacity 0.15s ease-out !important;
 }
+
 
 /* --- 2. DARK THEME: Black Hole --- */
 .blackhole-video {
@@ -374,12 +397,12 @@ body.magic-mode .blackhole-video {
 
 .hero-blackhole {
   position: absolute;
-  top: 42vh; /* Anchored relative to viewport height so it won't bleed over laptop text */
+  bottom: -150px; /* Pulls the black hole down slightly so it anchors the bottom */
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
   max-width: 1100px;
-  height: 380px; 
+  height: 480px; 
   object-fit: cover;
   object-position: center; 
   z-index: 0;
@@ -387,18 +410,13 @@ body.magic-mode .blackhole-video {
   mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
 }
 
-/* Keeps statistics cards elevated above backgrounds */
-#aboutCounters {
-  position: relative;
-  z-index: 20;
-}
 
 /* --- MOBILE RESPONSIVENESS & PERFORMANCE --- */
 @media (max-width: 768px) {
   .earth-3d {
-    top: 50vh;
     width: 800px;
     height: 800px;
+    bottom: -540px; /* 800px - 540px = 260px visible arc on mobile */
   }
 
   /* Completely unlocks mobile touch gestures so scrolling never hitches or traps */
@@ -409,8 +427,8 @@ body.magic-mode .blackhole-video {
   }
 
   .hero-blackhole {
-    top: 36vh;
-    height: 280px;
+    bottom: -80px;
+    height: 300px;
   }
 }
 
