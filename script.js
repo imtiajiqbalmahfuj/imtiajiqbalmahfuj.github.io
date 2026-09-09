@@ -1122,7 +1122,7 @@ function mountMagicMode() {
                 </div>
               `)
               .onPolygonHover(hoverD => world
-                .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
+                .polygonAltitude(d => d === hoverD ? 0.08 : 0.03)
                 .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
               ).polygonsTransitionDuration(300);
 
