@@ -294,7 +294,7 @@ body.magic-mode .blackhole-video {
 
 /* --- LAPTOPS / SMALL MONITORS --- */
 @media (max-width: 1024px) {
-  .earth-3d { top: 420px; }
+  .earth-3d { top: 400px; }
   .hero-blackhole { top: 480px; }
 }
 
