@@ -329,7 +329,7 @@ body.magic-mode .blackhole-video {
   
   /* Mobile Black Hole Resize (Wider & Taller) */
   .hero-blackhole {
-    top: 320px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
+    top: 340px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
     height: 450px; 
     width: 180vw; 
     max-width: none;
