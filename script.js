@@ -1110,7 +1110,7 @@ function mountMagicMode() {
               .width(globeSize).height(globeSize) // Applied performance size
               .lineHoverPrecision(0)
               .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'))
-              .polygonAltitude(isMobile ? 0.005 : 0.06) // Lowers 3D pop on mobile for better FPS
+              .polygonAltitude(isMobile ? 0.005 : 0.02) // Lowers 3D pop on mobile for better FPS
               .polygonCapColor(feat => colorScale(getVal(feat)))
               .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
               .polygonStrokeColor(() => '#111')
