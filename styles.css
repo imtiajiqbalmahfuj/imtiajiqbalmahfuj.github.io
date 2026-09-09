@@ -293,11 +293,8 @@ body.magic-mode .blackhole-video {
    ========================================= */
 /* --- LAPTOPS / NOTEBOOKS / SMALL MONITORS --- */
 @media (min-width: 769px) and (max-width: 1440px) {
-  .earth-3d {
-    top: 300px !important; 
-  }
-  .hero-blackhole {
-    top: 490px !important; 
+  .earth-3d {top: 260px !important; }
+  .hero-blackhole {top: 480px; } 
   }
 }
 
@@ -305,8 +302,8 @@ body.magic-mode .blackhole-video {
 /* @media (max-width: 1024px) and (min-width: 769px) {
   .earth-3d {
     top: 230px !important; /* Slightly higher on shorter laptop screens */
-  }
-} */
+  /* } */
+/* } */ 
 
 
 /* --- MOBILE PHONES --- */
