@@ -293,7 +293,7 @@ body.magic-mode .blackhole-video {
    ========================================= */
 /* --- LAPTOPS / NOTEBOOKS / SMALL MONITORS --- */
 @media (min-width: 769px) and (max-width: 1440px) {
-  .earth-3d {top: 280px !important; }
+  .earth-3d {top: 280px; }
   .hero-blackhole {top: 360px; } 
   }
 }
