@@ -278,7 +278,7 @@ body.magic-mode .blackhole-video {
   max-width: 1100px;
   height: 480px; 
   
-  top: 380px; /* PC HEIGHT: Adjust this to move the blackhole up/down on large screens */
+  top: 370px; /* PC HEIGHT: Adjust this to move the blackhole up/down on large screens */
   z-index: 0;
   
   object-fit: cover;
@@ -293,8 +293,8 @@ body.magic-mode .blackhole-video {
    ========================================= */
 /* --- LAPTOPS / NOTEBOOKS / SMALL MONITORS --- */
 @media (min-width: 769px) and (max-width: 1440px) {
-  .earth-3d { top: 340px !important; }
-  .hero-blackhole { top: 380px ; }
+  .earth-3d { top: 280px !important; }
+  .hero-blackhole { top: 370px ; }
 }
 
 /* Fallback for ultra-compact laptops / tablets in landscape */
@@ -315,7 +315,7 @@ body.magic-mode .blackhole-video {
   .earth-3d {
     width: 800px;
     height: 800px;
-    top: 400px; /* MOBILE HEIGHT: Move globe up or down on phones */
+    top: 360px; /* MOBILE HEIGHT: Move globe up or down on phones */
     transform: translateX(-50%) translateZ(0); /* Hardware acceleration */
     will-change: transform, opacity;
   }
@@ -329,7 +329,7 @@ body.magic-mode .blackhole-video {
   
   /* Mobile Black Hole Resize (Wider & Taller) */
   .hero-blackhole {
-    top: 360px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
+    top: 320px; /* MOBILE HEIGHT: Move blackhole up or down on phones */
     height: 450px; 
     width: 180vw; 
     max-width: none;
