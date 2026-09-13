@@ -137,12 +137,12 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       details:""
     },
     {
-      id:"26000",
-      title:"",
-      tags:[""],
-      image:"",
-      github:"",
-      details:""
+      id:"26017",
+      title:"Same planet, a very different way of seeing it",
+      tags:["Geospatial Python", "GeoViz"],
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26017_Equal%20Earth%20vs%20Mercator/output/un_world_map_yt_1920x1080.png",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26017_Equal%20Earth%20vs%20Mercator/output/un_world_map_yt_1920x1080.png",
+      details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26017_Equal_Earth_vs_Mercator.html"
     },
     {
       id:"26016",
