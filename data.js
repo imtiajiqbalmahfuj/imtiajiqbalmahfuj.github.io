@@ -63,7 +63,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       location: "Rajshahi, Bangladesh",
       link: "https://www.ruet.ac.bd/",
       bullets: [
-        "<u>Thesis:</u> An Explainable GeoAI Framework Using Grey Wolf Optimized XGBoost for Spatiotemporal Prediction of Compound Drought-Heatwave Hazards in the Barind Tract, Bangladesh",
+        "<u>Thesis:</u> Predicting Compound Drought-Heatwave Hazards in Semi-Arid Bangladesh through an Explainable GeoAI and Swarm-Optimized Machine Learning Framework",
         "<u>Relevant coursework:</u> GIS and Remote sensing, Environmental Planning and Management, Operations Research & System Analysis, Natural Hazards and Disaster Management, Water Resources Planning, Programming Techniques, Statistics for Planners, Urban & Regional Planning, Transportation Planning, Landscape Planning, Participatory Rural Appraisal, Housing & Real Estate, Project Management and Evaluation",
         "Class Representative (January 2023 - September 2024)"
     ]
