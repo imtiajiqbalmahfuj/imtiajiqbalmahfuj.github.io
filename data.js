@@ -748,7 +748,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Spatiotemporal Assessment of Multi-Air-Pollutant Interactions and Surface Thermal Dynamics Across Lubbock, Texas Using Geographically Weighted Regression and Explainable Machine Learning",
         date:"2026",
-        venue:"Rimon, R. A., <b>Mahfuj, I. I.*</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
+        venue:"Rimon, R. A.*, <b>Mahfuj, I. I.</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
         type:"Conference Presentations & Proceedings",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
