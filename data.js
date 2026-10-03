@@ -751,8 +751,8 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         venue:"Rimon, R. A.*, <b>Mahfuj, I. I.</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
         type:"Conference Presentations & Proceedings",
         cite:"",  // <--- Add this field to enable Cite button
-        cert: "https://drive.google.com/file/d/1P-ynN6lA8oeQUxtH378tSarw_dOw20yi/view?usp=drivesdk",
-        details: "" // Add paper link when available
+        cert: "",
+        details: "https://drive.google.com/file/d/1P-ynN6lA8oeQUxtH378tSarw_dOw20yi/view?usp=drivesdk" // Add paper link when available
       },
       {
         title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
