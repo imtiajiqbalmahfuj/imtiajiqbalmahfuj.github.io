@@ -652,6 +652,18 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     ],
     research: [
       {
+        org: "SNV Netherlands Development Organisation,<br> Transitioning to Sustainable Urban Water Cycles Project (Funded by Embassy of the Netherlands)",
+        role: "Research Assistant",
+        date: "September 2026 - December 2026",
+        location: "Chapainawabganj, Bangladesh",
+        bullets: [
+          "<u>Project:</u> Identification of Green and Blue Spaces: Assessment of the Feasibility of Sponginess of Chapainawabganj and Shibganj Municipality <br> <u>Project Director:</u> Prof. Dr. Md. Mostafizur Rahman, Professor, Department of Urban and Regional Planning, RUET <br> - Developed an integrated GeoAI/MCDA and satellite remote sensing framework to model municipal 'Sponginess Indices,' compound flood-drought risks, and actionable Nature-based Solutions (NbS) for urban water resilience."
+        ],
+        github: "",
+        cert: "",
+        details: ""
+      },
+      {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
         role: "Undergraduate Research Assistant",
         date: "October 2025 - December 2025",
@@ -747,7 +759,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     items: [
       {
         title:"Spatiotemporal Assessment of Multi-Air-Pollutant Interactions and Surface Thermal Dynamics Across Lubbock, Texas Using Geographically Weighted Regression and Explainable Machine Learning",
-        date:"2026",
+        date:"September 2026",
         venue:"Rimon, R. A.*, <b>Mahfuj, I. I.</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
         type:"Conference Presentations & Proceedings",
         cite:"",  // <--- Add this field to enable Cite button
