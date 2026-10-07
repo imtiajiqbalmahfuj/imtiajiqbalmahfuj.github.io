@@ -758,24 +758,6 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     recentLimit: 10,
     items: [
       {
-        title:"Spatiotemporal Assessment of Multi-Air-Pollutant Interactions and Surface Thermal Dynamics Across Lubbock, Texas Using Geographically Weighted Regression and Explainable Machine Learning",
-        date:"September 2026",
-        venue:"Rimon, R. A.*, <b>Mahfuj, I. I.</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
-        type:"Conference Presentations & Proceedings",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details: "https://drive.google.com/file/d/1P-ynN6lA8oeQUxtH378tSarw_dOw20yi/view?usp=drivesdk" // Add paper link when available
-      },
-      {
-        title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
-        date:"2027 (Forthcoming)",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity <b>(Elsevier)</b></i>. [Book Chapter]",
-        type:"Manuscripts Under Review",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details:""
-      },
-      {
         title:"Spatiotemporal Detection of Flash Drought Hazards Through a PCA-Driven Explainable Deep Learning Framework Using Multi-Source Earth Observation Data",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., & Adib, J. I.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
@@ -785,12 +767,12 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         details: "" // Add paper link when available
       },
       {
-        title:"Forecasting Construction-Induced Thermal Anomalies and Land Conversion in Ishwardi Using Agent-Based Modelling and Multitemporal Machine Learning Classification",
-        date:"August 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ali, M. K., & Salan, M. S. A.<br> <i>International Symposium on Energy & Environment (ISEE), Rajshahi University of Engineering & Technology, Rajshahi, Bangladesh.</i>", 
-        type:"Conference Presentations & Proceedings",
-        cite:"https://www.researchgate.net/publication/412829287_FORECASTING_CONSTRUCTION-INDUCED_THERMAL_ANOMALIES_AND_LAND_CONVERSION_IN_ISHWARDI_USING_AGENT-BASED_MODELLING_AND_MULTITEMPORAL_MACHINE_LEARNING_CLASSIFICATION",  // <--- Add this field to enable Cite button
-        cert: "https://drive.google.com/file/d/1BbcdmVmEMelA85FXQ7YLPtXEr4jmAMhh/view?usp=drivesdk",
+        title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios in Chattogram using Explainable Graph Neural Networks",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
         details: "" // Add paper link when available
       },
       {
@@ -803,12 +785,39 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         details: "https://www.researchsquare.com/article/rs-10607643/latest" // Add paper link when available
       },
       {
-        title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios in Chattogram using Explainable Graph Neural Networks",
-        date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
+        title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
+        date:"2027 (Forthcoming)",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity <b>(Elsevier)</b></i>. [Book Chapter]",
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
+        details:""
+      },
+      {
+        title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
+        date:"2026",
+        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details:"https://dx.doi.org/10.2139/ssrn.6208220"
+      },
+      {
+        title:"Spatiotemporal Assessment of Multi-Air-Pollutant Interactions and Surface Thermal Dynamics Across Lubbock, Texas Using Geographically Weighted Regression and Explainable Machine Learning",
+        date:"September 2026",
+        venue:"Rimon, R. A.*, <b>Mahfuj, I. I.</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
+        type:"Conference Presentations & Proceedings",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "https://drive.google.com/file/d/1P-ynN6lA8oeQUxtH378tSarw_dOw20yi/view?usp=drivesdk" // Add paper link when available
+      },
+      {
+        title:"Forecasting Construction-Induced Thermal Anomalies and Land Conversion in Ishwardi Using Agent-Based Modelling and Multitemporal Machine Learning Classification",
+        date:"August 2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ali, M. K., & Salan, M. S. A.<br> <i>International Symposium on Energy & Environment (ISEE), Rajshahi University of Engineering & Technology, Rajshahi, Bangladesh.</i>", 
+        type:"Conference Presentations & Proceedings",
+        cite:"https://www.researchgate.net/publication/412829287_FORECASTING_CONSTRUCTION-INDUCED_THERMAL_ANOMALIES_AND_LAND_CONVERSION_IN_ISHWARDI_USING_AGENT-BASED_MODELLING_AND_MULTITEMPORAL_MACHINE_LEARNING_CLASSIFICATION",  // <--- Add this field to enable Cite button
+        cert: "https://drive.google.com/file/d/1BbcdmVmEMelA85FXQ7YLPtXEr4jmAMhh/view?usp=drivesdk",
         details: "" // Add paper link when available
       },
       {
@@ -828,15 +837,6 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cite:"https://sciforum.net/paper/view/31069",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
         details:"https://sciforum.net/paper/32938"
-      },
-      {
-        title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
-        date:"2026",
-        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
-        type:"Manuscripts Under Review",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details:"https://dx.doi.org/10.2139/ssrn.6208220"
       },
       {
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
