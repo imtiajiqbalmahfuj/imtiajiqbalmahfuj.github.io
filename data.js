@@ -776,7 +776,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         details: "" // Add paper link when available
       },
       {
-        title:"Assessing agrarian moisture sensitivity in the Barind Tract through a principal component analysis-weighted geospatial framework",
+        title:"Assessing agrarian moisture sensitivity in the Barind Tract through a PCA-weighted geospatial framework",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Geoscience <b>(Springer Nature)</b></i>.", 
         type:"Manuscripts Under Review",
