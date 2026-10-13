@@ -161,12 +161,11 @@ function mountNavigation() {
 
     const achvs = window.SITE.achievements || {};
     const achvLinks = [
-      { id: 'fellowships', label: 'Fellowships & Research Grants', data: achvs.fellowships },
-      { id: 'awards', label: 'Awards, Honors & Memberships', data: achvs.awards },
+      { id: 'fellowships', label: 'Fellowships, Awards & Research Grants', data: achvs.fellowships },
       { id: 'volunteer', label: 'Leadership & Volunteering', data: achvs.volunteering },
       { id: 'licenses', label: 'License & Certifications', data: achvs.licenses },
-      { id: 'workshops', label: 'Workshops & Presentations', data: achvs.workshops },
-      { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
+      { id: 'workshops', label: 'Workshops & Invited Talks', data: achvs.workshops },
+      { id: 'prof_services', label: 'Professional Affiliations & Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
     const aboutLinks = [
@@ -663,7 +662,7 @@ function mountPublications() {
     "Peer-Reviewed Journal Articles": "book-check",
     "Journal Articles": "book-open",
     "Book Chapters": "book",
-    "Conference proceedings": "users",
+    "Conference Presentations & Proceedings": "users", // Updated to match your data
     "Manuscripts Under Review": "eye",
     "Manuscripts in Preparation": "file-edit",
     "Reports": "file-text",
@@ -729,12 +728,11 @@ function mountAchvPreview(){
   if(!A) return;
 
   const sections = [
-    {id:'fellowships', title:'Fellowships & Research Grants', list: A.fellowships, icon:'graduation-cap'},
-    {id:'awards', title:'Awards, Honors & Professional Memberships', list: A.awards, icon:'award'},
+    {id:'fellowships', title:'Fellowships, Awards & Research Grants', list: A.fellowships, icon:'award'},
     {id:'volunteer', title:'Leadership & Volunteering Experience', list: A.volunteering, icon:'users'},
     {id:'licenses', title:'License & Certifications', list: A.licenses, icon:'shield-check'},
-    {id:'workshops', title:'Workshops & Presentations', list: A.workshops, icon:'presentation'},
-    {id:'prof_services', title:'Professional Services', list: A.prof_services, icon:'briefcase'}
+    {id:'workshops', title:'Workshops & Invited Talks', list: A.workshops, icon:'presentation'},
+    {id:'prof_services', title:'Professional Affiliations & Services', list: A.prof_services, icon:'briefcase'}
   ];
 
   wrap.innerHTML = sections.map(sec => {
