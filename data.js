@@ -156,8 +156,8 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       id:"26018",
       title:"Automated Study Area Mapping and Spatio Harmonized Analytical (NDVI, LST, LULC) Visualization",
       tags:["Geospatial Python", "GeoViz"],
-      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26018_Automated_Study_Area_Mapping_and_Spatio_Harmonized_Analytics/Fig1_Study_Area_Map.jpg",
-      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26018_Automated_Study_Area_Mapping_and_Spatio_Harmonized_Analytics/Fig1_Study_Area_Map.jpg",
+      image:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26018_Automated_Study_Area_Mapping_and_Spatio_Harmonized_Analytics/Fig1_Study_Area_Map_.jpg",
+      github:"https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Projects/26018_Automated_Study_Area_Mapping_and_Spatio_Harmonized_Analytics/Fig1_Study_Area_Map_.jpg",
       details:"https://imtiajiqbalmahfuj.github.io/portfolio/projects/26018_Automated_Study_Area_Mapping_and_Spatio_Harmonized_Analytics.html"
     },
     {
