@@ -896,7 +896,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         type:"Conference Presentations & Proceedings",
         cite:"https://www.researchgate.net/publication/400576696_FLASH_FLOOD_HAZARD_ASSESSMENT_USING_A_GIS-INTEGRATED_FUZZY_AHP-MCDA_TO_INFORM_NATURE-BASED_SOLUTIONS_IN_FENI_AND_NOAKHALI_BANGLADESH",  // <--- Add this field to enable Cite button
         cert: "",
-        details:"https://iccesd.kuet.ac.bd/Papers/277.pdf"
+        details:"https://iccesd.kuet.ac.bd/2026/Papers/277.pdf"
       },
       {
         title:"Assessing transit-oriented development potential of Karwan Bazar MRT Station: A strategic actions framework for sustainable urban growth",
