@@ -203,12 +203,13 @@ function mountNavigation() {
     };
 
     const staticLinks = `
-      <a href="${basePath}#about" class="nav-item-link text-slate-700 py-2 px-3">About</a>
       <a href="${basePath}#projects" class="nav-item-link text-slate-700 py-2 px-3">Projects</a>
     `;
     
     // Inject HTML
-    navCenter.innerHTML = staticLinks + 
+    navCenter.innerHTML = 
+      makeDesktopDropdown('#about', 'About', aboutLinks) +
+      staticLinks + 
       makeDesktopDropdown('#experience', 'Experiences', expLinks) +
       makeDesktopDropdown('#publications', 'Publications', pubLinks) +
       makeDesktopDropdown('#achievements', 'Prof. Highlights', achvLinks, true);
@@ -299,7 +300,9 @@ function mountNavigation() {
         mobileMenu.innerHTML = '<div class="max-w-6xl mx-auto px-4 py-5 grid gap-5"></div>';
         mobileMenuGrid = mobileMenu.querySelector('div');
       }
-      mobileMenuGrid.innerHTML = staticLinks.replace(/nav-item-link text-slate-700 py-2 px-3/g, "hover-underline font-medium text-slate-700") + 
+      mobileMenuGrid.innerHTML = 
+        makeMobileDropdown('#about', 'About', aboutLinks) +
+        staticLinks.replace(/nav-item-link text-slate-700 py-2 px-3/g, "hover-underline font-medium text-slate-700") + 
         makeMobileDropdown('#experience', 'Experiences', expLinks) +
         makeMobileDropdown('#publications', 'Publications', pubLinks) +
         makeMobileDropdown('#achievements', 'Professional Highlights', achvLinks);
