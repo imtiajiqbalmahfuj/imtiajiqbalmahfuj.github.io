@@ -951,6 +951,14 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
   achievements: {
     // 1. Fellowships & Research Grants
     fellowships: [
+      {
+        title: "<b>Grant Awardee & Finalist (Phase 2 Pilot Implementation)</b><br>IUT Micromobility Challenge 2026 — Islamic University of Technology (IUT)<br><u>Project:</u> Formalised E-Rickshaw Stands and Safety Registration: A Last-Mile Micromobility Intervention for the Mirpur-10–Mirpur-12 Corridor, DNCC<br>- Awarded seed grant funding and technical implementation support for practical deployment and pilot demonstration.",
+        tags: ["Research Grant", "Pilot Implementation", "Urban Mobility"],
+        link: "https://lnkd.in/p/grGWwFhe", 
+        cert: "",
+        date: "September 2026 <br> Dhaka, Bangladesh",
+        featured: true
+      }
       // { title:"<b>Intern</b><br> Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technology Development (ETD) Department, Urban Development & Regional Planning (UD&RP) Unit", tags:["Internship"], link:"", date:"February 2026 - March 2026  <br> Dhaka, Bangladesh", featured: true }
     ],
     // 2. Awards, Honors & Professional Memberships
@@ -1001,6 +1009,14 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         title: "<b>Journal Reviewing</b><br>Springer Nature: Frontiers of Urban and Rural Planning", 
         tags: ["Professional Service"], 
         date: "" 
+      },
+      {
+        title: "<b>Institutional Data & QS World University Rankings Team</b><br>Rajshahi University of Engineering & Technology (RUET)<br>- Collaborated with faculty leadership to formulate and document strategic initiatives aimed at elevating the university's QS ranking.<br>- Proposed actionable solutions and frameworks focusing on institutional data optimization, research bibliometrics, and performance benchmarking.",
+        tags: ["Institutional Service", "Strategy & Policy"],
+        link: "",
+        cert: "",
+        date: "August 2026 – Present <br> Rajshahi, Bangladesh",
+        featured: true
       }
     ]
   },
