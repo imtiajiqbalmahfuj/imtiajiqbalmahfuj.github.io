@@ -949,29 +949,24 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
 
 
   achievements: {
-    // 1. Fellowships & Research Grants
+    // 1. Fellowships & Research Grants (Combined with Awards)
     fellowships: [
       {
         title: "<b>Grant Awardee & Finalist (Phase 2 Pilot Implementation)</b><br>IUT Micromobility Challenge 2026 — Islamic University of Technology (IUT)<br><u>Project:</u> Formalised E-Rickshaw Stands and Safety Registration: A Last-Mile Micromobility Intervention for the Mirpur-10–Mirpur-12 Corridor, DNCC<br>- Awarded seed grant funding and technical implementation support for practical deployment and pilot demonstration.",
-        tags: ["Research Grant", "Pilot Implementation", "Urban Mobility"],
+        tags: ["Research Grant", "Pilot Implementation"],
         link: "https://lnkd.in/p/grGWwFhe", 
         cert: "",
         date: "September 2026 <br> Dhaka, Bangladesh",
         featured: true
-      }
-      // { title:"<b>Intern</b><br> Nippon Koei Bangladesh Ltd. (ID&E Holdings)<br>Engineering & Technology Development (ETD) Department, Urban Development & Regional Planning (UD&RP) Unit", tags:["Internship"], link:"", date:"February 2026 - March 2026  <br> Dhaka, Bangladesh", featured: true }
-    ],
-    // 2. Awards, Honors & Professional Memberships
-    awards:[
-      { title:"<b>Esri Young Professionals Network (YPN)</b><br> Member <br> Actively engaged in the global network & connecting with Gis professionals", tags:["Professional Membership"], link:"https://drive.google.com/file/d/14C4ZWcSxh6Gnqrz8x-dFS_prFGd7N5J0/view", date:"March 2026 <br> Redlands, CA, USA (Remote)", featured: true },
-      { title:"<b>International Society for Photogrammetry and Remote Sensing (ISPRS)</b><br> Individual Member (ID: 260124112154) <br> Actively engaged in the global network for information of imagery, photogrammetry, and remote sensing. ", tags:["Professional Membership"], cert:"https://drive.google.com/file/d/1xfVd8bAk2NcLyFImiZPysnDB9_6HOfLH/view?usp=sharing", date:"January 2026 <br> Hannover, Germany (Remote)", featured: true },
+      },
       { title:"Awarded <b>2nd place</b> at 'Youth's Thought in Sustainable Urban Planning - 2025' <br> <u>Awarded by:</u> Urban Development Directorate (UDD), <br> Ministry of Housing and Public Work, Government of the People's Republic of Bangladesh <br> <u>Project Title:</u> The Economic Utilization of the Karnaphuli Tunnel with a Balanced Approach to Economic Growth and Ecological Preservation ", tags:["Award"], cert:"https://drive.google.com/file/d/1qa5tKswPKRd8hHw_OqSdBYDdT8r1zg89/view", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
       { title:"<b>Top 10 Finalist</b> at 'Innovative Ideas Presentation competition - 2024' <br> <u>Awarded by:</u> Bangladesh Institute of Planners (BIP) <br> <u>Project Title:</u> Revolutionizing Waste Management in Rajshahi City Corporation: A Technological Solution for Enhanced Recycling and Community Engagement", tags:["Award"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_excited-to-share-that-we-were-shortlisted-activity-7268896507947343872-a74m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"December 2024 <br> Dhaka, Bangladesh", featured: true }
     ],
-    // 3. Leadership & Volunteering Experience
+    
+    // 2. Leadership & Volunteering Experience
     volunteering:[
       { title:"<b>President — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri, featured in mainstream media.  <br> - Mentored and trained 200+ undergraduate students in GIS, Remote Sensing, and geospatial software applications.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://ruetgisclub.github.io/member.html?slug=imtiaj-iqbal-mahfuj", cert:"", date:"July 2026 - Present <br> Rajshahi, Bangladesh ", featured: true },
-      { title:"<b>General Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri, featured in mainstream media.  <br> - Coordinated a technical workshop on “Drone-Based Data Collection & Processing” with Tiller.  <br> - Mentored and trained 100+ undergraduate students in GIS, Remote Sensing, and geospatial software applications.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://community.esri.com/t5/gis-day-2025-forum/geoplan-1-0-the-megaevent-of-gis-day-celebration/m-p/1671138", cert:"https://drive.google.com/file/d/1d9hJBV29BwDhrzh2Lwk3sjlaQmsqSckw/view?usp=drivesdk", date:"July 2025 - July 2026 <br> Rajshahi, Bangladesh " },
+      { title:"<b>General Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology <br> - Organized “GEOPLAN 1.0,” the nation's largest GIS-based event, recognized by Esri.  <br> - Coordinated a technical workshop on “Drone-Based Data Collection & Processing” with Tiller.  <br> - Mentored and trained 100+ undergraduate students in GIS.  <br> - Designed & developed RUET GIS Club official website. ", tags:["Leadership"], link:"https://community.esri.com/t5/gis-day-2025-forum/geoplan-1-0-the-megaevent-of-gis-day-celebration/m-p/1671138", cert:"https://drive.google.com/file/d/1d9hJBV29BwDhrzh2Lwk3sjlaQmsqSckw/view?usp=drivesdk", date:"July 2025 - July 2026 <br> Rajshahi, Bangladesh " },
       { title:"<b>Executive Producer — TEDxRUET</b> <br> - Organized “TEDxRUET – Empowering Imagination” on February 07, 2025 <br> - Team Leadership, Event Management, Event Production, Team Management", tags:["Leadership"], link:"https://www.tedxruet.org/members/imtiaj-iqbal-mahfuj", cert: "https://drive.google.com/file/d/1l_eahnrzEMvz5_1yRmbLC9KDzlDDd_LX/view?usp=sharing", date:"August 2024 - February 2025 <br> Rajshahi, Bangladesh ", featured: true },
       { title:"<b>Assistant Graphics and Design Secretary — RUET GIS Club</b> <br> Rajshahi University of Engineering & Technology", tags:["Teamwork"], cert:"https://drive.google.com/file/d/1YWrL9wBppdPBm2kutxmpX8P0ppi8zyWg/view?usp=drivesdk", date:"June 2024 - July 2025 <br> Rajshahi, Bangladesh " },
       { title:"<b>Class Representative — Department of Urban & Regional Planning</b> <br> Rajshahi University of Engineering & Technology", tags:["Leadership"], link:"", date:"January 2023 - September 2024 <br> Rajshahi, Bangladesh ", featured: true },
@@ -979,35 +974,37 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       { title:"<b>Joint Secretary, Josephite Math Mania, 2020</b> — Josephite Math Club <br> St. Joseph Higher Secondary School", tags:["Team management"], link:"", date:"December 2019 - January 2021 <br> Dhaka, Bangladesh " },
       { title:"<b>Trainee & volunteer <br> Bangladesh Red Crescent Society (BDRCS)</b>", tags:["Leadership"], link:"https://drive.google.com/file/d/11LHMQYZD6FQ_HXSaHmDgFZxfRr2aCtmQ/view?usp=drive_link", date:"September 2017 - January 2019 <br> Barguna, Bangladesh " }
     ],
-    // 4. License & Certifications
+    // 3. License & Certifications
     licenses:[
       { title:"GIS for Climate Action", tags:["Esri","Esri Academy"], cert:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6985d8b64eb98d27e453b04f/-360", date:"March 2026" },
       { title:"Fundamentals of Remote Sensing", tags:["NASA","The NASA Applied Remote Sensing Training (ARSET) Program"], cert:"https://drive.google.com/file/d/1ji5SR47Tu9W1O-G7l4FIL_hotttByv3N/view?usp=drivesdk", date:"March 2026" },
       { title:"Going Places with Spatial Analysis", tags:["Esri","Esri Academy"], cert:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/68bf563f0ac66f76aadcdd65/-360", date:"February 2026" },
-      { title:"A Standalone Project: Develop an Earthquake Prediction Model Using Python", tags:["LinkedIn","LinkedIn Learning"], cert:"https://www.linkedin.com/learning/certificates/3bc1d147599cea16c24a22368114ec89bb3e2e86cb8193f0f6bcf67bbdd8ed34?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B%2BFdDouBcQoOvQT0%2FRTOIEA%3D%3D", date:"December 2025" },
+      { title:"A Standalone Project: Develop an Earthquake Prediction Model Using Python", tags:["LinkedIn Learning"], cert:"https://www.linkedin.com/learning/certificates/3bc1d147599cea16c24a22368114ec89bb3e2e86cb8193f0f6bcf67bbdd8ed34", date:"December 2025" },
       { title:"Spatial Data Science: The New Frontier in Analytics", tags:["Esri","Esri Academy"], cert:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6826d5199c22d4e1ad3054a4/-360", date:"November 2025", featured: true },
       { title:"Introduction to Climate Risk Informed Decision Analysis (CRIDA)", tags:["UNESCO","UNESCO Open Learning"], cert:"https://openlearning.unesco.org/certificates/2d2231b0141a432587d7903bdb05b290", date:"October 2025" },
       { title:"Cartography", tags:["Esri","Esri Academy"], cert:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/68bf5590195e097ac69c7e26/-360", date:"October 2025" },
       { title:"Urban Analytics with Python", tags:["Milan Janosov","Udemy"], cert:"https://www.udemy.com/certificate/UC-2bd65b43-8c77-4147-b628-58f08e44f40e/", date:"September 2025", featured: true },
       { title:"Getting Started with Data Management", tags:["Esri","Esri Academy"], cert:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6762b7a37627260013b8cd16/-360", date:"September 2025" },
       { title:"Python for Everyone", tags:["Esri","Esri Academy"], cert:"https://www.esri.com/training/TrainingRecord/Certificate/imtiaj_iqbal/6831b49dd36e6d3bfe727db6/-360", date:"September 2025" },
-      { title:"Advanced Archaeological Remote Sensing: Site Prospection, Landscape Archaeology and Heritage Protection in the Middle East and North Africa", tags:["Durham University","British Council"], cert:"https://www.futurelearn.com/certificates/8dwx976", date:"June 2025", featured: true },
+      { title:"Advanced Archaeological Remote Sensing: Site Prospection, Landscape Archaeology and Heritage Protection", tags:["Durham University"], cert:"https://www.futurelearn.com/certificates/8dwx976", date:"June 2025", featured: true },
       { title:"Data Analysis with Python", tags:["IBM","Coursera"], cert:"https://www.coursera.org/account/accomplishments/verify/UF42XT57WUCQ", date:"June 2025" },
       { title:"Data Visualization with Python", tags:["IBM","Coursera"], cert:"https://www.coursera.org/account/accomplishments/verify/GFFIS8174S5V", date:"June 2025" },
-      { title:"Nature-based Solutions for Disaster and Climate Resilience", tags:["United Nations Environment Programme (UNEP)","SDG Academy"], cert:"https://drive.google.com/file/d/1dNqVKfIWYelM-HInc9u0_9DHQwqE2sIe/view?usp=sharing", date:"June 2025" },
+      { title:"Nature-based Solutions for Disaster and Climate Resilience", tags:["UNEP","SDG Academy"], cert:"https://drive.google.com/file/d/1dNqVKfIWYelM-HInc9u0_9DHQwqE2sIe/view?usp=sharing", date:"June 2025" },
       { title:"Python Basics", tags:["University of Michigan","Coursera"], cert:"https://www.coursera.org/account/accomplishments/verify/4ZIT0O30GY65", date:"June 2025" },
       { title:"Google UX Design Specialization", tags:["Google","Coursera"], cert:"https://www.coursera.org/account/accomplishments/specialization/ATVPA55PTE8K", date:"March 2024" }
     ],
-    // 5. Workshops & Presentations
+    // 4. Workshops & Presentations
     workshops:[
-      { title:"An Introduction to GIS & Remote Sensing <br> Organized by: RUET GIS Club <br> Speaker: Imtiaj Iqbal Mahfuj, General Secretary, RUET GIS Club", tags:["Session"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B?utm_source=share&utm_medium=member_desktop&rcm=ACoAAETCC3UBjMNBwycvXEm57I2FBEXCxvdKcM0", date:"May 2025 <br> Rajshahi, Bangladesh", featured: true },
+      { title:"An Introduction to GIS & Remote Sensing <br> Organized by: RUET GIS Club <br> Speaker: Imtiaj Iqbal Mahfuj", tags:["Invited Talk"], link:"https://www.linkedin.com/posts/imtiajiqbalmahfuj_workshop-slide-and-some-captures-activity-7329167145077002240-Wm9B", date:"May 2025 <br> Rajshahi, Bangladesh", featured: true },
       { title:"Drone Based Data Collection & Processing <br> Organized by: Tiller <br>Coordinated by: RUET GIS Club", tags:["Workshop"], cert:"https://drive.google.com/file/d/1sjFph2jBxavufmvoUk1woN_TQlSWsZ8x/view?usp=sharing", date:"December 2024 <br> Rajshahi, Bangladesh", featured: true },
     ],
-    // 6. Professional Services
+    // 5. Professional Affiliations & Services (Combined with Memberships)
     prof_services: [
+      { title:"<b>Esri Young Professionals Network (YPN)</b><br> Member <br> Actively engaged in the global network & connecting with GIS professionals.", tags:["Professional Membership"], link:"https://drive.google.com/file/d/14C4ZWcSxh6Gnqrz8x-dFS_prFGd7N5J0/view", date:"March 2026 <br> Redlands, CA, USA (Remote)", featured: true },
+      { title:"<b>International Society for Photogrammetry and Remote Sensing (ISPRS)</b><br> Individual Member (ID: 260124112154) <br> Actively engaged in the global network for information of imagery, photogrammetry, and remote sensing.", tags:["Professional Membership"], cert:"https://drive.google.com/file/d/1xfVd8bAk2NcLyFImiZPysnDB9_6HOfLH/view?usp=sharing", date:"January 2026 <br> Hannover, Germany (Remote)", featured: true },
       { 
         title: "<b>Journal Reviewing</b><br>Springer Nature: Frontiers of Urban and Rural Planning", 
-        tags: ["Professional Service"], 
+        tags: ["Peer Review"], 
         date: "" 
       },
       {
