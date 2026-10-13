@@ -1008,6 +1008,14 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
 
   blogs: [
     {
+      id: "26007",
+      title: "My First Citation: A Milestone in Geospatial Research",
+      tags: ["Achievements"],
+      date: "October 14, 2026",
+      image: "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbal-portfolio/refs/heads/main/Blogs/26007.png", 
+      link: "https://lnkd.in/p/gg3WFtUh" 
+    },
+    {
       id: "26006",
       title: "Seeing my own ideas come to life in Bangladesh!",
       tags: ["Achievements"],
