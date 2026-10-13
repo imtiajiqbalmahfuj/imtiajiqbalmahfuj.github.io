@@ -169,6 +169,12 @@ function mountNavigation() {
       { id: 'prof_services', label: 'Professional Services', data: achvs.prof_services }
     ].filter(x => x.data && x.data.length > 0);
 
+    const aboutLinks = [
+      { id: 'about', label: 'About Me' },
+      { id: 'blogs', label: 'Blogs & Notes' },
+      { id: 'media', label: 'Media Appearances' }
+    ];
+
     // Desktop Dropdown Builder
     const makeDesktopDropdown = (href, label, links, alignRight = false) => {
       if (links.length === 0) return `<a href="${basePath}${href}" class="nav-item-link text-slate-700 py-2 px-3">${label}</a>`;
