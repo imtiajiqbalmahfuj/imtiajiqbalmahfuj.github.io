@@ -8,6 +8,14 @@ function getThumb(url, width = 600) {
 // Shared helpers
 function $(sel, scope=document){ return scope.querySelector(sel) }
 function $all(sel, scope=document){ return [...scope.querySelectorAll(sel)] }
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasFinePointer = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+// Smooth scroll that goes through Lenis when it's running (see mountMotion)
+function smoothScrollTo(y) {
+  if (window.__lenis) window.__lenis.scrollTo(y, { duration: 1.2 });
+  else window.scrollTo({ top: y, behavior: 'smooth' });
+}
 
 // === Handle Button Emails (Hero & About) ===
 function mountAllEmails() {
@@ -44,7 +52,7 @@ function applyNav(){
       const isHome = window.location.pathname.endsWith("index.html") || window.location.pathname === "/"; 
       if(isHome){
         e.preventDefault();
-        window.scrollTo({top:0, behavior:'smooth'});
+        smoothScrollTo(0);
       }
     });
   }
@@ -78,7 +86,7 @@ function applyNav(){
     const isMobile = window.innerWidth < 768;
     const offset = isMobile ? 55 : 85; 
     const y = targetEl.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    smoothScrollTo(y);
   };
 
   if(connectBtn){
@@ -372,14 +380,31 @@ function mountHero(){
       <i data-lucide="${it.icon}"></i>${it.name}
     </span>`).join('');
     track.innerHTML = `<div class="ticker-inner">${itemsHTML}</div><div class="ticker-inner">${itemsHTML}</div>`;
-    const innerWidth = track.querySelector('.ticker-inner').scrollWidth;
+    let innerWidth = track.querySelector('.ticker-inner').scrollWidth;
+    // Re-measure once fonts/icons settle so the loop seam stays invisible
+    window.addEventListener('load', () => { innerWidth = track.querySelector('.ticker-inner').scrollWidth; });
     let pos = 0;
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    const speed = isMobile ? 0.5 : 0.8;  
+    const baseSpeed = isMobile ? 0.5 : 0.8;
+    let speed = baseSpeed, targetSpeed = baseSpeed;
+
+    // Glide to a slow crawl while hovered, so a skill can be read
+    track.addEventListener('mouseenter', () => { targetSpeed = baseSpeed * 0.2; });
+    track.addEventListener('mouseleave', () => { targetSpeed = baseSpeed; });
+
+    // Skip the per-frame work while the ticker is scrolled out of view
+    let tickerVisible = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([en]) => { tickerVisible = en.isIntersecting; }).observe(track);
+    }
+
     function animateTicker() {
-      pos -= speed;
-      if(pos <= -innerWidth) pos = 0;
-      track.style.transform = `translateX(${pos}px)`;
+      if (tickerVisible) {
+        speed += (targetSpeed - speed) * 0.08;
+        pos -= speed;
+        if(pos <= -innerWidth) pos = 0;
+        track.style.transform = `translateX(${pos}px)`;
+      }
       requestAnimationFrame(animateTicker);
     }
     requestAnimationFrame(animateTicker);
@@ -428,7 +453,11 @@ function mountAbout(){
   if (!window.SITE) return;
   const {photo} = window.SITE.brand;
   const photoEl = $('#aboutPhoto');
-  if(photoEl) photoEl.src = photo;
+  if(photoEl) {
+    // Compressed copy first (the original is ~740 KB); fall back to the original if the CDN fails
+    photoEl.onerror = () => { photoEl.onerror = null; photoEl.src = photo; };
+    photoEl.src = getThumb(photo, 1000);
+  }
   const bioEl = $('#aboutBio');
   if(bioEl) bioEl.innerHTML = window.SITE.about.bio;
   const msgBtn = $('#msgBtn');
@@ -934,113 +963,156 @@ function mountBlogsPage() {
   lucide.createIcons();
 }
 
-// Particle Engine OPTIMIZED (90% faster)
+// Particle Engine (lightweight): same cyan/magenta network, far less work per frame.
+// - Lines are bucketed by opacity and stroked in a few batched paths instead of one stroke() per line
+// - Dots are filled in one path per colour
+// - Frame rate is capped at 30fps on phones / low-power devices; movement is time-scaled so speed looks the same
+// - Nothing animates for visitors who ask for reduced motion
 function initDefaultParticles() {
   const canvas = document.createElement('canvas');
   canvas.id = 'magicCanvas';
   document.body.prepend(canvas);
   const ctx = canvas.getContext('2d');
-  
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobileDevice = window.innerWidth <= 768;
+  const lowPower = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+  const FRAME_MS = (isMobileDevice || lowPower) ? 1000 / 30 : 0;
+
+  const LINK = 100;                // max link distance between particles
+  const LINK_SQ = LINK * LINK;
+  const BUCKETS = 4;               // opacity steps for batched line drawing
+  const mouse = { x: null, y: null, radius: 120 };
+  const MOUSE_SQ = mouse.radius * mouse.radius;
   let particles = [];
-  let mouse = { x: null, y: null, radius: 120 };
 
-  window.addEventListener('mousemove', (e) => {
-    mouse.x = e.x;
-    mouse.y = e.y;
-  });
-  window.addEventListener('mouseout', () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 1.5 + 0.5;
-      this.speedX = (Math.random() - 0.5) * 0.8;
-      this.speedY = (Math.random() - 0.5) * 0.8;
-      this.color = Math.random() > 0.5 ? '#00ffff' : '#ff00ff';
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-      if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
-    }
-    draw() {
-      ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
+  function targetCount() {
+    const area = canvas.width * canvas.height;
+    if (isMobileDevice) return 14;                       // a light sprinkle on phones
+    return Math.round(Math.min(area / 30000, lowPower ? 24 : 40));
   }
 
-  function connectParticles() {
-    for (let a = 0; a < particles.length; a++) {
-      // Start inner loop at 'a + 1' to cut checks in half and stop checking a particle against itself
-      for (let b = a + 1; b < particles.length; b++) { 
-        let dx = particles[a].x - particles[b].x;
-        let dy = particles[a].y - particles[b].y;
-        
-        // Fast spatial bounding box check to skip heavy Math.sqrt calculation
-        if (Math.abs(dx) < 100 && Math.abs(dy) < 100) {
-          let distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 100) {
-            ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 100})`;
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      if (mouse.x && mouse.y) {
-        let mx = particles[a].x - mouse.x;
-        let my = particles[a].y - mouse.y;
-        if (Math.abs(mx) < mouse.radius && Math.abs(my) < mouse.radius) {
-          let mDistance = Math.sqrt(mx * mx + my * my);
-          if (mDistance < mouse.radius) {
-            ctx.strokeStyle = `rgba(255, 0, 255, ${1 - mDistance / mouse.radius})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
+  function makeParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 1.5 + 0.5,
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      cyan: Math.random() > 0.5
+    };
   }
 
-  function animate() {
+  function resize() {
+    const oldW = canvas.width || 1, oldH = canvas.height || 1;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    // Keep existing particles where they were, proportionally
+    particles.forEach(p => { p.x *= canvas.width / oldW; p.y *= canvas.height / oldH; });
+    const n = targetCount();
+    while (particles.length < n) particles.push(makeParticle());
+    particles.length = n;
+  }
+
+  if (!isMobileDevice) {
+    window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+    document.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+  }
+
+  // Reusable per-bucket segment lists: [x1, y1, x2, y2, ...]
+  const linkBuckets = Array.from({ length: BUCKETS }, () => []);
+  const mouseBuckets = Array.from({ length: BUCKETS }, () => []);
+
+  function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
+    linkBuckets.forEach(b => (b.length = 0));
+    mouseBuckets.forEach(b => (b.length = 0));
+
+    const n = particles.length;
+    const hasMouse = mouse.x !== null;
+    for (let a = 0; a < n; a++) {
+      const pa = particles[a];
+      for (let b = a + 1; b < n; b++) {
+        const pb = particles[b];
+        const dx = pa.x - pb.x, dy = pa.y - pb.y;
+        if (dx > LINK || dx < -LINK || dy > LINK || dy < -LINK) continue;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < LINK_SQ) {
+          const k = Math.min(BUCKETS - 1, Math.floor((Math.sqrt(d2) / LINK) * BUCKETS));
+          linkBuckets[k].push(pa.x, pa.y, pb.x, pb.y);
+        }
+      }
+      if (hasMouse) {
+        const mx = pa.x - mouse.x, my = pa.y - mouse.y;
+        const m2 = mx * mx + my * my;
+        if (m2 < MOUSE_SQ) {
+          const k = Math.min(BUCKETS - 1, Math.floor((Math.sqrt(m2) / mouse.radius) * BUCKETS));
+          mouseBuckets[k].push(pa.x, pa.y, mouse.x, mouse.y);
+        }
+      }
     }
-    connectParticles();
+
+    const strokeBuckets = (buckets, rgb, width) => {
+      ctx.lineWidth = width;
+      for (let k = 0; k < BUCKETS; k++) {
+        const segs = buckets[k];
+        if (!segs.length) continue;
+        ctx.strokeStyle = `rgba(${rgb}, ${1 - (k + 0.5) / BUCKETS})`;
+        ctx.beginPath();
+        for (let i = 0; i < segs.length; i += 4) {
+          ctx.moveTo(segs[i], segs[i + 1]);
+          ctx.lineTo(segs[i + 2], segs[i + 3]);
+        }
+        ctx.stroke();
+      }
+    };
+    strokeBuckets(linkBuckets, '0, 255, 255', 0.5);
+    strokeBuckets(mouseBuckets, '255, 0, 255', 1);
+
+    // Dots: one path per colour
+    [['#00ffff', true], ['#ff00ff', false]].forEach(([color, cyan]) => {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      for (const p of particles) {
+        if (p.cyan !== cyan) continue;
+        ctx.moveTo(p.x + p.size, p.y);
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      }
+      ctx.fill();
+    });
+  }
+
+  function step(dt) {
+    const W = canvas.width, H = canvas.height;
+    for (const p of particles) {
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      if (p.x > W || p.x < 0) p.vx = -p.vx;
+      if (p.y > H || p.y < 0) p.vy = -p.vy;
+    }
+  }
+
+  resize();
+
+  if (reduceMotion) {
+    draw(); // a still constellation
+  } else {
+    let last = performance.now();
+    function animate(now) {
+      requestAnimationFrame(animate);
+      const elapsed = now - last;
+      if (elapsed < FRAME_MS) return;
+      last = now;
+      step(Math.min(elapsed / 16.67, 3)); // time-scaled; clamp after tab switches
+      draw();
+    }
     requestAnimationFrame(animate);
   }
 
-  // Capped at max 50 particles to avoid locking up CPU
-  // Limits particles to just 12 on mobile to save CPU, while keeping 50 on PC
-  const isMobileDevice = window.innerWidth <= 768;
-  let particleCount = isMobileDevice ? 0 : Math.min((canvas.width * canvas.height) / 25000, 50);
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-  }
-
-  animate();
-
+  let resizeTimer;
   window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resize(); if (reduceMotion) draw(); }, 150);
   });
 }
 
@@ -1067,6 +1139,16 @@ function mountMagicMode() {
 
   let isMagic = savedTheme !== null ? (savedTheme === 'dark') : DEFAULT_DARK_MODE;
 
+  // Hero visuals are heavy, so they sleep while the hero is off screen or hidden by the other theme
+  let heroVisible = true;
+  const heroSleepers = [];
+  const syncHeroVisuals = () => heroSleepers.forEach(fn => fn());
+  const heroSection = document.getElementById('hero');
+  if (heroSection && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => { heroVisible = en.isIntersecting; syncHeroVisuals(); }).observe(heroSection);
+  }
+  document.addEventListener('themechange', syncHeroVisuals);
+
   function injectVideos() {
     const hero = document.getElementById('hero');
     if (!hero) return; // Safely exit if on a subpage
@@ -1079,6 +1161,13 @@ function mountMagicMode() {
       heroVid.src = 'https://raw.githubusercontent.com/sanidhyy/space-portfolio/main/public/videos/blackhole.webm';
       heroVid.autoplay = true; heroVid.loop = true; heroVid.muted = true; heroVid.playsInline = true;
       hero.appendChild(heroVid);
+
+      // Only decode the video when it can actually be seen (Space theme + hero on screen)
+      heroSleepers.push(() => {
+        if (heroVisible && document.body.classList.contains('magic-mode')) heroVid.play().catch(() => {});
+        else heroVid.pause();
+      });
+      syncHeroVisuals();
     }
 
     // 2. Interactive Globe
@@ -1135,7 +1224,17 @@ function mountMagicMode() {
 
             world.controls().autoRotate = true;
             world.controls().autoRotateSpeed = 0.5;
-            world.controls().enableZoom = false; 
+            world.controls().enableZoom = false;
+
+            // Stop WebGL rendering while the globe can't be seen (Space theme or scrolled away)
+            let globeRunning = true;
+            heroSleepers.push(() => {
+              const run = heroVisible && !document.body.classList.contains('magic-mode');
+              if (run === globeRunning) return;
+              globeRunning = run;
+              run ? world.resumeAnimation() : world.pauseAnimation();
+            });
+            syncHeroVisuals();
 
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
             if (isTouchDevice) {
@@ -1148,8 +1247,10 @@ function mountMagicMode() {
                 mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
               });
               function animateParallax() {
-                world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
-                world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
+                if (globeRunning) {
+                  world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
+                  world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
+                }
                 requestAnimationFrame(animateParallax);
               }
               animateParallax();
@@ -1174,6 +1275,9 @@ function mountMagicMode() {
     if (window.lucide) lucide.createIcons();
 
     localStorage.setItem('theme', isMagic ? 'dark' : 'light');
+
+    // Lets the globe, black hole video and face raster react to the theme
+    document.dispatchEvent(new CustomEvent('themechange', { detail: { dark: isMagic } }));
   }
 
   toggleTheme(isMagic);
@@ -1187,8 +1291,691 @@ function mountMagicMode() {
 
 
 
+// === Liquid Glass: cursor-tracked light, scrolled navbar state & scroll progress ===
+// The look itself lives in styles.css (section 8); this only feeds it --mx / --my.
+function mountLiquidGlass() {
+  const LIQUID_SEL = '.card, a.bg-white, button.bg-white, .icon-btn, a.bg-black, button.bg-black, #navbar > div:first-child';
+
+  // Cursor position, relative to every glass surface under the pointer (button + its card, etc.)
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let lastEvent = null, frame = 0;
+    document.addEventListener('pointermove', (e) => {
+      lastEvent = e;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        let el = lastEvent.target instanceof Element ? lastEvent.target.closest(LIQUID_SEL) : null;
+        while (el) {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', `${lastEvent.clientX - r.left}px`);
+          el.style.setProperty('--my', `${lastEvent.clientY - r.top}px`);
+          el = el.parentElement ? el.parentElement.closest(LIQUID_SEL) : null;
+        }
+      });
+    }, { passive: true });
+  }
+
+  // Thin reading-progress line + denser navbar glass once the page has scrolled
+  const navbar = $('#navbar');
+  const bar = document.createElement('div');
+  bar.id = 'scrollProgress';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
+      if (navbar) navbar.classList.toggle('is-scrolled', window.scrollY > 24);
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+}
+
+// === Scroll-driven Face Raster (About photo) ===
+// The portrait is rendered as a colour-classified raster, like a DEM or land-cover map.
+// Scrolling increases the resolution and the number of classes, then a scan line sweeps the real photo in.
+// Geo theme uses viridis (the same ramp as the hero globe); Space theme uses a nebula ramp.
+function mountFaceRaster() {
+  const wrap = $('#faceRaster');
+  if (!wrap || !window.SITE) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const RAMPS = {
+    geo:   ['#440154', '#482878', '#3e4989', '#31688e', '#26828e', '#1f9e89', '#35b779', '#6ece58', '#b5de2b', '#fde725'],
+    space: ['#05020a', '#1e0b3a', '#3b0f70', '#6b21a8', '#9333ea', '#c084fc', '#e879f9', '#67e8f9', '#ecfeff']
+  };
+  const MAX_CELL = 12, MIN_CELL = 1.5; // raster cell size in CSS px (coarse → fine)
+  const MIN_CLASSES = 8, MAX_CLASSES = 24;
+  const REVEAL_FROM = 0.5;             // scroll progress at which the photo starts sweeping in
+
+  const canvas = document.createElement('canvas');
+  canvas.className = 'face-raster-canvas';
+  const scan = document.createElement('div');
+  scan.className = 'face-raster-scan';
+  const hud = document.createElement('div');
+  hud.className = 'face-raster-hud';
+  hud.innerHTML = '<span class="face-raster-ramp"></span><span class="face-raster-res"></span>';
+  [canvas, scan, hud].forEach(el => el.setAttribute('aria-hidden', 'true'));
+  const resEl = hud.querySelector('.face-raster-res');
+
+  const ctx = canvas.getContext('2d');
+  const tiny = document.createElement('canvas');                 // one pixel per raster cell
+  const tctx = tiny.getContext('2d', { willReadFrequently: true });
+
+  let ready = false, inView = false, W = 0, H = 0, lo = 0, hi = 1, lastKey = '';
+  const lutCache = {};
+
+  const isSpace = () => document.body.classList.contains('magic-mode');
+  const clamp01 = v => Math.max(0, Math.min(1, v));
+  const hexToRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+
+  // Colour table for N classes, sampled evenly along the theme ramp
+  function lut(theme, classes) {
+    const key = theme + classes;
+    if (lutCache[key]) return lutCache[key];
+    const stops = RAMPS[theme].map(hexToRgb);
+    const out = [];
+    for (let k = 0; k < classes; k++) {
+      const t = (k / (classes - 1)) * (stops.length - 1);
+      const i = Math.min(Math.floor(t), stops.length - 2), f = t - i;
+      out.push(stops[i].map((c, j) => Math.round(c + (stops[i + 1][j] - c) * f)));
+    }
+    return (lutCache[key] = out);
+  }
+
+  // Source rectangle matching the <img>'s object-fit: cover crop
+  function cropRect() {
+    const iw = src.naturalWidth, ih = src.naturalHeight;
+    const s = Math.max(W / iw, H / ih);
+    const sw = W / s, sh = H / s;
+    return [(iw - sw) / 2, (ih - sh) / 2, sw, sh];
+  }
+
+  // Contrast-stretch bounds (2nd–98th percentile luminance), measured once
+  function calibrate() {
+    tiny.width = 48; tiny.height = 48;
+    tctx.drawImage(src, 0, 0, 48, 48);
+    const d = tctx.getImageData(0, 0, 48, 48).data; // throws if the image is cross-origin tainted
+    const lum = [];
+    for (let i = 0; i < d.length; i += 4) lum.push((0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255);
+    lum.sort((a, b) => a - b);
+    lo = lum[Math.floor(lum.length * 0.02)];
+    hi = Math.max(lum[Math.floor(lum.length * 0.98)], lo + 0.05);
+  }
+
+  function progress() {
+    const vh = window.innerHeight;
+    if (window.innerWidth >= 768 && wrap.parentElement) {
+      // Desktop: the photo is sticky, so measure the About block instead.
+      // 0 as it enters, 1 (real photo) about one screen later, while the bio is still being read.
+      const g = wrap.parentElement.getBoundingClientRect();
+      return clamp01((vh * 0.85 - g.top) / (vh * 0.9));
+    }
+    const r = wrap.getBoundingClientRect();
+    return clamp01((vh - r.top) / (vh * 0.7));
+  }
+
+  function render() {
+    if (!ready || !W || !H) return;
+    const p = progress();
+    const e = 1 - Math.pow(1 - clamp01(p / REVEAL_FROM), 3);       // ease-out over the raster phase
+    const cell = MAX_CELL - (MAX_CELL - MIN_CELL) * e;
+    const classes = Math.round(MIN_CLASSES + (MAX_CLASSES - MIN_CLASSES) * e);
+    const cols = Math.max(4, Math.round(W / cell));
+    const rows = Math.max(4, Math.round(H / cell));
+    const theme = isSpace() ? 'space' : 'geo';
+
+    // Only re-classify when the raster actually changes
+    const key = `${cols}x${rows}x${classes}${theme}`;
+    if (key !== lastKey) {
+      lastKey = key;
+      tiny.width = cols; tiny.height = rows;
+      tctx.drawImage(src, ...cropRect(), 0, 0, cols, rows);
+      const img = tctx.getImageData(0, 0, cols, rows);
+      const d = img.data, table = lut(theme, classes);
+      for (let i = 0; i < d.length; i += 4) {
+        const L = clamp01(((0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255 - lo) / (hi - lo));
+        const c = table[Math.min(classes - 1, Math.floor(L * classes))];
+        d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
+      }
+      tctx.putImageData(img, 0, 0);
+
+      ctx.imageSmoothingEnabled = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(tiny, 0, 0, cols, rows, 0, 0, canvas.width, canvas.height);
+
+      // Faint cell grid while cells are big enough to read as a raster
+      if (cell >= 7) {
+        const sx = canvas.width / cols, sy = canvas.height / rows;
+        ctx.strokeStyle = `rgba(255,255,255,${((cell - 7) / (MAX_CELL - 7)) * 0.16})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        for (let x = 1; x < cols; x++) { ctx.moveTo(Math.round(x * sx) + 0.5, 0); ctx.lineTo(Math.round(x * sx) + 0.5, canvas.height); }
+        for (let y = 1; y < rows; y++) { ctx.moveTo(0, Math.round(y * sy) + 0.5); ctx.lineTo(canvas.width, Math.round(y * sy) + 0.5); }
+        ctx.stroke();
+      }
+
+      resEl.textContent = `${cols} × ${rows}`;
+      const ramp = RAMPS[theme];
+      hud.style.setProperty('--ramp', `linear-gradient(90deg, ${ramp.join(', ')})`);
+    }
+
+    // Photo sweep: clip the raster away from the top, scan line rides the edge
+    const reveal = clamp01((p - REVEAL_FROM) / (1 - REVEAL_FROM));
+    canvas.style.clipPath = `inset(${(reveal * 100).toFixed(2)}% 0 0 0)`;
+    scan.style.transform = `translateY(${reveal * H}px)`;
+    scan.style.opacity = reveal > 0 && reveal < 1 ? '1' : '0';
+    hud.style.opacity = String(1 - reveal);
+  }
+
+  let frame = 0;
+  const schedule = () => { if (!frame && inView) frame = requestAnimationFrame(() => { frame = 0; render(); }); };
+
+  function measure() {
+    W = wrap.clientWidth; H = wrap.clientHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    lastKey = '';
+    render();
+  }
+
+  function teardown() {
+    [canvas, scan, hud].forEach(el => el.remove());
+  }
+
+  // Separate CORS-enabled copy for pixel access; the visible <img> is untouched
+  const src = new Image();
+  src.crossOrigin = 'anonymous';
+  src.decoding = 'async';
+  const original = window.SITE.brand.photo;
+  src.onload = () => {
+    try {
+      calibrate();
+    } catch (err) {
+      // Pixels unreadable (CORS): retry with the original, otherwise just show the normal photo
+      if (src.src !== original) src.src = original;
+      else teardown();
+      return;
+    }
+    wrap.append(canvas, scan, hud);
+    ready = true;
+    measure();
+  };
+  src.onerror = () => {
+    if (src.src !== original) src.src = original; // CDN failed: try the original file
+    else teardown();
+  };
+  src.src = getThumb(original, 800);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => { inView = en.isIntersecting; if (inView) schedule(); }).observe(wrap);
+  } else {
+    inView = true;
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(() => ready && measure()).observe(wrap);
+  window.addEventListener('scroll', schedule, { passive: true });
+  document.addEventListener('themechange', () => { lastKey = ''; schedule(); });
+}
+
+// =====================================================================
+// MOTION SYSTEM: 3D hero, tilt cards, magnetic buttons, cursor, drag
+// carousels, smooth scroll & scroll choreography. Styles: styles.css §12
+// =====================================================================
+
+// Pinned library versions, loaded on demand so every page shares one source of truth
+const MOTION_LIBS = {
+  gsap: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js',
+  scrollTrigger: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js',
+  splitText: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js',
+  lenis: 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js'
+};
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src; s.async = true;
+    s.onload = resolve; s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
+// Delegated hover tracking for the closest element matching `sel` (mouse only).
+// Works for cards/buttons rendered later from data.js without re-binding.
+function trackPointer(sel, { enter, move, leave }) {
+  let current = null;
+  const set = (el, e) => {
+    if (el === current) return;
+    if (current && leave) leave(current);
+    current = el;
+    if (el && enter) enter(el, e);
+  };
+  document.addEventListener('pointerover', e => {
+    if (e.pointerType !== 'mouse') return;
+    set(e.target instanceof Element ? e.target.closest(sel) : null, e);
+  });
+  document.addEventListener('pointermove', e => { if (current && move) move(current, e); }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => set(null));
+}
+
+// === Hero 3D scene ===
+// Geo theme: a flowing DEM wireframe terrain in perspective (black lines, cartographic).
+// Space theme: a 3D starfield flying toward the black hole.
+// The camera follows the mouse, and the hero text/ticker float on parallax layers above it.
+function mountHeroScene() {
+  const hero = $('#hero');
+  if (!hero) return;
+
+  const reduced = prefersReducedMotion();
+  const isMobile = window.innerWidth <= 768;
+  const lowPower = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+  const FRAME_MS = (isMobile || lowPower) ? 1000 / 30 : 0;
+
+  const canvas = document.createElement('canvas');
+  canvas.className = 'hero-scene';
+  canvas.setAttribute('aria-hidden', 'true');
+  const grid = hero.querySelector('.hero-grid');
+  grid ? grid.after(canvas) : hero.prepend(canvas);
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.5);
+    W = hero.clientWidth; H = hero.clientHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  // Mouse in -1..1, and an eased camera that chases it
+  const mouse = { x: 0, y: 0 }, cam = { x: 0, y: 0 };
+  const fine = hasFinePointer();
+  if (fine) {
+    window.addEventListener('pointermove', e => {
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = (e.clientY / window.innerHeight) * 2 - 1;
+    }, { passive: true });
+  }
+
+  // Parallax layers: [element, px shift on x, px shift on y]
+  const layers = [
+    [hero.querySelector(':scope > .z-10'), 18, 10],
+    [hero.querySelector('.hero-bottom'), 8, 5]
+  ].filter(l => l[0]);
+  let blackhole = null;
+
+  // --- Geo: DEM wireframe ---
+  const GX = isMobile ? 24 : 46, GZ = isMobile ? 14 : 24;
+  const Z_NEAR = 1, Z_FAR = 6, X_SPAN = 7, CAM_H = 1.0;
+  const pts = new Float32Array(GX * GZ * 2);
+  const terrain = (x, z) =>
+    0.22 * Math.sin(x * 0.9) * Math.cos(z * 0.8) +
+    0.10 * Math.sin(x * 2.3 - z * 1.7) +
+    0.04 * Math.cos(x * 5.1 + z * 4.3);
+
+  function drawTerrain(t) {
+    const f = H * 0.5, horizon = H * 0.42;
+    const flow = t * 0.12; // landscape slowly scrolls toward the viewer
+    for (let iz = 0; iz < GZ; iz++) {
+      const z = Z_NEAR + (iz / (GZ - 1)) * (Z_FAR - Z_NEAR);
+      for (let ix = 0; ix < GX; ix++) {
+        const x = ((ix / (GX - 1)) * 2 - 1) * X_SPAN;
+        const y = terrain(x, z + flow);
+        const k = (iz * GX + ix) * 2;
+        pts[k] = W / 2 + ((x - cam.x * 0.6) / z) * f;
+        pts[k + 1] = horizon + ((CAM_H + cam.y * 0.15 - y) / z) * f;
+      }
+    }
+    ctx.lineWidth = 1;
+    // Rows (contours across the view), far → near, fading with distance
+    for (let iz = GZ - 1; iz >= 0; iz--) {
+      const near = 1 - iz / (GZ - 1);
+      ctx.strokeStyle = `rgba(11,11,11,${(0.03 + near * 0.13).toFixed(3)})`;
+      ctx.beginPath();
+      for (let ix = 0; ix < GX; ix++) {
+        const k = (iz * GX + ix) * 2;
+        ix ? ctx.lineTo(pts[k], pts[k + 1]) : ctx.moveTo(pts[k], pts[k + 1]);
+      }
+      ctx.stroke();
+    }
+    // Columns (meridians running into the distance), one batched path
+    ctx.strokeStyle = 'rgba(11,11,11,0.06)';
+    ctx.beginPath();
+    for (let ix = 0; ix < GX; ix++) {
+      for (let iz = 0; iz < GZ; iz++) {
+        const k = (iz * GX + ix) * 2;
+        iz ? ctx.lineTo(pts[k], pts[k + 1]) : ctx.moveTo(pts[k], pts[k + 1]);
+      }
+    }
+    ctx.stroke();
+  }
+
+  // --- Space: starfield ---
+  const STAR_COUNT = isMobile ? 160 : (lowPower ? 260 : 420);
+  const DEPTH = 4;
+  const STAR_COLORS = ['#ffffff', '#d8b4fe', '#67e8f9'];
+  const stars = Array.from({ length: STAR_COUNT }, () => ({
+    x: (Math.random() - 0.5) * 3, y: (Math.random() - 0.5) * 2,
+    z: Math.random() * DEPTH + 0.1,
+    c: Math.random() < 0.6 ? 0 : (Math.random() < 0.6 ? 1 : 2)
+  }));
+
+  function drawStars(dt) {
+    const f = Math.max(W, H) * 0.45;
+    const cx = W / 2 - cam.x * W * 0.04, cy = H * 0.62 - cam.y * H * 0.04;
+    for (const s of stars) {
+      s.z -= 0.004 * dt;
+      if (s.z < 0.1) { s.z = DEPTH; s.x = (Math.random() - 0.5) * 3; s.y = (Math.random() - 0.5) * 2; }
+    }
+    for (let c = 0; c < STAR_COLORS.length; c++) {
+      ctx.fillStyle = STAR_COLORS[c];
+      for (const s of stars) {
+        if (s.c !== c) continue;
+        const sx = cx + ((s.x - cam.x * 0.35) / s.z) * f;
+        const sy = cy + ((s.y - cam.y * 0.2) / s.z) * f;
+        if (sx < -4 || sx > W + 4 || sy < -4 || sy > H + 4) continue;
+        const near = 1 - s.z / DEPTH;
+        const size = 0.5 + near * 2.2;
+        ctx.globalAlpha = Math.min(1, 0.15 + near * 1.1);
+        ctx.fillRect(sx, sy, size, size);
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function frame(t, dt) {
+    // Camera eases toward the mouse (or sways gently on touch screens)
+    const tx = fine ? mouse.x : Math.sin(t * 0.0002) * 0.35;
+    const ty = fine ? mouse.y : Math.cos(t * 0.00015) * 0.2;
+    cam.x += (tx - cam.x) * Math.min(0.05 * dt, 1);
+    cam.y += (ty - cam.y) * Math.min(0.05 * dt, 1);
+
+    ctx.clearRect(0, 0, W, H);
+    if (document.body.classList.contains('magic-mode')) drawStars(dt);
+    else drawTerrain(t / 1000);
+
+    if (fine) {
+      layers.forEach(([el, dx, dy]) => { el.style.translate = `${(-cam.x * dx).toFixed(2)}px ${(-cam.y * dy).toFixed(2)}px`; });
+      blackhole = blackhole || document.getElementById('heroBlackhole');
+      if (blackhole) blackhole.style.translate = `${(cam.x * 26).toFixed(2)}px ${(cam.y * 14).toFixed(2)}px`;
+    }
+  }
+
+  resize();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resize(); if (reduced) frame(0, 0); }, 150);
+  });
+
+  if (reduced) {
+    frame(0, 0); // a still scene
+    document.addEventListener('themechange', () => frame(0, 0));
+    return;
+  }
+
+  // Only animate while the hero is on screen
+  let visible = true, last = performance.now(), raf = 0;
+  const loop = now => {
+    raf = visible ? requestAnimationFrame(loop) : 0;
+    const elapsed = now - last;
+    if (elapsed < FRAME_MS) return;
+    last = now;
+    frame(now, Math.min(elapsed / 16.67, 3));
+  };
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => {
+      visible = en.isIntersecting;
+      if (visible && !raf) { last = performance.now(); raf = requestAnimationFrame(loop); }
+    }).observe(hero);
+  }
+  raf = requestAnimationFrame(loop);
+}
+
+// === 3D tilt cards ===
+// Each glass card leans toward the cursor. Wide cards tilt less so the edges don't swing too far.
+function mountTilt() {
+  if (!hasFinePointer() || prefersReducedMotion()) return;
+  let target = null, lastE = null, raf = 0;
+  const apply = () => {
+    raf = 0;
+    if (!target || !lastE) return;
+    const r = target.getBoundingClientRect();
+    const nx = (lastE.clientX - r.left) / r.width - 0.5;
+    const ny = (lastE.clientY - r.top) / r.height - 0.5;
+    const max = Math.max(2, Math.min(8, 1600 / r.width)); // degrees
+    target.style.transform =
+      `perspective(1000px) rotateX(${(-ny * max).toFixed(2)}deg) rotateY(${(nx * max).toFixed(2)}deg) translateY(-4px) scale(1.012)`;
+  };
+  trackPointer('.card', {
+    enter: (el, e) => { target = el; lastE = e; el.classList.add('is-tilting'); },
+    move: (el, e) => { lastE = e; if (!raf) raf = requestAnimationFrame(apply); },
+    leave: el => {
+      el.classList.remove('is-tilting');
+      el.style.transform = '';
+      if (target === el) target = null;
+    }
+  });
+}
+
+// === Magnetic buttons ===
+// Key buttons lean toward the cursor and spring back. Uses the `translate` property
+// so it never fights the existing hover `transform: scale(...)` rules.
+function mountMagnetic() {
+  if (!hasFinePointer() || prefersReducedMotion()) return;
+  const SEL = '#cvBtn, #emailBtn, #businessBtn, #connectBtn, #magicBtn, #msgBtn, #aboutMailBtn, #homeBrand, .icon-btn, .footer-link';
+  const STRENGTH = 0.3;
+  const springs = new Map(); // element → { x, y, tx, ty }
+  let raf = 0;
+
+  const tick = () => {
+    raf = 0;
+    let moving = false;
+    springs.forEach((s, el) => {
+      s.x += (s.tx - s.x) * 0.2;
+      s.y += (s.ty - s.y) * 0.2;
+      if (Math.abs(s.tx - s.x) < 0.05 && Math.abs(s.ty - s.y) < 0.05) {
+        s.x = s.tx; s.y = s.ty;
+        if (!s.tx && !s.ty) { el.style.translate = ''; springs.delete(el); return; }
+      } else {
+        moving = true;
+      }
+      el.style.translate = `${s.x.toFixed(2)}px ${s.y.toFixed(2)}px`;
+    });
+    if (moving) raf = requestAnimationFrame(tick);
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+
+  trackPointer(SEL, {
+    move: (el, e) => {
+      const r = el.getBoundingClientRect();
+      const s = springs.get(el) || { x: 0, y: 0, tx: 0, ty: 0 };
+      s.tx = (e.clientX - (r.left + r.width / 2)) * STRENGTH;
+      s.ty = (e.clientY - (r.top + r.height / 2)) * STRENGTH;
+      springs.set(el, s);
+      kick();
+    },
+    leave: el => {
+      const s = springs.get(el);
+      if (s) { s.tx = 0; s.ty = 0; kick(); }
+    }
+  });
+}
+
+// === Reticle cursor ===
+// A crosshair that trails the pointer (inverts over black/white in Geo, glows violet in Space)
+// and opens up over links and buttons. The normal cursor stays visible.
+function mountCursor() {
+  if (!hasFinePointer() || prefersReducedMotion()) return;
+  const el = document.createElement('div');
+  el.className = 'cursor-reticle';
+  el.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(el);
+
+  let x = -100, y = -100, cx = -100, cy = -100, raf = 0;
+  const tick = () => {
+    cx += (x - cx) * 0.22;
+    cy += (y - cy) * 0.22;
+    el.style.transform = `translate3d(${cx.toFixed(1)}px, ${cy.toFixed(1)}px, 0)`;
+    raf = (Math.abs(x - cx) + Math.abs(y - cy) > 0.1) ? requestAnimationFrame(tick) : 0;
+  };
+  window.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    x = e.clientX; y = e.clientY;
+    el.classList.add('is-visible');
+    if (!raf) raf = requestAnimationFrame(tick);
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => el.classList.remove('is-visible'));
+
+  const INTERACTIVE = 'a, button, [role="button"], input, select, textarea, label';
+  document.addEventListener('pointerover', e => {
+    el.classList.toggle('is-hover', !!(e.target instanceof Element && e.target.closest(INTERACTIVE)));
+  });
+  window.addEventListener('pointerdown', () => el.classList.add('is-down'));
+  window.addEventListener('pointerup', () => el.classList.remove('is-down'));
+}
+
+// === Drag-to-scroll carousels (desktop mouse) ===
+// Clicks still work; a drag of more than a few pixels cancels the click that follows it.
+function mountDragScroll() {
+  if (!hasFinePointer()) return;
+  $all('#projectTrackOuter, #blogTrackOuter, #mediaTrackOuter').forEach(track => {
+    let down = false, moved = false, startX = 0, startScroll = 0;
+    track.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false;
+      startX = e.clientX; startScroll = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', e => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) > 6) { moved = true; track.classList.add('is-dragging'); }
+      if (moved) track.scrollLeft = startScroll - dx;
+    }, { passive: true });
+    window.addEventListener('pointerup', () => {
+      if (!down) return;
+      down = false;
+      track.classList.remove('is-dragging'); // scroll-snap settles the cards again
+    });
+    track.addEventListener('click', e => {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+    track.addEventListener('dragstart', e => e.preventDefault());
+  });
+}
+
+// === Scroll choreography (GSAP + ScrollTrigger + SplitText) & smooth scroll (Lenis) ===
+async function mountMotion() {
+  if (prefersReducedMotion()) return;
+
+  await Promise.allSettled([loadScript(MOTION_LIBS.gsap), loadScript(MOTION_LIBS.lenis)]);
+  if (!window.gsap) return; // CDN unavailable: the CSS/IntersectionObserver effects still run
+  await Promise.allSettled([loadScript(MOTION_LIBS.scrollTrigger), loadScript(MOTION_LIBS.splitText)]);
+  if (!window.ScrollTrigger) return;
+  const hasSplit = !!window.SplitText;
+  gsap.registerPlugin(ScrollTrigger, ...(hasSplit ? [SplitText] : []));
+
+  // Smooth, weighted wheel scrolling on desktop (touch keeps native scrolling)
+  if (window.Lenis && hasFinePointer()) {
+    const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    window.__lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // Hero intro: letters of the name flip up in 3D after the loading screen.
+  // Skipped if the libraries arrived late, so a visible hero never blinks out.
+  const heroName = $('#heroName');
+  if (heroName && hasSplit && performance.now() < 3500) {
+    const split = SplitText.create(heroName, { type: 'chars', charsClass: 'char' });
+    // Buttons/cards have CSS transform transitions that would smear GSAP's per-frame updates
+    const pauseCss = targets => targets.forEach(el => { el.style.transition = 'none'; });
+    const resumeCss = targets => targets.forEach(el => { el.style.transition = ''; });
+    const cssSafe = { onStart() { pauseCss(this.targets()); }, onComplete() { resumeCss(this.targets()); } };
+    const tl = gsap.timeline({ delay: Math.max(0, 1.1 - performance.now() / 1000) });
+    tl.from(split.chars, {
+      yPercent: 90, rotateX: -85, opacity: 0, transformPerspective: 600,
+      duration: 1.1, ease: 'expo.out', stagger: 0.028
+    })
+      .from('#heroSubtitle', { y: 18, opacity: 0, duration: 0.9, ease: 'expo.out' }, '-=0.8')
+      .from('#hero .mt-8 > *', { ...cssSafe, y: 16, opacity: 0, scale: 0.9, duration: 0.8, ease: 'back.out(2)', stagger: 0.08, clearProps: 'transform,opacity' }, '-=0.7')
+      .from('#ticker', { opacity: 0, duration: 1 }, '-=0.6')
+      .from('#aboutCounters > *', { ...cssSafe, y: 30, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.08, clearProps: 'transform,opacity' }, '-=0.8');
+  }
+
+  // Hero content drifts up and fades as you scroll into the page
+  const heroContent = $('#hero > .z-10');
+  if (heroContent) {
+    gsap.to(heroContent, {
+      yPercent: -40, opacity: 0.1, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+  }
+
+  // Featured slideshow: images glide inside their frame (depth parallax)
+  const slideImgs = $all('#slides img');
+  if (slideImgs.length) {
+    gsap.fromTo(slideImgs, { yPercent: -6, scale: 1.14 }, {
+      yPercent: 6, scale: 1.14, ease: 'none',
+      scrollTrigger: { trigger: '#slideshow', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+
+  // Section titles: letters rise in 3D, then the contour line draws underneath
+  if (hasSplit) {
+    $all('.section-title').forEach(h => {
+      h.classList.remove('reveal', 'is-visible'); // GSAP takes over from the CSS reveal
+      const split = SplitText.create(h, { type: 'words,chars' });
+      gsap.from(split.chars, {
+        yPercent: 70, rotateX: -80, opacity: 0, transformPerspective: 500,
+        duration: 0.9, ease: 'expo.out', stagger: 0.016,
+        scrollTrigger: { trigger: h, start: 'top 88%', once: true, onEnter: () => h.classList.add('is-in') }
+      });
+    });
+  }
+
+  // Positions shift once images and fonts finish loading
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+}
+
+// === Scroll Reveal: headings & cards rise in as they enter the viewport ===
+function mountReveal() {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('is-visible');
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+
+  // Every page/section heading gets the same editorial title style and entrance
+  // (+ contour line, see styles.css §12). Headings inside cards move with their card.
+  const isOwnHeading = h => !h.closest('#hero, .card, nav, footer, #navbar');
+  $all('main h1, section h2, section h3').filter(isOwnHeading)
+    .forEach(h => h.classList.add('section-title'));
+
+  $all('.section-title, .card, #faceRaster').forEach(el => {
+    if (el.closest('#hero')) return; // the hero is already on screen behind the loader
+    // Small stagger between siblings (e.g. cards in a grid)
+    const idx = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0;
+    el.style.setProperty('--rv-delay', `${Math.min(idx, 5) * 60}ms`);
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  mountAllEmails(); 
+  mountAllEmails();
   mountNavigation();
   applyNav();
   initDefaultParticles();
@@ -1208,7 +1995,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#blogTrack')) mountBlogCarousel();
   if ($('#mediaTrack')) mountMediaCarousel(); 
   if ($('#blogList')) mountBlogsPage();
-  if ($('#magicBtn')) mountMagicMode(); 
+  if ($('#magicBtn')) mountMagicMode();
+  if ($('#faceRaster')) mountFaceRaster();
+  mountLiquidGlass();
+  mountHeroScene();
+  mountTilt();
+  mountMagnetic();
+  mountCursor();
+  mountDragScroll();
 
   if (window.lucide) lucide.createIcons();
+
+  // After every page's own content has rendered (subpages render in their own DOMContentLoaded handlers)
+  setTimeout(() => {
+    mountReveal();
+    mountMotion();
+  }, 0);
 });

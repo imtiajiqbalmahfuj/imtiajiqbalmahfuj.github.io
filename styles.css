@@ -1,7 +1,15 @@
 /* =========================================
    1. BASE STYLES & TAILWIND POLISH
    ========================================= */
-:root{ --ease-smart: cubic-bezier(0.22,1,0.36,1) }
+:root{
+  --ease-smart: cubic-bezier(0.22,1,0.36,1);
+  --ease-liquid: cubic-bezier(0.34,1.56,0.64,1); /* slight overshoot, used for "wobbly" glass */
+
+  /* Liquid-glass tokens (Geo / light theme). Space overrides live in section 8. */
+  --glass-spec: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(0,0,0,.04);
+  --liquid-fill: #0b0b0b;               /* hover flood colour for glass buttons */
+  --sheen: rgba(255,255,255,.75);       /* cursor-following highlight on glass */
+}
 
 .hover-smart{ transition: all 180ms var(--ease-smart) }
 .hover-underline{ position:relative }
@@ -29,8 +37,11 @@
 }
 
 /* Card hover physics */
-.card{ transition: transform .18s var(--ease-smart), box-shadow .18s var(--ease-smart) }
-.card:hover{ transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.07) }
+.card{
+  transition: transform .35s var(--ease-smart), box-shadow .35s var(--ease-smart),
+              background-color .35s var(--ease-smart), border-color .35s var(--ease-smart);
+}
+.card:hover{ transform: translateY(-4px); box-shadow: 0 10px 18px rgba(0,0,0,.07) }
 
 /* Mobile menu overlay */
 #mobileMenu{ box-shadow: 0 10px 24px rgba(0,0,0,.06) }
@@ -74,6 +85,8 @@
 }
 
 html, body { max-width: 100%; overflow-x: hidden; }
+/* `clip` stops sideways scroll without turning body into a scroll container, which would break position: sticky */
+@supports (overflow-x: clip) { body { overflow-x: clip; } }
 
 /* Statistic Counters Layout */
 #aboutCounters .card {
@@ -104,23 +117,23 @@ body { padding-top: 0 !important; background-color: #fafafa; }
 section.bg-slate-50, section.bg-white { background-color: transparent !important; }
 
 .glass-dropdown {
-  background-color: rgba(255, 255, 255, 0.85) !important; 
-  backdrop-filter: blur(24px) !important; 
-  -webkit-backdrop-filter: blur(24px) !important;
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
   border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: var(--glass-spec), 0 12px 40px rgba(0, 0, 0, 0.12) !important;
 }
 
 .card {
   background-color: rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
   border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03) !important;
+  box-shadow: var(--glass-spec), 0 8px 32px rgba(0, 0, 0, 0.03) !important;
 }
 .card:hover {
   background-color: rgba(255, 255, 255, 0.65) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06) !important;
+  box-shadow: var(--glass-spec), 0 16px 44px rgba(0, 0, 0, 0.08) !important;
   border-color: rgba(255, 255, 255, 1) !important;
 }
 .card .bg-white {
@@ -135,8 +148,9 @@ a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
   transition: all 0.25s ease !important; color: #000 !important;
 }
+/* Hover fill is painted by the liquid ::before flood (section 8), so the glass background stays put */
 a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover {
-  background-color: #0b0b0b !important; color: #ffffff !important;
+  color: #ffffff !important;
   border-color: #0b0b0b !important; transform: scale(1.05) !important;
 }
 .icon-btn.absolute:hover { transform: translateY(-50%) scale(1.1) !important; }
@@ -424,7 +438,6 @@ body.magic-mode .filter-btn.bg-white, body.magic-mode .icon-btn {
 }
 body.magic-mode a.bg-white:hover, body.magic-mode button.bg-white:hover, 
 body.magic-mode .filter-btn.bg-white:hover, body.magic-mode .icon-btn:hover {
-  background-color: rgba(147, 51, 234, 0.3) !important;
   border-color: rgba(168, 85, 247, 0.8) !important;
   color: #ffffff !important;
   box-shadow: 0 0 20px rgba(147, 51, 234, 0.3) !important;
@@ -477,3 +490,313 @@ footer#links > * {
   position: relative;
   z-index: 1; 
 }
+
+
+/* =========================================
+   8. LIQUID GLASS SURFACES & MICRO-INTERACTIONS
+   ========================================= */
+/* Space theme swaps the liquid tokens to violet glass */
+body.magic-mode {
+  --glass-spec: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(0,0,0,.4);
+  --liquid-fill: rgba(147, 51, 234, 0.55);
+  --sheen: rgba(192, 132, 252, 0.22);
+}
+
+/* --- Navbar pill: frosted, saturated glass with a specular rim --- */
+#navbar > div:first-child {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.42) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: var(--glass-spec), 0 8px 32px rgba(0, 0, 0, 0.07) !important;
+  transition: background-color .35s var(--ease-smart), box-shadow .35s var(--ease-smart);
+}
+#navbar.is-scrolled > div:first-child {
+  background-color: rgba(255, 255, 255, 0.62) !important;
+  box-shadow: var(--glass-spec), 0 10px 36px rgba(0, 0, 0, 0.10) !important;
+}
+body.magic-mode #navbar.is-scrolled > div:first-child {
+  background-color: rgba(15, 10, 25, 0.78) !important;
+}
+/* Cursor light that glides across the pill (z-index -1 keeps it under the links) */
+#navbar > div:first-child::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit; pointer-events: none;
+  background: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), var(--sheen), transparent 70%);
+  opacity: 0; transition: opacity .35s var(--ease-smart);
+}
+#navbar > div:first-child:hover::before { opacity: 1; }
+
+/* --- Sliding nav bracket gets a soft glass capsule that stretches between items --- */
+.nav-bracket-slider::before {
+  content: ""; position: absolute; inset: 0; border-radius: 12px;
+  background: rgba(0, 0, 0, 0.045);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+body.magic-mode .nav-bracket-slider::before {
+  background: rgba(216, 180, 254, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* --- Dropdowns & mobile menu "pour" open like a liquid drop --- */
+.group:hover > .glass-dropdown,
+#mobileMenu:not(.hidden) > div {
+  animation: liquidIn .42s var(--ease-smart) both;
+  transform-origin: top center;
+}
+@keyframes liquidIn {
+  0%   { opacity: 0; transform: translateY(-8px) scale(.94, .86); }
+  55%  { opacity: 1; transform: translateY(0) scale(1.012, 1.02); }
+  100% { opacity: 1; transform: none; }
+}
+/* `translate` (not transform) so it composes with the existing fadeUp animation */
+.dropdown-item { transition: translate .25s var(--ease-smart), color .2s ease; }
+.dropdown-item:hover { translate: 4px 0; }
+
+/* --- Liquid flood buttons (glass chips, icon buttons, filters) ---
+   A circle of ink grows from the exact point the cursor entered (--mx/--my set in script.js). */
+a.bg-white, button.bg-white, .icon-btn { isolation: isolate; overflow: hidden; }
+a.bg-white:not(.absolute), button.bg-white:not(.absolute), .icon-btn:not(.absolute) { position: relative; }
+a.bg-white::before, button.bg-white::before, .icon-btn::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: var(--mx, 50%); top: var(--my, 50%);
+  width: 300%; aspect-ratio: 1; border-radius: 50%;
+  background: var(--liquid-fill);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .55s var(--ease-smart);
+}
+a.bg-white:hover::before, button.bg-white:hover::before, .icon-btn:hover::before,
+a.bg-white:focus-visible::before, button.bg-white:focus-visible::before, .icon-btn:focus-visible::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+a.bg-white:focus-visible, button.bg-white:focus-visible, .icon-btn:focus-visible { color: #fff !important; }
+
+/* --- Primary black buttons: specular rim, cursor glow and a glare sweep --- */
+a.bg-black, button.bg-black { isolation: isolate; overflow: hidden; box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }
+a.bg-black:not(.absolute), button.bg-black:not(.absolute) { position: relative; }
+a.bg-black::before, button.bg-black::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; border-radius: inherit;
+  background: radial-gradient(110px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.22), transparent 65%);
+  opacity: 0; transition: opacity .3s var(--ease-smart);
+}
+a.bg-black::after, button.bg-black::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+a.bg-black:hover::before, button.bg-black:hover::before { opacity: 1; }
+a.bg-black:hover::after, button.bg-black:hover::after { transform: translateX(120%); transition: transform .8s var(--ease-smart); }
+
+/* Tactile press: `scale` composes with Tailwind / absolute translate transforms */
+a.bg-white:active, button.bg-white:active, .icon-btn:active,
+a.bg-black:active, button.bg-black:active, #magicBtn:active, .footer-link:active {
+  scale: .95; transition: scale .12s ease;
+}
+#magicBtn i, #magicBtn svg { transition: transform .4s var(--ease-liquid); }
+#magicBtn:hover i, #magicBtn:hover svg { transform: rotate(-14deg) scale(1.08); }
+
+/* --- Glass cards: cursor-tracked specular sheen (painted under the content) --- */
+.card { position: relative; isolation: isolate; }
+.card::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--sheen), transparent 45%);
+  opacity: 0; transition: opacity .4s var(--ease-smart);
+}
+.card:hover::after { opacity: 1; }
+.card.overflow-hidden img { transition: transform .7s var(--ease-smart); }
+.card.overflow-hidden:hover img { transform: scale(1.04); }
+
+/* Small tags inside cards nudge on hover */
+.card .rounded-full { transition: transform .25s var(--ease-liquid), background-color .2s ease; }
+.card:hover .rounded-full { transform: translateY(-1px); }
+
+/* Footer pills & links */
+.footer-link { transition: transform .3s var(--ease-liquid), box-shadow .3s var(--ease-smart), background-color .25s ease, color .25s ease; }
+.footer-nav a { display: inline-block; width: fit-content; transition: color .2s ease, translate .25s var(--ease-smart); }
+.footer-nav a:hover { translate: 4px 0; }
+
+/* Ticker items light up on hover */
+.ticker-inner > span { transition: color .2s ease, transform .3s var(--ease-liquid); }
+.ticker-inner > span:hover { color: #000; transform: translateY(-2px); }
+body.magic-mode .ticker-inner > span:hover { color: #e9d5ff; }
+
+/* Touch screens have no real hover, so skip the cursor-only effects */
+@media (hover: none) {
+  .card::after, #navbar > div:first-child::before,
+  a.bg-black::before, button.bg-black::before { display: none; }
+}
+
+
+/* =========================================
+   9. SCROLL PROGRESS & SCROLL REVEAL
+   ========================================= */
+#scrollProgress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 1001;
+  pointer-events: none; transform-origin: 0 50%; transform: scaleX(0);
+  background: #0b0b0b; will-change: transform;
+}
+body.magic-mode #scrollProgress {
+  background: linear-gradient(90deg, #9333ea, #c084fc);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+}
+
+/* Added by script.js only to elements it observes, so content never stays hidden without JS */
+.reveal {
+  opacity: 0; translate: 0 18px;
+  transition: opacity .7s var(--ease-smart) var(--rv-delay, 0s),
+              translate .7s var(--ease-smart) var(--rv-delay, 0s);
+}
+.card.reveal {
+  transition: opacity .7s var(--ease-smart) var(--rv-delay, 0s),
+              translate .7s var(--ease-smart) var(--rv-delay, 0s),
+              transform .35s var(--ease-smart), box-shadow .35s var(--ease-smart),
+              background-color .35s var(--ease-smart), border-color .35s var(--ease-smart);
+}
+.reveal.is-visible { opacity: 1; translate: 0 0; }
+
+
+/* =========================================
+   10. SCROLL-DRIVEN FACE RASTER (About photo)
+   The portrait starts as a coarse, colour-classified raster
+   (viridis in Geo, nebula ramp in Space), sharpens cell by
+   cell as you scroll, then a scan line sweeps the real photo in.
+   ========================================= */
+.face-raster { position: relative; isolation: isolate; }
+.face-raster img { transition: transform .9s var(--ease-smart); }
+.face-raster:hover img { transform: scale(1.03); }
+.face-raster-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;
+  pointer-events: none; image-rendering: pixelated;
+}
+.face-raster-scan {
+  position: absolute; left: 0; right: 0; top: 0; height: 2px; z-index: 2;
+  pointer-events: none; opacity: 0; will-change: transform;
+  background: #fff; box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.85);
+  transition: opacity .2s ease;
+}
+body.magic-mode .face-raster-scan { background: #e9d5ff; box-shadow: 0 0 14px 3px rgba(192, 132, 252, 0.85); }
+.face-raster-hud {
+  position: absolute; left: 12px; bottom: 12px; z-index: 3; pointer-events: none;
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px;
+  font: 500 11px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .02em;
+  color: #0b0b0b; background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px) saturate(160%); -webkit-backdrop-filter: blur(10px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: var(--glass-spec);
+  transition: opacity .3s ease;
+}
+body.magic-mode .face-raster-hud { color: #e2e8f0; background: rgba(15, 10, 25, 0.55); border-color: rgba(255, 255, 255, 0.1); }
+.face-raster-ramp { width: 56px; height: 6px; border-radius: 3px; background: var(--ramp, #888); }
+
+
+/* =========================================
+   11. ACCESSIBILITY: REDUCED MOTION
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+}
+
+
+/* =========================================
+   12. MOTION SYSTEM: 3D, PARALLAX, SMOOTH SCROLL & POLISH
+   Driven by script.js (mountHeroScene, mountTilt, mountMagnetic,
+   mountCursor, mountDragScroll, mountMotion). Everything degrades
+   to the static site if JS or a CDN is unavailable.
+   ========================================= */
+
+/* --- Lenis smooth scroll (from lenis@1.1.13/dist/lenis.css) --- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* --- Hero 3D scene canvas (DEM wireframe in Geo, starfield in Space) --- */
+.hero-scene {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+}
+#hero > .z-10, .hero-bottom { will-change: translate; }
+
+/* Hero name: per-letter 3D intro needs perspective */
+#heroName { perspective: 700px; }
+#heroName .char { display: inline-block; transform-origin: 50% 100%; }
+
+/* --- Section titles: bigger editorial type + a contour line that draws in --- */
+.section-title {
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.6rem) !important;
+  letter-spacing: -0.025em; line-height: 1.1;
+  position: relative;
+}
+.section-title::after {
+  content: ""; display: block; height: 2px; width: 56px; margin: 14px auto 0;
+  background: currentColor; opacity: .85;
+  transform: scaleX(0); transform-origin: 50% 50%;
+  transition: transform 1s var(--ease-smart) .25s;
+}
+.section-title:not(.text-center)::after { margin-left: 0; transform-origin: 0 50%; }
+.section-title.is-in::after, .section-title.is-visible::after { transform: scaleX(1); }
+body.magic-mode .section-title::after {
+  background: linear-gradient(90deg, #9333ea, #c084fc);
+  box-shadow: 0 0 12px rgba(168, 85, 247, .6);
+}
+
+/* --- 3D tilt cards: quick follow while tilting, eased return on leave --- */
+.card.is-tilting, .card.reveal.is-tilting {
+  transition: transform .14s ease-out, box-shadow .35s var(--ease-smart),
+              background-color .35s var(--ease-smart), border-color .35s var(--ease-smart),
+              opacity .7s var(--ease-smart), translate .7s var(--ease-smart);
+}
+.card.is-tilting { z-index: 5; }
+
+/* --- Sticky About photo on desktop, so the raster plays while you read --- */
+@media (min-width: 768px) {
+  #faceRaster { position: sticky; top: 6rem; }
+}
+
+/* --- Featured slideshow: room for the scroll parallax --- */
+#slides img { will-change: transform; }
+
+/* --- Drag-to-scroll carousels (desktop) --- */
+@media (hover: hover) and (pointer: fine) {
+  #projectTrackOuter, #blogTrackOuter, #mediaTrackOuter { cursor: grab; }
+}
+.is-dragging {
+  cursor: grabbing !important; user-select: none;
+  scroll-snap-type: none !important; scroll-behavior: auto !important;
+}
+.is-dragging a, .is-dragging img { pointer-events: none; }
+
+/* --- Reticle cursor: a GIS crosshair in Geo, a glowing orbit in Space --- */
+.cursor-reticle {
+  position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none;
+  width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;
+  border: 1px solid #fff; mix-blend-mode: difference;
+  opacity: 0; will-change: transform;
+  transition: width .3s var(--ease-smart), height .3s var(--ease-smart), margin .3s var(--ease-smart),
+              opacity .25s ease, background-color .3s ease, border-color .3s ease;
+}
+/* crosshair ticks */
+.cursor-reticle::before, .cursor-reticle::after {
+  content: ""; position: absolute; left: 50%; top: 50%; background: #fff;
+  transition: opacity .25s ease;
+}
+.cursor-reticle::before { width: 1px; height: 8px; margin: -4px 0 0 -.5px; }
+.cursor-reticle::after  { width: 8px; height: 1px; margin: -.5px 0 0 -4px; }
+.cursor-reticle.is-visible { opacity: 1; }
+.cursor-reticle.is-hover {
+  width: 58px; height: 58px; margin: -29px 0 0 -29px;
+  background-color: rgba(255, 255, 255, .12);
+}
+.cursor-reticle.is-hover::before, .cursor-reticle.is-hover::after { opacity: 0; }
+.cursor-reticle.is-down { width: 24px; height: 24px; margin: -12px 0 0 -12px; }
+body.magic-mode .cursor-reticle {
+  mix-blend-mode: normal; border-color: rgba(216, 180, 254, .9);
+  box-shadow: 0 0 14px rgba(168, 85, 247, .55), inset 0 0 8px rgba(168, 85, 247, .35);
+}
+body.magic-mode .cursor-reticle::before, body.magic-mode .cursor-reticle::after { background: #e9d5ff; }
+body.magic-mode .cursor-reticle.is-hover { background-color: rgba(147, 51, 234, .14); }
+@media (hover: none), (pointer: coarse) { .cursor-reticle { display: none; } }
