@@ -1963,11 +1963,13 @@ function mountReveal() {
 
   // Every page/section heading gets the same editorial title style and entrance
   // (+ contour line, see styles.css §12). Headings inside cards move with their card.
-  const isOwnHeading = h => !h.closest('#hero, .card, nav, footer, #navbar');
+  // Small sub-headings (e.g. skill categories) keep their size and rise in with their group.
+  const isOwnHeading = h => !h.closest('#hero, .card, nav, footer, #navbar')
+    && !h.matches('.text-lg, .text-base, .text-sm');
   $all('main h1, section h2, section h3').filter(isOwnHeading)
     .forEach(h => h.classList.add('section-title'));
 
-  $all('.section-title, .card, #faceRaster').forEach(el => {
+  $all('.section-title, .card, #faceRaster, #skills > div').forEach(el => {
     if (el.closest('#hero')) return; // the hero is already on screen behind the loader
     // Small stagger between siblings (e.g. cards in a grid)
     const idx = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0;
