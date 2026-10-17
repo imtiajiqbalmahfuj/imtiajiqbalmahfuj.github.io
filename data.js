@@ -1230,27 +1230,28 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
   // To add a review copy one { ... } block (including the comma between blocks); to remove one, delete its block.
   reviews: [
     {
-      name: "Reviewer Name",
-      role: "Role, Organization",
+      name: "Mashford Mahute",
+      role: "Geospatial Consultant & Spatial Tech Innovator",
       rating: 5,
-      date: "2025",
-      text: "Placeholder review. Paste the reviewer's own words here, for example what you worked on together and what stood out to them."
+      date: "2026",
+      text: "I curated a list of the 40 GIS experts you need to follow on LinkedIn, and Imtiaj Iqbal Mahfuj is right up there among the key voices driving geospatial innovation forward."
     },
     {
-      name: "Second Reviewer",
-      role: "Supervisor, University",
-      rating: 5,
-      date: "2025",
-      text: "Placeholder review. A short paragraph of two or three sentences fits the back of the card best."
-    },
-    {
-      name: "Third Reviewer",
-      role: "Client, Company",
+      name: "Akira Kawai",
+      role: "Managing Director, Nippon Koei Bangladesh Ltd.",
       rating: 4.5,
-      date: "2024",
-      // photo: "Assets/reviewer.jpg",
-      text: "Placeholder review. Half stars work too: this card is set to 4.5."
-    }
+      date: "2026",
+      photo: "https://nkbangladesh.co.bd/uploads/Kawai_Akira_ad28834562.png",
+      text: "During his internship with Nippon Koei Bangladesh Ltd. in the Urban Development & Regional Planning Unit, Imtiaj demonstrated strong comprehension skills and managed his assignments with dedication and efficiency. He contributed to the 'Project for Development of Policy and Guidelines for Transit Oriented Development Along the Mass Transit Corridors' by working on detailed guiding tools, visual representations, and site data analysis. He maintained a highly professional attitude and commendable character throughout his time with us."
+    },
+    {
+      name: "Muhaiminul Islam",
+      role: "Assistant Professor & Project Supervisor, DURP, RUET",
+      rating: 5,
+      date: "2026",
+      photo: "https://www.ruet.ac.bd/public/storage/profile/photo27.jpg",
+      text: "During his tenure, Mr. Mahfuj demonstrated strong technical competence in GIS, Remote Sensing, Spatial Analysis, Urban Hazard Assessment, Cartography, and Research Documentation. He played a key role in developing research frameworks, managing spatial datasets, and constructing fire hazard vulnerability indices using Fuzzy AHP and multi-criteria analysis. Furthermore, his contributions were instrumental in producing thematic risk maps and preparing findings presented at the EFAST 2026 conference."
+    }    
   ],
 
 
