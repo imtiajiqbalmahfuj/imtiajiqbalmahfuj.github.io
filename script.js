@@ -18,6 +18,14 @@ function smoothScrollTo(y) {
 }
 
 // === Handle Button Emails (Hero & About) ===
+// Gmail compose on desktop, the phone's mail app on mobile; optional subject line
+function mailHref(subject) {
+  const email = window.SITE.brand.email;
+  const su = subject ? encodeURIComponent(subject) : '';
+  if (/Mobi|Android/i.test(navigator.userAgent)) return `mailto:${email}${su ? `?subject=${su}` : ''}`;
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}${su ? `&su=${su}` : ''}`;
+}
+
 function mountAllEmails() {
   if (!window.SITE || !window.SITE.brand) return;
   const email = window.SITE.brand.email;
@@ -424,30 +432,100 @@ function mountHero(){
   }
 }
 
-function mountSlideshow(){
-  const slidesWrap = $('#slides');
-  if(!slidesWrap) return;
-  const slides = (window.SITE.projects || []).filter(p => p.image).slice();
-  const slideCount = slides.length;
-  slidesWrap.style.display = 'flex';
-  slidesWrap.style.transition = 'transform 0.5s ease';
-  slidesWrap.innerHTML = slides.map(s => `
-    <div class="relative flex-shrink-0 w-full">
-      <a href="projects.html#${s.id}" class="block">
-        <img src="${getThumb(s.image, 1000)}" alt="${s.title}" class="w-full h-80 md:h-[28rem] object-cover object-center">
-      </a>
-    </div>
-  `).join('');
-  let idx = 0;
-  function go(i){
-    idx = (i + slideCount) % slideCount;
-    slidesWrap.style.transform = `translateX(-${idx * 100}%)`;
+// === Featured projects: 3D ring ===
+// Cards sit on a cylinder once; each frame only the ring itself turns (one transform) and a
+// shade layer dims the cards turning away. Drag, arrows, arrow keys or scrolling turn it.
+// It drifts on its own while visible, rests under the cursor, and sleeps when off screen.
+function mountFeaturedRing() {
+  const stage = $('#ringStage'), ring = $('#ring');
+  if (!stage || !ring) return;
+  const items = (window.SITE.projects || []).filter(p => p.image).slice(0, 10);
+  if (!items.length) return;
+  ring.innerHTML = items.map(p => `
+    <a class="ring-card" href="projects.html#${p.id}" draggable="false">
+      <img src="${getThumb(p.image, 480)}" alt="" loading="lazy" decoding="async" draggable="false">
+      <div class="ring-body">
+        <div class="ring-title">${p.title}</div>
+        <div class="ring-tags">${(p.tags || []).slice(0, 2).map(t => `<span>${t}</span>`).join('')}</div>
+      </div>
+      <span class="ring-shade"></span>
+    </a>`).join('');
+
+  const cards = $all('.ring-card', ring);
+  const shades = cards.map(c => c.querySelector('.ring-shade'));
+  const n = cards.length, step = 360 / n;
+  const drift = prefersReducedMotion() ? 0 : -0.05; // degrees per frame
+  let radius = 0, rot = 0, vel = drift, target = null;
+  let dragging = false, moved = 0, lastX = 0, hover = false, visible = false, raf = 0;
+
+  function render() {
+    ring.style.transform = `translateZ(${-radius}px) rotateY(${rot.toFixed(2)}deg)`;
+    cards.forEach((c, i) => {
+      const facing = Math.cos((i * step + rot) * Math.PI / 180); // 1 = facing you
+      shades[i].style.opacity = ((1 - Math.max(0, facing)) * 0.75).toFixed(2);
+      const ti = facing > 0.9 ? 0 : -1;
+      if (c.tabIndex !== ti) c.tabIndex = ti;
+    });
   }
-  const prev = $('#prevSlide');
-  const next = $('#nextSlide');
-  if(prev) prev.addEventListener('click', ()=> go(idx-1));
-  if(next) next.addEventListener('click', ()=> go(idx+1));
-  setInterval(()=> go(idx+1), 4500);
+  function size() {
+    const w = Math.min(300, window.innerWidth * 0.6);
+    stage.style.setProperty('--cw', `${w}px`);
+    stage.style.setProperty('--ch', `${w * 1.2}px`);
+    radius = Math.round((w / 2) / Math.tan(Math.PI / n) * 1.1);
+    cards.forEach((c, i) => { c.style.transform = `rotateY(${i * step}deg) translateZ(${radius}px)`; });
+    render();
+  }
+  function tick() {
+    raf = 0;
+    if (target !== null) {
+      rot += (target - rot) * 0.12;
+      if (Math.abs(target - rot) < 0.05) { rot = target; target = null; }
+    } else if (!dragging) {
+      vel += ((hover ? 0 : drift) - vel) * 0.05;
+      rot += vel;
+    }
+    render();
+    const settled = target === null && !dragging && Math.abs(vel) < 0.001;
+    if (visible && !document.hidden && !settled) raf = requestAnimationFrame(tick);
+  }
+  const wake = () => { if (!raf && visible) raf = requestAnimationFrame(tick); };
+
+  size();
+  let resizeTimer;
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(size, 150); });
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) { vel = hover ? 0 : drift; wake(); } }).observe(stage);
+  document.addEventListener('visibilitychange', wake);
+
+  const snap = dir => { target = (Math.round(rot / step) + dir) * step; vel = 0; wake(); };
+  $('#ringPrev') && $('#ringPrev').addEventListener('click', () => snap(1));
+  $('#ringNext') && $('#ringNext').addEventListener('click', () => snap(-1));
+  stage.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); snap(1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); snap(-1); }
+  });
+
+  // Drag with mouse or touch; vertical swipes still scroll the page (touch-action in styles.css §15)
+  stage.addEventListener('pointerdown', e => { dragging = true; moved = 0; lastX = e.clientX; target = null; wake(); });
+  window.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - lastX; lastX = e.clientX; moved += Math.abs(dx);
+    vel = dx * 0.2; rot += vel;
+  }, { passive: true });
+  const end = () => { if (dragging) { dragging = false; wake(); } };
+  window.addEventListener('pointerup', end);
+  window.addEventListener('pointercancel', end);
+  stage.addEventListener('click', e => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } }, true);
+  stage.addEventListener('dragstart', e => e.preventDefault());
+  stage.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
+  stage.addEventListener('pointerleave', () => { hover = false; wake(); });
+
+  // Scrolling past turns it a little
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (visible) { rot -= (y - lastY) * 0.04; wake(); }
+    lastY = y;
+  }, { passive: true });
 }
 
 function mountAbout(){
@@ -813,11 +891,23 @@ function mountAchvPreview(){
 function mountServices() {
   const wrap = document.querySelector("#servicesList");
   if (!wrap) return;
+  const hint = hasFinePointer() ? 'Hover to see more' : 'Tap to see more';
   wrap.innerHTML = window.SITE.services.map(s => `
-    <div class="card p-6 bg-white border border-slate-200 rounded-xl text-center hover:[transform:scale(1.03)] transition-transform duration-200 hover:shadow-lg hover-smart">
-      <i data-lucide="${s.icon}" class="mx-auto mb-3"></i>
-      <h4 class="font-semibold text-lg">${s.title}</h4>
-      <p class="text-sm text-gray-600 mt-2">${s.description}</p>
+    <div class="flip3d">
+      <div class="flip3d-inner" tabindex="0" aria-label="${s.title}. Press Enter to turn the card.">
+        <div class="flip3d-face">
+          <span class="service-icon"><i data-lucide="${s.icon}"></i></span>
+          <h4 class="font-semibold text-lg">${s.title}</h4>
+          <span class="flip3d-hint">${hint}</span>
+        </div>
+        <div class="flip3d-face flip3d-back">
+          <h4 class="font-semibold text-lg">${s.title}</h4>
+          <p class="service-desc">${s.description}</p>
+          <a class="px-4 py-2 bg-black text-white rounded-2xl inline-flex items-center gap-2 hover-smart" href="${mailHref(s.title)}" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="mail"></i><span>Ask about this</span>
+          </a>
+        </div>
+      </div>
     </div>
   `).join("");
   if(window.lucide) lucide.createIcons();
@@ -856,41 +946,124 @@ function mountReviews() {
     : initials(r.name);
   const hint = hasFinePointer() ? 'Hover to read' : 'Tap to read';
   wrap.innerHTML = reviews.map(r => `
-    <div class="review-3d">
-      <article class="review-flip" tabindex="0" aria-label="Review by ${r.name}. Press Enter to turn the card.">
-        <div class="review-face review-front">
+    <div class="flip3d">
+      <div class="flip3d-inner" tabindex="0" aria-label="Review by ${r.name}. Press Enter to turn the card.">
+        <div class="flip3d-face">
           <div class="review-avatar">${avatar(r)}</div>
           <h4 class="text-base font-semibold">${r.name}</h4>
           <p class="review-role">${r.role}</p>
           ${starRow(r.rating)}
-          <span class="review-hint">${hint}</span>
+          <span class="flip3d-hint">${hint}</span>
         </div>
-        <div class="review-face review-back">
+        <div class="flip3d-face flip3d-back">
           <blockquote class="review-text">“${r.text}”</blockquote>
           <p class="review-by">— ${r.name}${r.date ? `, ${r.date}` : ''}</p>
         </div>
-      </article>
+      </div>
     </div>
   `).join('');
+}
 
-  // Touch and keyboard turn the card on tap / Enter (mice flip on hover, see styles.css §13)
-  wrap.addEventListener('click', e => {
-    const card = e.target.closest('.review-flip');
-    if (card && !hasFinePointer()) card.classList.toggle('is-flipped');
+// === Skills: a 3D sphere of every skill word ===
+// Words are spread evenly on a sphere (Fibonacci lattice) and only moved with transform + opacity.
+// Runs only while on screen (30 fps on phones); the pointer steers it on desktop.
+function mountSkillSphere() {
+  const sp = $('#skillSphere');
+  if (!sp) return;
+  const groups = window.SITE.skills || [];
+  const cfg = window.SITE.skillSphere || {};
+  const clean = w => w.replace(/\s*\(.*\)/, '').trim();
+  const highlight = new Set((cfg.highlight || groups.slice(0, 2).flatMap(g => g.items)).map(clean));
+  const muted = new Set((cfg.muted || []).map(clean));
+  // Shuffle evenly (golden-ratio order) so each kind of skill is spread around the sphere, not bunched
+  const words = [...new Set([...(cfg.extra || []), ...groups.flatMap(g => g.items)].map(clean))]
+    .map((w, i) => [w, (i * 0.618034) % 1]).sort((a, b) => a[1] - b[1]).map(([w]) => w);
+  const tier = w => highlight.has(w) ? 'hot' : muted.has(w) ? 'muted' : '';
+  sp.innerHTML = words.map(w => `<span${tier(w) ? ` class="${tier(w)}"` : ''}>${w}</span>`).join('');
+  const els = $all('span', sp), n = els.length;
+  const fade = els.map(el => el.classList.contains('muted') ? 0.5 : 1); // muted words stay faint
+  const pts = els.map((_, i) => {
+    const y = 1 - (i / Math.max(1, n - 1)) * 2, r = Math.sqrt(1 - y * y), th = Math.PI * (3 - Math.sqrt(5)) * i;
+    return [Math.cos(th) * r, y, Math.sin(th) * r];
   });
-  wrap.addEventListener('keydown', e => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.review-flip')) {
+
+  const lowPower = window.innerWidth <= 768 || (navigator.hardwareConcurrency || 8) <= 4;
+  const FRAME_MS = lowPower ? 1000 / 30 : 0;
+  const BASE = [0.002, 0.003]; // resting spin, radians per frame
+  let ax = 0.5, ay = 0.5, tx = BASE[0], ty = BASE[1], visible = false, raf = 0, last = 0, R = 0;
+
+  function place() {
+    const cx = Math.cos(ax), sx = Math.sin(ax), cy = Math.cos(ay), sy = Math.sin(ay);
+    pts.forEach((p, i) => {
+      const [x, y, z] = p;
+      const y1 = y * cx - z * sx, z1 = y * sx + z * cx;
+      const x2 = x * cy + z1 * sy, z2 = -x * sy + z1 * cy;
+      p[0] = x2; p[1] = y1; p[2] = z2;
+      // Real depth: the sphere's perspective sizes and orders the words (styles.css §15)
+      els[i].style.transform = `translate(-50%, -50%) translate3d(${(x2 * R).toFixed(1)}px, ${(y1 * R).toFixed(1)}px, ${(z2 * R).toFixed(1)}px)`;
+      els[i].style.opacity = ((0.2 + (z2 + 1) * 0.4) * fade[i]).toFixed(2);
+    });
+  }
+  const measure = () => { R = sp.clientWidth * (window.innerWidth < 640 ? 0.36 : 0.4); };
+  function loop(now) {
+    raf = visible && !document.hidden ? requestAnimationFrame(loop) : 0;
+    if (now - last < FRAME_MS) return;
+    last = now;
+    ax += (tx - ax) * 0.05; ay += (ty - ay) * 0.05;
+    place();
+  }
+
+  measure();
+  place(); // first turn spreads the words evenly
+  ax = BASE[0]; ay = BASE[1];
+  if (prefersReducedMotion()) return;
+  window.addEventListener('resize', measure);
+  new IntersectionObserver(([en]) => {
+    visible = en.isIntersecting;
+    if (visible && !raf) raf = requestAnimationFrame(loop);
+  }).observe(sp);
+  document.addEventListener('visibilitychange', () => { if (visible && !raf && !document.hidden) raf = requestAnimationFrame(loop); });
+  if (hasFinePointer()) {
+    sp.addEventListener('pointermove', e => {
+      const b = sp.getBoundingClientRect();
+      ty = ((e.clientX - b.left) / b.width - 0.5) * 0.03;
+      tx = -((e.clientY - b.top) / b.height - 0.5) * 0.03;
+    });
+    sp.addEventListener('pointerleave', () => { tx = BASE[0]; ty = BASE[1]; });
+  }
+}
+
+// === Flip cards (Services & Reviews) ===
+// Mice flip on hover (CSS); touch and keyboard turn a card with tap / Enter.
+// Links and buttons on the back still work normally.
+function mountFlipCards() {
+  document.addEventListener('click', e => {
+    if (hasFinePointer() || !(e.target instanceof Element)) return;
+    const card = e.target.closest('.flip3d-inner');
+    if (card && !e.target.closest('a, button')) card.classList.toggle('is-flipped');
+  });
+  document.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target instanceof Element && e.target.matches('.flip3d-inner')) {
       e.preventDefault();
       e.target.classList.toggle('is-flipped');
     }
   });
 }
 
+// === Contact: glass card; the email opens Gmail on desktop, the mail app on phones ===
+function mountContact() {
+  const mail = $('#contactMail');
+  if (!mail) return;
+  mail.href = mailHref();
+  if (/^mailto:/.test(mail.href)) { mail.removeAttribute('target'); mail.removeAttribute('rel'); }
+}
+
+
 function mountFooter(){
   const zone = $('#footerLinks');
   if(!zone) return;
   zone.innerHTML = window.SITE.socials.map(s=>`
-    <a class="footer-link hover:bg-white hover:text-black hover-smart" href="${s.href}" target="_blank">
+    <a class="footer-link" href="${s.href}" target="_blank" rel="noopener noreferrer">
       <i data-lucide="${s.icon}"></i><span>${s.label}</span>
     </a>
   `).join('');
@@ -1368,7 +1541,7 @@ function mountMagicMode() {
 // === Liquid Glass: cursor-tracked light, scrolled navbar state & scroll progress ===
 // The look itself lives in styles.css (section 8); this only feeds it --mx / --my.
 function mountLiquidGlass() {
-  const LIQUID_SEL = '.card, a.bg-white, button.bg-white, .icon-btn, a.bg-black, button.bg-black, #navbar > div:first-child';
+  const LIQUID_SEL = '.card, a.bg-white, button.bg-white, .icon-btn, a.bg-black, button.bg-black, .footer-link, #navbar > div:first-child';
 
   // Cursor position, relative to every glass surface under the pointer (button + its card, etc.)
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -1885,37 +2058,38 @@ function mountMagnetic() {
   });
 }
 
-// === Reticle cursor ===
-// A crosshair that trails the pointer (inverts over black/white in Geo, glows violet in Space)
-// and opens up over links and buttons. The normal cursor stays visible.
+// === Inverted cursor ===
+// A white circle with mix-blend-mode: difference replaces the pointer, so everything under it
+// shows in inverted colours. It grows over links and buttons and shrinks on click.
+// Desktop mouse only (touch screens keep their normal behaviour). Styles: styles.css §16.
 function mountCursor() {
   if (!hasFinePointer() || prefersReducedMotion()) return;
-  const el = document.createElement('div');
-  el.className = 'cursor-reticle';
-  el.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(el);
+  const dot = document.createElement('div');
+  dot.className = 'cursor-invert';
+  dot.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(dot);
+  document.documentElement.classList.add('has-cursor-invert');
 
-  let x = -100, y = -100, cx = -100, cy = -100, raf = 0;
+  const INTERACTIVE = 'a, button, [role="button"], input, select, textarea, label, .flip3d-inner, .ring-card';
+  let px = -100, py = -100, x = -100, y = -100, raf = 0;
   const tick = () => {
-    cx += (x - cx) * 0.22;
-    cy += (y - cy) * 0.22;
-    el.style.transform = `translate3d(${cx.toFixed(1)}px, ${cy.toFixed(1)}px, 0)`;
-    raf = (Math.abs(x - cx) + Math.abs(y - cy) > 0.1) ? requestAnimationFrame(tick) : 0;
+    x += (px - x) * 0.35; y += (py - y) * 0.35;
+    dot.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+    raf = (Math.abs(px - x) + Math.abs(py - y) > 0.1) ? requestAnimationFrame(tick) : 0;
   };
   window.addEventListener('pointermove', e => {
     if (e.pointerType !== 'mouse') return;
-    x = e.clientX; y = e.clientY;
-    el.classList.add('is-visible');
+    if (x < -50) { x = e.clientX; y = e.clientY; } // first move: appear under the pointer
+    px = e.clientX; py = e.clientY;
+    dot.classList.add('is-visible');
     if (!raf) raf = requestAnimationFrame(tick);
   }, { passive: true });
-  document.documentElement.addEventListener('pointerleave', () => el.classList.remove('is-visible'));
-
-  const INTERACTIVE = 'a, button, [role="button"], input, select, textarea, label';
+  document.documentElement.addEventListener('pointerleave', () => dot.classList.remove('is-visible'));
   document.addEventListener('pointerover', e => {
-    el.classList.toggle('is-hover', !!(e.target instanceof Element && e.target.closest(INTERACTIVE)));
+    dot.classList.toggle('is-hover', !!(e.target instanceof Element && e.target.closest(INTERACTIVE)));
   });
-  window.addEventListener('pointerdown', () => el.classList.add('is-down'));
-  window.addEventListener('pointerup', () => el.classList.remove('is-down'));
+  window.addEventListener('pointerdown', () => dot.classList.add('is-down'));
+  window.addEventListener('pointerup', () => dot.classList.remove('is-down'));
 }
 
 // === Drag-to-scroll carousels (desktop mouse) ===
@@ -2043,7 +2217,7 @@ function mountReveal() {
   $all('main h1, section h2, section h3').filter(isOwnHeading)
     .forEach(h => h.classList.add('section-title'));
 
-  $all('.section-title, .card, #faceRaster, #skills > div, .review-3d').forEach(el => {
+  $all('.section-title, .card, #faceRaster, #skills > div, .flip3d, .contact-card').forEach(el => {
     if (el.closest('#hero')) return; // the hero is already on screen behind the loader
     // Small stagger between siblings (e.g. cards in a grid)
     const idx = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0;
@@ -2062,7 +2236,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#loadingScreen')) mountLoading();
   if ($('#heroName')) { 
     mountHero(); 
-    mountSlideshow(); 
+    mountFeaturedRing(); 
   }
   if ($('#about')) mountAbout();
   if ($('#projects')) mountProjectsCarousel();
@@ -2072,6 +2246,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#footerLinks')) mountFooter();
   if ($('#servicesList')) mountServices();
   if ($('#reviewsList')) mountReviews();
+  if ($('#skillSphere')) mountSkillSphere();
+  if ($('#contact')) mountContact();
+  mountFlipCards();
   if ($('#blogTrack')) mountBlogCarousel();
   if ($('#mediaTrack')) mountMediaCarousel(); 
   if ($('#blogList')) mountBlogsPage();

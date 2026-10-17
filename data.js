@@ -119,6 +119,17 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     }
   ],
 
+  // Skills sphere (About > Skills). It shows every skill above plus `extra`.
+  // highlight = bold and larger (your core focus); muted = small and faint.
+  skillSphere: {
+    extra: ["GIS", "Remote Sensing", "Geospatial Data Science", "GeoAI", "Machine Learning",
+            "GeoPandas", "Rasterio", "Xarray", "Geemap", "Leafmap", "Scikit-learn", "Pandas", "NumPy"],
+    highlight: ["GIS", "Remote Sensing", "Geospatial Data Science", "GeoAI", "ArcGIS Pro", "Google Earth Engine",
+                "QGIS", "Python", "R", "Machine Learning", "GeoPandas", "Rasterio", "Envi"],
+    muted: ["UIUX design", "Figma", "Adobe CC", "DaVinci Resolve", "Editing", "Blender", "SketchUp", "Twinmotion",
+            "Microsoft Office Suite", "HTML", "English", "Bangla", "Hindi"]
+  },
+
   counters: [
     { value: 9, label: "Publications" },
     { value: 3, label: "Years of Experience" },

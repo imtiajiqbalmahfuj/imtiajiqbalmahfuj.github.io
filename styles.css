@@ -770,72 +770,49 @@ body.magic-mode .section-title::after {
 }
 .is-dragging a, .is-dragging img { pointer-events: none; }
 
-/* --- Reticle cursor: a GIS crosshair in Geo, a glowing orbit in Space --- */
-.cursor-reticle {
-  position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none;
-  width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;
-  border: 1px solid #fff; mix-blend-mode: difference;
-  opacity: 0; will-change: transform;
-  transition: width .3s var(--ease-smart), height .3s var(--ease-smart), margin .3s var(--ease-smart),
-              opacity .25s ease, background-color .3s ease, border-color .3s ease;
-}
-/* crosshair ticks */
-.cursor-reticle::before, .cursor-reticle::after {
-  content: ""; position: absolute; left: 50%; top: 50%; background: #fff;
-  transition: opacity .25s ease;
-}
-.cursor-reticle::before { width: 1px; height: 8px; margin: -4px 0 0 -.5px; }
-.cursor-reticle::after  { width: 8px; height: 1px; margin: -.5px 0 0 -4px; }
-.cursor-reticle.is-visible { opacity: 1; }
-.cursor-reticle.is-hover {
-  width: 58px; height: 58px; margin: -29px 0 0 -29px;
-  background-color: rgba(255, 255, 255, .12);
-}
-.cursor-reticle.is-hover::before, .cursor-reticle.is-hover::after { opacity: 0; }
-.cursor-reticle.is-down { width: 24px; height: 24px; margin: -12px 0 0 -12px; }
-body.magic-mode .cursor-reticle {
-  mix-blend-mode: normal; border-color: rgba(216, 180, 254, .9);
-  box-shadow: 0 0 14px rgba(168, 85, 247, .55), inset 0 0 8px rgba(168, 85, 247, .35);
-}
-body.magic-mode .cursor-reticle::before, body.magic-mode .cursor-reticle::after { background: #e9d5ff; }
-body.magic-mode .cursor-reticle.is-hover { background-color: rgba(147, 51, 234, .14); }
-@media (hover: none), (pointer: coarse) { .cursor-reticle { display: none; } }
-
-
 /* =========================================
-   13. REVIEWS: MINIMAL 3D FLIP CARDS
-   Hover (or tap / Enter) turns the card over to the review.
+   13. FLIP CARDS (SERVICES & REVIEWS)
+   Hover (or tap / Enter) turns the card over.
    Both faces share one grid cell, so the card is as tall as its longer side.
    ========================================= */
 #reviewsSummary { display: flex; align-items: center; justify-content: center; gap: .6rem; flex-wrap: wrap; }
 
-.review-3d { perspective: 1200px; }
-.review-flip {
+.flip3d { perspective: 1200px; }
+.flip3d-inner {
   display: grid; height: 100%; border-radius: 1.25rem; outline: none; cursor: pointer;
   transform-style: preserve-3d; transition: transform .8s var(--ease-smart);
 }
 @media (hover: hover) and (pointer: fine) {
-  .review-3d:hover .review-flip { transform: rotateY(180deg); }
+  .flip3d:hover .flip3d-inner { transform: rotateY(180deg); }
 }
-.review-flip.is-flipped { transform: rotateY(180deg); }
+.flip3d-inner.is-flipped { transform: rotateY(180deg); }
 
-.review-face {
+.flip3d-face {
   grid-area: 1 / 1; min-height: 16rem; padding: 2rem 1.75rem; border-radius: inherit;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; text-align: center;
   background: #fff; border: 1px solid #e2e8f0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px rgba(0, 0, 0, .05);
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
 }
-.review-back { transform: rotateY(180deg); }
-.review-flip:focus-visible .review-face { outline: 2px solid #0b0b0b; outline-offset: 3px; }
+.flip3d-back { transform: rotateY(180deg); }
+.flip3d-inner:focus-visible .flip3d-face { outline: 2px solid #0b0b0b; outline-offset: 3px; }
+.flip3d-hint { margin-top: .75rem; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; }
 
+/* Services */
+#servicesList .flip3d-face { min-height: 15rem; padding: 1.75rem 1.25rem; }
+.service-icon {
+  width: 3rem; height: 3rem; border-radius: 1rem; margin-bottom: .5rem;
+  display: grid; place-items: center; background: #0b0b0b; color: #fff;
+}
+.service-desc { font-size: .9rem; line-height: 1.6; color: #475569; margin-bottom: .75rem; }
+
+/* Reviews */
 .review-avatar {
   width: 3.25rem; height: 3.25rem; border-radius: 9999px; overflow: hidden; margin-bottom: .25rem;
   display: grid; place-items: center; background: #0b0b0b; color: #fff; font-weight: 600; letter-spacing: .04em;
 }
 .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .review-role { font-size: .85rem; color: #64748b; margin-bottom: .25rem; }
-.review-hint { margin-top: .75rem; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; }
 .review-text { font-size: .95rem; line-height: 1.7; color: #334155; }
 .review-by { font-size: .8rem; color: #94a3b8; }
 
@@ -848,17 +825,17 @@ body.magic-mode .cursor-reticle.is-hover { background-color: rgba(147, 51, 234, 
 .stars-fill svg { fill: #f59e0b; }
 
 /* Space theme */
-body.magic-mode .review-face {
+body.magic-mode .flip3d-face {
   background: rgba(20, 10, 35, .9); border-color: rgba(168, 85, 247, .25); color: #f8fafc;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
 }
-body.magic-mode .review-avatar { background: #9333ea; }
-body.magic-mode .review-role, body.magic-mode .review-text { color: #cbd5e1; }
+body.magic-mode .review-avatar, body.magic-mode .service-icon { background: #9333ea; }
+body.magic-mode .review-role, body.magic-mode .review-text, body.magic-mode .service-desc { color: #cbd5e1; }
 body.magic-mode .stars-empty svg { fill: rgba(255, 255, 255, .15); }
-body.magic-mode .review-flip:focus-visible .review-face { outline-color: #c084fc; }
+body.magic-mode .flip3d-inner:focus-visible .flip3d-face { outline-color: #c084fc; }
 
 @media (prefers-reduced-motion: reduce) {
-  .review-flip { transition: none; }
+  .flip3d-inner { transition: none; }
 }
 
 
@@ -883,4 +860,145 @@ body.magic-mode .review-flip:focus-visible .review-face { outline-color: #c084fc
   body.magic-mode #navbar.is-scrolled > div:first-child, body.magic-mode #mobileMenu > div {
     background-color: rgba(15, 10, 25, .94) !important;
   }
+}
+
+
+/* =========================================
+   15. FEATURED RING, SKILL SPHERE, CONTACT CARD & FOOTER PILLS
+   Everything here moves with transform / opacity only (no filters,
+   no blur), and the JS loops sleep while their section is off screen.
+   ========================================= */
+
+/* --- Featured projects: 3D ring --- */
+.ring-stage {
+  position: relative; height: calc(var(--ch, 360px) + 5rem); overflow: hidden;
+  perspective: 1600px; perspective-origin: 50% 45%;
+  touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; outline: none;
+}
+.ring-stage:active { cursor: grabbing; }
+.ring-stage:focus-visible { box-shadow: inset 0 0 0 2px #0b0b0b; }
+.ring {
+  position: absolute; left: 50%; top: 50%;
+  width: var(--cw, 300px); height: var(--ch, 360px);
+  margin: calc(var(--ch, 360px) / -2) 0 0 calc(var(--cw, 300px) / -2);
+  transform-style: preserve-3d; will-change: transform;
+}
+.ring-card {
+  position: absolute; inset: 0; display: block; overflow: hidden; border-radius: 1.25rem;
+  background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.ring-card img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ring-body {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 3.5rem 1rem 1rem; color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, .85), rgba(0, 0, 0, .55) 55%, transparent);
+}
+.ring-title {
+  font-weight: 600; font-size: .95rem; line-height: 1.3;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.ring-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+.ring-tags span {
+  font-size: .7rem; padding: .15rem .55rem; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .35); background: rgba(255, 255, 255, .12);
+}
+/* Fades cards as they turn away (opacity set per frame in script.js) */
+.ring-shade { position: absolute; inset: 0; background: #fafafa; opacity: 0; pointer-events: none; }
+body.magic-mode .ring-card { background: #140a23; border-color: rgba(168, 85, 247, .3); box-shadow: 0 18px 40px rgba(0, 0, 0, .6); }
+body.magic-mode .ring-shade { background: #05020a; }
+body.magic-mode .ring-stage:focus-visible { box-shadow: inset 0 0 0 2px #c084fc; }
+
+/* --- Skills: word sphere beside the categories --- */
+.skills-layout { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 768px) { .skills-layout { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+.skill-sphere {
+  position: relative; width: 100%; max-width: 500px; aspect-ratio: 1; margin: 0 auto;
+  perspective: 900px; transform-style: preserve-3d;
+}
+@media (max-width: 767px) {
+  .skill-sphere { max-width: 340px; }
+  #skillSphere span { font-size: .68rem; padding: .18rem .5rem; }
+  #skillSphere span.hot { font-size: .76rem; }
+  #skillSphere span.muted { font-size: .6rem; }
+}
+.skill-sphere span {
+  position: absolute; left: 50%; top: 50%; white-space: nowrap;
+  font-size: .82rem; padding: .25rem .65rem; border-radius: 999px;
+  background: #fff; border: 1px solid #e2e8f0; color: #334155;
+  will-change: transform, opacity;
+}
+.skill-sphere span.hot { background: #0b0b0b; border-color: #0b0b0b; color: #fff; font-weight: 600; font-size: .92rem; }
+.skill-sphere span.muted { background: transparent; border-color: transparent; color: #94a3b8; font-size: .7rem; }
+body.magic-mode .skill-sphere span { background: rgba(20, 10, 35, .85); border-color: rgba(168, 85, 247, .3); color: #cbd5e1; }
+body.magic-mode .skill-sphere span.hot { background: #9333ea; border-color: #a855f7; color: #fff; }
+body.magic-mode .skill-sphere span.muted { background: transparent; border-color: transparent; color: #94a3b8; }
+
+/* --- Contact: glass card --- */
+.contact-card {
+  position: relative; max-width: 52rem; margin: 0 auto; border-radius: 2.5rem;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 4.5rem);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .55));
+  border: 1px solid rgba(255, 255, 255, .95);
+  box-shadow: var(--glass-spec), 0 24px 60px rgba(15, 23, 42, .10);
+}
+.contact-card .section-title, .contact-card h3 { font-size: clamp(2.2rem, 1.4rem + 3.5vw, 4rem) !important; line-height: 1.05; }
+.contact-mail {
+  display: inline-block; font-weight: 700; font-size: clamp(1.05rem, 2.6vw, 1.6rem); color: #0b0b0b;
+  border-bottom: 2px solid currentColor; padding-bottom: .2rem; word-break: break-all;
+  transition: color .25s ease;
+}
+.contact-mail:hover { color: #2563eb; }
+
+body.magic-mode .contact-card {
+  background: linear-gradient(145deg, rgba(20, 10, 35, .78), rgba(15, 10, 25, .55));
+  border-color: rgba(168, 85, 247, .25); box-shadow: 0 24px 60px rgba(0, 0, 0, .6);
+}
+body.magic-mode .contact-mail { color: #e9d5ff; }
+body.magic-mode .contact-mail:hover { color: #c084fc; }
+
+/* --- Footer pills: liquid fill from where the cursor enters (--mx/--my from script.js) --- */
+.footer-link {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: .55rem 1rem; border-radius: 999px; background: transparent;
+  border: 1px solid rgba(255, 255, 255, .18);
+  transition: color .35s var(--ease-smart), border-color .35s var(--ease-smart), transform .3s var(--ease-liquid), box-shadow .35s var(--ease-smart);
+}
+.footer-link::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: var(--mx, 50%); top: var(--my, 50%); width: 300%; aspect-ratio: 1; border-radius: 50%;
+  background: #fff; transform: translate(-50%, -50%) scale(0);
+  transition: transform .55s var(--ease-smart);
+}
+.footer-link:hover, .footer-link:focus-visible { color: #000; border-color: #fff; }
+.footer-link:hover::before, .footer-link:focus-visible::before { transform: translate(-50%, -50%) scale(1); }
+body.magic-mode .footer-link::before { background: #9333ea; }
+body.magic-mode .footer-link:hover, body.magic-mode .footer-link:focus-visible {
+  color: #fff; border-color: #a855f7; box-shadow: 0 0 18px rgba(168, 85, 247, .45);
+}
+
+
+/* =========================================
+   16. INVERTED CURSOR
+   A white circle blended with "difference" shows everything under it in
+   inverted colours. The size change is a scale on the inner layer, so the
+   follow transform (set in script.js) never fights it.
+   ========================================= */
+html.has-cursor-invert, html.has-cursor-invert * { cursor: none !important; }
+.cursor-invert {
+  position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none;
+  width: 0; height: 0; mix-blend-mode: difference;
+  opacity: 0; transition: opacity .2s ease; will-change: transform;
+}
+.cursor-invert::before {
+  content: ""; position: absolute; left: -16px; top: -16px; width: 32px; height: 32px;
+  border-radius: 50%; background: #fff;
+  transition: transform .35s var(--ease-liquid);
+}
+.cursor-invert.is-visible { opacity: 1; }
+.cursor-invert.is-hover::before { transform: scale(2.2); }
+.cursor-invert.is-down::before { transform: scale(.7); }
+.cursor-invert.is-hover.is-down::before { transform: scale(1.8); }
+@media (hover: none), (pointer: coarse) {
+  .cursor-invert { display: none; }
+  html.has-cursor-invert, html.has-cursor-invert * { cursor: auto !important; }
 }

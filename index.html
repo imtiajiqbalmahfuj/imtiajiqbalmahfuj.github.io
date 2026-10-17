@@ -145,29 +145,19 @@
 
 <!-- Slideshow (hero-end) -->
 <section id="featured" class="bg-slate-50">
-  <div class="max-w-6xl mx-auto px-4 py-12">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-xl font-semibold text-center w-full">Featured Projects</h2>
-    </div>
-
-    <div id="slideshow" class="relative rounded-2xl overflow-hidden">
-      <div id="slides" class="flex transition-transform duration-500 ease-in-out"></div>
-
-      <!-- Navigation buttons -->
-      <button id="prevSlide" class="icon-btn absolute left-2 top-1/2 -translate-y-1/2 bg-white border border-slate-200 hover:bg-black hover:text-white hover-smart z-10">
-        <i data-lucide="chevron-left"></i>
-      </button>
-      <button id="nextSlide" class="icon-btn absolute right-2 top-1/2 -translate-y-1/2 bg-white border border-slate-200 hover:bg-black hover:text-white hover-smart z-10">
-        <i data-lucide="chevron-right"></i>
-      </button>
-
-      <!-- All projects link -->
-      <div class="absolute right-3 bottom-3 flex gap-2">
-        <a href="projects.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
-          <i data-lucide="grid-2x2"></i><span>All projects</span>
-        </a>
-      </div>
-    </div>
+  <div class="max-w-6xl mx-auto px-4 pt-12">
+    <h2 class="text-xl font-semibold text-center w-full mb-2">Featured Projects</h2>
+    <p class="text-center text-sm text-slate-600">Drag the ring, use the arrows, or just scroll. Open any card to see the project.</p>
+  </div>
+  <div id="ringStage" class="ring-stage" tabindex="0" aria-label="Featured projects. Use the left and right arrow keys to turn.">
+    <div id="ring" class="ring"></div>
+  </div>
+  <div class="flex justify-center items-center gap-3 pb-12">
+    <button id="ringPrev" class="icon-btn bg-white border border-slate-200 hover:bg-black hover:text-white hover-smart" aria-label="Previous project"><i data-lucide="chevron-left"></i></button>
+    <a href="projects.html" class="px-4 py-2 bg-white rounded-2xl border border-slate-200 hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
+      <i data-lucide="grid-2x2"></i><span>All projects</span>
+    </a>
+    <button id="ringNext" class="icon-btn bg-white border border-slate-200 hover:bg-black hover:text-white hover-smart" aria-label="Next project"><i data-lucide="chevron-right"></i></button>
   </div>
 </section>
 
@@ -218,7 +208,10 @@
   <!-- Skills (dynamic categories from data.js) -->
   <div class="mt-16">
     <h3 class="text-2xl font-bold text-center w-full mb-8">Skills</h3>
-    <div id="skills" class="mt-6 grid gap-8"></div>
+    <div class="skills-layout mt-6">
+      <div id="skillSphere" class="skill-sphere" aria-hidden="true"></div>
+      <div id="skills" class="grid gap-8"></div>
+    </div>
   </div>
 
 </section>
@@ -367,17 +360,13 @@
 
 
 <!-- contact -->  
-<section id="contact" class="py-16 bg-slate-50">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h3 class="text-3xl font-bold mb-3">Want to collaborate?</h3>
-    <p class="text-xl text-slate-600 mb-4">I’m just one email away!</p>
-    
-    <a class="text-lg font-bold text-black hover:text-slate-700 hover:underline decoration-2 underline-offset-4 transition-colors" 
-       href="https://mail.google.com/mail/?view=cm&fs=1&to=imtiajiqbal.ruet@gmail.com" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      imtiajiqbal.ruet@gmail.com
-    </a>
+<section id="contact" class="contact-zone py-24 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 relative">
+    <div class="contact-card text-center">
+      <h3 class="text-3xl font-bold mb-3 text-center">Want to collaborate?</h3>
+      <p class="text-xl text-slate-600 mb-6">I’m just one email away!</p>
+      <a id="contactMail" class="contact-mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=imtiajiqbal.ruet@gmail.com" target="_blank" rel="noopener noreferrer">imtiajiqbal.ruet@gmail.com</a>
+    </div>
   </div>
 </section>
   
