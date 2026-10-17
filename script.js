@@ -1351,9 +1351,11 @@ function mountFaceRaster() {
     geo:   ['#440154', '#482878', '#3e4989', '#31688e', '#26828e', '#1f9e89', '#35b779', '#6ece58', '#b5de2b', '#fde725'],
     space: ['#05020a', '#1e0b3a', '#3b0f70', '#6b21a8', '#9333ea', '#c084fc', '#e879f9', '#67e8f9', '#ecfeff']
   };
-  const MAX_CELL = 12, MIN_CELL = 1.5; // raster cell size in CSS px (coarse → fine)
-  const MIN_CLASSES = 8, MAX_CLASSES = 24;
-  const REVEAL_FROM = 0.5;             // scroll progress at which the photo starts sweeping in
+  // Raster cell sizes in CSS px, stepped coarse → fine so each "resolution upgrade" reads clearly
+  const LEVELS = [36, 28, 20, 14, 9, 5, 2];
+  const MAX_CELL = LEVELS[0];
+  const MIN_CLASSES = 5, MAX_CLASSES = 20;
+  const REVEAL_FROM = 0.68;            // scroll progress at which the photo starts sweeping in
 
   const canvas = document.createElement('canvas');
   canvas.className = 'face-raster-canvas';
@@ -1416,18 +1418,19 @@ function mountFaceRaster() {
       // Desktop: the photo is sticky, so measure the About block instead.
       // 0 as it enters, 1 (real photo) about one screen later, while the bio is still being read.
       const g = wrap.parentElement.getBoundingClientRect();
-      return clamp01((vh * 0.85 - g.top) / (vh * 0.9));
+      return clamp01((vh * 0.8 - g.top) / vh);
     }
     const r = wrap.getBoundingClientRect();
-    return clamp01((vh - r.top) / (vh * 0.7));
+    return clamp01((vh - r.top) / (vh * 0.8));
   }
 
   function render() {
     if (!ready || !W || !H) return;
     const p = progress();
-    const e = 1 - Math.pow(1 - clamp01(p / REVEAL_FROM), 3);       // ease-out over the raster phase
-    const cell = MAX_CELL - (MAX_CELL - MIN_CELL) * e;
-    const classes = Math.round(MIN_CLASSES + (MAX_CLASSES - MIN_CLASSES) * e);
+    const e = clamp01(p / REVEAL_FROM);                             // linear over the raster phase
+    const level = Math.min(LEVELS.length - 1, Math.floor(e * LEVELS.length));
+    const cell = LEVELS[level];
+    const classes = Math.round(MIN_CLASSES + (MAX_CLASSES - MIN_CLASSES) * (level / (LEVELS.length - 1)));
     const cols = Math.max(4, Math.round(W / cell));
     const rows = Math.max(4, Math.round(H / cell));
     const theme = isSpace() ? 'space' : 'geo';
@@ -1452,9 +1455,9 @@ function mountFaceRaster() {
       ctx.drawImage(tiny, 0, 0, cols, rows, 0, 0, canvas.width, canvas.height);
 
       // Faint cell grid while cells are big enough to read as a raster
-      if (cell >= 7) {
+      if (cell >= 9) {
         const sx = canvas.width / cols, sy = canvas.height / rows;
-        ctx.strokeStyle = `rgba(255,255,255,${((cell - 7) / (MAX_CELL - 7)) * 0.16})`;
+        ctx.strokeStyle = `rgba(255,255,255,${0.06 + ((cell - 9) / (MAX_CELL - 9)) * 0.16})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         for (let x = 1; x < cols; x++) { ctx.moveTo(Math.round(x * sx) + 0.5, 0); ctx.lineTo(Math.round(x * sx) + 0.5, canvas.height); }
