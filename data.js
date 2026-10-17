@@ -952,11 +952,11 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     // 1. Fellowships & Research Grants (Combined with Awards)
     fellowships: [
       {
-        title: "<b>Grant Awardee & Finalist (Phase 2 Pilot Implementation)</b><br>IUT Micromobility Challenge 2026 — Islamic University of Technology (IUT)<br><u>Project:</u> Formalised E-Rickshaw Stands and Safety Registration: A Last-Mile Micromobility Intervention for the Mirpur-10–Mirpur-12 Corridor, DNCC<br>- Awarded seed grant funding and technical implementation support for practical deployment and pilot demonstration.",
+        title: "<b>Grant Awardee & Phase 2 Finalist (Pilot Implementation)</b> ($99)<br>IUT Micromobility Challenge 2026 — Islamic University of Technology (IUT)<br><u>Project:</u> Formalised E-Rickshaw Stands and Safety Registration: A Last-Mile Micromobility Intervention for the Mirpur-10–Mirpur-12 Corridor, DNCC<br>- Awarded seed grant funding and technical implementation support for practical deployment and pilot demonstration.",
         tags: ["Research Grant", "Pilot Implementation"],
         link: "https://lnkd.in/p/grGWwFhe", 
         cert: "",
-        date: "September 2026 <br> Dhaka, Bangladesh",
+        date: "September 2026 - December 2026<br> Dhaka, Bangladesh",
         featured: true
       },
       { title:"Awarded <b>2nd place</b> at 'Youth's Thought in Sustainable Urban Planning - 2025' <br> <u>Awarded by:</u> Urban Development Directorate (UDD), <br> Ministry of Housing and Public Work, Government of the People's Republic of Bangladesh <br> <u>Project Title:</u> The Economic Utilization of the Karnaphuli Tunnel with a Balanced Approach to Economic Growth and Ecological Preservation ", tags:["Award"], cert:"https://drive.google.com/file/d/1qa5tKswPKRd8hHw_OqSdBYDdT8r1zg89/view", date:"May 2025 <br> Dhaka, Bangladesh", featured: true },
