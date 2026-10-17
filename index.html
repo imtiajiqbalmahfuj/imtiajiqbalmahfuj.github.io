@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="Assets/favicon.svg">
-  <link rel="shortcut icon" href="Assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/svg+xml" href="Assets/favicon-small.svg">
+  <link rel="shortcut icon" href="Assets/favicon-small.svg" type="image/svg+xml">
 
   <!-- Title & Description for SEO -->
   <title>Imtiaj Iqbal Mahfuj</title>
@@ -52,9 +52,9 @@
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="tailwind.css">
+  <script defer src="icons.js"></script>
   <script defer src="data.js"></script>
   <script defer src="script.js"></script>
 
@@ -353,6 +353,15 @@
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-2xl font-bold text-center w-full mb-8">Services</h2>
     <div id="servicesList" class="grid md:grid-cols-4 gap-6 mb-20"></div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl font-bold text-center w-full mb-4">What People Say</h2>
+    <p id="reviewsSummary" class="text-slate-600 mb-10"></p>
+    <div id="reviewsList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
   </div>
 </section>
 

@@ -4,13 +4,13 @@
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Projects — Imtiaj Iqbal Mahfuj</title>
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="Assets/favicon.svg">
-  <link rel="shortcut icon" href="Assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/svg+xml" href="Assets/favicon-small.svg">
+  <link rel="shortcut icon" href="Assets/favicon-small.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="tailwind.css">
+  <script defer src="icons.js"></script>
   <script defer src="data.js"></script>
   <script defer src="script.js"></script>
   <style> body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto }</style>
@@ -57,7 +57,7 @@
 
       list.innerHTML = projectsWithImages.map(p=>`
         <div id="${p.id}" class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col">
-          <img src="${p.image}" class="w-full h-44 object-cover" alt="${p.title}">
+          <img loading="lazy" decoding="async" src="${p.image}" class="w-full h-44 object-cover" alt="${p.title}">
           <div class="p-4 flex flex-col gap-3 grow">
             <div class="font-medium">${p.title}</div>
             <div class="flex flex-wrap gap-2">${p.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>

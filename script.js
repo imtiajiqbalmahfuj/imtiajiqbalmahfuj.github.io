@@ -179,7 +179,8 @@ function mountNavigation() {
     const aboutLinks = [
       { id: 'about', label: 'About Me' },
       { id: 'blogs', label: 'Blogs & Notes' },
-      { id: 'media', label: 'Media Appearances' }
+      { id: 'media', label: 'Media Appearances' },
+      { id: 'reviews', label: 'Reviews' }
     ];
 
     // Desktop Dropdown Builder
@@ -377,7 +378,7 @@ function mountHero(){
   const track = $('#tickerTrack');
   if(track) {
     const itemsHTML = window.SITE.tickerIcons.map(it=> `<span class="inline-flex items-center gap-2 mr-8 text-sm text-slate-600">
-      <i data-lucide="${it.icon}"></i>${it.name}
+      <i${it.icon ? ` data-lucide="${it.icon}"` : ''}></i>${it.name}
     </span>`).join('');
     track.innerHTML = `<div class="ticker-inner">${itemsHTML}</div><div class="ticker-inner">${itemsHTML}</div>`;
     let innerWidth = track.querySelector('.ticker-inner').scrollWidth;
@@ -571,7 +572,7 @@ function mountProjectsCarousel() {
       <div class="flex-shrink-0">
         <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col">
           <a href="projects.html#${p.id}" target="_blank" class="block">
-            <img src="${getThumb(p.image, 400)}" class="w-full h-48 object-cover" alt="${p.title}">
+            <img loading="lazy" decoding="async" src="${getThumb(p.image, 400)}" class="w-full h-48 object-cover" alt="${p.title}">
           </a>
           <div class="p-4 flex flex-col gap-3 grow">
             <div class="font-medium">${p.title}</div>
@@ -822,6 +823,69 @@ function mountServices() {
   if(window.lucide) lucide.createIcons();
 }
 
+// === Reviews: minimal 3D flip cards ===
+// The front shows who and the stars; hovering (tap or Enter on touch/keyboard) turns the card over to the review.
+function starRow(rating) {
+  const star = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>';
+  const r = Math.max(0, Math.min(5, rating));
+  return `<span class="stars" role="img" aria-label="${r} out of 5 stars">`
+    + `<span class="stars-empty">${star.repeat(5)}</span>`
+    + `<span class="stars-fill" style="width:${r / 5 * 100}%">${star.repeat(5)}</span></span>`;
+}
+
+function mountReviews() {
+  const wrap = $('#reviewsList');
+  const reviews = window.SITE.reviews || [];
+  if (!wrap) return;
+  if (!reviews.length) { $('#reviews').hidden = true; return; }
+
+  const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
+  const summary = $('#reviewsSummary');
+  if (summary) summary.innerHTML = `${starRow(avg)}<span><b>${avg.toFixed(1)}</b> / 5 from ${reviews.length} review${reviews.length > 1 ? 's' : ''}</span>`;
+
+  const initials = name => name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  // Photos are shown at 52px, so fetch a small square crop (centred on the face) instead of the full image.
+  // Local files (Assets/...) can only be resized once the site is online; opened from disk they load as-is.
+  const avatarSrc = photo => {
+    const abs = new URL(photo, location.href);
+    if (!/^https?:$/.test(abs.protocol) || photo.includes('.svg')) return photo;
+    return `https://wsrv.nl/?url=${encodeURIComponent(abs.href)}&w=160&h=160&fit=cover&a=attention&q=80&output=webp`;
+  };
+  const avatar = r => r.photo
+    ? `<img src="${avatarSrc(r.photo)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${r.photo}'">`
+    : initials(r.name);
+  const hint = hasFinePointer() ? 'Hover to read' : 'Tap to read';
+  wrap.innerHTML = reviews.map(r => `
+    <div class="review-3d">
+      <article class="review-flip" tabindex="0" aria-label="Review by ${r.name}. Press Enter to turn the card.">
+        <div class="review-face review-front">
+          <div class="review-avatar">${avatar(r)}</div>
+          <h4 class="text-base font-semibold">${r.name}</h4>
+          <p class="review-role">${r.role}</p>
+          ${starRow(r.rating)}
+          <span class="review-hint">${hint}</span>
+        </div>
+        <div class="review-face review-back">
+          <blockquote class="review-text">“${r.text}”</blockquote>
+          <p class="review-by">— ${r.name}${r.date ? `, ${r.date}` : ''}</p>
+        </div>
+      </article>
+    </div>
+  `).join('');
+
+  // Touch and keyboard turn the card on tap / Enter (mice flip on hover, see styles.css §13)
+  wrap.addEventListener('click', e => {
+    const card = e.target.closest('.review-flip');
+    if (card && !hasFinePointer()) card.classList.toggle('is-flipped');
+  });
+  wrap.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.review-flip')) {
+      e.preventDefault();
+      e.target.classList.toggle('is-flipped');
+    }
+  });
+}
+
 function mountFooter(){
   const zone = $('#footerLinks');
   if(!zone) return;
@@ -844,7 +908,7 @@ function mountBlogCarousel() {
     <div class="flex-shrink-0 w-80 md:w-96">
       <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover-smart">
         <a href="${b.link}" target="_blank" class="block relative group">
-          <img src="${getThumb(b.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${b.title}">
+          <img loading="lazy" decoding="async" src="${getThumb(b.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${b.title}">
         </a>
         <div class="p-5 flex flex-col gap-3 grow">
           <div class="text-xs text-slate-500 font-medium">${b.date}</div>
@@ -884,7 +948,7 @@ function mountMediaCarousel() {
     <div class="flex-shrink-0 w-80 md:w-96">
       <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover-smart">
         <a href="${m.link}" target="_blank" class="block relative group">
-          <img src="${getThumb(m.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${m.title}">
+          <img loading="lazy" decoding="async" src="${getThumb(m.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${m.title}">
         </a>
         <div class="p-5 flex flex-col gap-3 grow">
           <div class="text-xs text-slate-500 font-medium">${m.date}</div>
@@ -939,7 +1003,7 @@ function mountBlogsPage() {
   list.innerHTML = items.map(b => `
     <div class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
       <a href="${b.link}" target="_blank" class="block overflow-hidden">
-        <img src="${getThumb(b.image, 400)}" class="w-full h-52 object-cover transition-transform duration-500 hover:scale-105" alt="${b.title}">
+        <img loading="lazy" decoding="async" src="${getThumb(b.image, 400)}" class="w-full h-52 object-cover transition-transform duration-500 hover:scale-105" alt="${b.title}">
       </a>
       <div class="p-6 flex flex-col gap-4 grow">
         <div class="flex items-center justify-between">
@@ -1153,8 +1217,8 @@ function mountMagicMode() {
     const hero = document.getElementById('hero');
     if (!hero) return; // Safely exit if on a subpage
 
-    // 1. Black Hole Video
-    if (!document.getElementById('heroBlackhole')) {
+    // 1. Black Hole Video (only seen in the Space theme, so it isn't downloaded until then)
+    if (!document.getElementById('heroBlackhole') && document.body.classList.contains('magic-mode')) {
       const heroVid = document.createElement('video');
       heroVid.id = 'heroBlackhole';
       heroVid.className = 'blackhole-video hero-blackhole';
@@ -1182,26 +1246,26 @@ function mountMagicMode() {
       const globeSize = isMobile ? 600 : 1300; 
 
       const script = document.createElement('script');
-      script.src = 'https://unpkg.com/globe.gl';
+      script.src = 'https://unpkg.com/globe.gl@2.46.2/dist/globe.gl.min.js';
       script.async = true; script.defer = true;
       script.onload = async () => {
-        const { scaleSequentialSqrt } = await import('https://esm.sh/d3-scale');
+        const { scaleSequentialSqrt } = await import('https://esm.sh/d3-scale@4.0.2');
         
         // >>> COLOR OPTIONS: Change 'interpolateViridis' below to any of these:
         // interpolateCool, interpolateMagma, interpolatePlasma, interpolateInferno, interpolateYlGnBu
-        const {interpolateViridis } = await import('https://esm.sh/d3-scale-chromatic'); 
+        const {interpolateViridis } = await import('https://esm.sh/d3-scale-chromatic@3.1.0'); 
         
         const colorScale = scaleSequentialSqrt(interpolateViridis);
         const getVal = feat => feat.properties.GDP_MD_EST / Math.max(1e5, feat.properties.POP_EST);
 
-        fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson')
+        fetch('https://unpkg.com/globe.gl@2.46.2/example/datasets/ne_110m_admin_0_countries.geojson')
           .then(res => res.json())
           .then(countries => {
             const maxVal = Math.max(...countries.features.map(getVal));
             colorScale.domain([0, maxVal]);
 
             const world = Globe()(globeDiv)
-              .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+              .globeImageUrl('https://unpkg.com/three-globe@2.45.6/example/img/earth-night.jpg')
               .backgroundColor('rgba(0,0,0,0)')
               .width(globeSize).height(globeSize) // Applied performance size
               .lineHoverPrecision(0)
@@ -1222,17 +1286,21 @@ function mountMagicMode() {
                 .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
               ).polygonsTransitionDuration(300);
 
+            // Phones have 2-3x pixel density; drawing the globe at full density costs far more than it shows
+            world.renderer().setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.5));
+
             world.controls().autoRotate = true;
             world.controls().autoRotateSpeed = 0.5;
             world.controls().enableZoom = false;
 
             // Stop WebGL rendering while the globe can't be seen (Space theme or scrolled away)
-            let globeRunning = true;
+            let globeRunning = true, startParallax = null;
             heroSleepers.push(() => {
               const run = heroVisible && !document.body.classList.contains('magic-mode');
               if (run === globeRunning) return;
               globeRunning = run;
               run ? world.resumeAnimation() : world.pauseAnimation();
+              if (run && startParallax) startParallax();
             });
             syncHeroVisuals();
 
@@ -1246,14 +1314,16 @@ function mountMagicMode() {
                 mouseX = (event.clientX / window.innerWidth) * 2 - 1;
                 mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
               });
+              let parallaxRaf = 0;
               function animateParallax() {
-                if (globeRunning) {
-                  world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
-                  world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
-                }
-                requestAnimationFrame(animateParallax);
+                parallaxRaf = 0;
+                if (!globeRunning) return; // restarted by the sleeper above
+                world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
+                world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
+                parallaxRaf = requestAnimationFrame(animateParallax);
               }
-              animateParallax();
+              startParallax = () => { if (!parallaxRaf) parallaxRaf = requestAnimationFrame(animateParallax); };
+              startParallax();
             }
           });
       };
@@ -1261,15 +1331,19 @@ function mountMagicMode() {
     }
   }
 
+  // The globe is the heaviest thing on the page, so it waits until everything else has loaded
+  let heroReady = false;
   if (document.getElementById('hero')) {
-    setTimeout(injectVideos, 800);
+    const start = () => { heroReady = true; injectVideos(); };
+    const whenIdle = () => ('requestIdleCallback' in window) ? requestIdleCallback(start, { timeout: 1500 }) : setTimeout(start, 300);
+    document.readyState === 'complete' ? whenIdle() : window.addEventListener('load', whenIdle, { once: true });
   }
 
   function toggleTheme(forceDark) {
     isMagic = forceDark;
     document.body.classList.toggle('magic-mode', isMagic);
 
-    if (isMagic && document.getElementById('hero')) injectVideos();
+    if (isMagic && heroReady) injectVideos();
 
     btn.innerHTML = `<i data-lucide="wand-2" class="w-5 h-5"></i>`;
     if (window.lucide) lucide.createIcons();
@@ -1969,7 +2043,7 @@ function mountReveal() {
   $all('main h1, section h2, section h3').filter(isOwnHeading)
     .forEach(h => h.classList.add('section-title'));
 
-  $all('.section-title, .card, #faceRaster, #skills > div').forEach(el => {
+  $all('.section-title, .card, #faceRaster, #skills > div, .review-3d').forEach(el => {
     if (el.closest('#hero')) return; // the hero is already on screen behind the loader
     // Small stagger between siblings (e.g. cards in a grid)
     const idx = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0;
@@ -1996,7 +2070,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#pubRecent')) mountPublications();
   if ($('#achvPreview')) mountAchvPreview();
   if ($('#footerLinks')) mountFooter();
-  if ($('#servicesList')) mountServices(); 
+  if ($('#servicesList')) mountServices();
+  if ($('#reviewsList')) mountReviews();
   if ($('#blogTrack')) mountBlogCarousel();
   if ($('#mediaTrack')) mountMediaCarousel(); 
   if ($('#blogList')) mountBlogsPage();

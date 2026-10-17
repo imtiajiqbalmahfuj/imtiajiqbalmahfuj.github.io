@@ -1207,6 +1207,42 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
   ],
 
 
+  // Reviews shown as 3D flip cards (home page, "What People Say"). These are PLACEHOLDERS:
+  // replace them with real reviews from people happy to be quoted.
+  //   name   : reviewer's full name (initials are made from it when there's no photo)
+  //   role   : their position and organisation
+  //   rating : 1 to 5, halves allowed (e.g. 4.5)
+  //   date   : optional, shown after the name on the back of the card
+  //   text   : the review itself; 2 to 4 sentences fit best
+  //   photo  : optional. Either a link to an image online, or a file you put in the Assets folder,
+  //            e.g. "Assets/reviewers/jane.jpg". It's automatically shrunk to a small square, so any size works.
+  // To add a review copy one { ... } block (including the comma between blocks); to remove one, delete its block.
+  reviews: [
+    {
+      name: "Reviewer Name",
+      role: "Role, Organization",
+      rating: 5,
+      date: "2025",
+      text: "Placeholder review. Paste the reviewer's own words here, for example what you worked on together and what stood out to them."
+    },
+    {
+      name: "Second Reviewer",
+      role: "Supervisor, University",
+      rating: 5,
+      date: "2025",
+      text: "Placeholder review. A short paragraph of two or three sentences fits the back of the card best."
+    },
+    {
+      name: "Third Reviewer",
+      role: "Client, Company",
+      rating: 4.5,
+      date: "2024",
+      // photo: "Assets/reviewer.jpg",
+      text: "Placeholder review. Half stars work too: this card is set to 4.5."
+    }
+  ],
+
+
   socials: [
     {label:"LinkedIn", icon:"linkedin", href:"https://www.linkedin.com/in/imtiajiqbalmahfuj/"},
     {label:"ResearchGate", icon:"book-open-check", href:"https://www.researchgate.net/profile/Imtiaj-Mahfuj"},

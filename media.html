@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Featured On — Imtiaj Iqbal Mahfuj</title>
-  <link rel="icon" type="image/svg+xml" href="Assets/favicon.svg">
-  <link rel="shortcut icon" href="Assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/svg+xml" href="Assets/favicon-small.svg">
+  <link rel="shortcut icon" href="Assets/favicon-small.svg" type="image/svg+xml">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="tailwind.css">
   
-  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="icons.js"></script>
   <script defer src="data.js"></script>
   <script defer src="script.js"></script>
   
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="flex-shrink-0">
           <div class="card h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col hover-smart">
             <a href="${m.link}" target="_blank" class="block relative group">
-              <img src="${getThumb(m.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${m.title}">
+              <img loading="lazy" decoding="async" src="${getThumb(m.image, 400)}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" alt="${m.title}">
               <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
             </a>
             <div class="p-5 flex flex-col flex-grow">
