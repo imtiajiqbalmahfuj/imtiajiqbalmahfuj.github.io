@@ -1,16 +1,18 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="Assets/favicon-small.svg">
   <link rel="shortcut icon" href="Assets/favicon-small.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="Assets/Imtiaj_Favicon_Pic.png">
 
   <!-- Title & Description for SEO -->
-  <title>Imtiaj Iqbal Mahfuj</title>
+  <title>Imtiaj Iqbal Mahfuj — GIS, Remote Sensing & Geospatial Data Science</title>
+  <link rel="canonical" href="https://imtiajiqbalmahfuj.github.io/">
   <meta name="description" content="Imtiaj Iqbal Mahfuj — Specializing in GIS, Remote Sensing, Google Earth Engine, and Geospatial Data Science. Explore research, projects, and achievements in environmental science, Disaster Risk, Geo-Hazard Modeling, climate change, spatial analytics, GIScience, Spatial Modeling, and urban planning.">
   <meta name="author" content="Imtiaj Iqbal Mahfuj">
   <meta name="keywords" content="Imtiaj Iqbal Mahfuj, GIS, Remote Sensing, Geospatial Data Science, Urban Planning, Google Earth Engine, Machine Learning, environmental science, GIScience, Spatial Modeling, Disaster Risk, Geo-Hazard Modeling, climate change, spatial analytics, urban planning">
@@ -20,8 +22,11 @@
   <meta property="og:title" content="Imtiaj Iqbal Mahfuj — GIS & Geospatial Data Scientist">
   <meta property="og:description" content="Portfolio of Imtiaj Iqbal Mahfuj — Research and projects in GIS, Remote Sensing, Google Earth Engine, and Geospatial Data Science for urban planning, environmental science, GIScience, Spatial Modeling, Disaster Risk, Geo-Hazard Modeling, climate change, spatial analytics, and urban planning">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Imtiaj Iqbal Mahfuj">
+  <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://imtiajiqbalmahfuj.github.io/">
   <meta property="og:image" content="https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbalmahfuj.github.io/refs/heads/main/Assets/Imtiaj%20Iqbal%20Formal%20Pic.jpg">
+  <meta property="og:image:alt" content="Portrait of Imtiaj Iqbal Mahfuj">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -36,8 +41,20 @@
     "@type": "Person",
     "name": "Imtiaj Iqbal Mahfuj",
     "url": "https://imtiajiqbalmahfuj.github.io/",
+    "image": "https://raw.githubusercontent.com/imtiajiqbalmahfuj/imtiajiqbalmahfuj.github.io/refs/heads/main/Assets/Imtiaj%20Iqbal%20Formal%20Pic.jpg",
+    "email": "mailto:imtiajiqbal.ruet@gmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Rajshahi University of Engineering & Technology (RUET)"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rajshahi",
+      "addressCountry": "BD"
+    },
+    "knowsAbout": ["GIS", "Remote Sensing", "Google Earth Engine", "Geospatial Data Science", "GeoAI", "Machine Learning", "Disaster Risk Reduction", "Climate Change", "Urban Planning"],
     "sameAs": [
-      "https://linkedin.com/in/imtiajiqbalmahfuj",
+      "https://www.linkedin.com/in/imtiajiqbalmahfuj/",
       "https://github.com/imtiajiqbalmahfuj"
     ],
     "jobTitle": "Undergraduate Student / GIS & Geospatial Data Scientist",
@@ -51,6 +68,8 @@
 
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://wsrv.nl">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="tailwind.css">
@@ -95,7 +114,7 @@
       </nav>
       
       <div class="flex items-center gap-2">
-        <button id="magicBtn" class="p-2 text-slate-600 hover:text-black hover:bg-white/50 rounded-full transition-colors hover-smart" title="Geo/Space"><i data-lucide="wand-2" class="w-5 h-5"></i></button>
+        <button id="magicBtn" class="p-2 text-slate-600 hover:text-black hover:bg-white/50 rounded-full transition-colors hover-smart" title="Geo/Space" aria-label="Switch Geo/Space theme"><i data-lucide="wand-2" class="w-5 h-5"></i></button>
         <button id="connectBtn" class="px-4 py-2 bg-black text-white rounded-2xl hover:scale-[1.03] hover:shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover-smart">Connect</button>
         <button id="menuBtn" class="md:hidden p-2 text-slate-700 hover:bg-white/50 rounded-full" aria-label="Menu"><i data-lucide="menu"></i></button>
       </div>
@@ -109,21 +128,22 @@
   </div>
 </header>
 
+<main>
 <!-- Hero -->
 <section id="hero" class="relative min-h-screen flex flex-col items-center text-center px-4 pt-20 md:pt-32 overflow-hidden">
   <div class="hero-grid absolute inset-0 z-0"></div>
   <!-- Main content -->
   <div class="z-10 mt-12">
-    <h1 id="heroName" class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"></h1>
-    <p id="heroSubtitle" class="mt-3 text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto"></p>
+    <h1 id="heroName" class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Imtiaj Iqbal (Mahfuj)</h1>
+    <p id="heroSubtitle" class="mt-3 text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">GeoDS (GeoAI/ML) · GIS, RS &amp; EO (GEE) · DRR &amp; Climate</p>
     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
       <a id="cvBtn" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-black text-white hover:scale-[1.03] hover:shadow-sm hover-smart" download>
         <i data-lucide="download"></i><span>Download CV</span>
       </a>
-      <a id="emailBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Email">
+      <a id="emailBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Email" aria-label="Email Imtiaj">
         <i data-lucide="mail"></i>
       </a>
-      <a id="businessBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Coming Soon...">
+      <a id="businessBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Coming Soon..." aria-label="Business (coming soon)">
         <i data-lucide="briefcase"></i>
       </a>
     </div>
@@ -166,7 +186,7 @@
   <div class="grid md:grid-cols-12 gap-10 items-start">
     <!-- Profile Photo (script.js layers a scroll-driven raster animation over it) -->
     <div id="faceRaster" class="face-raster w-full rounded-2xl overflow-hidden h-80 md:h-[calc(100vh-8rem)] md:max-h-[760px] md:col-span-5 order-1 md:order-2">
-      <img id="aboutPhoto" class="w-full h-full object-cover" alt="Profile Photo"/>
+      <img id="aboutPhoto" class="w-full h-full object-cover" alt="Imtiaj Iqbal Mahfuj" width="800" height="1000" decoding="async"/>
     </div>
 
     <!-- Bio -->
@@ -181,13 +201,13 @@
         <a id="msgBtn" class="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-black text-white hover:scale-[1.03] hover:shadow-sm hover-smart">
           <i data-lucide="message-square"></i><span>Send me a message</span>
         </a>
-        <a id="aboutMailBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Email">
+        <a id="aboutMailBtn" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Email" aria-label="Email Imtiaj">
           <i data-lucide="mail"></i>
         </a>
-        <a href="#blogs" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Blogs & Notes">
+        <a href="#blogs" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Blogs & Notes" aria-label="Blogs and notes">
         <i data-lucide="book-open"></i>
         </a>
-        <a href="#media" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Media Appearances"> 
+        <a href="#media" class="inline-flex items-center gap-2 px-3 py-2 rounded-2xl bg-white text-black border border-slate-200 hover:bg-black hover:text-white hover:scale-[1.03] hover:shadow-sm hover-smart" title="Media Appearances" aria-label="Media appearances">
           <i data-lucide="tv"></i>
         </a>
       </div>
@@ -227,11 +247,11 @@
     <div class="mt-4 flex flex-wrap gap-2 justify-center" id="projectTags"></div>
 
     <div id="projectCarousel" class="mt-6 relative">
-      <button id="projPrev" class="icon-btn absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-50 shadow rounded-full"><i data-lucide="chevron-left"></i></button>
+      <button id="projPrev" aria-label="Previous projects" class="icon-btn absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-50 shadow rounded-full"><i data-lucide="chevron-left"></i></button>
       <div id="projectTrackOuter" class="overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar">
         <div id="projectTrack" class="flex w-full"></div>
       </div>
-      <button id="projNext" class="icon-btn absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-50 shadow rounded-full"><i data-lucide="chevron-right"></i></button>
+      <button id="projNext" aria-label="Next projects" class="icon-btn absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-50 shadow rounded-full"><i data-lucide="chevron-right"></i></button>
       <div class="mt-4 flex justify-center">
         <a href="projects.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
           <i data-lucide="grid-2x2"></i><span>All projects</span>
@@ -271,7 +291,7 @@
 
 <!-- Achievements & Activities -->
 <section id="achievements" class="max-w-6xl mx-auto px-4 py-16">
-  <h2 class="text-2xl font-bold text-center w-full mb-8">Professional Highlights</h3>
+  <h2 class="text-2xl font-bold text-center w-full mb-8">Professional Highlights</h2>
   <div class="grid gap-6" id="achvPreview"></div>
   <div class="mt-4 flex justify-center">
     <a href="achievements.html" class="px-3 py-1.5 bg-white rounded-2xl border hover:bg-black hover:text-white hover-smart inline-flex items-center gap-2">
@@ -288,11 +308,11 @@
     </div>
 
     <div class="relative group">
-      <button id="blogPrev" class="icon-btn absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
+      <button id="blogPrev" aria-label="Previous blogs" class="icon-btn absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
         <i data-lucide="chevron-left"></i>
       </button>
       
-      <button id="blogNext" class="icon-btn absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
+      <button id="blogNext" aria-label="Next blogs" class="icon-btn absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
         <i data-lucide="chevron-right"></i>
       </button>
 
@@ -318,11 +338,11 @@
     </div>
 
     <div class="relative group">
-      <button id="mediaPrev" class="icon-btn absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
+      <button id="mediaPrev" aria-label="Previous media" class="icon-btn absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
         <i data-lucide="chevron-left"></i>
       </button>
       
-      <button id="mediaNext" class="icon-btn absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
+      <button id="mediaNext" aria-label="Next media" class="icon-btn absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 border bg-white hover:bg-black hover:text-white hover-smart z-30 shadow rounded-full p-2 flex">
         <i data-lucide="chevron-right"></i>
       </button>
 
@@ -369,8 +389,8 @@
     </div>
   </div>
 </section>
-  
-  
+</main>
+
 <!-- Footer -->
 <footer id="links" class="mt-20 bg-black text-white">
   <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-[2fr,1fr] gap-8 items-start">

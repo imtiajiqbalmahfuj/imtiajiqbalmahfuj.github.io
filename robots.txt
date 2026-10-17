@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /new-site/
+
+Sitemap: https://imtiajiqbalmahfuj.github.io/sitemap.xml

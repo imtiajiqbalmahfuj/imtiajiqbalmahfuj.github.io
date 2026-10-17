@@ -67,22 +67,17 @@ function applyNav(){
 
   // Smart scroll
   const navbar = $('#navbar');
-  let lastScroll = 0;
+  let lastScroll = 0, navHidden = false;
   if(navbar) {
+    // Only touches the style when the hidden/shown state actually flips
     window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
-      const isMobile = window.innerWidth < 768; 
-      if (!isMobile) {
-        navbar.style.transform = "translateY(0)";
-        return;
-      }
-      if (currentScroll > lastScroll && currentScroll > 50) {
-        navbar.style.transform = "translateY(-100%)";
-      } else {
-        navbar.style.transform = "translateY(0)";
-      }
+      const hide = window.innerWidth < 768 && currentScroll > lastScroll && currentScroll > 50;
       lastScroll = currentScroll;
-    });
+      if (hide === navHidden) return;
+      navHidden = hide;
+      navbar.style.transform = hide ? "translateY(-100%)" : "translateY(0)";
+    }, { passive: true });
   }
 
   const scrollToElement = (el) => {
@@ -278,18 +273,26 @@ function mountNavigation() {
     });
 
     // Exact Scroll Spy Logic
+    // Section offsets are measured once (and again on resize/load), then each scroll is just number compares
+    let spyRanges = [], spyLastId, spyFrame = 0;
+    function measureSpy() {
+        spyRanges = [...document.querySelectorAll('section')].map(sec => ({
+            id: sec.getAttribute('id'),
+            top: sec.offsetTop - 150, // Offset for navbar
+            height: sec.offsetHeight
+        }));
+        spyLastId = undefined;
+    }
     function handleScrollSpy() {
+        spyFrame = 0;
+        if (!spyRanges.length) measureSpy();
         let currentId = null;
-        const sections = document.querySelectorAll('section');
         const scrollY = window.scrollY;
-        
-        sections.forEach(sec => {
-            const sectionTop = sec.offsetTop - 150; // Offset for navbar
-            const sectionHeight = sec.offsetHeight;
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                currentId = sec.getAttribute('id');
-            }
+        spyRanges.forEach(r => {
+            if (scrollY >= r.top && scrollY < r.top + r.height) currentId = r.id;
         });
+        if (currentId === spyLastId) return;
+        spyLastId = currentId;
 
         if (currentId) {
             const matchingNav = navItems.find(nav => nav.getAttribute('href') && nav.getAttribute('href').endsWith(`#${currentId}`));
@@ -306,8 +309,15 @@ function mountNavigation() {
         }
     }
     
-    window.addEventListener('scroll', handleScrollSpy, { passive: true });
-    setTimeout(handleScrollSpy, 100); // Run once on load to set initial state
+    window.addEventListener('scroll', () => { if (!spyFrame) spyFrame = requestAnimationFrame(handleScrollSpy); }, { passive: true });
+    let spyResize;
+    const remeasureSpy = () => { measureSpy(); handleScrollSpy(); };
+    const queueRemeasure = () => { clearTimeout(spyResize); spyResize = setTimeout(remeasureSpy, 150); };
+    // Lazy images and late content change section heights without a window resize
+    if ('ResizeObserver' in window) new ResizeObserver(queueRemeasure).observe(document.body);
+    else window.addEventListener('resize', queueRemeasure, { passive: true });
+    window.addEventListener('load', remeasureSpy);
+    setTimeout(remeasureSpy, 100); // Run once on load to set initial state
 
     // Build Mobile menu (Fixed to use Mobile builder)
     if (mobileMenu) {
@@ -402,21 +412,24 @@ function mountHero(){
     track.addEventListener('mouseleave', () => { targetSpeed = baseSpeed; });
 
     // Skip the per-frame work while the ticker is scrolled out of view
-    let tickerVisible = true;
+    let tickerVisible = true, tickerRaf = 0;
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(([en]) => { tickerVisible = en.isIntersecting; }).observe(track);
+      new IntersectionObserver(([en]) => {
+        tickerVisible = en.isIntersecting;
+        if (tickerVisible && !tickerRaf) tickerRaf = requestAnimationFrame(animateTicker);
+      }).observe(track);
     }
 
     function animateTicker() {
-      if (tickerVisible) {
-        speed += (targetSpeed - speed) * 0.08;
-        pos -= speed;
-        if(pos <= -innerWidth) pos = 0;
-        track.style.transform = `translateX(${pos}px)`;
-      }
-      requestAnimationFrame(animateTicker);
+      tickerRaf = 0;
+      if (!tickerVisible) return; // the observer restarts it
+      speed += (targetSpeed - speed) * 0.08;
+      pos -= speed;
+      if(pos <= -innerWidth) pos = 0;
+      track.style.transform = `translate3d(${pos}px,0,0)`;
+      tickerRaf = requestAnimationFrame(animateTicker);
     }
-    requestAnimationFrame(animateTicker);
+    tickerRaf = requestAnimationFrame(animateTicker);
   }
 
   // Down button
@@ -657,7 +670,7 @@ function mountProjectsCarousel() {
             <div class="flex flex-wrap gap-2">${p.tags.map(t => `<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>
             <div class="mt-auto flex gap-2 justify-end">
               ${p.details ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.details}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i><span class="sr-only">See more</span></a>` : ''}
-              ${p.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="monitor"></i></a>` : ''}
+              ${p.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="Open project" href="${p.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="monitor"></i></a>` : ''}
             </div>
           </div>
         </div>
@@ -721,9 +734,9 @@ function mountExperience(){
                   <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">${x.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
                 </div>
                 <div class="flex gap-2 md:self-end">
-                  ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
-                  ${x.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.cert}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
-                  ${x.details ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${x.details}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
+                  ${x.github ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="Open document" href="${x.github}"  target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i></a>` : ''}
+                  ${x.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="View certificate" href="${x.cert}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
+                  ${x.details ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="See more" href="${x.details}" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i></a>` : ''}
                 </div>
               </div>
             </div>
@@ -805,7 +818,7 @@ function mountPublications() {
                   <i data-lucide="quote"></i><span class="sr-only">Cite</span>
                 </a>` : ''}
                 ${p.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.cert}" target="_blank">
-                  <i data-lucide="badge-check"></i><span class="sr-only">Cite</span>
+                  <i data-lucide="badge-check"></i><span class="sr-only">Certificate</span>
                 </a>` : ''}
                 ${p.details ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${p.details}" target="_blank">
                   <i data-lucide="external-link"></i><span class="sr-only">See more</span>
@@ -865,9 +878,9 @@ function mountAchvPreview(){
                 </div>
                 
                 <div class="flex gap-2 md:self-end">
-                  ${a.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.cert}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
+                  ${a.cert ? `<a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="View certificate" href="${a.cert}" target="_blank" rel="noopener noreferrer"><i data-lucide="badge-check"></i></a>` : ''}
                   ${a.link ? `
-                  <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${a.link}" target="_blank">
+                  <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="See more" href="${a.link}" target="_blank">
                     <i data-lucide="external-link"></i>
                   </a>` : ''}
                 </div>
@@ -1093,7 +1106,7 @@ function mountBlogCarousel() {
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="text-xs text-slate-400">Read article</span>
-            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${b.link}" target="_blank">
+            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="Read article" href="${b.link}" target="_blank" rel="noopener">
               <i data-lucide="external-link"></i>
             </a>
           </div>
@@ -1133,7 +1146,7 @@ function mountMediaCarousel() {
           </div>
           <div class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100">
             <span class="text-xs text-slate-400">View media</span>
-            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" href="${m.link}" target="_blank">
+            <a class="px-3 py-1.5 bg-white border rounded-xl hover:bg-black hover:text-white hover-smart" aria-label="View media" href="${m.link}" target="_blank" rel="noopener">
               <i data-lucide="external-link"></i>
             </a>
           </div>
@@ -1407,8 +1420,10 @@ function mountMagicMode() {
       syncHeroVisuals();
     }
 
-    // 2. Interactive Globe
-    if (!document.getElementById('heroGlobe')) {
+    // 2. Interactive Globe (skipped on data-saver, very slow networks and low-memory phones, where it would only lag)
+    const conn = navigator.connection || {};
+    const liteDevice = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '') || (navigator.deviceMemory || 8) <= 2;
+    if (!liteDevice && !document.getElementById('heroGlobe')) {
       const globeDiv = document.createElement('div');
       globeDiv.id = 'heroGlobe';
       globeDiv.className = 'earth-3d'; 
@@ -1486,7 +1501,7 @@ function mountMagicMode() {
               document.addEventListener('mousemove', (event) => {
                 mouseX = (event.clientX / window.innerWidth) * 2 - 1;
                 mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-              });
+              }, { passive: true });
               let parallaxRaf = 0;
               function animateParallax() {
                 parallaxRaf = 0;
@@ -2125,7 +2140,8 @@ function mountDragScroll() {
 async function mountMotion() {
   if (prefersReducedMotion()) return;
 
-  await Promise.allSettled([loadScript(MOTION_LIBS.gsap), loadScript(MOTION_LIBS.lenis)]);
+  // Lenis only drives desktop wheel scrolling, so touch devices skip the download
+  await Promise.allSettled([loadScript(MOTION_LIBS.gsap), ...(hasFinePointer() ? [loadScript(MOTION_LIBS.lenis)] : [])]);
   if (!window.gsap) return; // CDN unavailable: the CSS/IntersectionObserver effects still run
   await Promise.allSettled([loadScript(MOTION_LIBS.scrollTrigger), loadScript(MOTION_LIBS.splitText)]);
   if (!window.ScrollTrigger) return;
