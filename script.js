@@ -452,39 +452,53 @@ function mountHero(){
 function mountFeaturedRing() {
   const stage = $('#ringStage'), ring = $('#ring');
   if (!stage || !ring) return;
-  const items = (window.SITE.projects || []).filter(p => p.image).slice(0, 10);
+  // Every Portfolio or GeoViz project that has a cover image
+  const items = (window.SITE.projects || []).filter(p => p.image && (p.tags || []).some(t => t === 'Portfolio' || t === 'GeoViz'));
   if (!items.length) return;
-  ring.innerHTML = items.map(p => `
-    <a class="ring-card" href="projects.html#${p.id}" draggable="false">
+  // A fixed ring of up to 12 cards keeps the circle tight; as a card passes the back
+  // (hidden) it is refilled with the next project, so every project comes round.
+  const n = Math.min(12, items.length), step = 360 / n, L = items.length;
+  ring.innerHTML = '<a class="ring-card" draggable="false"><div class="ring-face"></div></a>'.repeat(n);
+  const cards = $all('.ring-card', ring);
+  const faces = cards.map(c => c.firstChild);
+  const shown = new Array(n).fill(null); // item index each card currently shows
+  function fill(i, k) {
+    const p = items[k], c = cards[i];
+    c.href = `projects.html#${p.id}`;
+    c.firstChild.innerHTML = `
       <img src="${getThumb(p.image, 480)}" alt="" loading="lazy" decoding="async" draggable="false">
       <div class="ring-body">
         <div class="ring-title">${p.title}</div>
         <div class="ring-tags">${(p.tags || []).slice(0, 2).map(t => `<span>${t}</span>`).join('')}</div>
-      </div>
-      <span class="ring-shade"></span>
-    </a>`).join('');
-
-  const cards = $all('.ring-card', ring);
-  const shades = cards.map(c => c.querySelector('.ring-shade'));
-  const n = cards.length, step = 360 / n;
+      </div>`;
+    shown[i] = k;
+  }
   const drift = prefersReducedMotion() ? 0 : -0.05; // degrees per frame
   let radius = 0, rot = 0, vel = drift, target = null;
   let dragging = false, moved = 0, lastX = 0, hover = false, visible = false, raf = 0;
 
   function render() {
     ring.style.transform = `translateZ(${-radius}px) rotateY(${rot.toFixed(2)}deg)`;
+    const f = -rot / step; // which project position is at the front
     cards.forEach((c, i) => {
+      const pos = i + n * Math.round((f - i) / n); // nearest position this card can hold
+      const k = ((pos % L) + L) % L;
+      if (shown[i] !== k) fill(i, k);
       const facing = Math.cos((i * step + rot) * Math.PI / 180); // 1 = facing you
-      shades[i].style.opacity = ((1 - Math.max(0, facing)) * 0.75).toFixed(2);
+      // Cards fade as they turn away and are hidden entirely while facing the back
+      faces[i].style.opacity = (1 - (1 - Math.max(0, facing)) * 0.75).toFixed(2);
+      const vis = facing > -0.05 ? '' : 'hidden';
+      if (c.style.visibility !== vis) c.style.visibility = vis;
       const ti = facing > 0.9 ? 0 : -1;
       if (c.tabIndex !== ti) c.tabIndex = ti;
     });
   }
   function size() {
-    const w = Math.min(300, window.innerWidth * 0.6);
+    const w = Math.min(260, window.innerWidth * 0.42);
     stage.style.setProperty('--cw', `${w}px`);
     stage.style.setProperty('--ch', `${w * 1.2}px`);
-    radius = Math.round((w / 2) / Math.tan(Math.PI / n) * 1.1);
+    radius = Math.round((w / 2) / Math.tan(Math.PI / n) * 1.15);
+    stage.style.perspective = `${radius * 2.2}px`; // same depth look on every screen size
     cards.forEach((c, i) => { c.style.transform = `rotateY(${i * step}deg) translateZ(${radius}px)`; });
     render();
   }
@@ -531,6 +545,21 @@ function mountFeaturedRing() {
   stage.addEventListener('dragstart', e => e.preventDefault());
   stage.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
   stage.addEventListener('pointerleave', () => { hover = false; wake(); });
+
+  // 3D hover: the card under a mouse tilts toward it (CSS reads --tx / --ty)
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    ring.addEventListener('pointermove', e => {
+      const c = e.target.closest('.ring-card');
+      if (!c || dragging) return;
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--tx', ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
+      c.style.setProperty('--ty', ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
+    });
+    ring.addEventListener('pointerout', e => {
+      const c = e.target.closest('.ring-card');
+      if (c && !c.contains(e.relatedTarget)) { c.style.removeProperty('--tx'); c.style.removeProperty('--ty'); }
+    });
+  }
 
   // Scrolling past turns it a little
   let lastY = window.scrollY;
@@ -985,7 +1014,8 @@ function mountSkillSphere() {
   if (!sp) return;
   const groups = window.SITE.skills || [];
   const cfg = window.SITE.skillSphere || {};
-  const clean = w => w.replace(/\s*\(.*\)/, '').trim();
+  const short = cfg.short || {};
+  const clean = w => { w = w.replace(/\s*\(.*\)/, '').trim(); return short[w] || w; };
   const highlight = new Set((cfg.highlight || groups.slice(0, 2).flatMap(g => g.items)).map(clean));
   const muted = new Set((cfg.muted || []).map(clean));
   // Shuffle evenly (golden-ratio order) so each kind of skill is spread around the sphere, not bunched

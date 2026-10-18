@@ -127,7 +127,9 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     highlight: ["GIS", "Remote Sensing", "Geospatial Data Science", "GeoAI", "ArcGIS Pro", "Google Earth Engine",
                 "QGIS", "Python", "R", "Machine Learning", "GeoPandas", "Rasterio", "Envi"],
     muted: ["UIUX design", "Figma", "Adobe CC", "DaVinci Resolve", "Editing", "Blender", "SketchUp", "Twinmotion",
-            "Microsoft Office Suite", "HTML", "English", "Bangla", "Hindi"]
+            "Microsoft Office Suite", "HTML", "English", "Bangla", "Hindi"],
+    // Shorter labels used only on the sphere
+    short: { "Geospatial Data Science": "GeoDS", "Machine Learning": "ML", "Google Earth Engine": "GEE" }
   },
 
   counters: [
