@@ -8,6 +8,7 @@
   /* Liquid-glass tokens (Geo / light theme). Space overrides live in section 8. */
   --glass-spec: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(0,0,0,.04);
   --liquid-fill: #0b0b0b;               /* hover flood colour for glass buttons */
+  --liquid-drain: transform .6s cubic-bezier(.4,0,.2,1) .05s; /* unhover: ink pauses briefly, then drains */
   --sheen: rgba(255,255,255,.75);       /* cursor-following highlight on glass */
 }
 
@@ -146,10 +147,12 @@ a.bg-white, button.bg-white, .filter-btn.bg-white, .icon-btn {
   backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(255, 255, 255, 0.7) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
-  transition: all 0.25s ease !important; color: #000 !important;
+  /* On unhover the text and border wait for the ink to drain before turning back */
+  transition: all 0.25s ease, color .3s ease .2s, border-color .3s ease .2s !important; color: #000 !important;
 }
 /* Hover fill is painted by the liquid ::before flood (section 8), so the glass background stays put */
 a.bg-white:hover, button.bg-white:hover, .filter-btn.bg-white:hover, .icon-btn:hover {
+  transition: all 0.25s ease !important;
   color: #ffffff !important;
   border-color: #0b0b0b !important; transform: scale(1.05) !important;
 }
@@ -542,11 +545,12 @@ a.bg-white::before, button.bg-white::before, .icon-btn::before {
   width: 300%; aspect-ratio: 1; border-radius: 50%;
   background: var(--liquid-fill);
   transform: translate(-50%, -50%) scale(0);
-  transition: transform .55s var(--ease-smart);
+  transition: var(--liquid-drain);
 }
 a.bg-white:hover::before, button.bg-white:hover::before, .icon-btn:hover::before,
 a.bg-white:focus-visible::before, button.bg-white:focus-visible::before, .icon-btn:focus-visible::before {
   transform: translate(-50%, -50%) scale(1);
+  transition: transform .55s var(--ease-smart);
 }
 a.bg-white:focus-visible, button.bg-white:focus-visible, .icon-btn:focus-visible { color: #fff !important; }
 
@@ -556,14 +560,14 @@ a.bg-black:not(.absolute), button.bg-black:not(.absolute) { position: relative; 
 a.bg-black::before, button.bg-black::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; border-radius: inherit;
   background: radial-gradient(110px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.22), transparent 65%);
-  opacity: 0; transition: opacity .3s var(--ease-smart);
+  opacity: 0; transition: opacity .45s ease;
 }
 a.bg-black::after, button.bg-black::after {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%);
   transform: translateX(-120%);
 }
-a.bg-black:hover::before, button.bg-black:hover::before { opacity: 1; }
+a.bg-black:hover::before, button.bg-black:hover::before { opacity: 1; transition: opacity .3s var(--ease-smart); }
 a.bg-black:hover::after, button.bg-black:hover::after { transform: translateX(120%); transition: transform .8s var(--ease-smart); }
 
 /* Tactile press: `scale` composes with Tailwind / absolute translate transforms */
@@ -966,16 +970,19 @@ body.magic-mode .contact-mail:hover { color: #c084fc; }
   position: relative; isolation: isolate; overflow: hidden;
   padding: .55rem 1rem; border-radius: 999px; background: transparent;
   border: 1px solid rgba(255, 255, 255, .18);
-  transition: color .35s var(--ease-smart), border-color .35s var(--ease-smart), transform .3s var(--ease-liquid), box-shadow .35s var(--ease-smart);
+  transition: color .3s ease .2s, border-color .3s ease .2s, transform .3s var(--ease-liquid), box-shadow .4s ease .1s;
 }
 .footer-link::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
   left: var(--mx, 50%); top: var(--my, 50%); width: 300%; aspect-ratio: 1; border-radius: 50%;
   background: #fff; transform: translate(-50%, -50%) scale(0);
-  transition: transform .55s var(--ease-smart);
+  transition: var(--liquid-drain);
 }
-.footer-link:hover, .footer-link:focus-visible { color: #000; border-color: #fff; }
-.footer-link:hover::before, .footer-link:focus-visible::before { transform: translate(-50%, -50%) scale(1); }
+.footer-link:hover, .footer-link:focus-visible {
+  color: #000; border-color: #fff;
+  transition: color .35s var(--ease-smart), border-color .35s var(--ease-smart), transform .3s var(--ease-liquid), box-shadow .35s var(--ease-smart);
+}
+.footer-link:hover::before, .footer-link:focus-visible::before { transform: translate(-50%, -50%) scale(1); transition: transform .55s var(--ease-smart); }
 body.magic-mode .footer-link::before { background: #9333ea; }
 body.magic-mode .footer-link:hover, body.magic-mode .footer-link:focus-visible {
   color: #fff; border-color: #a855f7; box-shadow: 0 0 18px rgba(168, 85, 247, .45);
