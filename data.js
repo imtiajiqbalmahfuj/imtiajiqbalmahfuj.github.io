@@ -690,7 +690,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         bullets: [
           "<u>Project:</u> Project for Development of Policy and Guidelines for Transit Oriented Development (TOD) along the Mass Transit Corridors. <br>- Supported the development of TOD policy guidelines by conducting spatial assessments and technical visualizations to propose site-specific development strategies. <br>- Recruited by Japan's #𝟏 international engineering consultant and a preeminent global leader (Nippon Koei Co. Ltd. & ID&E Holdings), operating in over 160 countries."
         ],
-        github: "https://imtiajiqbalmahfuj.github.io/projects/26006_TOD_Guideline.html",
+        github: "https://imtiajiqbalmahfuj.github.io/portfolio/projects/26006_TOD_Guideline.html",
         cert: "https://drive.google.com/file/d/1ZPl6kG5Xu4VaxK7B7RZQWSJuXaRLyE-1/view",
         details: ""
       }//,
