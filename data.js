@@ -704,9 +704,9 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         bullets: [
           "<u>Project:</u> Identification of Green and Blue Spaces: Assessment of the Feasibility of Sponginess of Chapainawabganj and Shibganj Municipality <br> <u>Project Director:</u> Prof. Dr. Md. Mostafizur Rahman, Professor, Department of Urban and Regional Planning, RUET <br> - Developed an integrated GeoAI/MCDA and satellite remote sensing framework to model municipal 'Sponginess Indices,' compound flood-drought risks, and actionable Nature-based Solutions (NbS) for urban water resilience."
         ],
-        github: "https://imtiajiqbalmahfuj.github.io/portfolio/projects/26020_Spnginess_Index.html",
+        github: "",
         cert: "",
-        details: ""
+        details: "https://imtiajiqbalmahfuj.github.io/portfolio/projects/26020_Spnginess_Index.html"
       },
       {
         org: "Director of Research and Extension (R&E), <br>Rajshahi University of Engineering & Technology",
