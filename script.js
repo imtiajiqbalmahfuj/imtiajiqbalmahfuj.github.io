@@ -1605,6 +1605,16 @@ function mountLiquidGlass() {
         }
       });
     }, { passive: true });
+
+    // A transition that is reversed part-way gets shortened by the browser, so a quick hover's
+    // ink would vanish in ~0.1s. Nudging the rest scale (0 ↔ .001, invisible) on every leave
+    // means unhover is never a "reversal", and the drain always runs its full --liquid-drain.
+    const FLOOD_SEL = 'a.bg-white, button.bg-white, .icon-btn, .footer-link';
+    document.addEventListener('pointerleave', (e) => {
+      const el = e.target;
+      if (!(el instanceof Element) || !el.matches(FLOOD_SEL)) return;
+      el.style.setProperty('--ink-rest', el.style.getPropertyValue('--ink-rest') === '0.001' ? '0' : '0.001');
+    }, { capture: true, passive: true });
   }
 
   // Thin reading-progress line + denser navbar glass once the page has scrolled
@@ -1861,7 +1871,7 @@ function trackPointer(sel, { enter, move, leave }) {
 }
 
 // === Hero 3D scene ===
-// Geo theme: a flowing DEM wireframe terrain in perspective (black lines, cartographic).
+// Geo theme: a faint land-cover raster, classified by a sweeping scan line and by the cursor.
 // Space theme: a 3D starfield flying toward the black hole.
 // The camera follows the mouse, and the hero text/ticker float on parallax layers above it.
 function mountHeroScene() {
@@ -1905,50 +1915,116 @@ function mountHeroScene() {
   ].filter(l => l[0]);
   let blackhole = null;
 
-  // --- Geo: DEM wireframe ---
-  const GX = isMobile ? 24 : 46, GZ = isMobile ? 14 : 24;
-  const Z_NEAR = 1, Z_FAR = 6, X_SPAN = 7, CAM_H = 1.0;
-  const pts = new Float32Array(GX * GZ * 2);
-  const terrain = (x, z) =>
-    0.22 * Math.sin(x * 0.9) * Math.cos(z * 0.8) +
-    0.10 * Math.sin(x * 2.3 - z * 1.7) +
-    0.04 * Math.cos(x * 5.1 + z * 4.3);
+  // --- Geo: land-cover raster ---
+  // A faint pixel grid. A scan line sweeps across and cells are "classified" into land-cover
+  // classes (water, vegetation, cropland, built-up) that slowly fade again; each sweep is a new scene. The cursor acts as a
+  // classification lens: cells near it light up and trail off, and the pixel under it is outlined.
+  const perm = new Uint8Array(512);
+  {
+    const p = Array.from({ length: 256 }, (_, i) => i);
+    let s = 20231; // fixed seed → the same "landscape" on every visit
+    for (let i = 255; i > 0; i--) { s = (s * 16807) % 2147483647; const j = s % (i + 1); [p[i], p[j]] = [p[j], p[i]]; }
+    for (let i = 0; i < 512; i++) perm[i] = p[i & 255];
+  }
+  const fade = v => v * v * v * (v * (v * 6 - 15) + 10);
+  const grad = (h, x, y) => ((h & 1) ? -x : x) + ((h & 2) ? -y : y) * ((h & 4) ? 0.5 : 1);
+  function perlin(x, y) {
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    const X = xi & 255, Y = yi & 255, u = fade(xf), v = fade(yf);
+    const a = perm[X] + Y, b = perm[X + 1] + Y;
+    const n00 = grad(perm[a], xf, yf), n10 = grad(perm[b], xf - 1, yf);
+    const n01 = grad(perm[a + 1], xf, yf - 1), n11 = grad(perm[b + 1], xf - 1, yf - 1);
+    const nx0 = n00 + u * (n10 - n00), nx1 = n01 + u * (n11 - n01);
+    return nx0 + v * (nx1 - nx0);
+  }
 
-  function drawTerrain(t) {
-    const f = H * 0.5, horizon = H * 0.42;
-    const flow = t * 0.12; // landscape slowly scrolls toward the viewer
-    for (let iz = 0; iz < GZ; iz++) {
-      const z = Z_NEAR + (iz / (GZ - 1)) * (Z_FAR - Z_NEAR);
-      for (let ix = 0; ix < GX; ix++) {
-        const x = ((ix / (GX - 1)) * 2 - 1) * X_SPAN;
-        const y = terrain(x, z + flow);
-        const k = (iz * GX + ix) * 2;
-        pts[k] = W / 2 + ((x - cam.x * 0.6) / z) * f;
-        pts[k + 1] = horizon + ((CAM_H + cam.y * 0.15 - y) / z) * f;
+  const RC = isMobile ? 22 : 26;                                        // px per raster cell
+  const CLASS = ['37,99,235', '22,163,74', '202,138,4', '100,116,139']; // water, vegetation, cropland, built-up
+  const SWEEP = 12, DECAY = 6;      // seconds per sweep, seconds a scanned cell stays lit
+  const LENS_R = RC * 3.2, LENS_FADE = 2.2; // cursor lens radius (px) and trail (s)
+  let rCols = 0, rRows = 0, rDelay = null, rTouched = null, rLens = null;
+  const rMaps = new Map(); // sweep number → land-cover classes (only this sweep and the last are kept)
+  function buildRaster() {
+    rCols = Math.ceil(W / RC); rRows = Math.ceil(H / RC);
+    const n = rCols * rRows;
+    rDelay = new Float32Array(n); rTouched = new Float32Array(n).fill(-1e9); rLens = new Uint8Array(n);
+    for (let k = 0; k < n; k++) rDelay[k] = Math.random() * 0.8;
+    rMaps.clear();
+  }
+  // Every sweep classifies a different "scene": the noise is sampled somewhere new each time
+  function classesFor(round) {
+    let m = rMaps.get(round);
+    if (m) return m;
+    m = new Uint8Array(rCols * rRows);
+    const ox = round * 23.7, oy = round * -11.3, water = -0.28 + ((round * 0.37) % 1) * 0.16;
+    for (let j = 0, k = 0; j < rRows; j++) for (let i = 0; i < rCols; i++, k++) {
+      const h = perlin(i * 0.11 + ox, j * 0.11 + oy), v = perlin(i * 0.17 + 40 - oy, j * 0.17 + 40 + ox);
+      m[k] = h < water ? 0 : v > 0.12 ? 1 : v < -0.22 ? 3 : 2;
+    }
+    rMaps.set(round, m);
+    for (const key of rMaps.keys()) if (key < round - 1) rMaps.delete(key);
+    return m;
+  }
+
+  // Pointer position inside the hero (touch drags count too)
+  const lens = { x: -1e4, y: -1e4 };
+  window.addEventListener('pointermove', e => {
+    const r = hero.getBoundingClientRect();
+    lens.x = e.clientX - r.left; lens.y = e.clientY - r.top;
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => { lens.x = lens.y = -1e4; });
+
+  function drawRaster(t) {
+    ctx.clearRect(0, 0, W, H);
+    if (!rDelay || rCols !== Math.ceil(W / RC) || rRows !== Math.ceil(H / RC)) buildRaster();
+    const span = W + RC * 4, scan = ((t % SWEEP) / SWEEP) * span;
+    const round = Math.floor(t / SWEEP), now = classesFor(round), prev = classesFor(round - 1);
+
+    // Mark the cells under the lens as touched now
+    const inHero = lens.x > -RC && lens.x < W + RC && lens.y > -RC && lens.y < H + RC;
+    if (inHero) {
+      const i0 = Math.max(0, Math.floor((lens.x - LENS_R) / RC)), i1 = Math.min(rCols - 1, Math.floor((lens.x + LENS_R) / RC));
+      const j0 = Math.max(0, Math.floor((lens.y - LENS_R) / RC)), j1 = Math.min(rRows - 1, Math.floor((lens.y + LENS_R) / RC));
+      for (let j = j0; j <= j1; j++) for (let i = i0; i <= i1; i++) {
+        const k = j * rCols + i;
+        if (Math.hypot((i + 0.5) * RC - lens.x, (j + 0.5) * RC - lens.y) < LENS_R) { rTouched[k] = t; rLens[k] = now[k]; }
       }
     }
-    ctx.lineWidth = 1;
-    // Rows (contours across the view), far → near, fading with distance
-    for (let iz = GZ - 1; iz >= 0; iz--) {
-      const near = 1 - iz / (GZ - 1);
-      ctx.strokeStyle = `rgba(11,11,11,${(0.03 + near * 0.13).toFixed(3)})`;
-      ctx.beginPath();
-      for (let ix = 0; ix < GX; ix++) {
-        const k = (iz * GX + ix) * 2;
-        ix ? ctx.lineTo(pts[k], pts[k + 1]) : ctx.moveTo(pts[k], pts[k + 1]);
-      }
-      ctx.stroke();
-    }
-    // Columns (meridians running into the distance), one batched path
-    ctx.strokeStyle = 'rgba(11,11,11,0.06)';
+
+    // Grid
+    ctx.strokeStyle = 'rgba(15,23,42,0.045)'; ctx.lineWidth = 1;
     ctx.beginPath();
-    for (let ix = 0; ix < GX; ix++) {
-      for (let iz = 0; iz < GZ; iz++) {
-        const k = (iz * GX + ix) * 2;
-        iz ? ctx.lineTo(pts[k], pts[k + 1]) : ctx.moveTo(pts[k], pts[k + 1]);
+    for (let i = 1; i < rCols; i++) { ctx.moveTo(i * RC + 0.5, 0); ctx.lineTo(i * RC + 0.5, H); }
+    for (let j = 1; j < rRows; j++) { ctx.moveTo(0, j * RC + 0.5); ctx.lineTo(W, j * RC + 0.5); }
+    ctx.stroke();
+
+    // Cells: the brighter of "recently scanned" and "recently under the lens"
+    for (let j = 0, k = 0; j < rRows; j++) {
+      for (let i = 0; i < rCols; i++, k++) {
+        let a = 0, c = 0;
+        let since = (scan - i * RC) / span * SWEEP - rDelay[k], cls = now;
+        if (since < 0) { since += SWEEP; cls = prev; } // still fading from the previous sweep
+        if (since >= 0 && since < DECAY) { a = Math.min(1, since / 0.4) * (1 - since / DECAY) * 0.085; c = cls[k]; }
+        const lensAge = t - rTouched[k];
+        if (lensAge < LENS_FADE) { const la = (1 - lensAge / LENS_FADE) * 0.16; if (la > a) { a = la; c = rLens[k]; } }
+        if (a < 0.004) continue;
+        ctx.fillStyle = `rgba(${CLASS[c]},${a.toFixed(3)})`;
+        ctx.fillRect(i * RC + 1, j * RC + 1, RC - 1, RC - 1);
       }
     }
-    ctx.stroke();
+
+    // Scan line
+    ctx.strokeStyle = 'rgba(15,23,42,0.14)';
+    ctx.beginPath(); ctx.moveTo(scan + 0.5, 0); ctx.lineTo(scan + 0.5, H); ctx.stroke();
+
+    // Pixel under the cursor, outlined like a GIS identify tool
+    if (inHero && fine) {
+      const ci = Math.floor(lens.x / RC), cj = Math.floor(lens.y / RC);
+      if (ci >= 0 && cj >= 0 && ci < rCols && cj < rRows) {
+        ctx.strokeStyle = `rgba(${CLASS[now[cj * rCols + ci]]},0.55)`;
+        ctx.strokeRect(ci * RC + 1.5, cj * RC + 1.5, RC - 2, RC - 2);
+      }
+    }
   }
 
   // --- Space: starfield ---
@@ -1991,9 +2067,8 @@ function mountHeroScene() {
     cam.x += (tx - cam.x) * Math.min(0.05 * dt, 1);
     cam.y += (ty - cam.y) * Math.min(0.05 * dt, 1);
 
-    ctx.clearRect(0, 0, W, H);
-    if (document.body.classList.contains('magic-mode')) drawStars(dt);
-    else drawTerrain(t / 1000);
+    if (document.body.classList.contains('magic-mode')) { ctx.clearRect(0, 0, W, H); drawStars(dt); }
+    else drawRaster(t / 1000);
 
     if (fine) {
       layers.forEach(([el, dx, dy]) => { el.style.translate = `${(-cam.x * dx).toFixed(2)}px ${(-cam.y * dy).toFixed(2)}px`; });
@@ -2020,7 +2095,9 @@ function mountHeroScene() {
   const loop = now => {
     raf = visible ? requestAnimationFrame(loop) : 0;
     const elapsed = now - last;
-    if (elapsed < FRAME_MS) return;
+    // The raster is calm, so it never needs more than 30 fps
+    const minMs = document.body.classList.contains('magic-mode') ? FRAME_MS : Math.max(FRAME_MS, 1000 / 30);
+    if (elapsed < minMs) return;
     last = now;
     frame(now, Math.min(elapsed / 16.67, 3));
   };
