@@ -803,6 +803,15 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     recentLimit: 10,
     items: [
       {
+        title:"A critical review of how compound drought-heatwave extremes are defined, predicted and explained with Earth observation and machine learning",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Faridatul, M. I.<br> <i>Scientific Reports <b>(Nature Portfolio, Springer Nature)</b></i>.", 
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "" // Add paper link when available
+      },
+      {
         title:"Spatiotemporal Detection of Flash Drought Hazards Through a PCA-Driven Explainable Deep Learning Framework Using Multi-Source Earth Observation Data",
         date:"2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., & Adib, J. I.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
@@ -819,6 +828,15 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
         details: "" // Add paper link when available
+      }, 
+      {
+        title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
+        date:"2027 (Forthcoming)",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., & Ahmed, S. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity <b>(Elsevier)</b></i>. [Book Chapter]",
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details:""
       },
       {
         title:"Assessing agrarian moisture sensitivity in the Barind Tract through a PCA-weighted geospatial framework",
@@ -828,15 +846,6 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
         details: "https://www.researchsquare.com/article/rs-10607643/latest" // Add paper link when available
-      },
-      {
-        title:"Assessing the spatiotemporal impacts of infrastructure-driven roadside forest degradation on carbon sequestration and thermal equity in Meherpur, Bangladesh",
-        date:"2027 (Forthcoming)",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F. <br> <i> Remote Sensing and Environmental Justice: Technologies for Environmental Equity <b>(Elsevier)</b></i>. [Book Chapter]",
-        type:"Manuscripts Under Review",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details:""
       },
       {
         title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
