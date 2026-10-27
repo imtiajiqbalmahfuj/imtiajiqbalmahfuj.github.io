@@ -1063,8 +1063,11 @@ function mountSkillSphere() {
   window.addEventListener('resize', measure);
   new IntersectionObserver(([en]) => {
     visible = en.isIntersecting;
+    // Off screen, its ~50 word layers are skipped, so every other frame on the page composites less.
+    // The margin covers words that spill past the sphere's box.
+    sp.style.contentVisibility = visible ? '' : 'hidden';
     if (visible && !raf) raf = requestAnimationFrame(loop);
-  }).observe(sp);
+  }, { rootMargin: '150px 0px' }).observe(sp);
   document.addEventListener('visibilitychange', () => { if (visible && !raf && !document.hidden) raf = requestAnimationFrame(loop); });
   if (hasFinePointer()) {
     sp.addEventListener('pointermove', e => {
@@ -1507,6 +1510,17 @@ function mountMagicMode() {
             // Phones have 2-3x pixel density; drawing the globe at full density costs far more than it shows
             world.renderer().setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.5));
 
+            // The faint country walls are transparent and double-sided, which makes three.js draw each one twice
+            // and re-check its shader every frame (most of the globe's cost). One pass looks the same at 15% opacity.
+            const scene = world.scene(), DOUBLE_SIDE = 2;
+            scene.onBeforeRender = () => {
+              let found = 0;
+              scene.traverse(o => o.material && [].concat(o.material).forEach(m => {
+                if (m.transparent && m.side === DOUBLE_SIDE) { m.forceSinglePass = true; found++; }
+              }));
+              if (found) scene.onBeforeRender = () => {}; // all polygons are built in one pass, so once is enough
+            };
+
             world.controls().autoRotate = true;
             world.controls().autoRotateSpeed = 0.5;
             world.controls().enableZoom = false;
@@ -1522,8 +1536,24 @@ function mountMagicMode() {
             });
             syncHeroVisuals();
 
+            // Phones and low-power devices draw the globe at 30 fps like the other hero canvases.
+            // globe.gl re-reads world._animationCycle every frame; auto-rotate is time-based, so its speed is unchanged.
+            const lowPower = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+            if (isMobile || lowPower) {
+              const cycle = world._animationCycle;
+              let lastDraw = 0, skipRaf = 0;
+              world._animationCycle = t => {
+                cancelAnimationFrame(skipRaf); // a resume while a skipped frame is pending must not start a second loop
+                if (!globeRunning) return;
+                if (t - lastDraw < 1000 / 30) { skipRaf = requestAnimationFrame(world._animationCycle); return; }
+                lastDraw = t || performance.now();
+                cycle();
+              };
+            }
+
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
             if (isTouchDevice) {
+              world.enablePointerInteraction(false); // no hover on touch, so skip the per-frame hover ray-casting
               world.controls().enableRotate = false;
               globeDiv.style.pointerEvents = 'none'; 
             } else {
@@ -1549,11 +1579,16 @@ function mountMagicMode() {
     }
   }
 
-  // The globe is the heaviest thing on the page, so it waits until everything else has loaded
-  let heroReady = false;
+  // The globe is the heaviest thing on the page, so it waits until everything else has loaded,
+  // and until the hero is on screen, so building it never stalls a scroll further down
+  let heroReady = false, idle = false;
   if (document.getElementById('hero')) {
-    const start = () => { heroReady = true; injectVideos(); };
-    const whenIdle = () => ('requestIdleCallback' in window) ? requestIdleCallback(start, { timeout: 1500 }) : setTimeout(start, 300);
+    const start = () => { if (heroReady || !idle || !heroVisible) return; heroReady = true; injectVideos(); };
+    heroSleepers.push(start);
+    const whenIdle = () => {
+      const go = () => { idle = true; start(); };
+      ('requestIdleCallback' in window) ? requestIdleCallback(go, { timeout: 1500 }) : setTimeout(go, 300);
+    };
     document.readyState === 'complete' ? whenIdle() : window.addEventListener('load', whenIdle, { once: true });
   }
 
@@ -2354,13 +2389,10 @@ document.addEventListener('DOMContentLoaded', () => {
   mountAllEmails();
   mountNavigation();
   applyNav();
-  initDefaultParticles();
 
   if ($('#loadingScreen')) mountLoading();
-  if ($('#heroName')) { 
-    mountHero(); 
-    mountFeaturedRing(); 
-  }
+  // Content is built first and anything that measures the page runs after it,
+  // so the page lays out once instead of after every section
   if ($('#about')) mountAbout();
   if ($('#projects')) mountProjectsCarousel();
   if ($('#expList')) mountExperience();
@@ -2369,12 +2401,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('#footerLinks')) mountFooter();
   if ($('#servicesList')) mountServices();
   if ($('#reviewsList')) mountReviews();
-  if ($('#skillSphere')) mountSkillSphere();
   if ($('#contact')) mountContact();
   mountFlipCards();
   if ($('#blogTrack')) mountBlogCarousel();
-  if ($('#mediaTrack')) mountMediaCarousel(); 
+  if ($('#mediaTrack')) mountMediaCarousel();
   if ($('#blogList')) mountBlogsPage();
+
+  initDefaultParticles();
+  if ($('#heroName')) {
+    mountHero();
+    mountFeaturedRing();
+  }
+  if ($('#skillSphere')) mountSkillSphere();
   if ($('#magicBtn')) mountMagicMode();
   if ($('#faceRaster')) mountFaceRaster();
   mountLiquidGlass();

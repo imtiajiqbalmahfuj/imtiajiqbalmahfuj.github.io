@@ -18,7 +18,8 @@
   <link rel="shortcut icon" href="Assets/favicon-small.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://wsrv.nl">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="tailwind.css">
   <script defer src="icons.js"></script>
@@ -68,7 +69,7 @@
 
       list.innerHTML = projectsWithImages.map(p=>`
         <div id="${p.id}" class="card bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col">
-          <img loading="lazy" decoding="async" src="${p.image}" class="w-full h-44 object-cover" alt="${p.title}">
+          <img loading="lazy" decoding="async" src="${getThumb(p.image, 800)}" onerror="this.onerror=null;this.src='${p.image}'" class="w-full h-44 object-cover" alt="${p.title}">
           <div class="p-4 flex flex-col gap-3 grow">
             <div class="font-medium">${p.title}</div>
             <div class="flex flex-wrap gap-2">${p.tags.map(t=>`<span class="text-xs px-2 py-0.5 border rounded-full">${t}</span>`).join('')}</div>
