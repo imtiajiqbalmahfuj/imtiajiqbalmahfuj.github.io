@@ -848,10 +848,10 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         details: "https://www.researchsquare.com/article/rs-10607643/latest" // Add paper link when available
       },
       {
-        title:"Assessing the Social-Ecological Shocks of Infrastructure-Driven Roadside Deforestation: A Participatory GIS Approach Framed by Panarchy Theory",
+        title:"Assessing the socioecological shocks of infrastructure-driven roadside deforestation using a participatory GIS approach framed by Panarchy theory",
         date:"2026",
         venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
-        type:"Manuscripts Under Review",
+        type:"Peer-Reviewed Journal Articles",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
         details:"https://dx.doi.org/10.2139/ssrn.6208220"
