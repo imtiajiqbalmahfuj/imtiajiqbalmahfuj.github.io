@@ -1502,13 +1502,14 @@ function mountMagicMode() {
                   Population: <i>${d.POP_EST}</i>
                 </div>
               `)
-              .onPolygonHover(hoverD => world
-                .polygonAltitude(d => d === hoverD ? 0.06 : 0.02)
-                .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
-              ).polygonsTransitionDuration(300);
+              // Colour only: animating a country's altitude rebuilt its mesh every frame and made mouse moves stutter
+              .onPolygonHover(hoverD => world.polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d))))
+              .polygonsTransitionDuration(0);
 
-            // Phones have 2-3x pixel density; drawing the globe at full density costs far more than it shows
-            world.renderer().setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.5));
+            // Sharp by default (up to 2x), then the adaptive step below lowers it if this device can't hold ~55 fps
+            const maxDpr = Math.min(window.devicePixelRatio || 1, 2);
+            let dpr = maxDpr;
+            world.renderer().setPixelRatio(dpr);
 
             // The faint country walls are transparent and double-sided, which makes three.js draw each one twice
             // and re-check its shader every frame (most of the globe's cost). One pass looks the same at 15% opacity.
@@ -1526,20 +1527,18 @@ function mountMagicMode() {
             world.controls().enableZoom = false;
 
             // Stop WebGL rendering while the globe can't be seen (Space theme or scrolled away)
-            let globeRunning = true, startParallax = null;
+            let globeRunning = true;
             heroSleepers.push(() => {
               const run = heroVisible && !document.body.classList.contains('magic-mode');
               if (run === globeRunning) return;
               globeRunning = run;
               run ? world.resumeAnimation() : world.pauseAnimation();
-              if (run && startParallax) startParallax();
             });
             syncHeroVisuals();
 
-            // Phones and low-power devices draw the globe at 30 fps like the other hero canvases.
+            // Only phones draw the globe at 30 fps; laptops keep the full display rate (the adaptive step handles slow ones).
             // globe.gl re-reads world._animationCycle every frame; auto-rotate is time-based, so its speed is unchanged.
-            const lowPower = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
-            if (isMobile || lowPower) {
+            if (isMobile) {
               const cycle = world._animationCycle;
               let lastDraw = 0, skipRaf = 0;
               world._animationCycle = t => {
@@ -1562,17 +1561,32 @@ function mountMagicMode() {
                 mouseX = (event.clientX / window.innerWidth) * 2 - 1;
                 mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
               }, { passive: true });
-              let parallaxRaf = 0;
-              function animateParallax() {
-                parallaxRaf = 0;
-                if (!globeRunning) return; // restarted by the sleeper above
-                world.scene().rotation.x += (mouseY * 0.15 - world.scene().rotation.x) * 0.05;
-                world.scene().rotation.z += (mouseX * 0.15 - world.scene().rotation.z) * 0.05;
-                parallaxRaf = requestAnimationFrame(animateParallax);
-              }
-              startParallax = () => { if (!parallaxRaf) parallaxRaf = requestAnimationFrame(animateParallax); };
-              startParallax();
+              // Tilt is applied inside the globe's own render loop (auto-rotate fires 'change' once per drawn frame),
+              // so it can never run out of step with the drawing, and easing is time-based so it feels the same at any fps.
+              const sc = world.scene();
+              let prev = performance.now();
+              world.controls().addEventListener('change', () => {
+                const now = performance.now(), ms = Math.min(now - prev, 100);
+                prev = now;
+                const k = 1 - Math.pow(0.95, ms / 16.67);
+                sc.rotation.x += (mouseY * 0.15 - sc.rotation.x) * k;
+                sc.rotation.z += (mouseX * 0.15 - sc.rotation.z) * k;
+              });
             }
+
+            // Adaptive sharpness: if the last second averaged under ~50 fps, step the pixel ratio down (never below 1)
+            let frames = 0, t0 = performance.now();
+            const target = isMobile ? 30 : 60;
+            let lastTick = t0;
+            world.controls().addEventListener('change', () => {
+              const n = performance.now(), gap = n - lastTick;
+              lastTick = n;
+              if (gap > 250) { frames = 0; t0 = n; return; } // woke from sleep / tab switch: not a real slowdown
+              if (++frames < 90) return;
+              const fps = frames * 1000 / (performance.now() - t0);
+              frames = 0; t0 = performance.now();
+              if (fps < target * 0.85 && dpr > 1) world.renderer().setPixelRatio(dpr = Math.max(1, dpr - 0.25));
+            });
           });
       };
       document.head.appendChild(script);
@@ -2095,21 +2109,15 @@ function mountHeroScene() {
     ctx.globalAlpha = 1;
   }
 
-  function frame(t, dt) {
-    // Camera eases toward the mouse (or sways gently on touch screens)
-    const tx = fine ? mouse.x : Math.sin(t * 0.0002) * 0.35;
-    const ty = fine ? mouse.y : Math.cos(t * 0.00015) * 0.2;
-    cam.x += (tx - cam.x) * Math.min(0.05 * dt, 1);
-    cam.y += (ty - cam.y) * Math.min(0.05 * dt, 1);
+  function applyParallax() {
+    layers.forEach(([el, dx, dy]) => { el.style.translate = `${(-cam.x * dx).toFixed(2)}px ${(-cam.y * dy).toFixed(2)}px`; });
+    blackhole = blackhole || document.getElementById('heroBlackhole');
+    if (blackhole) blackhole.style.translate = `${(cam.x * 26).toFixed(2)}px ${(cam.y * 14).toFixed(2)}px`;
+  }
 
+  function frame(t, dt) {
     if (document.body.classList.contains('magic-mode')) { ctx.clearRect(0, 0, W, H); drawStars(dt); }
     else drawRaster(t / 1000);
-
-    if (fine) {
-      layers.forEach(([el, dx, dy]) => { el.style.translate = `${(-cam.x * dx).toFixed(2)}px ${(-cam.y * dy).toFixed(2)}px`; });
-      blackhole = blackhole || document.getElementById('heroBlackhole');
-      if (blackhole) blackhole.style.translate = `${(cam.x * 26).toFixed(2)}px ${(cam.y * 14).toFixed(2)}px`;
-    }
   }
 
   resize();
@@ -2126,15 +2134,22 @@ function mountHeroScene() {
   }
 
   // Only animate while the hero is on screen
-  let visible = true, last = performance.now(), raf = 0;
+  let visible = true, last = performance.now(), raf = 0, drawAcc = 1e3;
   const loop = now => {
     raf = visible ? requestAnimationFrame(loop) : 0;
     const elapsed = now - last;
-    // The raster is calm, so it never needs more than 30 fps
-    const minMs = document.body.classList.contains('magic-mode') ? FRAME_MS : Math.max(FRAME_MS, 1000 / 30);
-    if (elapsed < minMs) return;
     last = now;
-    frame(now, Math.min(elapsed / 16.67, 3));
+    const dt = Math.min(elapsed / 16.67, 3);
+    // Mouse parallax is a few style writes, so it follows the display rate (30 fps steps look like stutter).
+    // Only the canvas drawing is throttled: the raster is calm and never needs more than 30 fps.
+    cam.x += ((fine ? mouse.x : Math.sin(now * 0.0002) * 0.35) - cam.x) * Math.min(0.05 * dt, 1);
+    cam.y += ((fine ? mouse.y : Math.cos(now * 0.00015) * 0.2) - cam.y) * Math.min(0.05 * dt, 1);
+    if (fine) applyParallax();
+    drawAcc += elapsed;
+    const minMs = document.body.classList.contains('magic-mode') ? FRAME_MS : Math.max(FRAME_MS, 1000 / 30);
+    if (drawAcc < minMs - 2) return; // -2ms: don't skip a draw because a frame came in slightly early
+    frame(now, Math.min(drawAcc / 16.67, 3));
+    drawAcc = 0;
   };
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([en]) => {
