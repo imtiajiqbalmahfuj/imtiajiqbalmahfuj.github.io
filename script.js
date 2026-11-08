@@ -1503,7 +1503,7 @@ function mountMagicMode() {
                 </div>
               `)
               // Colour only: animating a country's altitude rebuilt its mesh every frame and made mouse moves stutter
-              .onPolygonHover(hoverD => world.polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d))))
+              .onPolygonHover(hoverD => world.polygonCapColor(d => d === hoverD ? '#ffb703' : colorScale(getVal(d))))
               .polygonsTransitionDuration(0);
 
             // Sharp by default (up to 2x), then the adaptive step below lowers it if this device can't hold ~55 fps
