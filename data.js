@@ -803,6 +803,37 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     recentLimit: 10,
     items: [
       {
+        title:"Assessing agrarian moisture sensitivity in the Barind Tract through a PCA-weighted geospatial framework",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Geoscience <b>(Springer Nature)</b></i>.", 
+        type:"Peer-Reviewed Journal Articles",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "https://www.researchsquare.com/article/rs-10607643/latest" // Add paper link when available
+      },
+      {
+        title:"Assessing the socioecological shocks of infrastructure-driven roadside deforestation using a participatory GIS approach framed by Panarchy theory",
+        date:"2026",
+        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
+        type:"Peer-Reviewed Journal Articles",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details:"https://dx.doi.org/10.2139/ssrn.6208220"
+      },
+      {
+        title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
+        date:"April 2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> <i>City and Environment Interactions <b>(Elsevier)</b></i> <br> <i>doi.org/10.1016/j.cacint.2026.100358</i>",
+        type:"Peer-Reviewed Journal Articles",
+        cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
+        cert: "",
+        details:"https://www.researchgate.net/publication/403686456_A_critical_evaluation_of_Purbachal_New_Town's_planning_and_implementation_for_effective_decentralization_of_Dhaka"
+      },
+      //========================================
+      
+      
+      
+      {
         title:"From citywide vulnerability mapping to community action and fire station siting: An integrated urban fire assessment of Rajshahi, Bangladesh",
         date:"2026",
         venue:"Islam, M., Faridatul, M. I., <b>Mahfuj, I. I.*</b>, & Tamim, N. F.<br> <i>City and Environment Interactions <b>(Elsevier)</b></i>.", 
@@ -814,7 +845,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"A critical review of compound drought-heatwave event definition, prediction, and model reliability using machine learning and Earth observation data",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Faridatul, M. I.<br> <i>Atmospheric Research <b>(Elsevier)</b></i>.", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Faridatul, M. I.<br> <i>Climate Risk Management <b>(Elsevier)</b></i>.", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -847,24 +878,10 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cert: "",
         details:""
       },
-      {
-        title:"Assessing agrarian moisture sensitivity in the Barind Tract through a PCA-weighted geospatial framework",
-        date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Ashrafi, H., Sarker, D., & Roy, S.<br> <i>Discover Geoscience <b>(Springer Nature)</b></i>.", 
-        type:"Manuscripts Under Review",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details: "https://www.researchsquare.com/article/rs-10607643/latest" // Add paper link when available
-      },
-      {
-        title:"Assessing the socioecological shocks of infrastructure-driven roadside deforestation using a participatory GIS approach framed by Panarchy theory",
-        date:"2026",
-        venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
-        type:"Peer-Reviewed Journal Articles",
-        cite:"",  // <--- Add this field to enable Cite button
-        cert: "",
-        details:"https://dx.doi.org/10.2139/ssrn.6208220"
-      },
+      //========================================
+
+
+      
       {
         title:"Spatiotemporal Assessment of Multi-Air-Pollutant Interactions and Surface Thermal Dynamics Across Lubbock, Texas Using Geographically Weighted Regression and Explainable Machine Learning",
         date:"September 2026",
@@ -900,15 +917,6 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cite:"https://sciforum.net/paper/view/31069",  // <--- Add this field to enable Cite button
         cert: "https://drive.google.com/file/d/1kDkPwrQCBxK7hUc8jCjUMoA1QeeeTEQq/view?usp=sharing",
         details:"https://sciforum.net/paper/32938"
-      },
-      {
-        title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
-        date:"April 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Sultana, N., & Rahman, M. J. <br> <i>City and Environment Interactions <b>(Elsevier)</b></i> <br> <i>doi.org/10.1016/j.cacint.2026.100358</i>",
-        type:"Peer-Reviewed Journal Articles",
-        cite:"https://doi.org/10.1016/j.cacint.2026.100358",  // <--- Add this field to enable Cite button
-        cert: "",
-        details:""
       },
       {
         title: "A spatio-temporal assessment of urban ecological quality influenced by land surface temperature dynamics and thermal field variance in Dhaka",
@@ -964,6 +972,10 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cert: "https://drive.google.com/file/d/1T2XHFaBCSTqV_YFsh60g0GsG2ulWq_Qq/view?usp=drive_link",
         cite:"https://www.researchgate.net/publication/389905729_Revolutionizing_Waste_Management_in_Rajshahi_City_Corporation_A_Technological_Solution_for_Enhanced_Recycling_and_Community_Engagement_towards_Zero_Waste"  // <--- Add this field to enable Cite button
       },
+      //========================================
+
+
+      
       {
         title:"Spatio-temporal analysis of tobacco cultivation and soil quality dynamics in Kushtia: A geospatial and machine learning approach with community perspectives",
         date:"2026",
