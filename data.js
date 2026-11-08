@@ -803,9 +803,18 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
     recentLimit: 10,
     items: [
       {
-        title:"A critical review of how compound drought-heatwave extremes are defined, predicted and explained with Earth observation and machine learning",
+        title:"From citywide vulnerability mapping to community action and fire station siting: An integrated urban fire assessment of Rajshahi, Bangladesh",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Faridatul, M. I.<br> <i>Scientific Reports <b>(Nature Portfolio, Springer Nature)</b></i>.", 
+        venue:"Islam, M., Faridatul, M. I., <b>Mahfuj, I. I.*</b>, & Tamim, N. F.<br> <i>City and Environment Interactions <b>(Elsevier)</b></i>.", 
+        type:"Manuscripts Under Review",
+        cite:"",  // <--- Add this field to enable Cite button
+        cert: "",
+        details: "" // Add paper link when available
+      },
+      {
+        title:"A critical review of compound drought-heatwave event definition, prediction, and model reliability using machine learning and Earth observation data",
+        date:"2026",
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Faridatul, M. I.<br> <i>Atmospheric Research <b>(Elsevier)</b></i>.", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -814,7 +823,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Spatiotemporal Detection of Flash Drought Hazards Through a PCA-Driven Explainable Deep Learning Framework Using Multi-Source Earth Observation Data",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., & Adib, J. I.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., Adib, J. I., & Mim, S. O.<br> <i>29th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
