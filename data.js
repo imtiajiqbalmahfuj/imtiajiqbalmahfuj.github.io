@@ -836,7 +836,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"From citywide vulnerability mapping to community action and fire station siting: An integrated urban fire assessment of Rajshahi, Bangladesh",
         date:"2026",
-        venue:"Islam, M., Faridatul, M. I., <b>Mahfuj, I. I.*</b>, & Tamim, N. F.<br> <i>City and Environment Interactions <b>(Elsevier)</b></i>.", 
+        venue:"Islam, M.*, Faridatul, M. I., <b>Mahfuj, I. I.</b>, & Tamim, N. F.<br> <i>City and Environment Interactions <b>(Elsevier)</b></i>.", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
