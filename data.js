@@ -816,9 +816,9 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         date:"2026",
         venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
         type:"Peer-Reviewed Journal Articles",
-        cite:"",  // <--- Add this field to enable Cite button
+        cite:"https://doi.org/10.1007/s43621-026-05243-w",  // <--- Add this field to enable Cite button
         cert: "",
-        details:"https://dx.doi.org/10.2139/ssrn.6208220"
+        details:"https://www.researchgate.net/publication/417838095_Assessing_the_socioecological_shocks_of_infrastructure-driven_roadside_deforestation_using_a_participatory_GIS_approach_framed_by_Panarchy_theory"
       },
       {
         title:"A critical evaluation of Purbachal New Town's planning and implementation for effective decentralization of Dhaka",
