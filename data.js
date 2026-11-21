@@ -846,7 +846,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"A critical review of compound drought-heatwave event definition, prediction, and model reliability using machine learning and Earth observation data",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Faridatul, M. I.<br> <i>Climate Risk Management <b>(Elsevier)</b></i>.", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., & Faridatul, M. I.<br> <i>Theoretical and Applied Climatology <b>(Springer Nature)</b></i>.", 
         type:"Manuscripts Under Review",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
