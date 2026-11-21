@@ -802,6 +802,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
   publications: {
     recentLimit: 10,
     items: [
+      //======================================== Peer-Reviewed Journal Articles
       {
         title:"Assessing agrarian moisture sensitivity in the Barind Tract through a PCA-weighted geospatial framework",
         date:"2026",
@@ -829,7 +830,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cert: "",
         details:"https://www.researchgate.net/publication/403686456_A_critical_evaluation_of_Purbachal_New_Town's_planning_and_implementation_for_effective_decentralization_of_Dhaka"
       },
-      //========================================
+      //======================================== Manuscripts Under Review
       
       
       
@@ -860,7 +861,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cert: "",
         details:""
       },
-      //========================================
+      //======================================== Peer-Reviewed Conference Proceedings & Presentations
 
 
       
@@ -877,7 +878,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Spatiotemporal Detection of Flash Drought Hazards Through a PCA-Driven Explainable Deep Learning Framework Using Multi-Source Earth Observation Data",
         date:"2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., Adib, J. I., & Mim, S. O.<br> <i>29th IEEE International Conference on Computer and Information Technology (IEEE ICCIT 2026), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., Adib, J. I., & Mim, S. O.<br> <i>29th IEEE International Conference on Computer and Information Technology (IEEE ICCIT 2026), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>  [Poster]", 
         type:"Peer-Reviewed Conference Proceedings & Presentations",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -973,7 +974,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         cert: "https://drive.google.com/file/d/1T2XHFaBCSTqV_YFsh60g0GsG2ulWq_Qq/view?usp=drive_link",
         cite:"https://www.researchgate.net/publication/389905729_Revolutionizing_Waste_Management_in_Rajshahi_City_Corporation_A_Technological_Solution_for_Enhanced_Recycling_and_Community_Engagement_towards_Zero_Waste"  // <--- Add this field to enable Cite button
       },
-      //========================================
+      //======================================== Manuscripts in Preparation
 
 
       
