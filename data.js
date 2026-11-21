@@ -997,7 +997,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         details:""  // <--- Add this field to enable Cite button
       }
     ],
-    ordering:["Peer-Reviewed Journal Articles", "Manuscripts Under Review", "Book Chapters", "Peer-Reviewed Conference Proceedings & Presentations", "Manuscripts in Preparation"]
+    ordering:["Peer-Reviewed Journal Articles", "Manuscripts Under Review", "Peer-Reviewed Book Chapters", "Peer-Reviewed Conference Proceedings & Presentations", "Reports", "News Articles", "Manuscripts in Preparation"]
   },
 
 
