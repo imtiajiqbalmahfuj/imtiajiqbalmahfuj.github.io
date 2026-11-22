@@ -889,7 +889,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
         date:"September 2026",
         venue:"Rimon, R. A.*, <b>Mahfuj, I. I.</b>, Tamim, N. F., Masud, M., & Wang, X.<br> <i>2026 Southwest Division of the American Association of Geographers (SWAAG) Annual Meeting, Lubbock, Texas, USA</i>. <b>AAG.</b> [Poster]", 
         type:"Peer-Reviewed Conference Proceedings & Presentations",
-        cite:"",  // <--- Add this field to enable Cite button
+        cite:"https://www.researchgate.net/publication/418208847_Spatiotemporal_Assessment_of_Multi-Air-Pollutant_Interactions_and_Surface_Thermal_Dynamics_Across_Lubbock_Texas",  // <--- Add this field to enable Cite button
         cert: "",
         details: "https://drive.google.com/file/d/1P-ynN6lA8oeQUxtH378tSarw_dOw20yi/view?usp=drivesdk" // Add paper link when available
       },
