@@ -821,6 +821,7 @@ function mountPublications() {
 
   rec.innerHTML = typesToRender.map(type => {
     let groupItems = grouped[type] || [];
+    const totalCount = groupItems.length; // auto count, before the home-page slice
 
     if (isHome) {
       groupItems = groupItems.slice(0, 6);
@@ -834,7 +835,7 @@ function mountPublications() {
     return `
       <div class="flex flex-col h-full mb-8" id="${secId}">
         <div class="font-bold mb-4 text-xl flex items-center gap-2">
-           ${type}
+           ${type} <span class="text-slate-500 font-semibold">(${totalCount})</span>
         </div>
 
         <div class="grid gap-3 mb-4">
