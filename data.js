@@ -814,7 +814,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       },
       {
         title:"Assessing the socioecological shocks of infrastructure-driven roadside deforestation using a participatory GIS approach framed by Panarchy theory",
-        date:"2026",
+        date:"November 2026",
         venue:"Tamim, N. F.†, <b>Mahfuj, I. I.*†</b>, Gourab, M. B., Sultana, N., Rafi, M. L. S., Wakil, M. A., & Zubayer, M. S. <br> <i>Discover Sustainability <b>(Springer Nature)</b></i>.",
         type:"Peer-Reviewed Journal Articles",
         cite:"https://doi.org/10.1007/s43621-026-05243-w",  // <--- Add this field to enable Cite button
@@ -868,7 +868,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       
       {
         title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios in Chattogram using Explainable Graph Neural Networks",
-        date:"2026",
+        date:"December 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th IEEE International Conference on Computer and Information Technology (IEEE ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
         type:"Peer-Reviewed Conference Proceedings & Presentations",
         cite:"",  // <--- Add this field to enable Cite button
@@ -877,7 +877,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       },
       {
         title:"Spatiotemporal Detection of Flash Drought Hazards Through a PCA-Driven Explainable Deep Learning Framework Using Multi-Source Earth Observation Data",
-        date:"2026",
+        date:"December 2026",
         venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., Adib, J. I., & Mim, S. O.<br> <i>29th IEEE International Conference on Computer and Information Technology (IEEE ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>  [Poster]", 
         type:"Peer-Reviewed Conference Proceedings & Presentations",
         cite:"",  // <--- Add this field to enable Cite button
