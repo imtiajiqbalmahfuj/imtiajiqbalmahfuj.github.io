@@ -869,7 +869,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Predicting Cascading Transport Network Failures under Multi-Hazard Scenarios in Chattogram using Explainable Graph Neural Networks",
         date:"December 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>29th IEEE International Conference on Computer and Information Technology (IEEE ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Gourab, M. B., Nipun, M. W. H., & Hasan, J.<br> <i>IEEE 29th International Conference on Computer and Information Technology (IEEE ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>", 
         type:"Peer-Reviewed Conference Proceedings & Presentations",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
@@ -878,7 +878,7 @@ Research is rarely a straight line, but I thrive on the iterative process of ref
       {
         title:"Spatiotemporal Detection of Flash Drought Hazards Through a PCA-Driven Explainable Deep Learning Framework Using Multi-Source Earth Observation Data",
         date:"December 2026",
-        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., Adib, J. I., & Mim, S. O.<br> <i>29th IEEE International Conference on Computer and Information Technology (IEEE ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>  [Poster]", 
+        venue:"<b>Mahfuj, I. I.*</b>, Tamim, N. F., Mulla, M. A. R., Nur, S., Adib, J. I., & Mim, S. O.<br> <i>IEEE 29th International Conference on Computer and Information Technology (IEEE ICCIT), Cox’s Bazar, Bangladesh</i>. <b>IEEE.</b>  [Poster]", 
         type:"Peer-Reviewed Conference Proceedings & Presentations",
         cite:"",  // <--- Add this field to enable Cite button
         cert: "",
